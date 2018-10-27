@@ -8,6 +8,8 @@
 \usepackage[T1]{fontenc}
 \usepackage{enumitem}
 \usepackage{ngerman}
+\usepackage{mathtools}
+\usepackage{fontawesome}
 %\usepackage{geometry}
 
 %Formatting
@@ -22,16 +24,28 @@
 \def\Q{\ensuremath{\mathbb{Q}} }
 \def\Z{\ensuremath{\mathbb{Z}} }
 \def\R{\ensuremath{\mathbb{R}} }
-\def\im{\ensuremath{\mathit{i}} }
+\def\im{\ensuremath{\imath} }
+\def\e{\ensuremath{\mathit{e}}}
+\def\WSP{\text{\faBolt}}
 
 \newcommand{\alQ}[1]{\ensuremath{\quad#1&\quad}}
 \newcommand{\fa}[1]{\ensuremath{\forall#1}}
 \newcommand{\fain}[2]{\ensuremath{\forall#1\in#2}}
 \newcommand{\ex}[1]{\ensuremath{\exists#1}}
 \newcommand{\exin}[2]{\ensuremath{\exists#1\in#2}}
-\newcommand{\abs}[1]{\ensuremath{\left|#1\right|}}
+\newcommand{\abs}[1]{\ensuremath{\left|\:#1\:\right|}}
 
 \def\sp{\hspace{0,1cm}}
+
+\newcommand{\IA}[1]{\ensuremath{\text{\textbf{IA}: }#1\quad}}
+\newcommand{\IV}{\ensuremath{\text{\textbf{IV}:}\quad}}
+\newcommand{\IS}[1]{\ensuremath{\text{\textbf{IS}:}\quad #1\newline}}
+
+\newcommand{\suminf}[2]{\ensuremath{\sum_{#1= 0}^{\infty}{\left(#2\right)}}}
+\newcommand{\Suminf}[2]{\ensuremath{\sum_{#1=1}^{\infty}{\left(#2\right)}}}
+%\newcommand{\liminf}[2]{\ensuremath{\lim\limits_{#1 \rightarrow \infty}{\left(#2\right)}}}
+\newcommand{\Liminf}[2]{\ensuremath{\lim\limits_{#1 \rightarrow -\infty}{\left(#2\right)}}}
+%\newcommand{\lim}[2]{\ensuremath{\lim\limits_{#1 \rightarrow 0}{\left(#2\right)}}}
 
 \def\xor{\ensuremath{\text{ }\veebar}\text{ }}
 \def\toinf{\ensuremath{\rightarrow \infty}}
@@ -92,8 +106,8 @@ a * 0 +  0 \overset{0+0=0}{=} a * 0 \alQ{=} 0.
 Für $a \in \R $ und $n \in \Z$ wird $a^n$ folgendermapen induktiv definiert:
 \begin{itemize}
 \item $a^0 = 1$ 
-\item $\fa{n > 1} a^{n+1} = a * a^n $
-\item $ \fa{n > 1} \fa{a \ne 0} a^{-n} = \left(a^{-1}\right)^n$
+\item $\fa n > 1 \quad a^{n+1} = a * a^n $
+\item $ \fa n > 1 \sp \fa a \ne 0 \quad a^{-n} = \left(a^{-1}\right)^n$
 \end{itemize}
 \end{defi}
 \newpage
@@ -152,10 +166,10 @@ Für $a \in \R$ und der Betrag \abs{a} folgendermaßen definiert.
 \fain{ b}{ \R} gilt:
 \begin{enumerate}[label=(\arabic*)]
 \item $\abs{a * b} = \abs{a} * \abs{b}$
-\item $\abs{a + b} \le \abs{a} + \abs{b} $ genannt Dreiecksungleichung
-\item $\abs{a - b} >= \abs{\abs{a} - \abs{b}}$ umgekehrte Dreiecksungleichung
+\item $\abs{a + b} \le \abs{a} + \abs{b} $ (Dreiecksungleichung)
+\item $\abs{a - b} \ge \abs{\abs{a} - \abs{b}}$ (umgekehrte Dreiecksungleichung)
 \end{enumerate}
-\begin{proof}
+\begin{proof}.
 \begin{enumerate}[label=(\arabic*)]
 \item siehe PS
 \item 
@@ -170,10 +184,10 @@ $\Rightarrow \text{ d.h. } a + b \le \abs{a} + \abs{b}  \text{ und } -(a + b) \l
 \end{satz}
 
 \begin{bem}[Archimedisches Axiom]
-Für zwei positive Zahlen, $a, b$ gibt es immer eine natürliche Zahl $n$, sodass folgendes gilt:
-\[n * b > a\]
+Für zwei positive Zahlen, $a, b$ gibt es immer eine natürliche Zahl $n$, sodass folgendes gilt: \(n * b > a\) Also:
+\[\fa a,b > 0 \sp \ex n \in \N \quad n * b > a\]
 Als Folgerung erhalten wir: Setze $b = 1$
-\[\fa a > 0 \sp \ex n \in \N \sp:\sp n > a\]
+\[\fa a > 0 \sp \ex n \in \N \quad n > a\]
 \end{bem}
 
 \begin{satz}[Bernoullische Ungleichung]
@@ -192,8 +206,9 @@ Sei $a > 0$.
 \begin{proof}
 \sp
 \begin{enumerate}[label=(\arabic*)]
-\item \( a > 1 \Rightarrow \exists x \in \R x = a - 1 > 0 \Rightarrow a = x +1 \Rightarrow a^n = (x + 1)^n \overset{\text{Bernoulli}}{\ge}1 + nx  > 1 + k -1 = k \text{, da }\forall n \in \N \sp \exists x > 0 \text{ mit } nx > k - 1\)
-\item Sei \( 0 < a < 1 \text{, sei } b = \frac{1}{a} > 1\text{,} \overset{\text{mit }(1)}{\Rightarrow} \exists k \in \R \text{ mit } b^n > k = \frac{1}{\epsilon} \Rightarrow 
+\item \( a > 1 \Rightarrow \exists x \in \R x = a - 1 > 0 \Rightarrow a = x +1 \Rightarrow a^n = (x + 1)^n \Rightarrow \\
+(x + 1)^n \underset{\text{Bernoulli}}{\ge}1 + nx  > 1 + k -1 = k \text{, da }\forall n \in \N \sp \exists x > 0 \text{ mit } nx > k - 1\)
+\item Sei \( 0 < a < 1 \text{, sei } b = \frac{1}{a} > 1\text{,} \underset{\text{mit }(1)}{\Rightarrow} \exists k \in \R \text{ mit } b^n > k = \frac{1}{\epsilon} \Rightarrow \\
 \left(\frac{1}{a}\right)^n > \frac{1}{\epsilon} \Rightarrow  \frac{1}{a^n} > \frac{1}{\epsilon} \Rightarrow a^n < \epsilon.\)
 \end{enumerate}
 \end{proof}
@@ -233,7 +248,7 @@ Jede nicht leere, nach unten beschränkte Teilmenge $M \subset \R$  besitzt ein 
 \end{satz}
 
 \begin{bem}
-$inf(M) \text{ muss kein Element von } \R$ sein.
+$inf(M) \text{ muss kein Element von } M$ sein.
 \end{bem}
 
 \begin{prop}
@@ -246,7 +261,7 @@ Sei $M$ nach oben beschränkt. Sei $-M = \{-< | x \in M\}$. Sei $a$ eine obere S
 \begin{prop}
 $sup(M)$ und $inf(M)$ sind eindeutig bestimmt.
 \begin{proof}
-Seien $m$ und $m'$ SupremuDm von $M \Rightarrow m \le m'$ und $m' \le m \Rightarrow m = m'$.\\
+Seien $m$ und $m'$ Suprema von $M \Rightarrow m \le m'$ und $m' \le m \Rightarrow m = m'$.\\
 analog für Infimum.
 \end{proof}
 \end{prop}
@@ -287,11 +302,14 @@ Es gilt:
 \item \(\abs{z_1 + z_2} \le \abs{z_1} + \abs{z_2}\)
 \end{enumerate}
 \begin{proof}
-(i) und (ii) nachrechnen.  \\ % TODO
-(iii) \(\abs{z_1 z_2}^2 = (z_1 z_2)(\bar{z_1 z_2}) =  .... \) \\   % TODO
-(iv) Sei $a, b \in \R \Rightarrow a^2 \le a^2 + b^2 \Rightarrow a \le \sqrt{a^2 + b^2}$ \\
+\begin{enumerate}[label=(\roman*)]
+\item nachrechnen. % TODO
+\item nachrechnen. % TODO
+\item \(\abs{z_1 z_2}^2 = (z_1 z_2)(\bar{z_1 z_2}) =  .... \) \\   % TODO
+\item Sei $a, b \in \R \Rightarrow a^2 \le a^2 + b^2 \Rightarrow a \le \sqrt{a^2 + b^2}$ \\
 Sei $ z = a + \im b , a = Re(z) \Rightarrow \abs{Re(z)} \le z \Rightarrow Re(z_1 \bar{z_2}) \le \abs{Re(z_1 \bar{z_2}} \le \abs{z_1 \bar{z_2}} = \abs{z_1}\abs{\bar{z_2}} = \abs{z_1}\abs{z_2}$
 $\Rightarrow \abs{z_1 + z_2}^2 = (z_1 + z_2)\bar{(z_1 + z_2)} = (z_1 + z_2)(\bar{z_1} + \bar{z_2}) = z_1\bar{z_1} + z_2\bar{z_1} + z_1\bar{z_2} z_2\bar{z_2} = \abs{z_1}^2 + z_1\bar{z_2} + \bar{z_1\bar{z_2}} + \abs{z_2}^2 = |z_1|^2 + 2 Re (z1 \bar{z2}) + |z_2|^2 \le $ realteil ersetzen nach oben und dann hamma quadrate , mit wurzel ziehen folgt die aussage. % TODO
+\end{enumerate}
 \end{proof}
 \end{prop}
 
@@ -308,7 +326,7 @@ indirekter Beweis: Angenommen \(\sqrt{2} \in \Q\), d.h.
 $\sqrt{2} = \frac{p}{q}\text{ mit }p \in \Z, q \in \N.$
 Wir können annehmen, dass p und q nicht beide durch $2$ teilbar sind (sonst kürzen wir.) teilerfremd.
 \(\Rightarrow 2 = \frac{p^2}{q^2} \Rightarrow p^2 = 2q^2 \Rightarrow 2 | p^2 \Rightarrow 2 | p \Rightarrow \exists m \text{ mit } p = 2 m.\)
-\( \Rightarrow 2q^2 = (2m)^2 = 4m^2 \Rightarrow q^2 = 2m^2 \text{ d.h. } 2 | q^2  \Rightarrow 2 | q \) Also p und q sind beide durch $2$ teilbar.  Widerspruch zur Annahme, p und q sind teilerfremd. $\Rightarrow \sqrt{2} \not\in \Q$
+\( \Rightarrow 2q^2 = (2m)^2 = 4m^2 \Rightarrow q^2 = 2m^2 \text{ d.h. } 2 | q^2  \Rightarrow 2 | q \) Also p und q sind beide durch $2$ teilbar.  \WSP p und q sind teilerfremd. $\Rightarrow \sqrt{2} \not\in \Q$
 \end{proof}
 
 \begin{bem}
@@ -384,7 +402,7 @@ $\abs{a_n - 0}  = \abs{\frac{1}{n} - 0} = \frac{1}{n} <= \frac{1}{N} < \epsilon$
 \end{proof}
 2) Die alternierende Folge $a_n = (-1)^n$
 \begin{proof}
-Angenommen $\exists a in \R$ mit $ \lim{a_n} = a$ Wähle $\epsilon > 0 \Rightarrow \exists N \in  \N \forall n \ge N \abs{b_n - a} < \frac{1}{2}$. Da $b_{n+1} - b_n = +- 2$ ist $ \forall n \ge N 2 = \abs{b_{n+1} - b_{n}} = \abs{b_{n+1} - a - (b_n - a)} \le \abs{b_{b+1} - a} + \abs{b_n - a} < \frac{1}{2} + \frac{1}{2} = 1 \Rightarrow 2 < 1 $ Widerspruch $ \Rightarrow (b_n) $ ist divergent.
+Angenommen $\exists a in \R$ mit $ \lim{a_n} = a$ Wähle $\epsilon > 0 \Rightarrow \exists N \in  \N \forall n \ge N \abs{b_n - a} < \frac{1}{2}$. Da $b_{n+1} - b_n = +- 2$ ist $ \forall n \ge N 2 = \abs{b_{n+1} - b_{n}} = \abs{b_{n+1} - a - (b_n - a)} \le \abs{b_{b+1} - a} + \abs{b_n - a} < \frac{1}{2} + \frac{1}{2} = 1 \Rightarrow 2 < 1 \WSP \Rightarrow (b_n) $ ist divergent.
 \end{proof}
 3) Die geometsiche Folge $(a^n)_{n\ge1}$
 1. Fall $|a| < 1 \Rightarrow \lim\limits_{n \toinf}a^n = 0$
@@ -433,7 +451,7 @@ Der Grenzwert einer Folge ist eindeutig bestimmt.
 \begin{proof}
 Angenommen $\lim\limits_{n \toinf}{a_n} = a$ und $\lim\limits_{n \toinf}{a_n} = b$ und $ a \ne b$.\\
 Sei $\epsilon = \frac{1}{2}\left|b-a\right| \Rightarrow \exists N_1 \forall n \ge N_1 : |a_n - a| < \epsilon$ und $\Rightarrow \exists N_2 \forall n \ge N_2 : |a_n - b| < \epsilon$. Sei $N := max\{N_1, N_2\}$.\\
-$\Rightarrow n \ge N : |b-a| = |(b-a_n) + (a_n - a)| \le |b - a_n| + |a_n - a| = |a_n - b| + |a_n - a| < \frac{1}{2}\left|b-a\right| + \frac{1}{2}\left|b-a\right| = |b-a|  \Rightarrow |b-a|  < |b-a| $ Widerspruch $\Rightarrow a = b$
+$\Rightarrow n \ge N : |b-a| = |(b-a_n) + (a_n - a)| \le |b - a_n| + |a_n - a| = |a_n - b| + |a_n - a| < \frac{1}{2}\left|b-a\right| + \frac{1}{2}\left|b-a\right| = |b-a|  \Rightarrow |b-a|  < |b-a| \WSP \Rightarrow a = b$
 \end{proof}
 
 
@@ -477,7 +495,7 @@ Sei \epsilon \frac{a-b}{2} > 0 \Rightarrow \exists N_1, N_2 \in \N
 \abs{b_n - b} < \epsilon  \forall n \ge N_2 
 \Rightarrow \forall n \ge max{N_1, N_2}
 b_n < b + \epsilon = b + (a-b) / 2 = (2b + a - b)/2 = (b + a ) /2 = (2a - a + b) / 2 = a - (a-b)/ 2 = a - \epsilon < a_n 
-\Rightarrow  b_n < a_n \forall n \ge max{N_1, N_2}  Widerspruch 
+\Rightarrow  b_n < a_n \forall n \ge max{N_1, N_2}  \WSP 
 \Rightarrow a \le b$
 \end{proof}
 \end{satz}
@@ -610,22 +628,216 @@ Seien $a = 0$, $a_0 > 0$ reelle Zahlen. Wir definieren die Folge $(x_n)$ rekursi
 \[x_0 = x_0\]
 \[x_{n+1} =  \frac{1}{2}\left(x_n + \frac{a}{x_n}\right) \]
 Wir zeigen: $(x_n)$ ist konvergent und $\lim{x_n} = x$ und $x^2 = a$.
-\begin{proof}$
-1. x_n >0 \forall n \ge 0
-IA: n=0: x_0 > 0
-n -> n+1
-Sei x_n > 0 \Rightarrow x_n+1 = 1/2 (x_n + a/x_n) > 0 , da alle teile > 0 sind.(mit under brace und overbrace
-d.h. (x_n) ist nach unten durch 0 beschränkt.
-2. x_n^2 \ge a \forall n >= 1
-denn x_{n+1}^2 - a = (1/4(x_n + a/x_n)^2  - a = ... a in klammer rein zieihen und ausrechnen ... = 1/4 (mals a quradrat) >= 0
-3. (x_n) ist monoton fallend
-x_n - x_{n+1} = x_n - 1/2 (x_n + a/x_n) = (x_n in klammer rein zeihen und ausrehcnen ) = 1/(2x_n)(x_n^2 - a) > =  weil beides >= 0 (x_n > 0)
-\Rightarrow x_>n >= x_{n+1}
-Nach dem Monotonie-Kriterium ist (x_n) konvergent.
-4. Sei x= \lim\limits{n \toinf}x_n \Rightarrow x = \lim\limits{n \toinf}x_{n+1} = \lim\limits{n \toinf}{\frac{1}{2}\left(x_n + \frac{a}{x_n}\right)} = \frac{1}{2}\left(\lim\limits{n \toinf}x_n + \frac{a}{\lim\limits{n \toinf}x_n}\right) =  \frac{1}{2}\left(x + \frac{a}{x}\right) \Rightarrow 2x = x + a/x \Rightarrow x = a/x \Rightarrow x^2 = a.$
+\begin{proof}
+\begin{enumerate}
+\item $x_n > 0 \forall n \ge 0$
+\IA{n=0} $x_0 > 0$ \\
+\IV \(x_{n+1} =  \frac{1}{2}\left(x_n + \frac{a}{x_n}\right)\)
+\IS{n \to n+1}
+Sei $x_n > 0 \Rightarrow x_n+1 = 1/2 (x_n + a/x_n) > 0$ , da alle Teile $> 0$ sind.(mit under brace und overbrace
+d.h. $(x_n)$ ist nach unten durch $0$ beschränkt.
+\item $x_n^2 \ge a \forall n \ge 1$
+denn $x_{n+1}^2 - a = \frac{1}{4}\left(x_n + \frac{a}{x_n}\right)^2  - a = ... a$ in klammer rein zieihen und ausrechnen $... = \frac{1}{4}$ (mals  $a$ quradrat) $\ge 0$
+\item $(x_n)$ ist monoton fallend
+$x_n - x_{n+1} = x_n - \frac{1}{2} \left(x_n + \frac{a}{x_n}\right) = (x_n$ in klammer rein zeihen und ausrehcnen $) = \frac{1}{(2x_n)(x_n^2 - a)} \ge 0 $ weil beides $\ge 0 (x_n > 0)
+\Rightarrow x_>n >= x_{n+1}$
+Nach dem Monotonie-Kriterium ist $(x_n)$ konvergent.
+\item Sei $x= \liminf{n}{x_n} \Rightarrow x = \lim\limits_{n \toinf}{x_{n+1}} = \lim\limits_{n \toinf}{\frac{1}{2}\left(x_n + \frac{a}{x_n}\right)} = \frac{1}{2}\left(\lim\limits_{n \toinf}x_n + \frac{a}{\lim\limits_{n \toinf}x_n}\right) =  \frac{1}{2}\left(x + \frac{a}{x}\right) \Rightarrow 2x = x + a/x \Rightarrow \\
+x = a/x \Rightarrow x^2 = a.$
+\end{enumerate}
 \end{proof}
-Die positive Lösung der Gleichung $x^2 = a$ heißt die Quadratwurzeln von $a$. Wir Schreiben $x = \sqrt{a}$.
 \end{bsp}
+Die positive Lösung der Gleichung $x^2 = a$ heißt die Quadratwurzeln von $a$. Wir Schreiben $x = \sqrt{a}$.
+
+\subsection{Reihen}
+
+\begin{defi}
+Sei $(a_n)_{n\ge0}$ eine Folge reeller Zahlen. Sei weiters $S_N = \sum_{n = 0}^{N}{a_n}$ die $N$-te Partialsumme, dann heißt die Folge $(S_N)_{N \ge 0}$ der Partialsummen eine unendliche Reihe.\\
+\[\text{Schreibweise}\suminf{n}{a_n}\]
+Konvergiert die Folge \((S_N)\text{ mit }\liminf{N}{S_N} = s \text{, dann heißt } \suminf{n}{a_n} = s\)der Wert der Reihe.\\
+Man sagt: Die Reihe \(\suminf{n}{a_n}\text{ konvergiert (}\suminf{n}{a_n} < \infty\)).
+\end{defi}
+
+\begin{bsp}
+\begin{enumerate}
+\item Die geometrische Reihe. Sei \(\abs{a} < 1 \Rightarrow \suminf{n}{a^n} = \frac{1}{1-a}\text{. Ist }\abs{a} \ge 1\text{, dann ist }\suminf{n}{a^n}\) divergent.
+\begin{proof}
+Die geometrische Summe: \(\sum_{n = 0}^{N}{a^n} = \frac{1-a^{N+1}}{1-a}\) dann:
+\begin{math}
+\IA{N=0} 1 = a^0 = (1-a) / (1- a) = 1\\
+\IV \sum_{n = 0}^{N}{a^n} = \frac{1-a^{N+1}}{1-a}\\
+\IS{N \to N+1}\\
+\sum_{n = 0}^{N+1}{a^n} = a^{N+1} + \sum_{n = 0}^{N}{a^n} \overset{IV}{=} a^{N+1} + \frac{1-a^{N+1}}{1-a} = .... \text{selber} \\ %todo
+\text{Sei }S_N = \sum_{n=0}^{N}{a^n} = \frac{1 - a^{N+1}}{1- a} \\
+\text{Sei }\abs{a} < 1\text{. Dann folgt }\liminf{N}{a^N} = 0 \\
+\Rightarrow \liminf{N}{S_N} = \liminf{n}{\frac{1-a^{N+1}}{1-a}} = \frac{1}{1-a}\\
+\text{Sei }a \ge 1 \Rightarrow \sum_{n=0}^{N}{a^n} \ge \sum_{n=0}^{N}{1} = N+1 \longrightarrow \inf \\
+\text{Sei }a \le -1 \Rightarrow a = -b \text{ mit }b \ge 1 \Rightarrow \sum_{n=0}^{N}{a^n} \ge \sum_{n=0}^{N}{(-1)^nb^n} \text{ divergent}
+\end{math}
+\end{proof}
+\item Die harmonische Reihe: $\sum{n=1}{\infty}{1/n} = +\infty$
+\begin{proof}
+\begin{math}
+S_{2^N} = \sum_{n = 1}^{2^N}{\frac{1}{n}} = 1 +\underbrace{\frac{1}{2}}_{=\frac{1}{2}} + \underbrace{\frac{1}{3} + \frac{1}{4}}_{=\frac{1}{2}} + \underbrace{\frac{1}{5} + \frac{1}{6} + \frac{1}{7} + \frac{1}{8}}_{=\frac{1}{2}} + \underbrace{\frac{1}{9} + ... + \frac{1}{16}}_{=\frac{1}{2}} + \underbrace{\frac{1}{17} + ..... + }_{=\frac{1}{2}} + \underbrace{\frac{1}{2^{N-1}+1}+ .... + \frac{1}{2^N}}_{=\frac{1}{2}} \ge 1 + n \frac{1}{2} > \frac{n}{2} \longrightarrow +\infty
+\end{math}
+Würde $(S_N)_{N\ge1}$ konvergieren, dann auch die Teilfolge $(S_{2^N})_{N\ge1}$, Da diese dievergiert, divergiert auch $(S_N)_N$
+\end{proof}
+\item $\Suminf{n}{\frac{1}{n(n+1)}} = 1$
+\begin{proof}
+\begin{math}
+S_N = \sum_{n=1}^{N}{\frac{1}{n(n+1)}} = \sum_{n=1}^{N}{\frac{1}{n}} - \frac{1}{n+1} = \sum_{n=1}^{N}{\frac{1}{n}} - \sum_{n=1}^{N}{\frac{1}{n+1}} = 1+ \sum_{n=2}^{N}{\frac{1}{n}} - \sum_{n=2}^{N+1}{\frac{1}{n}} = 1+ \sum_{n=2}^{N}{\frac{1}{n}} - \sum_{n=2}^{N}{\frac{1}{n}} + \frac{1}{N+1} = 1 + \frac{1}{N+1} \longrightarrow 1
+\end{math}
+\end{proof}
+\end{enumerate}
+\end{bsp}
+
+\begin{satz}
+Seien \suminf{n}{a_n} und \suminf{n}{b_n} zwei konvergente Reihen und \(\lambda \in \R\)
+Dann ist auch \(\suminf{n}{\lambda a_n + b_n}\) konvergent und \( \suminf{n}{\lambda a_n + b_n} = \lambda \suminf{n}{a_n} + \suminf{n}{b_n}\)
+\begin{proof} folgt auf grund der Rechenregeln für konvergente Folgen.\end{proof}
+\end{satz}
+
+\begin{satz}[Cauchy-Kriterium für Reihen]
+Die Reihe \(\suminf{k}{a_k}\) ist konvergent, genau dann wenn gilt:
+\[\forall \epsilon > 0 \sp \exists N(\epsilon) \in \N \quad \forall n \ge m \ge N \qquad \abs{\sum{k=m}{n}{a_k}} < \epsilon \qquad (\star)\]
+\begin{proof}
+\(S_n - Sm = \sum{k=0}{n}{a_k} - \sum{k=0}{m}{a_k} = \sum{k=m}{n}{a_k}\). ($\star$) bedeutet die $(S_n)_n$ ist eine Cauchy-Folge $\Leftrightarrow (S_n)_n$ ist konvergent
+\end{proof}
+\end{satz}
+
+
+\begin{korr}
+Ist $\suminf{k}{a_k}$ konvergent $\Rightarrow \lim\limits_{k \toinf}{a_k} = 0$.
+\begin{proof}
+\begin{math}
+a_n = \sum{k = m}{n}{a_k}\text{. Da } \suminf{k}a_k < \infty \overset{\Rightarrow}_{Cauchy-kriterium} \forall \epsilon > 0 \sp \exists N \in \N \quad \forall n \ge N \abs{a_N} = \abs{ \sum{k = m}{n}{a_k}} < \epsilon  \Rightarrow \lim\limits_{n \toinf}{a_n} = 0
+\end{math}
+\end{proof}
+\end{korr}
+
+\begin{bem}
+Die Umkehrung des Korrolars gilt nicht. z.B. \(\liminf{n}{1/n} = 0\text{ aber }\suminf{1/n} = \infty \)harmonische Reihe.
+\end{bem}
+
+\begin{defi}
+Die Reihe \suminf{k}{a_k} heißt absolut konvergent, wenn wenn die Reihe \suminf{k}{\abs{a_k}} konvergiert.
+\end{defi}
+
+\begin{satz}
+Jede absolut konvergente Reihe ist auch konvergent.
+\begin{proof}
+Sei \suminf{k}{\abs{a_k}} < \infty  \overset{\Rightarrow}_{Cauchy-kriterium} \forall \epsilon > 0 \sp \exists N \in \N \quad \forall n \ge m \ge N \quad \abs{\sum{k=m}{n}{\abs{a_k}}} < \epsilon \overset{\Rightarrow}_{Dreiecksungleichung} \abs{\sum{k=m}{n}{a_k}} \le \abs{\sum{k=m}{n}{\abs{a_k}}} < \epsilon \forall n \ge m \ge N
+\overset{\Rightarrow}_{Cauchy-Kriterium} \suminf{k}{a_k} ist konvergent.
+\end{proof}
+\end{satz}
+
+\begin{bem}
+Die Umkehrung des Satzes gilt nicht. zB kann man zeigen, dass die Reihe \suminf{k}{(-1)^k(1/k)} konvergiert. aber die Reihe \suminf{k}{\abs{(-1)^k(1/k)}} = \suminf{k}{(1/k)} = \infty
+\end{bem}
+
+\begin{satz}[Majoranten-Kriterium]
+Sei \suminf{k}{b_k} konvergent mit b_k \ge 0 \forall k \ge N_0.
+Sei (a_k)_{k=0}^{\infty} eine Folge mit \abs{a_k} \le b_k  \forall k \ge N_0
+\Rightarrow \suminf{k}{a_k} ist absolut konvergent.
+\begin{proof}
+Sei \suminf{k}{b_k} < \infty und b_k > 0 \overset{\Rightarrow}_{Cauchy-Kriterium} \forall \epsilon > 0 \sp \exists N \in \N \quad \forall n \ge m \ge N \quad \abs{\sum{k=m}{n}{b_k}} < \epsilon \overset{\Rightarrow}_{\abs{a_k} \le b_k} \abs{\sum{k=m}{n}{\abs{a_k}}} \le \abs{\sum{k=m}{n}{b_k}} < \epsilon \forall n \ge m \ge N
+\overset{\Rightarrow}_{Cauchy-Kriterium} \suminf{k}{\abs{a_k}} ist konvergent. \Rightarrow \suminf{k}{a_k} ist absolut konvergent.
+\end{proof}
+\end{satz}
+
+\begin{korr}[Minoranten-Kriterium]
+Sei \suminf{k}{b_k} divergent mit b_k \ge 0 \forall k \ge N_0.
+und (a_k)_{k=0}^{\infty} eine Folge mit \abs{a_k} \ge b_k  \forall k \ge N_0
+\Rightarrow \suminf{k}{a_k} ist auch divergent.
+\begin{proof}
+Wäre \suminf{k}{a_k} konvergent, dann wäre nach dem Majoranten-Kriterium \suminf{k}{b_k} konvergent, da \(\abs{b_k} \le a_k\). \WSP
+\end{proof}
+\end{korr}
+
+\begin{satz}[Quotienten-Kriterium]
+Sei \suminf{n}{a_n} eine Reihe  mit a_n \ne 0 \forall n \ge n_0
+Existiert eine reelle Zahl q mit 0 < q < 1 sodass \abs{\frac{a_{n+1}}{a_n}} \le q < 1 \forall n \ge n_0
+\Rightarrow \suminf{n}{a_n} ist absolut konvergent.
+\begin{proof}
+Sei \abs{\frac{a_{n+1}}{a_n}} \le q < 1  \forall n \ge 0 (o.B.d.A.) \Rightarrow \abs{a_n+1} \le q \abs{a_n} \Rightarrow \abs{a_n} \le q\abs{a_{n-1}} \le q^2 \abs{a_{n-2}} \le ... \le q^n \abs{a_0}.
+Also \abs{a_n} \le q^n \abs{a_0}, da \suminf{n}{\abs{a_n}} \le \suminf{n}{q^n \abs{a_0}} = \abs{a_0} \suminf{n}{q^n} = \abs{a_0} \frac{1}{1-q}, denn 0 < q < 1, geometrische Reihe.
+\Rightarrow aus dem Majoranten-Kriterium folgt \suminf{n}{a_n} ist absolut konvergent.
+\end{proof}
+\end{satz}
+
+\begin{korr}[einfaches Quotienten-Kriterium]
+Sei a_n \ne 0 \fa n > n_0 und existiert \lim\limits_{n \toinf}\abs{\frac{a_n+1}{a_n}} und ist \lim\limits_{n \toinf}\abs{\frac{a_n+1}{a_n}} < 1
+\Rightarrow \suminf{n}{a_n} ist absolut konvergent.
+\begin{proof}
+Sei\lim\limits_{n \toinf}\abs{\frac{a_n+1}{a_n}} = \alpha < 1 \\
+Sei \espilon = \frac{1 - \alpha}{2} > 0 \Rightarrow \exists N \sp \forall n \ge N \quad \abs{\abs{a_{n+1}}{a_n}} - \alpha} < \epsilon  = \frac{1-\alpha}{2}
+\Rightarrow \abs{a_(n+1) / a_n} < (1-alpha)/2) + alpha = (1+alpha)/2 \overset{<}{da \alpha < 1} 1+1/2 = 1
+Sei q = (1 + \alpha)/2 < 1 und |a_(n+1)/a_n| < q < 1
+Nach dem Quotienten-Kriterium ist \suminf{a_n} absolut konvergent
+\end{proof}
+\end{korr}
+
+\begin{bsp}
+\begin{enumerate}
+\item \suminf{n}{\frac{1}{n^k} < \infty \qqad \forall k \ge 2 \\
+[Bemerkung: Die Konvergenz gilt auch \forall k \in \R, k > 1 ohne Beweis]
+\begin{proof}
+1/n^k \le 1/n^2 \qqad \forall k \ge 2
+und 1\n^2 \le 2/(n(n+1)), denn \Leftrightarrow 2n^2 \ge n(n+1) \Leftrightarrow n^2 \ge n \Leftrightarrow n \ge 1\\
+\Rightarrow 1/n^k \le 2/(n(n+1)) \forall k \ge 2
+und \suminf{n}{2/(n(n+1))} = 2 \suminf{n}{1/(n(n+1))} = 2 * 1 = 2
+Aus dem majoranten-Kriterium folgt \suminf{n}{1/n^k} < \infty \froall k \ge 2\\
+Frage: Wie sind die Werte der Reihe \suminf{n}{1/n^k} = ? \froall k \ge 2
+Euler: \suminf{n}{1/n^2}  = (\pi^2)/6, \suminf{n}{1/n^4}  = (\pi^4)/90,, .... , \suminf{n}{1/n^{2k}} = C_k \pi^{2k}
+Aber: \suminf{n}{1/n^3} \in \R \setminus \Q, \suminf{n}{1/n^5} = ?,... \suminf{n}{1/n^{2k+1}} = ?   
+\end{proof}
+\item Die Reihe \suminf{n}{n^2/2^n} ist konvergent.
+\begin{proof}[Quotienten-Kriterium]
+\abs{a_{n+1}/ a_n} = \frac{\frac{(n+1)^2}{2^{n+1}}{\frac{n^2}{2^n}} = \frac{2^n(n+1)^2}{2^{n+1}n^2} = 1/2 * ((n+1)/n)^2 = 1/2 (1/(1+1/n))^2 \longrightarrow 1/2 < 1
+\end{proof}
+\item Die Exponentialfunktion Die Reihe \suminf{k}\frac{x^k}{k!} ist für jedes x \in \R absolut konvergent
+\begin{proof}[Quotienten-Kriterium]
+\abs{a_{k+1}/a_k} = \abs{\frac{x^{k+1}}{(k+1)!}/\frac{x^k}{k!}} = \frac{\abs{x^{k+1}} * k!}{\abs{x^k} (k+1)!} = \frac{\abs{x}}{k+1} \longrightarrow mit k-> inf 0 \forall x \in \R
+\Rightarrow \ifnsum{k}\frac{x^k}{k!} ist absolut konvergent.
+\end{proof}
+\end{enumerate}
+\end{bsp}
+
+\begin{bem}
+1. Für k= 1 ist die harmonische Reihe \suminf{n]{1/n} divergent.
+2. Das Quotienten-Kriterium ist hier nicht anwendbar, denn \\
+\sum{1/n} \qqad a_{n+1}/a_n = 1/(1 + 1/n) \longrightarrow 1 \not < 1
+\sum{1/n^2} \qqad a_{n+1}/a_n = 1/((1 + 1/n)^2) \longrightarrow 1 \not < 1
+\end{bem}
+
+\begin{defi}
+Die Funktion exp: \R \to \R mit exp(x) \mapsto \e^x = \suminf{n}\frac{x^n}{n!} heißt Exponentialfunktion
+Die Zahl \e = exp(0) = \suminf{n}\frac{1^n}{n!} heißt Euler'sche Zahl.
+\end{defi}
+
+\begin{bem}
+Wir werden später zeigen: \e = \frac{1^n}{n!} = \lim\limits{n \toinf}{\left(1 + \frac{1}{n}\right)^n\\
+\e \approx 2,71828...
+\end{bem}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -639,7 +851,8 @@ Die positive Lösung der Gleichung $x^2 = a$ heißt die Quadratwurzeln von $a$. 
 \section{Test}
 zum Formeln raus kopieren
 \begin{math}
-\lim\limits_{n \toinf}{a_n}
+\lim\limits_{n \toinf}{a_n}\\
+\sum_{n = 0}^{\infty}{a_n}
 \end{math}
 
 $(a_n)$
