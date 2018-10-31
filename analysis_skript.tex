@@ -17,8 +17,8 @@
 \title{Analysis für Informatik\small{ \\ - \\ Ass.Prof. Clemens Amstler}}
 %\geometry{verbose,a4paper,tmargin=25mm,bmargin=25mm,lmargin=25mm,rmargin=25mm}
 
-
-%Defining
+%Definitions
+%Konstante Mengen und Zahlen C, N, Q Z, R, i, e
 \def\C{\ensuremath{\mathbb{C}} }
 \def\N{\ensuremath{\mathbb{N}} }
 \def\Q{\ensuremath{\mathbb{Q}} }
@@ -26,37 +26,61 @@
 \def\R{\ensuremath{\mathbb{R}} }
 \def\im{\ensuremath{\imath} }
 \def\e{\ensuremath{\mathit{e}}}
+
+% für Beweise
 \def\WSP{\text{Widerspruch.}}
+\newcommand{\IA}[1][n=0]{\vspace{0.1pt}\ensuremath{\text{IA}\sp#1:}}
+\newcommand{\IV}{\vspace{0.1pt}\ensuremath{\text{IV}\sp}}
+\newcommand{\IS}[1][n \mapsto n+1]{\vspace{0.1pt}\ensuremath{\text{IS}\sp#1}}
 
-\newcommand{\alQ}[1]{\ensuremath{\quad#1&\quad}}
-\newcommand{\Qal}[1]{\ensuremath{\quad&#1\quad}}
-\newcommand{\QalQ}[1]{\ensuremath{\quad&#1&\quad}}
+%Abkürzungen logischer symbole
+\def\fa{\ensuremath{\forall}}
+\def\ex{\ensuremath{\exists}}
+\def\xor{\ensuremath{\veebar}}
+\def\lor{\ensuremath{\vee}}
+\def\land{\ensuremath{\wedge}}
+\def\nand{\ensuremath{\not \land}}
+\def\nor{\ensuremath{\not \lor}}
 
-\newcommand{\fa}{\ensuremath{\forall}}
-\newcommand{\ex}{\ensuremath{\exists}}
-\newcommand{\abs}[1]{\ensuremath{\left|\:#1\:\right|}}
-
+%spacing
 \def\sp{\hspace{0,1cm}}
 
-\newcommand{\IA}[1]{\newline\vspace{0.1cm}\ensuremath{\text{\quad\textbf{IA}\quad}#1}\quad}
-\newcommand{\IV}{\newline\vspace{0.1cm}\ensuremath{\text{\quad\textbf{IV}\quad}}}
-\newcommand{\IS}[1]{\newline\vspace{0.1cm}\ensuremath{\text{\quad\textbf{IS}\quad\sp}#1}}
+%infinite sums
+\newcommand{\suminf}[2][n]{\ensuremath{\sum_{#1= 0}^{\infty}{#2}}}
+\newcommand{\Suminf}[2][n]{\ensuremath{\sum_{#1=1}^{\infty}{#2}}}
 
-\newcommand{\suminf}[2]{\ensuremath{\sum_{#1= 0}^{\infty}{\left(#2\right)}}}
-\newcommand{\Suminf}[2]{\ensuremath{\sum_{#1=1}^{\infty}{\left(#2\right)}}}
-\renewcommand{\liminf}[2]{\ensuremath{\lim\limits_{#1 \rightarrow \infty}{\left(#2\right)}}}
-\newcommand{\Liminf}[2]{\ensuremath{\lim\limits_{#1 \rightarrow -\infty}{\left(#2\right)}}}
-\newcommand{\limnull}[2]{\ensuremath{\lim\limits_{#1 \rightarrow 0}{\left(#2\right)}}}
+% summe vereinfachen
+\newcommand{\Sum}[2]{\sum_{#1}^{#2}}
 
+% limits bis unendlich -unendlich und 0
+\renewcommand{\liminf}[2][n]{\ensuremath{\lim\limits_{#1 \rightarrow \infty}{#2}}}
+\newcommand{\limInf}[2][n]{\ensuremath{\lim\limits_{#1 \rightarrow -\infty}{#2}}}
+\newcommand{\limnull}[2][n]{\ensuremath{\lim\limits_{#1 \rightarrow 0}{#2}}}
+
+% limits von + nach 0 bzw von - nach 0
+\newcommand{\limpos}[2][n]{\ensuremath{\lim\limits_{#1 \rightarrow 0^+}{#2}}}
+\newcommand{\limneg}[2][n]{\ensuremath{\lim\limits_{#1 \rightarrow 0^-}{#2}}}
+
+% absolutbetrag mit abständen zwischen | und inhalt.
+\newcommand{\abs}[1]{\ensuremath{\left|\:#1\:\right|}}
+
+% mathematische definitionen, menge, funktion
 \newcommand{\menge}[2]{\ensuremath{\{#1\sp : \sp #2\}}}
+\newcommand{\funktion}[3]{\ensuremath{#1: #2 \to #3}}
+\newcommand{\Funktion}[5]{\ensuremath{#1: #2 \to #3 \text{ mit } #4 \mapsto #5}}
 
-\def\xor{\ensuremath{\text{ }\veebar}\text{ }}
-
+% konvergiert gegen inf 
 \newcommand{\toinf}[1]{#1 \rightarrow \infty}
-\newcommand{\longtoinf}[1]{\overset{\longrightarrow}{#1 \to \infty}}
+\newcommand{\longtoinf}[1][n]{\ensuremath{\overset{\scriptscriptstyle{#1 \to \infty}}{\longrightarrow}}}
+\newcommand{\tonull}[1]{#1 \rightarrow 0}
+\newcommand{\longtonull}[1][n]{\ensuremath{\overset{\scriptscriptstyle{#1 \to 0}}{\longrightarrow}}}
+\newcommand{\toInf}[1]{#1 \rightarrow -\infty}
+\newcommand{\longtoInf}[1][n]{\ensuremath{\overset{\scriptscriptstyle{#1 \to -\infty}}{\longrightarrow}}}
 
+% Umgebungsstil, einer für alle
 \newtheoremstyle{thmstyle}{}{0.5cm}{}{}{\bfseries}{}{\newline}{\thmnumber{#2. }\thmname{#1}\quad\thmnote{ #3}\vspace{0.1cm}}
 
+% umgebungen 
 \theoremstyle{thmstyle}
 \newtheorem{satz}{Satz}[subsection]
 \newtheorem{korr}[satz]{Korollar}
@@ -65,6 +89,7 @@
 \newtheorem{bsp}[satz]{Beispiel}
 \newtheorem{bem}[satz]{Bemerkung}
 
+% beweis umgebung anpassen: anfang und ende
 \renewcommand{\proofname}{\textbf{Beweis:}}
 \renewcommand{\qedsymbol}{\textit{q.e.d.}}
 
@@ -97,13 +122,13 @@ Die Natürlichen Zahlen \(\N = \{1,\dots,\infty \} \) und die Ganzen Zahlen \Z b
 \begin{prop}
 \(\fa x \in \R \text{ gilt } 0 * a = 0\).
 \begin{proof}
-\begin{align*}
-0+0 \alQ{=} 0 \Rightarrow \\
-a ( 0 + 0 )\alQ{=} a * 0 \overset{\text{Distributivgesetz}}{\Rightarrow} \\
-a * 0 + a * 0 \alQ{=} a * 0  \overset{\text{assiozativ}}{\Rightarrow} \\
-a * 0 + (a * 0 - a * 0) \alQ{=} (a * 0 - a * 0) \overset{\text{additives Inverses}}{\Rightarrow} \\
-a * 0 +  0 \overset{0+0=0}{=} a * 0 \alQ{=} 0.
-\end{align*}
+\begin{flalign*}
+0+0 = 0 &\Rightarrow a ( 0 + 0 ) = a * 0 &&\text{Distributivgesetz }\\
+& \Rightarrow a * 0 + a * 0 = a * 0 &&\text{\R assiozativ}\\
+&\Rightarrow a * 0 + (a * 0 - a * 0) = (a * 0 - a * 0) && \text{add Inv}\\
+&\Rightarrow a * 0 +  0 && 0+0 = 0\\
+&\Rightarrow a * 0 = 0
+\end{flalign*}
 \end{proof}
 \end{prop}
 
@@ -120,16 +145,16 @@ Für \(a \in \R \text{ und }n \in \Z \text{ wird }a^n\) folgendermapen induktiv 
 \begin{bem}
 \(\fa a, b \in \R \setminus \{0\} \) und \( \fa n, m \in \Z\) gilt:
 \begin{enumerate}[label=(\arabic*)]
-\item \(a^n * a^m = a^{n+m} \)
-\item \(a^{n^m} = a^{n * m} \)
-\item \(a^n * b^n = (a * b)^n \)
+\item $\displaystyle a^n * a^m = a^{n+m} $
+\item $\displaystyle a^{n^m} = a^{n * m} $
+\item $\displaystyle a^n * b^n = (a * b)^n $
 \end{enumerate}
-\begin{proof}
-\begin{math}\\
-\text{(1) } a^n * a^m \overset{\text{n. Def.}}{=} \overbrace{a \dots a}^{n\text{-mal}}*\overbrace{a \dots a}^{m\text{-mal}} = \overbrace{a \dots a}^{n+m\text{-mal}} \overset{\text{n. Def.}}{=} a^{n+m}\\
-\text{(2) }  a^{n^m} = a^{\overbrace{n \dots n}^{m\text{-mal}}} = a^{m * n} = a^{n*m}\\
-\text{(3) }  a^n * b^n = \overbrace{a \dots a}^{n\text{-mal}}*\overbrace{b \dots b}^{n\text{-mal}} = \overbrace{a \dots a b \dots b}^{n\text{-mal}} = (a*b)^{n}\\
-\end{math}
+\begin{proof}\sp
+\begin{enumerate}[label=(\arabic*)]
+\item $\displaystyle a^n * a^m \overset{\text{n. Def.}}{=} \overbrace{a \dots a}^{n\text{-mal}}*\overbrace{a \dots a}^{m\text{-mal}} = \overbrace{a \dots a}^{n+m\text{-mal}} \overset{\text{n. Def.}}{=} a^{n+m}$
+\item $\displaystyle a^{n^m} = a^{\overbrace{n \dots n}^{m\text{-mal}}} = a^{m * n} = a^{n*m}$
+\item $\displaystyle a^n * b^n = \overbrace{a \dots a}^{n\text{-mal}}*\overbrace{b \dots b}^{n\text{-mal}} = \overbrace{a \dots a b \dots b}^{n\text{-mal}} = (a*b)^{n}$
+\end{enumerate}
 \end{proof}
 \end{bem}
 
@@ -203,13 +228,21 @@ Als Folgerung erhalten wir: Setze \(b = 1\)
 
 \begin{satz}[Bernoullische Ungleichung]
 Sei \(a > -1\) dann gilt \[\fa n \in \N \sp (1+a)^n \ge 1 + na \]
-\begin{proof}Sei \(a > -1\)
-\IA{n=0} \(1 = (1 + a)^0 \ge 1 + 0*a = 1\)
-\IV \((1+a)^n \ge 1 + na \)
-\IS{n \mapsto n+1}
-\begin{align*} (1+a)^{n+1} &= (1+a)(1+a)^n \overset{IV}{\ge}  \\
-&\underset{IV}{\ge} (1 + a)(1 + na) = 1 + na + a + \underbrace{na^2}_{> 0} \ge 1 + (n+1)a
-\end{align*}
+\begin{proof}
+\begin{math}
+\begin{aligned}[t]
+&\IA{n=0} \sp 1 = (1 + a)^0 \ge 1 + 0*a = 1&&\\
+&\IV (1+a)^n \ge 1 + na&&\\
+&\IS{n \mapsto n+1} \\ 
+&\begin{aligned}[t]
+(1+a)^{n+1} 	&= (1+a)(1+a)^n &&\\
+			&\overset{IV}{\ge} (1 + a)(1 + na) &&\\
+			&= 1 + na + a + \underbrace{na^2}_{> 0} &&\\
+			&\ge 1 + (n+1)a
+\end{aligned}
+\end{aligned}
+\end{math}
+\newline
 \end{proof}
 \end{satz}
 \newpage
@@ -221,13 +254,14 @@ Sei \(a > 0\).
 \item \(0 < a < 1 \sp \forall \epsilon > 0 \sp \exists n \in \N \text{, sodass }a^n < \epsilon\)
 \end{enumerate}
 \begin{proof}
-\sp
-\begin{align*}
+\begin{math}
+\begin{aligned}
 \text{(1)\quad} &a > 1 \Rightarrow \exists x \in \R \sp x = a - 1 > 0 \Rightarrow a = x +1 \Rightarrow a^n = (x + 1)^n \Rightarrow \\
 &(x + 1)^n \underset{\text{\tiny{Bernoulli}}}{\ge} 1 + nx  > 1 + k -1 = k \text{, da }\forall n \in \N \sp \exists x > 0 \text{ mit } nx > k - 1\\
 \text{(2)\quad} &\text{Sei } 0 < a < 1 \text{ und } b = \frac{1}{a} > 1 \overset{\text{\tiny{mit (1)}}}{\Rightarrow} \\
 &\exists k \in \R \text{ mit } b^n > k = \frac{1}{\epsilon} \Rightarrow \left(\frac{1}{a}\right)^n > \frac{1}{\epsilon} \Rightarrow  \frac{1}{a^n} > \frac{1}{\epsilon} \Rightarrow a^n < \epsilon.
-\end{align*}
+\end{aligned}
+\end{math}
 \end{proof}
 \end{korr}
 
@@ -364,8 +398,8 @@ Wir können annehmen, dass p und q nicht beide durch $2$ teilbar sind (sonst kü
 Betrachte die rechte Seite dieser Gleichung und berechne diese induktiv
 Setze zB
 \begin{align*}
-a_1 \alQ{=} 1\\
-a_{n+1} \alQ{=} \frac{1}{2}\left(a_n + \frac{2}{a_n}\right)
+a_1 = 1\\
+a_{n+1} = \frac{1}{2}\left(a_n + \frac{2}{a_n}\right)
 \end{align*}
 \(a_1 = 1 \quad a_2 = 1,5 \quad a_3 \approx 1.41 \quad a_3 \approx 1,4142 \quad \dots \)
 
@@ -413,7 +447,7 @@ Bezeichnung: Wir schreiben für Folgen
 
 \begin{defi}[der Konvergenz]
 Eine Folge zeeller Zahlen \((a_n)_{n\in\N}\) heißt konvergent gegen \( a\in\R\)
-\[\text{Schreibweise: } \liminf{n}{a_n} = a, \lim{a_n} = a\]
+\[\text{Schreibweise: } \liminf{a_n} = a, \lim{a_n} = a\]
 Wenn es für jedes \(\epsilon > 0 \text{ ein } N = N(\epsilon) \in \N\) gibt, sodass für alle \(n \ge N\) die Ungleichung \(\abs{a_n - a} < \epsilon\) gilt.\\
 \(a\) heißt der Grenzwert (Limes) der Folge \((a_n)\)\\
 Die Folge \((a_n)\) heißt divergent, wenn sie nicht konvergent ist.
@@ -431,21 +465,21 @@ Also Die Folge \((a_n)\) konvergiert gegen \(a \Leftrightarrow \) Die Folgenglie
 
 \begin{bsp}
 \begin{enumerate}[label=(\arabic*)]
-\item Die harmonische Folge \(a_n = \frac{1}{n} \Rightarrow \liminf{n}{\frac{1}{n}} = 0\)
+\item Die harmonische Folge \(a_n = \frac{1}{n} \Rightarrow \liminf{\frac{1}{n}} = 0\)
 \begin{proof}
 Sei \(\epsilon > 0 \text{ Wähle } N > \frac{1}{\epsilon} \abs{a_n - 0} = \abs{\frac{1}{n} - 0} = \frac{1}{n} \le \frac{1}{N} < \epsilon\)
 \end{proof}
 \item Die alternierende Folge \(a_n = (-1)^n\)
 \begin{proof}
-Angenommen \(\exists a \in \R \text{ mit } \liminf{n}{a_n} = a \text{ Wähle } \epsilon > 0 \Rightarrow \exists N \in \N \sp \forall n \ge N \abs{b_n - a} < \frac{1}{2}\).
+Angenommen \(\exists a \in \R \text{ mit } \liminf{a_n} = a \text{ Wähle } \epsilon > 0 \Rightarrow \exists N \in \N \sp \forall n \ge N \abs{b_n - a} < \frac{1}{2}\).
 Da \(b_{n+1} - b_n = \pm 2 \text{ ist } \forall n \ge N \sp 2 = \abs{b_{n+1} - b_{n}} = \abs{b_{n+1} - a - (b_n - a)} \le \abs{b_{b+1} - a} + \abs{b_n - a} < \frac{1}{2} + \frac{1}{2} = 1 \Rightarrow 2 < 1 \WSP \Rightarrow (b_n) \) ist divergent.
 \end{proof}
 \item Die geometsiche Folge \((a^n)_{n\ge1}\)
 \begin{proof}
 \begin{enumerate}[label=\arabic*. Fall]
-\item \(\abs{a} < 1 \Rightarrow \liminf{n}{a^n} = 0\) \\
+\item \(\abs{a} < 1 \Rightarrow \liminf{a^n} = 0\) \\
 Sei \(\epsilon < 0 \overset{Archimedisches Axiom}{\Rightarrow} \exists N \in \N \sp \abs{a}^N < \epsilon \Rightarrow \forall n \ge N \quad \abs{a^n - 0} = \abs{a}^n \le \abs{a}^N < \epsilon\)
-\item \(a = 1 \Rightarrow a^n = 1 \Rightarrow \liminf{n}{a^n} = 1\)
+\item \(a = 1 \Rightarrow a^n = 1 \Rightarrow \liminf{a^n} = 1\)
 \item \(a = -1 \Rightarrow \) divergent weil alternierend.
 \item \(\abs{a} > 1 \forall K > 0 \sp \exists n \in \N \abs{a}^n > K \text{ d.h. } (a^n)\) ist unbeschränkt.
 \end{enumerate}
@@ -462,7 +496,7 @@ Eine Folge \((a_n)\) heißt nach oben (unten) beschränkt, wenn es ein \(A \in \
 Jede konvergente Folge \((a_n)\) ist beschränkt.
 \begin{proof}
 \begin{math}
-\liminf{n}{a_n} = a \text{. Wähle } \epsilon = 1 > 0 \Rightarrow \exists N \in \N : \forall n \ge N \abs{a_n - a} < 1 \Rightarrow \abs{a_n} = \abs{a + (a_n - a)} \le \abs{a} + \abs{a_n- a} = \abs{a} + 1 \forall n \ge N\text{. Sei } K = max\{\abs{a_1}, \abs{a_2}, \dots, \abs{a_n-1}, \abs{a}+1\} \Rightarrow \abs{a_n} < k \forall n \ge 1 
+\liminf{a_n} = a \text{. Wähle } \epsilon = 1 > 0 \Rightarrow \exists N \in \N : \forall n \ge N \abs{a_n - a} < 1 \Rightarrow \abs{a_n} = \abs{a + (a_n - a)} \le \abs{a} + \abs{a_n- a} = \abs{a} + 1 \forall n \ge N\text{. Sei } K = max\{\abs{a_1}, \abs{a_2}, \dots, \abs{a_n-1}, \abs{a}+1\} \Rightarrow \abs{a_n} < k \forall n \ge 1 
 \end{math}
 \end{proof}
 \end{satz}
@@ -480,7 +514,7 @@ Die Umkehrung gilt nicht. Das heißt eine beschränkte Folge ist nicht konvergen
 \begin{proof}
 \begin{enumerate}[label=(\arabic*)]
 \item Sei \((a_n)\) monoton wachsen und nach oben beschränkt. Nach dem Vollständigkeitsaxiom existiert \(a := sup\menge{a_n}{n \in \N}\).
-Sei \(\epsilon > 0 \Rightarrow a - \epsilon\) ist keine obere Schranke von \(\menge{a_n}{n \in \N} \Rightarrow \exists N \in \N \quad a-\epsilon < a_N \le a\). Da \((a_n)\) monoton wachsend ist, \( \Rightarrow \forall n \ge N a_N \le a_n \Rightarrow a-\epsilon < a_N \le a_n \le a < a+\epsilon \forall n \ge N \Rightarrow a-\epsilon < a_n < a+\epsilon \forall n \ge N \Rightarrow \abs{a_n - a} < \epsilon \sp \forall n \ge N \Rightarrow \liminf{k}{a_k} = a\).
+Sei \(\epsilon > 0 \Rightarrow a - \epsilon\) ist keine obere Schranke von \(\menge{a_n}{n \in \N} \Rightarrow \exists N \in \N \quad a-\epsilon < a_N \le a\). Da \((a_n)\) monoton wachsend ist, \( \Rightarrow \forall n \ge N a_N \le a_n \Rightarrow a-\epsilon < a_N \le a_n \le a < a+\epsilon \forall n \ge N \Rightarrow a-\epsilon < a_n < a+\epsilon \forall n \ge N \Rightarrow \abs{a_n - a} < \epsilon \sp \forall n \ge N \Rightarrow \liminf[k]{a_k} = a\).
 \item analog.
 \end{enumerate}
 \end{proof}
@@ -495,7 +529,7 @@ Der Grenzwert einer Folge ist eindeutig bestimmt.
 \end{satz}
 \begin{proof}
 \begin{math}
-\text{Angenommen } \liminf{n}{a_n} = a\text{ und }\liminf{n}{a_n} = b\text{ und } a \ne b.\\
+\text{Angenommen } \liminf{a_n} = a\text{ und }\liminf{a_n} = b\text{ und } a \ne b.\\
 \text{Sei }\epsilon = \frac{1}{2}\abs{b-a} \Rightarrow \exists N_1 \sp \forall n \ge N_1 \sp \abs{a_n - a} < \epsilon \text{ und } \Rightarrow \exists N_2 \sp \forall n \ge N_2 \sp \abs{a_n - b} < \epsilon\text{. Sei } N = max\{N_1, N_2\}.\\
 \Rightarrow n \ge N \sp \abs{b-a} = \abs{(b-a_n) + (a_n - a)} \le \abs{b - a_n} + \abs{a_n - a} = \abs{a_n - b} + \abs{a_n - a} < \frac{1}{2}\abs{b-a} + \frac{1}{2}\abs{b-a} = \abs{b-a}  \Rightarrow \abs{b-a}  < \abs{b-a} \WSP \Rightarrow a = b
 \end{math}
@@ -505,11 +539,11 @@ Der Grenzwert einer Folge ist eindeutig bestimmt.
 \begin{satz}[Rechenregeln für konvergente Folgen]
 Seien \((a_n)\) und \((b_n)\) zwei konvergente Folgen. Dann gilt:
 \begin{enumerate}
-\item \((a_n \pm b_n)\text{ ist konvergent und }\liminf{n}{a_n  \pm  b_n} = \liminf{n}{a_n}  \pm \liminf{n}{b_n}\).
-\item \(\lambda (a_n)\text{ ist konvergent und }\liminf{n}{\lambda a_n} = \lambda \liminf{n}{a_n}\).
-\item \((a_n b_n)\text{ ist konvergent und }\liminf{n}{a_n b_n} = \liminf{n}{a_n} \lim{n}{b_n}\).
-\item Ist \((b_n) \ne 0 \forall n \ge n_0\text{ und }\liminf{n}{b_n} \ne 0\text{. Dann } \frac{a_n}{b_n} \text{ ist konvergent und }\liminf{n}{\frac{a_n}{b_n}} = \frac{\liminf{n}{a_n}}{\liminf{n}{b_n}}\).
-\item \(a_n \le b_n \text{ dann ist }\liminf{n}{a_n} \le \liminf{n}{b_n} \sp \forall n \ge n_0\).
+\item \((a_n \pm b_n)\text{ ist konvergent und }\liminf{a_n  \pm  b_n} = \liminf{a_n}  \pm \liminf{b_n}\).
+\item \(\lambda (a_n)\text{ ist konvergent und }\liminf{\lambda a_n} = \lambda \liminf{a_n}\).
+\item \((a_n b_n)\text{ ist konvergent und }\liminf{a_n b_n} = \liminf{a_n} \lim{n}{b_n}\).
+\item Ist \((b_n) \ne 0 \forall n \ge n_0\text{ und }\liminf{b_n} \ne 0\text{. Dann } \frac{a_n}{b_n} \text{ ist konvergent und }\liminf{\frac{a_n}{b_n}} = \frac{\liminf{a_n}}{\liminf{b_n}}\).
+\item \(a_n \le b_n \text{ dann ist }\liminf{a_n} \le \liminf{b_n} \sp \forall n \ge n_0\).
 \end{enumerate}
 \begin{proof}
 Sei \(\liminf{a_n} = 0\text{ und } \lim{b_n} = b\).
@@ -519,13 +553,13 @@ Sei \(\liminf{a_n} = 0\text{ und } \lim{b_n} = b\).
 \abs{b_n - b} < \frac{\epsilon}{2} \forall n \ge N_2\\
 \Rightarrow \forall n \ge max{N_1, N_2}\\
 \abs{(a_n + b_n) - (a + b)} =\abs{(a_n - a) + (b_n - b)} \le \abs{a_n - a}+ \abs{b_n - b} < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon.
-\Rightarrow\text{ beschränkt und } \liminf{n}{a_n+b_n} = a+b$.\\
+\Rightarrow\text{ beschränkt und } \liminf{a_n+b_n} = a+b$.\\
 analog für $-$
 \item Übung
 \item Jede konvergente Folge ist beschränkt \(\Rightarrow \exists K \in \R \text{ mit } \abs{a_K} \le K \text{ und } \abs{b} \le K\\
 Sei \epsilon > 0 \Rightarrow \exists N_1, N_2 \in \N \sp \abs{a_n - a} < \frac{\epsilon}{2K} \text{ und } \abs{b_n - b} < \frac{\epsilon}{2K}. \Rightarrow \forall n \ge max\{N_1, N_2\} \text{ gilt } \abs{a_n b_n - a b} = \abs{a_n b_n - a_n b + a_n b + a b} = \abs{ a_n (b_n - b) + b (a_n - a)} \le \abs{ a_n (b_n - b)} + \abs{b (a_n - a)} = \underbrace{\abs{a_n}}_{\le K} \abs{b_n - b} + \underbrace{\abs{b}}_{\le K}\abs{a_n - a} < K \frac{\epsilon}{2K} + K \frac{\epsilon}{2K} = \epsilon\)
 \item 
-Zeige \(\liminf{n}{\frac{1}{b_n}} = \frac{1}{\liminf{n}{b_n}}\\
+Zeige \(\liminf{\frac{1}{b_n}} = \frac{1}{\liminf{b_n}}\\
 \abs{\abs{ b_n } - \abs{b}} \le \abs{ b_n - b} < \frac{\abs{b}}{2} \sp \forall n \ge n_0 
 \Rightarrow -\frac{\abs{b}}{2} < \abs{b_n} - \abs{b} < \frac{\abs{b}}{2}
 \Rightarrow \frac{\abs{b}}{2} < \abs{b_n} \Rightarrow \frac{1}{\abs{b_n}} < \frac{2}{\abs{b}} \sp \forall n \ge n_0 
@@ -546,22 +580,22 @@ b_n < b + \epsilon = b + \frac{a-b}{2} = \frac{2b + a - b}{2} = \frac{b + a}{2} 
 \end{satz}
 
 \begin{satz}[Sandwich-Theorem]
-Sei \((a_n)\text{ und }(b_n)\) zwei konvergente Folgen mit der Eigenschaft, dass \(\liminf{n}{a_n} = \liminf{n}{b_n} = a\).
+Sei \((a_n)\text{ und }(b_n)\) zwei konvergente Folgen mit der Eigenschaft, dass \(\liminf{a_n} = \liminf{b_n} = a\).
 Sei \((c_n)\) eine Folge mit der Eigenschaft, dass \(a_n \le c_n \le b_n \quad \forall n \ge n_0\)
-Dann ist \((c_n)\) konvergent und \(\liminf{n}{c_n} = a\).
+Dann ist \((c_n)\) konvergent und \(\liminf{c_n} = a\).
 \begin{proof}
 \(\text{Sei }\epsilon > 0 \Rightarrow \exists  N_1, N_2 \in \N\)
 \[a - \epsilon < a_n < a + \epsilon \quad \forall n \ge N_1\]
 \[a - \epsilon < b_n < a + \epsilon \quad \forall n \ge N_2\]
 \(\Rightarrow \forall n \ge max\{N_1, N_2\} 
 \text{es gilt: } a-\epsilon < a_n \le c_n \le b_n < a + \epsilon \quad  \forall n \ge N
-\Rightarrow \abs{c_n - a} < \epsilon \Rightarrow \liminf{n}{c_n} = a\).
+\Rightarrow \abs{c_n - a} < \epsilon \Rightarrow \liminf{c_n} = a\).
 \end{proof}
 \end{satz}
 
 \begin{bsp}
 \begin{enumerate}
-\item Sei \((a_n)\) eine Folge mit \(0 \le a_n \le \frac{1}{n} \Rightarrow \liminf{n}{a_n} = 0\)
+\item Sei \((a_n)\) eine Folge mit \(0 \le a_n \le \frac{1}{n} \Rightarrow \liminf{a_n} = 0\)
 \item \(a_n = \sqrt{2n} - \sqrt{n}\) ist divergent\\
 denn \(a_n = \left(\sqrt{2n} - \sqrt{n}\right)\frac{\sqrt{2n} + \sqrt{n}}{\sqrt{2n} + \sqrt{n}} = \frac{2_n - n}{\sqrt{n}*\left(\sqrt{2} - 1\right)} \underbrace{\ge}_{\left(\sqrt{2} - 1\right)\le 3} \frac{n}{3\sqrt{n}} = \frac{sqrt{n}}{3} \longtoinf{n} \infty\).
 \end{enumerate}
@@ -569,20 +603,20 @@ denn \(a_n = \left(\sqrt{2n} - \sqrt{n}\right)\frac{\sqrt{2n} + \sqrt{n}}{\sqrt{
 
 \begin{defi}
 Eine Folge \((a_n)\) heißt bestimmt divergent gegen \(\pm \infty \) wenn gilt: \(\forall K \in \R \exists N \in \N \quad \forall n \ge N \sp a_n \lessgtr K \)
-\[\text{Schreibweise: }\liminf{n}{a_n} = \pm \infty \]
+\[\text{Schreibweise: }\liminf{a_n} = \pm \infty \]
 nach oben unbeschränkt oder nach unten unbeschränkt
 \end{defi}
 
 \begin{bsp}
 \begin{enumerate}
 \item Die Fibonacci Folge ist bestimmt divergent gegen \(+ \infty\)
-\item Sei \(a_n = n\text{, dann folgt }\liminf{n}{a_n} = \infty\)
-\item Sei \(\liminf{n}{a_n} = \infty \Leftrightarrow \liminf{n}{-a_n} = - \infty\)
+\item Sei \(a_n = n\text{, dann folgt }\liminf{a_n} = \infty\)
+\item Sei \(\liminf{a_n} = \infty \Leftrightarrow \liminf{-a_n} = - \infty\)
 \item Die Folge \(a_n = (-1)^n\) ist divergent aber nicht bestimmt divergent.
-\item Sei \((a_n)\) bestimmt divergent und \(a_n \ne 0 \sp \forall n \ge n_0\text{, dann folgt }\liminf{n}{\frac{1}{a_n}} = 0\).
+\item Sei \((a_n)\) bestimmt divergent und \(a_n \ne 0 \sp \forall n \ge n_0\text{, dann folgt }\liminf{\frac{1}{a_n}} = 0\).
 \end{enumerate}
 \begin{proof}
-\(\text{Sei } \liminf{n}{a_n} = \infty \Rightarrow \forall \epsilon > 0 \sp \exists N \in \N \sp \forall n \ge N \sp a_n > \frac{1}{\epsilon} > 0 \Rightarrow \frac{1}{a_n} < \epsilon \Rightarrow \abs{\frac{1}{a_n} - 0} < \epsilon \text{, da } a_n > 0 \Rightarrow \liminf{n}{\frac{1}{a_n}} = 0\)
+\(\text{Sei } \liminf{a_n} = \infty \Rightarrow \forall \epsilon > 0 \sp \exists N \in \N \sp \forall n \ge N \sp a_n > \frac{1}{\epsilon} > 0 \Rightarrow \frac{1}{a_n} < \epsilon \Rightarrow \abs{\frac{1}{a_n} - 0} < \epsilon \text{, da } a_n > 0 \Rightarrow \liminf{\frac{1}{a_n}} = 0\)
 \end{proof}
 \end{bsp}
 
@@ -602,9 +636,9 @@ Sei \((a_n)\) eine Folge. Eine Zahl \(a \in \R\) heißt Häufungspunkt (Häufung
 
 \begin{bem}
 \begin{enumerate}
-\item Sei \(\liminf{n}{a_n} = a\), dann ist \(a\) der einzige Häufungspunkt der Folge \((a_n)\).
+\item Sei \(\liminf{a_n} = a\), dann ist \(a\) der einzige Häufungspunkt der Folge \((a_n)\).
 \item Eine bestimmt divergente Folge hat keinen Häufungspunkt.
-\item Die Folge \(a_n = \frac{1}{n}+ (-1)^n\) besitzt die zwei Häufungspunkte \(-1\text{ und }+1\text{. }\liminf{n}{a_{2n}} = \liminf{n}{\frac{1}{2n} (-1)^{2n}} = \liminf{n}{\frac{1}{2n}} + 1 = 1 \text{ und } \liminf{n}{a_{2n+1}} = \liminf{n}{\frac{1}{2n+1} (-1)^{2n+1}} = \liminf{n}{\frac{1}{2n+1}} - 1 = - 1\)
+\item Die Folge \(a_n = \frac{1}{n}+ (-1)^n\) besitzt die zwei Häufungspunkte \(-1\text{ und }+1\text{. }\liminf{a_{2n}} = \liminf{\frac{1}{2n} (-1)^{2n}} = \liminf{\frac{1}{2n}} + 1 = 1 \text{ und } \liminf{a_{2n+1}} = \liminf{\frac{1}{2n+1} (-1)^{2n+1}} = \liminf{\frac{1}{2n+1}} - 1 = - 1\)
 \item Jede konvergente Folge ist beschränkt, aber jede beschränkte Folge muss nicht konvergent sein.
 \end{enumerate}
 \end{bem}
@@ -618,10 +652,10 @@ Jede beschränkte Folge reeller Zahlen besitzt eine konvergente Teilfolge.
 \text{Mit dem Vollständigkeitsaxiom } \exists inf \sp \forall A_k \text{. Sei etwa, } X_k = inf(A_k)\\
 A_0 \supset A_1 \supset \dots \supset A_{k-1} \supset A_k \supset \dots \Rightarrow x_k \le x_{k+1} \sp \forall k \ge 0\\
 \end{math}
-\(\Rightarrow \) d.h. Die Folge \((x_k)_{k \ge 0} \) ist monoton wachsen und durch \(A\) nach oben beschränkt. Nach dem Monotoniekriterium ist die Folge \((x_k)_{k \ge 0}\) konvergent. Sei etwa der \(\liminf{k}{x_k} = z\)\\
+\(\Rightarrow \) d.h. Die Folge \((x_k)_{k \ge 0} \) ist monoton wachsen und durch \(A\) nach oben beschränkt. Nach dem Monotoniekriterium ist die Folge \((x_k)_{k \ge 0}\) konvergent. Sei etwa der \(\liminf[k]{x_k} = z\)\\
  Behauptung: \(z\) ist Häufungspunkt von \((a_n)\).
 \begin{enumerate}[label=\Roman*)]
-\item Sei \(\epsilon > 0 \text{ , da } \liminf{k}{x_k} = z \Rightarrow \exists N \in \N\text{ mit } \abs{x_k - z} < \frac{\epsilon}{2} \sp \forall n \ge N \)
+\item Sei \(\epsilon > 0 \text{ , da } \liminf[k]{x_k} = z \Rightarrow \exists N \in \N\text{ mit } \abs{x_k - z} < \frac{\epsilon}{2} \sp \forall n \ge N \)
 \item Da \(x_k = inf(A_k) = inf\menge{a_m}{m \ge k} \Rightarrow \exists a_{k_m} \text{ mit } \abs{x_k - a_{k_m}} < \frac{\epsilon}{2}\).
 \newline
 \newline
@@ -661,15 +695,15 @@ Folgende Aussagen sind äquivalent
 \end{enumerate}
 \begin{proof}
 \(1) \Rightarrow 2) \) \\
-Sei \(\liminf{n}{a_n} = a \Rightarrow \forall \epsilon > 0 \sp \exists N \sp \forall m \ge N \abs{a_n a} < \frac{\epsilon}{2} \Rightarrow \forall n, m \ge N \\
+Sei \(\liminf{a_n} = a \Rightarrow \forall \epsilon > 0 \sp \exists N \sp \forall m \ge N \abs{a_n a} < \frac{\epsilon}{2} \Rightarrow \forall n, m \ge N \\
 \abs{a_n - a_m} = \abs{a_n - a + a - a_m} \le \abs{a_n - a }  + \abs{a_m - a} <  \frac{\epsilon}{2}+ \frac{\epsilon}{2} = \epsilon \\
 \Rightarrow a_n\) ist eine Cauchy Folge\\
 \(2) \Rightarrow 1) \) \\
 Jede Cauchy Folge ist beschränkt. Sei \(\epsilon = 1 \Rightarrow \exists N \in N \sp \forall n, m \ge N \abs{a_n - a_m} < 1 \Rightarrow \abs{a_n - a_N} < 1 \\
 \Rightarrow \abs{a_n} = \abs{a_n - a_N + a_N} \le \abs{a_n - a_N} + \abs{a_N} < 1 + \abs{a_N} \forall n  \ge N\\
 \Rightarrow \forall n \in \N \sp \abs{a_n} \le max\{\abs{a_0},\dots,\abs{a_{N-1}},\abs{a_N} + 1\} \Rightarrow (a_n)\) ist beschränkt.\\
-Nach dem Satz von Bolzano-Weierstraß existiert eine konvergente Teilfolge \((a_{n_k})_{k \ge 0} \text{ sei } \liminf{k}{a_{n_k}} = a\).\\
-Wir zeigen. \(\liminf{n}{a_n} = a.\)\\
+Nach dem Satz von Bolzano-Weierstraß existiert eine konvergente Teilfolge \((a_{n_k})_{k \ge 0} \text{ sei } \liminf[k]{a_{n_k}} = a\).\\
+Wir zeigen. \(\liminf{a_n} = a.\)\\
 Sei \(\epsilon > 0\). Wähle \(m\) so groß, dass \(\abs{a_m - a_n} < \frac{\epsilon}{2} \forall n,m \ge N \text{ und } \abs{a_{n_k} - a} < \frac{\epsilon}{2} \sp \forall k \ge N\\
 \Rightarrow \abs{a-a_n} = \frac{a - a_{n_k} + a_{n_k} - a_n} \le \abs{a- a_{n_k}} + \abs{a_{n_k} - a_n} < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon \text{, da } n_k \ge n \ge N\)
 \end{proof}
@@ -679,16 +713,16 @@ Sei \(\epsilon > 0\). Wähle \(m\) so groß, dass \(\abs{a_m - a_n} < \frac{\eps
 \begin{bsp}[Verfahren zur Berechnung der Quadratwurzel]
 Seien \(a = 0\), \(a_0 > 0\) reelle Zahlen. Wir definieren die Folge \((x_n)\) rekursiv.
 \begin{align*}
-x_0 \alQ{=} x_0
-x_{n+1} \alQ{=} \frac{1}{2}\left(x_n + \frac{a}{x_n}\right)
+x_0 = x_0
+x_{n+1} = \frac{1}{2}\left(x_n + \frac{a}{x_n}\right)
 \end{align*}
-Wir zeigen: \((x_n)\) ist konvergent und \(\liminf{n}{x_n} = x \text{ und } x^2 = a\).
+Wir zeigen: \((x_n)\) ist konvergent und \(\liminf{x_n} = x \text{ und } x^2 = a\).
 \begin{proof}
 \begin{enumerate}
 \item \(x_n > 0 \forall n \ge 0\) \\
-\IA{n=0} \( x_0 > 0 \) \\
-\IV \(x_{n+1} =  \frac{1}{2}\left(x_n + \frac{a}{x_n}\right)\) \\
-\IS{n \mapsto n+1}
+IA{n=0} \( x_0 > 0 \) \\
+IV \(x_{n+1} =  \frac{1}{2}\left(x_n + \frac{a}{x_n}\right)\) \\
+IS{n $\mapsto$ n+1}
 Sei \(x_n > 0 \Rightarrow x_{n+1} = \underbrace{\frac{1}{2}}_{> 0}\left(\underbrace{x_n}_{> 0} + \underbrace{\overbrace{\frac{a}{x_n}}^{> 0}}_{>0}\right) > 0\) \\
 \(\Rightarrow (x_n) \) ist nach unten durch \(0\) beschränkt.
 \item \(x_n^2 \ge a \quad \forall n \ge 1\) \\
@@ -697,7 +731,7 @@ denn \(x_{n+1}^2 - a = \frac{1}{4}\left(x_n + \frac{a}{x_n}\right)^2  - a = ... 
 \(x_n - x_{n+1} = x_n - \frac{1}{2} \left(x_n + \frac{a}{x_n}\right) = (x_n in klammer rein zeihen und ausrehcnen ) = \frac{1}{(2x_n)(x_n^2 - a)} \ge 0 \\
  weil beides \ge 0 (x_n > 0) \Rightarrow x_>n >= x_{n+1} \) \\
 Nach dem Monotonie-Kriterium ist \((x_n)\) konvergent.
-\item Sei \(x= \liminf{n}{x_n} \Rightarrow x = \liminf{n}{x_{n+1}} = \liminf{n}{\frac{1}{2}\left(x_n + \frac{a}{x_n}\right)} = \frac{1}{2}\left(\liminf{n}{x_n} + \frac{a}{\liminf{n}{x_n}}\right) =  \frac{1}{2}\left(x + \frac{a}{x}\right) \Rightarrow 2x = x + \frac{a}{x} \Rightarrow  \\
+\item Sei \(x= \liminf{x_n} \Rightarrow x = \liminf{x_{n+1}} = \liminf{\frac{1}{2}\left(x_n + \frac{a}{x_n}\right)} = \frac{1}{2}\left(\liminf{x_n} + \frac{a}{\liminf{x_n}}\right) =  \frac{1}{2}\left(x + \frac{a}{x}\right) \Rightarrow 2x = x + \frac{a}{x} \Rightarrow  \\
 x = \frac{a}{x} \Rightarrow x^2 = a\).
 \end{enumerate}
 \end{proof}
@@ -708,24 +742,24 @@ Die positive Lösung der Gleichung \(x^2 = a\) heißt die Quadratwurzeln von \(a
 
 \begin{defi}
 Sei \((a_n)_{n \ge 0}\) eine Folge reeller Zahlen. Sei weiters \(S_N = \sum_{n = 0}^{N}{a_n} \text{ die }N\)-te Partialsumme, dann heißt die Folge \((S_N)_{N \ge 0}\) der Partialsummen eine unendliche Reihe.\\
-\[\text{Schreibweise: }\suminf{n}{a_n}\]
-Konvergiert die Folge \((S_N)\text{ mit }\liminf{N}{S_N} = s \text{, dann heißt } \suminf{n}{a_n} = s\) der Wert der Reihe.Man sagt: Die Reihe \(\suminf{n}{a_n}\) konvergiert.
-\[\text{Schreibweise: } \suminf{n}{a_n} < \infty\].
+\[\text{Schreibweise: }\suminf{a_n}\]
+Konvergiert die Folge \((S_N)\text{ mit }\liminf{S_N} = s \text{, dann heißt } \suminf{a_n} = s\) der Wert der Reihe.Man sagt: Die Reihe \(\suminf{a_n}\) konvergiert.
+\[\text{Schreibweise: } \suminf{a_n} < \infty\].
 \end{defi}
 
 \begin{bsp}
 \begin{enumerate}
-\item Die geometrische Reihe. Sei \(\abs{a} < 1 \Rightarrow \suminf{n}{a^n} = \frac{1}{1-a}\text{. Ist }\abs{a} \ge 1\text{, dann ist }\suminf{n}{a^n}\) divergent.
+\item Die geometrische Reihe. Sei \(\abs{a} < 1 \Rightarrow \suminf{a^n} = \frac{1}{1-a}\text{. Ist }\abs{a} \ge 1\text{, dann ist }\suminf{a^n}\) divergent.
 \begin{proof}
 Die geometrische Summe: \(\sum_{n = 0}^{N}{a^n} = \frac{1-a^{N+1}}{1-a}\) dann:
 \begin{math}
-\IA{N=0} 1 = a^0 = (1-a) / (1- a) = 1\\
-\IV \sum_{n = 0}^{N}{a^n} = \frac{1-a^{N+1}}{1-a}\\
-\IS{N \mapsto N+1}\\
+IA{N=0} 1 = a^0 = (1-a) / (1- a) = 1\\
+IV \sum_{n = 0}^{N}{a^n} = \frac{1-a^{N+1}}{1-a}\\
+IS{N \mapsto N+1}\\
 \sum_{n = 0}^{N+1}{a^n} = a^{N+1} + \sum_{n = 0}^{N}{a^n} \overset{IV}{=} a^{N+1} + \frac{1-a^{N+1}}{1-a} = .... \text{selber} \\ %todo
 \text{Sei }S_N = \sum_{n=0}^{N}{a^n} = \frac{1 - a^{N+1}}{1- a} \\
-\text{Sei }\abs{a} < 1\text{. Dann folgt }\liminf{N}{a^N} = 0 \\
-\Rightarrow \liminf{N}{S_N} = \liminf{n}{\frac{1-a^{N+1}}{1-a}} = \frac{1}{1-a}\\
+\text{Sei }\abs{a} < 1\text{. Dann folgt }\liminf{a^N} = 0 \\
+\Rightarrow \liminf{S_N} = \liminf{\frac{1-a^{N+1}}{1-a}} = \frac{1}{1-a}\\
 \text{Sei }a \ge 1 \Rightarrow \sum_{n=0}^{N}{a^n} \ge \sum_{n=0}^{N}{1} = N+1 \longrightarrow \inf \\
 \text{Sei }a \le -1 \Rightarrow a = -b \text{ mit }b \ge 1 \Rightarrow \sum_{n=0}^{N}{a^n} \ge \sum_{n=0}^{N}{(-1)^nb^n} \text{ divergent}
 \end{math}
@@ -737,7 +771,7 @@ S_{2^N} = \sum_{n = 1}^{2^N}{\frac{1}{n}} = 1 +\underbrace{\frac{1}{2}}_{=\frac{
 \end{math}
 Würde \((S_N)_{N\ge1}\) konvergieren, dann auch die Teilfolge \((S_{2^N})_{N \ge 1}\), da diese dievergiert, divergiert auch \((S_N)_N\)
 \end{proof}
-\item \(\Suminf{n}{\frac{1}{n(n+1)}} = 1\)
+\item $ \Suminf{(\frac{1}{n(n+1)}}= 1 $
 \begin{proof}
 \begin{math}
 S_N = \sum_{n=1}^{N}{\frac{1}{n(n+1)}} = \sum_{n=1}^{N}{\frac{1}{n}} - \frac{1}{n+1} = \sum_{n=1}^{N}{\frac{1}{n}} - \sum_{n=1}^{N}{\frac{1}{n+1}} = 1+ \sum_{n=2}^{N}{\frac{1}{n}} - \sum_{n=2}^{N+1}{\frac{1}{n}} = 1+ \sum_{n=2}^{N}{\frac{1}{n}} - \sum_{n=2}^{N}{\frac{1}{n}} + \frac{1}{N+1} = 1 + \frac{1}{N+1} \longrightarrow 1
@@ -747,13 +781,13 @@ S_N = \sum_{n=1}^{N}{\frac{1}{n(n+1)}} = \sum_{n=1}^{N}{\frac{1}{n}} - \frac{1}{
 \end{bsp}
 
 \begin{satz}
-Seien \suminf{n}{a_n} und \suminf{n}{b_n} zwei konvergente Reihen und \(\lambda \in \R\)
-Dann ist auch \(\suminf{n}{\lambda a_n + b_n}\) konvergent und \( \suminf{n}{\lambda a_n + b_n} = \lambda \suminf{n}{a_n} + \suminf{n}{b_n}\)
+Seien \suminf{a_n} und \suminf{b_n} zwei konvergente Reihen und \(\lambda \in \R\)
+Dann ist auch \(\suminf{\lambda a_n + b_n}\) konvergent und \( \suminf{\lambda a_n + b_n} = \lambda \suminf{a_n} + \suminf{b_n}\)
 \begin{proof} folgt auf grund der Rechenregeln für konvergente Folgen.\end{proof}
 \end{satz}
 
 \begin{satz}[Cauchy-Kriterium für Reihen]
-Die Reihe \(\suminf{k}{a_k}\) ist konvergent, genau dann wenn gilt:
+Die Reihe \(\suminf[k]{a_k}\) ist konvergent, genau dann wenn gilt:
 \[\forall \epsilon > 0 \sp \exists N(\epsilon) \in \N \quad \forall n \ge m \ge N \qquad \abs{\sum_{k=m}^{n}{a_k}} < \epsilon \qquad (\star)\]
 \begin{proof}
 \(S_n - Sm = \sum_{k=0}^{n}{a_k} - \sum{k=0}{m}{a_k} = \sum_{k=m}^{n}{a_k}\). \((\star)\) bedeutet die \((S_n)_n\) ist eine Cauchy-Folge \(\Leftrightarrow (S_n)_n\) ist konvergent
@@ -761,125 +795,125 @@ Die Reihe \(\suminf{k}{a_k}\) ist konvergent, genau dann wenn gilt:
 \end{satz}
 
 \begin{korr}
-Ist \suminf{k}{a_k} konvergent \(\Rightarrow \liminf{k}{a_k} = 0\).
+Ist \suminf[k]{a_k} konvergent \(\Rightarrow \liminf[k]{a_k} = 0\).
 \begin{proof}
-\(a_n = \sum{k = m}{n}{a_k}\text{. Da } \suminf{k}{a_k} < \infty \overset{\Rightarrow}{\text{Cauchy-Kriterium}} \forall \epsilon > 0 \sp \exists N \in \N \quad \forall n \ge N \abs{a_N} = \abs{ \sum{k = m}{n}{a_k}} < \epsilon  \Rightarrow \liminf{n}{a_n} = 0\)
+\(a_n = \sum{k = m}{n}{a_k}\text{. Da } \suminf[k]{a_k} < \infty \overset{\Rightarrow}{\text{Cauchy-Kriterium}} \forall \epsilon > 0 \sp \exists N \in \N \quad \forall n \ge N \abs{a_N} = \abs{ \sum{k = m}{n}{a_k}} < \epsilon  \Rightarrow \liminf{a_n} = 0\)
 \end{proof}
 \end{korr}
 
 \begin{bem}
-Die Umkehrung des Korrolars gilt nicht. z.B. \(\liminf{n}{1/n} = 0\text{ aber }\suminf{1/n} = \infty \) harmonische Reihe.
+Die Umkehrung des Korrolars gilt nicht. z.B. \(\liminf{1/n} = 0\text{ aber }\suminf{1/n} = \infty \) harmonische Reihe.
 \end{bem}
 
 \begin{defi}
-Die Reihe \suminf{k}{a_k} heißt absolut konvergent, wenn wenn die Reihe \suminf{k}{\abs{a_k}} konvergiert.
+Die Reihe \suminf[k]{a_k} heißt absolut konvergent, wenn wenn die Reihe \suminf[k]{\abs{a_k}} konvergiert.
 \end{defi}
 
 \begin{satz}
 Jede absolut konvergente Reihe ist auch konvergent.
 \begin{proof}
 \begin{math}
-\text{Sei }\suminf{k}{\abs{a_k}} < \infty  \overset{\Rightarrow}{\text{Cauchy-Kriterium}} \forall \epsilon > 0 \sp \exists N \in \N \quad \forall n \ge m \ge N \quad \abs{\sum{k=m}{n}{\abs{a_k}}} < \epsilon \overset{\Rightarrow}{\text{Dreiecksungleichung}} \abs{\sum{k=m}{n}{a_k}} \le \abs{\sum{k=m}{n}{\abs{a_k}}} < \epsilon \forall n \ge m \ge N
-\overset{\Rightarrow}{\text{Cauchy-Kriterium}} \suminf{k}{a_k}\text{ ist konvergent.}
+\text{Sei }\suminf[k]{\abs{a_k}} < \infty  \overset{\Rightarrow}{\text{Cauchy-Kriterium}} \forall \epsilon > 0 \sp \exists N \in \N \quad \forall n \ge m \ge N \quad \abs{\sum{k=m}{n}{\abs{a_k}}} < \epsilon \overset{\Rightarrow}{\text{Dreiecksungleichung}} \abs{\sum{k=m}{n}{a_k}} \le \abs{\sum{k=m}{n}{\abs{a_k}}} < \epsilon \forall n \ge m \ge N
+\overset{\Rightarrow}{\text{Cauchy-Kriterium}} \suminf[k]{a_k}\text{ ist konvergent.}
 \end{math}
 \end{proof}
 \end{satz}
 
 \begin{bem}
-Die Umkehrung des Satzes gilt nicht. zB kann man zeigen, dass die Reihe \(\suminf{k}{(-1)^k\frac{1}{k}}\) konvergiert. Aber die Reihe \(\suminf{k}{\abs{(-1)^k\frac{1}{k}}} = \suminf{k}{\frac{1}{k}} = \infty\)
+Die Umkehrung des Satzes gilt nicht. zB kann man zeigen, dass die Reihe \(\suminf[k]{(-1)^k\frac{1}{k}}\) konvergiert. Aber die Reihe \(\suminf[k]{\abs{(-1)^k\frac{1}{k}}} = \suminf[k]{\frac{1}{k}} = \infty\)
 \end{bem}
 
 \begin{satz}[Majoranten-Kriterium]
-Sei \suminf{k}{b_k} konvergent mit \(b_k \ge 0 \forall k \ge N_0\).
-Sei \((a_k)_{k=0}^{\infty}\) eine Folge mit \(\abs{a_k} \le b_k  \forall k \ge N_0 \Rightarrow \suminf{k}{a_k}\) ist absolut konvergent.
+Sei \suminf[k]{b_k} konvergent mit \(b_k \ge 0 \forall k \ge N_0\).
+Sei \((a_k)_{k=0}^{\infty}\) eine Folge mit \(\abs{a_k} \le b_k  \forall k \ge N_0 \Rightarrow \suminf[k]{a_k}\) ist absolut konvergent.
 \begin{proof}
 \begin{math}
-\text{Sei }\suminf{k}{b_k} < \infty \text{ und } b_k > 0 \overset{\Rightarrow}{\text{Cauchy-Kriterium}} \forall \epsilon > 0 \sp \exists N \in \N \quad \forall n \ge m \ge N \quad \abs{\sum{k=m}{n}{b_k}} < \epsilon \overset{\Rightarrow}{\abs{a_k} \le b_k} \abs{\sum{k=m}{n}{\abs{a_k}}} \le \abs{\sum{k=m}{n}{b_k}} < \epsilon \forall n \ge m \ge N
-\overset{\Rightarrow}{\text{Cauchy-Kriterium}} \suminf{k}{\abs{a_k}} \text{ ist konvergent. }\Rightarrow \suminf{k}{a_k}\text{ ist absolut konvergent.}
+\text{Sei }\suminf[k]{b_k} < \infty \text{ und } b_k > 0 \overset{\Rightarrow}{\text{Cauchy-Kriterium}} \forall \epsilon > 0 \sp \exists N \in \N \quad \forall n \ge m \ge N \quad \abs{\sum{k=m}{n}{b_k}} < \epsilon \overset{\Rightarrow}{\abs{a_k} \le b_k} \abs{\sum{k=m}{n}{\abs{a_k}}} \le \abs{\sum{k=m}{n}{b_k}} < \epsilon \forall n \ge m \ge N
+\overset{\Rightarrow}{\text{Cauchy-Kriterium}} \suminf[k]{\abs{a_k}} \text{ ist konvergent. }\Rightarrow \suminf[k]{a_k}\text{ ist absolut konvergent.}
 \end{math}
 \end{proof}
 \end{satz}
 
 \begin{korr}[Minoranten-Kriterium]
-Sei \suminf{k}{b_k} divergent mit $b_k \ge 0 \forall k \ge N_0$.
+Sei \suminf[k]{b_k} divergent mit $b_k \ge 0 \forall k \ge N_0$.
 und $(a_k)_{k=0}^{\infty}$ eine Folge mit $\abs{a_k} \ge b_k  \forall k \ge N_0
-\Rightarrow \suminf{k}{a_k}$ ist auch divergent.
+\Rightarrow \suminf[k]{a_k}$ ist auch divergent.
 \begin{proof}
-Wäre \(\suminf{k}{a_k}\) konvergent, dann wäre nach dem Majoranten-Kriterium \(\suminf{k}{b_k}\) konvergent, da \(\abs{b_k} \le a_k\). \WSP
+Wäre \(\suminf[k]{a_k}\) konvergent, dann wäre nach dem Majoranten-Kriterium \(\suminf[k]{b_k}\) konvergent, da \(\abs{b_k} \le a_k\). \WSP
 \end{proof}
 \end{korr}
 
 \begin{satz}[Quotienten-Kriterium]
-Sei \suminf{n}{a_n} eine Reihe mit \(a_n \ne 0 \forall n \ge n_0\)
+Sei \suminf{a_n} eine Reihe mit \(a_n \ne 0 \forall n \ge n_0\)
 Existiert eine reelle Zahl \(q \text{ mit } 0 < q < 1 \text{ sodass }\abs{\frac{a_{n+1}}{a_n}} \le q < 1 \forall n \ge n_0
-\Rightarrow \suminf{n}{a_n}\) ist absolut konvergent.
+\Rightarrow \suminf{a_n}\) ist absolut konvergent.
 \begin{proof}
 \begin{math}
 \text{Sei } \abs{\frac{a_{n+1}}{a_n}} \le q < 1  \forall n \ge 0 \text{(o.B.d.A.)} \Rightarrow \abs{a_{n+1}} \le q \abs{a_n} \Rightarrow \abs{a_n} \le q\abs{a_{n-1}} \le q^2 \abs{a_{n-2}} \le ... \le q^n \abs{a_0}.
-\text{Also }\abs{a_n} \le q^n \abs{a_0}, da \suminf{n}{\abs{a_n}} \le \suminf{n}{q^n \abs{a_0}} = \abs{a_0} \suminf{n}{q^n} = \abs{a_0} \frac{1}{1-q} \text{, denn } 0 < q < 1\text{, geometrische Reihe.}
-\Rightarrow \text{ aus dem Majoranten-Kriterium folgt \suminf{n}{a_n} ist absolut konvergent.}
+\text{Also }\abs{a_n} \le q^n \abs{a_0}, da \suminf{\abs{a_n}} \le \suminf{q^n \abs{a_0}} = \abs{a_0} \suminf{q^n} = \abs{a_0} \frac{1}{1-q} \text{, denn } 0 < q < 1\text{, geometrische Reihe.}
+\Rightarrow \text{ aus dem Majoranten-Kriterium folgt \suminf{a_n} ist absolut konvergent.}
 \end{math}
 \end{proof}
 \end{satz}
 
 \begin{korr}[einfaches Quotienten-Kriterium]
-Sei \(a_n \ne 0 \sp \fa n > n_0\) und existiert \(\liminf{n}{\abs{\frac{a_n+1}{a_n}}}\text{ und ist }\liminf{n}{\abs{\frac{a_n+1}{a_n}}} < 1
-\Rightarrow \suminf{n}{a_n}\) ist absolut konvergent.
+Sei \(a_n \ne 0 \sp \fa n > n_0\) und existiert \(\liminf{\abs{\frac{a_n+1}{a_n}}}\text{ und ist }\liminf{\abs{\frac{a_n+1}{a_n}}} < 1
+\Rightarrow \suminf{a_n}\) ist absolut konvergent.
 \begin{proof}
 \begin{math}
-\text{Sei } \liminf{n}{\abs{\frac{a_n+1}{a_n}}} = \alpha < 1 \\
+\text{Sei } \liminf{\abs{\frac{a_n+1}{a_n}}} = \alpha < 1 \\
 \text{Sei } \epsilon = \frac{1 - \alpha}{2} > 0 \Rightarrow \exists N \sp \forall n \ge N \quad \abs{\abs{\frac{a_{n+1}}{a_n}} - \alpha} < \epsilon  = \frac{1-\alpha}{2}
 \Rightarrow \abs{\frac{a_(n+1)}{a_n}} < \frac{1-\alpha}{2} + \alpha = \frac{1+\alpha}{2} \overset{<}{\text{da } \alpha < 1} 1+\frac{1}{2} = 1
 \text{Sei } q = \frac{1 + \alpha}{2} < 1 und \abs{\frac{a_(n+1)}{a_n}} < q < 1
 \end{math}
-Nach dem Quotienten-Kriterium ist \suminf{n}{a_n} absolut konvergent
+Nach dem Quotienten-Kriterium ist \suminf{a_n} absolut konvergent
 \end{proof}
 \end{korr}
 
 \begin{bsp}
 \begin{enumerate}
-\item \(\suminf{n}{\frac{1}{n^k}} < \infty \qquad \forall k \ge 2 \) 
+\item \(\suminf{\frac{1}{n^k}} < \infty \qquad \forall k \ge 2 \) 
 [Bemerkung: Die Konvergenz gilt auch \(\fa k \in \R, k > 1\) ohne Beweis]
 \begin{proof}
 \begin{math}
 \frac{1}{n^k} \le \frac{1}{n^2} \qquad \forall k \ge 2 \text{ und }\\
 \frac{1}{n^2} \le \frac{2}{n(n+1)} \text{, denn }\Leftrightarrow 2n^2 \ge n(n+1) \Leftrightarrow n^2 \ge n \Leftrightarrow n \ge 1 \\ 
 \Rightarrow \frac{1}{n^k} \le \frac{2}{n(n+1)} \forall k \ge 2 \text{ und } \\ 
-\suminf{n}{\frac{2}{n(n+1)}} = 2 \suminf{n}{\frac{1}{n(n+1)}} = 2 * 1 = 2 \overset{\Rightarrow}{Majoranten-Kriterium} \suminf{n}{\text{1}{n^k}} < \infty \forall k \ge 2
+\suminf{\frac{2}{n(n+1)}} = 2 \suminf{\frac{1}{n(n+1)}} = 2 * 1 = 2 \overset{\Rightarrow}{Majoranten-Kriterium} \suminf{\text{1}{n^k}} < \infty \forall k \ge 2
 \end{math}
-Frage: Wie sind die Werte der Reihe \(\suminf{n}{1/n^k} \text{ für } k \ge 2 \)
-Euler: \(\suminf{n}{\frac{1}{n^2}} = \frac{\pi^2}{6} \text{, } \suminf{n}{\frac{1}{n^4}} = \frac{\pi^4}{90} \text{, \dots , } \suminf{n}{\frac{1}{n^{2k}}} = C_k \pi^{2k}\)
-Aber: \(\suminf{n}{\frac{1}{n^3}} \in \R \setminus \Q \text{, } \suminf{n}{\frac{1}{n^5}} = ? \text{, \dots , } \suminf{n}{\frac{1}{n^{2k+1}}} = ?\)
+Frage: Wie sind die Werte der Reihe \(\suminf{1/n^k} \text{ für } k \ge 2 \)
+Euler: \(\suminf{\frac{1}{n^2}} = \frac{\pi^2}{6} \text{, } \suminf{\frac{1}{n^4}} = \frac{\pi^4}{90} \text{, \dots , } \suminf{\frac{1}{n^{2k}}} = C_k \pi^{2k}\)
+Aber: \(\suminf{\frac{1}{n^3}} \in \R \setminus \Q \text{, } \suminf{\frac{1}{n^5}} = ? \text{, \dots , } \suminf{\frac{1}{n^{2k+1}}} = ?\)
 \end{proof}
-\item Die Reihe \suminf{n}{\frac{n^2}{2^n}} ist konvergent.
+\item Die Reihe \suminf{\frac{n^2}{2^n}} ist konvergent.
 \begin{proof}[Quotienten-Kriterium]
 \(\abs{\frac{a_{n+1}}{a_n}} = \frac{\frac{(n+1)^2}{2^{n+1}}}{\frac{n^2}{2^n}} = \frac{2^n(n+1)^2}{2^{n+1}n^2} = \frac{1}{2} * \left(\frac{n+1}{n}\right)^2 = \frac{1}{2} \left(\frac{1}{1+\frac{1}{n}}\right)^2 \longrightarrow \frac{1}{2} < 1\)
 \end{proof}
-\item Die Exponentialfunktion Die Reihe $\suminf{k}{\frac{x^k}{k!}}$ ist für jedes $x \in \R$ absolut konvergent
+\item Die Exponentialfunktion Die Reihe $\suminf[k]{\frac{x^k}{k!}}$ ist für jedes $x \in \R$ absolut konvergent
 \begin{proof}[Quotienten-Kriterium]
 \(\abs{\frac{a_{k+1}}{a_k}} = \abs{\frac{\frac{x^{k+1}}{(k+1)!}}{\frac{x^k}{k!}}} = \frac{\abs{x^{k+1}} * k!}{\abs{x^k} * (k+1)!} = \frac{\abs{x}}{k+1} \overset{\longrightarrow}{k \to \infty} 0 \sp \forall x \in \R\\
-\Rightarrow \suminf{k}{\frac{x^k}{k!}}\) ist absolut konvergent.
+\Rightarrow \suminf[k]{\frac{x^k}{k!}}\) ist absolut konvergent.
 \end{proof}
 \end{enumerate}
 \end{bsp}
 
 \begin{bem}
 \begin{enumerate}
-\item Für \(k = 1\) ist die harmonische Reihe \suminf{n}{\frac{1}{n}} divergent.
+\item Für \(k = 1\) ist die harmonische Reihe \suminf{\frac{1}{n}} divergent.
 \item Das Quotienten-Kriterium ist hier nicht anwendbar, denn \\
-\[\suminf{n}{\frac{1}{n}} \qquad \frac{a_{n+1}}{a_n} = \frac{1}{1 + \frac{1}{n}} \longtoinf{n} 1 \not < 1\]
-\[\suminf{n}{\frac{1}{n^2}} \qquad \frac{a_{n+1}}{a_n} = \left(\frac{1}{1 + \frac{1}{n}}\right)^2 \longrightarrow 1 \not < 1\]
+\[\suminf{\frac{1}{n}} \qquad \frac{a_{n+1}}{a_n} = \frac{1}{1 + \frac{1}{n}} \longtoinf{n} 1 \not < 1\]
+\[\suminf{\frac{1}{n^2}} \qquad \frac{a_{n+1}}{a_n} = \left(\frac{1}{1 + \frac{1}{n}}\right)^2 \longrightarrow 1 \not < 1\]
 \end{enumerate}
 \end{bem}
 
 \begin{defi}
-Die Funktion \(exp: \R \to \R \text{ mit } exp(x) \mapsto \e^x = \suminf{n}{\frac{x^n}{n!}}\) heißt Exponentialfunktion.\\
-Die Zahl \(\e = exp(1) = \suminf{n}{\frac{1^n}{n!}} \) heißt Euler'sche Zahl.
+Die Funktion \(exp: \R \to \R \text{ mit } exp(x) \mapsto \e^x = \suminf{\frac{x^n}{n!}}\) heißt Exponentialfunktion.\\
+Die Zahl \(\e = exp(1) = \suminf{\frac{1^n}{n!}} \) heißt Euler'sche Zahl.
 \end{defi}
 
 \begin{bem}
 Wir werden später zeigen:
-\[\e = \frac{1^n}{n!} = \liminf{n}{\left(1 + \frac{1}{n}\right)^n} \approx 2,71828...\]
+\[\e = \frac{1^n}{n!} = \liminf{\left(1 + \frac{1}{n}\right)^n} \approx 2,71828...\]
 \end{bem}
 
 
@@ -915,13 +949,27 @@ zum Formeln raus kopieren
 \begin{enumerate}
 \item \(\to\)
 \item $(a_n)$
-\item \(\liminf{n}{a_n}\)
-\item \(\sum_{n = 0}^{\infty}{a_n}\)
+\item \(\liminf{a_n}\)
+\item \(\suminf{a_n}\)
+\item \longtoinf
 \end{enumerate}
-\[\liminf{n}{a_n}\]
+\[\liminf{a_n}\]
 \[\sum_{n = 0}^{\infty}{a_n}\]
+\[\Sum{n}{k}\]
 
+Verschiedene Größen:
+\begin{enumerate}
+\item $\displaystyle \suminf[n]{a_{n_k} + \frac{b_n}{c_n}}$	
+\item $\textstyle \suminf[n]{a_{n_k} + \frac{b_n}{c_n}}$	
+\item $\scriptstyle \suminf[n]{a_{n_k} + \frac{b_n}{c_n}}$	
+\item$\scriptscriptstyle \suminf[n]{a_{n_k} + \frac{b_n}{c_n}}$	
+\end{enumerate}
 
+\begin{proof}
+\IA \\
+\IV \\
+\IS \\
+\end{proof}
 
 \begin{tikzpicture}[thick]
 \newline
