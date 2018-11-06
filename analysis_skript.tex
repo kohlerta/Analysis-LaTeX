@@ -10,12 +10,13 @@
 \usepackage{ngerman}
 \usepackage{mathtools}
 \usepackage{tikz}
-%\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{geometry}
 
 %Formatting
 \author{Tanja Kohler}
 \title{Analysis für Informatik\small{ \\ - \\ Ass.Prof. Clemens Amstler}}
-%\geometry{verbose,a4paper,tmargin=25mm,bmargin=25mm,lmargin=25mm,rmargin=25mm}
+\geometry{verbose,a4paper,tmargin=25mm,bmargin=25mm,lmargin=25mm,rmargin=25mm}
 
 %Definitions
 %Konstante Mengen und Zahlen C, N, Q Z, R, i, e
@@ -24,11 +25,11 @@
 \def\Q{\ensuremath{\mathbb{Q}} }
 \def\Z{\ensuremath{\mathbb{Z}} }
 \def\R{\ensuremath{\mathbb{R}} }
-\def\im{\ensuremath{\imath} }
+\def\im{\ensuremath{\mathit{i}} }
 \def\e{\ensuremath{\mathit{e}}}
 
 % für Beweise
-\def\WSP{\text{Widerspruch.}}
+\def\WSP{\text{Widerspruch! }}
 \newcommand{\IA}[1][n=0]{\vspace{0.1pt}\ensuremath{\text{IA}\sp#1:}}
 \newcommand{\IV}{\vspace{0.1pt}\ensuremath{\text{IV}\sp}}
 \newcommand{\IS}[1][n \mapsto n+1]{\vspace{0.1pt}\ensuremath{\text{IS}\sp#1}}
@@ -78,7 +79,7 @@
 \newcommand{\longtoInf}[1][n]{\ensuremath{\overset{\scriptscriptstyle{#1 \to -\infty}}{\longrightarrow}}}
 
 % Umgebungsstil, einer für alle
-\newtheoremstyle{thmstyle}{}{0.5cm}{}{}{\bfseries}{}{\newline}{\thmnumber{#2. }\thmname{#1}\quad\thmnote{ #3}\vspace{0.1cm}}
+\newtheoremstyle{thmstyle}{}{0.5cm}{}{}{\bfseries}{}{\newline}{\thmnumber{#2. }\thmname{#1}\quad\thmnote{ #3}}
 
 % umgebungen 
 \theoremstyle{thmstyle}
@@ -98,46 +99,44 @@
 
 \maketitle
 
+\onehalfspace
 \section{Reelle und Komplexe Zahlen}
 \subsection{Reelle Zahlen}
 Die reellen Zahlen \R erfüllen eine Reihe von Axiomen, die in drei Gruppen unterteilt werden können.
 
 \begin{enumerate}[label=\Roman*.]
-\item Algebraische Axiome
-\item Anordnungsaxiome
-\item Vollständigkeitsaxiome
+	\item Algebraische Axiome
+	\item Anordnungsaxiome
+	\item Vollständigkeitsaxiome
 \end{enumerate}
 
 \subsubsection{Algebraische Axiome}
 Die reellen Zahlen bilden mit der Addition \( + : \R \times \R \to \R \text{ mit } (a,b) \mapsto a + b\) und der Multiplikation \( * :  \R \times \R \to \R \text{ mit } (a,b) \mapsto a * b \)
 einen Körper \((\R, +, * )\), der folgende Axiome erfüllt: 
 \begin{enumerate}[label=\arabic*)]
-\item \(\R\) ist bzgl. der Addition eine Abelsche Gruppe. \((\R,+)\)
-\item \(\R \setminus \{0\}\) ist bzgl der Multiplikation eine Abelsche Gruppe. \((\R,*)\)
-\item Das Distributivgesetz gilt: \( \fa a,b,c \in \R \sp a * (b + c) = a * b + a * c\)
+	\item \(\R\) ist bzgl. der Addition eine Abelsche Gruppe. \((\R,+)\)
+	\item \(\R \setminus \{0\}\) ist bzgl der Multiplikation eine Abelsche Gruppe. \((\R,*)\)
+	\item Das Distributivgesetz gilt: \( \fa a,b,c \in \R \sp a * (b + c) = a * b + a * c\)
 \end{enumerate}
 Andere Beispiele von Körpern: \C, \Q, \(\Z_p \text{ für }p\) prim.
 Die Natürlichen Zahlen \(\N = \{1,\dots,\infty \} \) und die Ganzen Zahlen \Z bilden keinen Körper.
 
 \begin{prop}
 \(\fa x \in \R \text{ gilt } 0 * a = 0\).
-\begin{proof}
-\begin{flalign*}
-0+0 = 0 &\Rightarrow a ( 0 + 0 ) = a * 0 &&\text{Distributivgesetz }\\
-& \Rightarrow a * 0 + a * 0 = a * 0 &&\text{\R assiozativ}\\
-&\Rightarrow a * 0 + (a * 0 - a * 0) = (a * 0 - a * 0) && \text{add Inv}\\
-&\Rightarrow a * 0 +  0 && 0+0 = 0\\
-&\Rightarrow a * 0 = 0
-\end{flalign*}
+\begin{proof}\begin{flalign*}0+0 = 0 	&\Rightarrow a ( 0 + 0 ) = a * 0 					&&\text{Distributivgesetz }\\
+							& \Rightarrow a * 0 + a * 0 = a * 0 				&&\text{\R assiozativ}\\
+							&\Rightarrow a * 0 + (a * 0 - a * 0) = (a * 0 - a * 0) 	&& \text{add Inv}\\
+							&\Rightarrow a * 0 +  0	 					&& 0+0 = 0\\
+							&\Rightarrow a * 0 = 0 \end{flalign*}
 \end{proof}
 \end{prop}
 
 \begin{defi}[Potenzschreibweise]
 Für \(a \in \R \text{ und }n \in \Z \text{ wird }a^n\) folgendermapen induktiv definiert:
 \begin{itemize}
-\item \(a^0 = 1\)
-\item \(\fa n > 1 \quad a^{n+1} = a * a^n \)
-\item \(\fa n > 1 \sp \fa a \ne 0 \quad a^{-n} = \left(a^{-1}\right)^n\)
+	\item \(a^0 = 1\)
+	\item \(\fa n > 1 \quad a^{n+1} = a * a^n \)
+	\item \(\fa n > 1 \sp \fa a \ne 0 \quad a^{-n} = \left(a^{-1}\right)^n\)
 \end{itemize}
 \end{defi}
 \newpage
@@ -145,15 +144,15 @@ Für \(a \in \R \text{ und }n \in \Z \text{ wird }a^n\) folgendermapen induktiv 
 \begin{bem}
 \(\fa a, b \in \R \setminus \{0\} \) und \( \fa n, m \in \Z\) gilt:
 \begin{enumerate}[label=(\arabic*)]
-\item $\displaystyle a^n * a^m = a^{n+m} $
-\item $\displaystyle a^{n^m} = a^{n * m} $
-\item $\displaystyle a^n * b^n = (a * b)^n $
+	\item $\displaystyle a^n * a^m = a^{n+m} $
+	\item $\displaystyle a^{n^m} = a^{n * m} $
+	\item $\displaystyle a^n * b^n = (a * b)^n $
 \end{enumerate}
 \begin{proof}\sp
 \begin{enumerate}[label=(\arabic*)]
-\item $\displaystyle a^n * a^m \overset{\text{n. Def.}}{=} \overbrace{a \dots a}^{n\text{-mal}}*\overbrace{a \dots a}^{m\text{-mal}} = \overbrace{a \dots a}^{n+m\text{-mal}} \overset{\text{n. Def.}}{=} a^{n+m}$
-\item $\displaystyle a^{n^m} = a^{\overbrace{n \dots n}^{m\text{-mal}}} = a^{m * n} = a^{n*m}$
-\item $\displaystyle a^n * b^n = \overbrace{a \dots a}^{n\text{-mal}}*\overbrace{b \dots b}^{n\text{-mal}} = \overbrace{a \dots a b \dots b}^{n\text{-mal}} = (a*b)^{n}$
+	\item $\displaystyle a^n * a^m \overset{\text{n. Def.}}{=} \overbrace{a \dots a}^{n\text{-mal}}*\overbrace{a \dots a}^{m\text{-mal}} = \overbrace{a \dots a}^{n+m\text{-mal}} \overset{\text{n. Def.}}{=} a^{n+m}$
+	\item $\displaystyle a^{n^m} = a^{\overbrace{n \dots n}^{m\text{-mal}}} = a^{m * n} = a^{n*m}$
+	\item $\displaystyle a^n * b^n = \overbrace{a \dots a}^{n\text{-mal}}*\overbrace{b \dots b}^{n\text{-mal}} = \overbrace{a \dots a b \dots b}^{n\text{-mal}} = (a*b)^{n}$
 \end{enumerate}
 \end{proof}
 \end{bem}
@@ -161,8 +160,8 @@ Für \(a \in \R \text{ und }n \in \Z \text{ wird }a^n\) folgendermapen induktiv 
 \subsubsection{Anordnungsaxiome}
 Die reellen Zahlen werden in positive Zahlen, negative Zahlen und 0 unterteilt. Dabei ist \(x < 0 \Leftrightarrow -x > 0\) Und es gelten folgende Axiome:
 \begin{enumerate}[label=(\arabic*)]
-\item \(\fa x \in \R \) gilt genau eine der folgenden Bedingungen: \(x > 0\text{, } x = 0\text{, } x < 0 \)
-\item \(\fa x,b \in \R \sp x,b > 0 \text{ gilt: } a + b > 0 \land a * b > 0\)
+	\item \(\fa x \in \R \) gilt genau eine der folgenden Bedingungen: \(x > 0\text{, } x = 0\text{, } x < 0 \)
+	\item \(\fa x,b \in \R \sp x,b > 0 \text{ gilt: } a + b > 0 \land a * b > 0\)
 \end{enumerate}
 Wir schreiben für \(a, b \in \R \sp a > b \Leftrightarrow a - b > 0\text{ und }a \ge b \Leftrightarrow a > b \lor a = b \)
 
@@ -176,45 +175,43 @@ Sei \( a < b \text{ und } b < c \Rightarrow a - b < 0  \text{ und } b - c < 0 \R
 \begin{bem}
 \(\fa a, b, c \in \R\) gilt:
 \begin{enumerate}[label=\alph*)]
-\item \(a < b \Rightarrow a + c < b + c\)
-\item \(a < b \text{ und } c > 0 \Rightarrow a * c < b * c\)
-\item \(a < b \text{ und } c < 0 \Rightarrow a * c > b * c\)
-\item \(a \ne 0 \Rightarrow a^2 > 0 \text{ speziell } 1 > 0\)
-\item \(0 < a < b \text{ und } a < b < 1 \Rightarrow b^{-1} < a^{-1}\)
+	\item \(a < b \Rightarrow a + c < b + c\)
+	\item \(a < b \text{ und } c > 0 \Rightarrow a * c < b * c\)
+	\item \(a < b \text{ und } c < 0 \Rightarrow a * c > b * c\)
+	\item \(a \ne 0 \Rightarrow a^2 > 0 \text{ speziell } 1 > 0\)
+	\item \(0 < a < b \text{ und } a < b < 1 \Rightarrow b^{-1} < a^{-1}\)
 \end{enumerate}
 \end{bem}
 
 \begin{defi}
 Für \(a \in \R\) und der Betrag \abs{a} folgendermaßen definiert. 
 \[\abs{a} = \begin{cases}
- a & \text{wenn } a > 0\\
--a & \text{wenn } a < 0
-\end{cases}\]
+		 a 	& a > 0\\
+		-a 	& a < 0  \end{cases}\]
 \end{defi}
 
+\newpage
 \begin{satz}
 \(\fa b \in \R\) gilt:
 \begin{enumerate}[label=(\arabic*)]
-\item \(\abs{a * b} = \abs{a} * \abs{b}\)
-\item \(\abs{a + b} \le \abs{a} + \abs{b}\) (Dreiecksungleichung)
-\item \(\abs{a - b} \ge \abs{\abs{a} - \abs{b}}\) (umgekehrte Dreiecksungleichung)
+	\item \(\abs{a * b} = \abs{a} * \abs{b}\)
+	\item \(\abs{a + b} \le \abs{a} + \abs{b}\) (Dreiecksungleichung)
+	\item \(\abs{a - b} \ge \abs{\abs{a} - \abs{b}}\) (umgekehrte Dreiecksungleichung)
 \end{enumerate}
-\begin{proof}.
+\begin{proof}\sp
 \begin{enumerate}[label=(\arabic*)]
-\item Beweis durch Falltunterscheidung.
-\item 
-\begin{itemize}
-\item \(\quad a \le \abs{a} \text{ und } \sp \quad b \le \abs{b} \quad \Rightarrow \quad a + \quad b \quad\le\quad \abs{a}+\abs{b} \) 
-\item \(\sp-a \le \abs{a} \text{ und } -b \le \abs{b} \quad \Rightarrow \sp -a + \sp -b \quad\le\quad \abs{a} +\abs{b} \)
-\end{itemize}
-\(\Rightarrow a + b \le \abs{a} + \abs{b} \text{ und } -(a + b) \le \abs{a} + \abs{b} \Rightarrow \abs{a + b} \le \abs{a} + \abs{b} \)
-\item
-\begin{itemize}
-\item \(\abs{a} = \abs{a - b + b} \le \abs{a - b} + \abs{b} \Rightarrow \abs{a} - \abs{b} \le \abs{a-b}\)
-\item \(\abs{b} = \abs{a - b - a} \le \abs{a - b} + \abs{a} \Rightarrow \abs{b} - \abs{a} \le \abs{a-b}\)
-\end{itemize}
-\(\Rightarrow \abs{a} - \abs{b} \le \abs{a-b} \text{ und } - (\abs{a} - \abs{b}) \le \abs{a-b} \\
-\Rightarrow \abs{\abs{a} - \abs{b}} \le \abs{a-b}\)
+	\item Beweis durch Falltunterscheidung.
+	\item \begin{itemize}
+		\item \(\quad a \le \abs{a} \text{ und } \sp \quad b \le \abs{b} \quad \Rightarrow \quad a + \quad b \quad\le\quad \abs{a}+\abs{b} \) 
+		\item \(\sp-a \le \abs{a} \text{ und } -b \le \abs{b} \quad \Rightarrow \sp -a + \sp -b \quad\le\quad \abs{a} +\abs{b} \)
+		\end{itemize}
+		\(\Rightarrow a + b \le \abs{a} + \abs{b} \text{ und } -(a + b) \le \abs{a} + \abs{b} \Rightarrow \abs{a + b} \le \abs{a} + \abs{b} \)
+	\item \begin{itemize}
+		\item \(\abs{a} = \abs{a - b + b} \le \abs{a - b} + \abs{b} \Rightarrow \abs{a} - \abs{b} \le \abs{a-b}\)
+		\item \(\abs{b} = \abs{a - b - a} \le \abs{a - b} + \abs{a} \Rightarrow \abs{b} - \abs{a} \le \abs{a-b}\)
+		\end{itemize}
+		\(\Rightarrow \abs{a} - \abs{b} \le \abs{a-b} \text{ und } - (\abs{a} - \abs{b}) \le \abs{a-b} \\
+	\Rightarrow \abs{\abs{a} - \abs{b}} \le \abs{a-b}\)
 \end{enumerate}
 \end{proof}
 \end{satz}
@@ -231,15 +228,14 @@ Sei \(a > -1\) dann gilt \[\fa n \in \N \sp (1+a)^n \ge 1 + na \]
 \begin{proof}
 \begin{math}
 \begin{aligned}[t]
-&\IA{n=0} \sp 1 = (1 + a)^0 \ge 1 + 0*a = 1&&\\
-&\IV (1+a)^n \ge 1 + na&&\\
-&\IS{n \mapsto n+1} \\ 
-&\begin{aligned}[t]
-(1+a)^{n+1} 	&= (1+a)(1+a)^n &&\\
-			&\overset{IV}{\ge} (1 + a)(1 + na) &&\\
-			&= 1 + na + a + \underbrace{na^2}_{> 0} &&\\
-			&\ge 1 + (n+1)a
-\end{aligned}
+	&\IA{n=0} \sp 1 = (1 + a)^0 \ge 1 + 0*a = 1				&&\\
+	&\IV (1+a)^n \ge 1 + na								&&\\
+	&\IS{n \mapsto n+1} \\ 
+	&\begin{aligned}[t]
+		(1+a)^{n+1} 	&= (1+a)(1+a)^n 					&&\\
+					&\overset{IV}{\ge} (1 + a)(1 + na) 		&&\\
+					&= 1 + na + a + \underbrace{na^2}_{> 0} 	&&\\
+					&\ge 1 + (n+1)a \end{aligned}
 \end{aligned}
 \end{math}
 \newline
@@ -250,18 +246,20 @@ Sei \(a > -1\) dann gilt \[\fa n \in \N \sp (1+a)^n \ge 1 + na \]
 \begin{korr}
 Sei \(a > 0\).
 \begin{enumerate}[label=(\arabic*)]
-\item Ist \sp \(a > 1 \sp \forall k > 0 \sp \exists n \in \N \text{, sodass }a^n > k.\)
-\item \(0 < a < 1 \sp \forall \epsilon > 0 \sp \exists n \in \N \text{, sodass }a^n < \epsilon\)
+	\item Ist \sp \(a > 1 \sp \forall k > 0 \sp \exists n \in \N \text{, sodass }a^n > k.\)
+	\item \(0 < a < 1 \sp \forall \epsilon > 0 \sp \exists n \in \N \text{, sodass }a^n < \epsilon\)
 \end{enumerate}
-\begin{proof}
-\begin{math}
-\begin{aligned}
-\text{(1)\quad} &a > 1 \Rightarrow \exists x \in \R \sp x = a - 1 > 0 \Rightarrow a = x +1 \Rightarrow a^n = (x + 1)^n \Rightarrow \\
-&(x + 1)^n \underset{\text{\tiny{Bernoulli}}}{\ge} 1 + nx  > 1 + k -1 = k \text{, da }\forall n \in \N \sp \exists x > 0 \text{ mit } nx > k - 1\\
-\text{(2)\quad} &\text{Sei } 0 < a < 1 \text{ und } b = \frac{1}{a} > 1 \overset{\text{\tiny{mit (1)}}}{\Rightarrow} \\
-&\exists k \in \R \text{ mit } b^n > k = \frac{1}{\epsilon} \Rightarrow \left(\frac{1}{a}\right)^n > \frac{1}{\epsilon} \Rightarrow  \frac{1}{a^n} > \frac{1}{\epsilon} \Rightarrow a^n < \epsilon.
-\end{aligned}
-\end{math}
+\begin{proof}\sp
+\begin{enumerate}[label=(\arabic*)]
+	\item \begin{math}
+		\text{Sei } a = x + 1 > 1 \Rightarrow a^n = (x + 1)^n \overset{\text{Bernoulli}}{\ge} 1 + nx \\
+		\forall n \in \N \sp \exists x > 0 \text{ mit } nx > k - 1 \Rightarrow a^n \ge 1 + nx > 1 + k -1 = k 
+		\end{math}
+	\item \begin{math}
+		\text{Sei } 0 < a < 1 \text{ und } b = \frac{1}{a} > 1 \overset{\tiny{mit (1)}}{\Rightarrow} \exists k \in \R \text{ mit }  \left(\frac{1}{a}\right)^n = b^n > k = \frac{1}{\epsilon}\\
+		\Rightarrow  \left(\frac{1}{a}\right)^n > \frac{1}{\epsilon} \Rightarrow  \frac{1}{a^n} > \frac{1}{\epsilon} \Rightarrow a^n < \epsilon.
+		\end{math}
+\end{enumerate}
 \end{proof}
 \end{korr}
 
@@ -269,16 +267,19 @@ Sei \(a > 0\).
 Die Zahlengerade \R hat keine Lücken. 
 
 \begin{defi}
-Sei \(M \subset \R\) eine Teilmenge.\begin{enumerate}
-\item \(k \in \R\) heißt obere Schranke von \(M\) wenn gilt, \(\fa x \in M,\sp x \le k\). \(M\) heißt nach oben beschränkt, wenn es eine obere Schranke gibt.
-zB \N ist nicht nach oben beskchränkt, nach dem Archimedischem Axiom.
-\item \(k \in \R \) heißt untere Schranke von \(M\) wenn gilt, \(\fa x \in M,\sp x \ge k\). \(M\) heißt nach unten beschränkt, wenn es eine untere Schranke gibt.
-\item \(M\) heißt beschränkt, wenn eine obere und untere Schranke existiert. 
-Äquivalente Definition für Beschränktheit: \(\exists k \in \R,\sp \abs{x} \le k \sp \fa x \in M\)
-\item \(a \in \R\) heißt Infimum von \(M\), falls \(a\) größte untere Schranke von \(M\) ist. Das heißt \(a\) ist untere Schranke von \(M\) und ist \(k\) eine untere schranke von \(M\), dann folgt \(k \le a\)
-\[\text{Schreibweise: } a = inf(M)\]
-\item \(b \in \R\) heißt Supremum von \(M\), falls \(b\) kleinste obere Schranke von \(M\) ist. Das heißt \(b\) ist obere Schranke von \(M\) und ist \(k\) eine obere schranke von \(M\), dann folgt \(k \ge a\)
-\[\text{Schreibweise: } b = sup(M)\]
+Sei \(M \subset \R\) eine Teilmenge.
+\begin{enumerate}
+	\item \(k \in \R\) heißt obere Schranke von \(M\) wenn gilt, \(\fa x \in M,\sp x \le k\). \(M\) heißt nach oben beschränkt, 
+		wenn es eine obere Schranke gibt. zB \N ist nicht nach oben beskchränkt, nach dem Archimedischem Axiom.
+	\item \(k \in \R \) heißt untere Schranke von \(M\) wenn gilt, \(\fa x \in M,\sp x \ge k\). \(M\) heißt nach unten beschränkt, 
+		wenn es eine untere Schranke gibt.
+	\item \(M\) heißt beschränkt, wenn eine obere und untere Schranke existiert.  Äquivalente Definition für Beschränktheit: 
+		\(\exists k \in \R,\sp \abs{x} \le k \sp \fa x \in M\)
+	\item \(a \in \R\) heißt Infimum von \(M\), falls \(a\) größte untere Schranke von \(M\) ist. Das heißt \(a\) ist untere Schranke 
+		von \(M\) und ist \(k\) eine untere schranke von \(M\), dann folgt \(k \le a\)
+		\[\text{Schreibweise: } a = inf(M)\]
+	\item \(b \in \R\) heißt Supremum von \(M\), falls \(b\) kleinste obere Schranke von \(M\) ist. Das heißt \(b\) ist obere 
+		Schranke von \(M\) und ist \(k\) eine obere schranke von \(M\), dann folgt \(k \ge a\) \[\text{Schreibweise: } b = sup(M)\]
 \end{enumerate}
 \end{defi}
 
@@ -307,9 +308,11 @@ Jede nicht leere, nach unten beschränkte Teilmenge \(M \subset \R\)  besitzt ei
 \begin{prop}
 Jede nicht leere nach oben bescrhänkte Teilmenge \(M \subset \R\) besitzt ein Supremum \(sup(M) \in \R\).
 \begin{proof}
-Seien \(M\) nach oben beschränkt und \(a\) eine obere Schranke von \(M\). 
-\(\Rightarrow \fa x \in M  \quad x \le a \Rightarrow -a \le -x \quad \fa x \in M \Rightarrow -a\) ist untere Schranke von \(-M = \menge{-x}{x \in M} \Rightarrow -M\) ist nach unten beschränkt.\\
-Nach dem Vollständigkeitsaxiom, existiert ein Infimum. Sei \(b= inf(-M) \Rightarrow -a \le b \Rightarrow -b \le a \text{ und } b \le -x \Rightarrow x \le -b \quad \forall x \in M\). Also \(-b\) ist obere Schranke und kleinste obere Schanke. \(\Rightarrow -b = sup(M)\)
+Seien \(M\) nach oben beschränkt und \(a\) eine obere Schranke von \(M\).\\
+\(\Rightarrow \fa x \in M  \quad x \le a \Rightarrow -a \le -x \quad \fa x \in M \Rightarrow -a\) ist untere Schranke von \(-M = \menge{-x}{x \in M}\\
+\Rightarrow -M\) ist nach unten beschränkt. Nach dem Vollständigkeitsaxiom, existiert ein Infimum.\\
+Sei \(b= inf(-M) \Rightarrow -a \le b \Rightarrow -b \le a \text{ und } b \le -x \Rightarrow x \le -b \quad \forall x \in M\).\\
+Also \(-b\) ist obere Schranke und kleinste obere Schanke. \(\Rightarrow -b = sup(M)\)
 \end{proof}
 \end{prop}
 
@@ -321,7 +324,6 @@ analog für Infimum.
 \end{proof}
 \end{prop}
 
-\newpage
 \subsection{Komplexe Zahlen}
 Die Menge der komplexen Zahlen \C sind die Punkte der Ebene \(\R^2 = \{(a,b) : a,b \in \R\}\)
 \[(a,b) = (a, 0) + (0, b) = a (1,0) + b (0, 1)\]
@@ -331,6 +333,8 @@ Wir setzen \(1 = (1,0), \im = (0,1) \Rightarrow z = (a, b) = a + \im b\)\\
         \draw[step=1,help lines,black!0] (-1,-1) grid (4,4);
         \draw[->] (-0.5,0) -- (3.5,0)  node[below right] {$Re(z)$};
         \draw[->] (0,-0.5) -- (0,3.5)  node[above left]{$Im(z)$};
+        \draw[-] (2.21,1.75) -- (2.21,0) ;
+        \draw[-] (2.21,1.75) -- (0,1.75) ;
         \foreach \Point/\PointLabel in {(0,1)/{\im}, (1,0)/1, (2.21,1.75)/{z=(a,b)}}
         \draw[fill=black] \Point circle (0.05) node[above right] {$\PointLabel$};
         \foreach \Point/\PointLabel in {(2.21,0)/a, (0,1.75)/b}
@@ -339,184 +343,260 @@ Wir setzen \(1 = (1,0), \im = (0,1) \Rightarrow z = (a, b) = a + \im b\)\\
 \end{center}
 zusätzlkich verlangen wir \(\im^2 = -1\) Also: \(\C = \menge{z = a + \im b }{ a, b \in \R, \im^2 = -1 }\)
 
+\newpage
 \begin{satz}
 Es gilt:  \C ist ein Körper.
-\begin{proof} nachrechnen. \end{proof} % TODO
+\begin{proof} Sei \( x,y,z \in \C \text{ und } x = a + \im b, y = c + \im d, z = e + \im f \)
+\begin{enumerate}[label=\Roman*)]
+\item \C ist eine abelsche Gruppe bezüglich der Addition:
+\begin{enumerate}[label=\roman*)]
+\item \( x + y = a + \im b + c + \im d = (a+c) + \im (b + d) \in \C\)
+\item \(x + 0 = a + \im b + 0 + \im 0 = a + \im b = x \)
+\item \( \exists -x \in \C \text{ mit } x + -x = a + \im b - a -\im b = 0 \)
+\item \( x+y =  (a+c) + \im (b + d) =  (c + a) + \im (d + b) = y + x \)
+\end{enumerate}
+\item \C ist eine abelsche Gruppe bezüglich der Multiplikation:
+\begin{enumerate}[label=\roman*)]
+\item \( xy = (a + \im b)(c + \im d) = (ac - bd) + \im (ad - bc) \in \C\)
+\item \( 1x = (1+\im 0)(a + \im b ) = a + \im b = x \)
+\item \( \exists x^{-1} \in \C \text{ mit } xx^{-1} = (a + \im b)\frac{a + \im b}{a^2 - b^2} = \frac{a^2 - b^2}{a^2 - b^2} = 1\)
+\item \( xy = (ac - bd) + \im (ad - bc) = (ca - bd) + \im (da - cb) = yx\)
+\end{enumerate}
+\item Das Distributivgesetz gilt:\\
+ \begin{math}\begin{aligned} z (x + y) &= (e + \im f)( a+c + \im b + \im d) \\
+ &= ea + ec - fb - fd + \im fa +\im fc + \im eb + \im ed \\
+ &= ea - fb + \im fa + \im eb + ec - fd + \im ed + \im fc \\
+ &= xy + xz\end{aligned}\end{math}
+\end{enumerate}
+\end{proof}
 \end{satz}
 
 \begin{defi}
-Sei \( z = a + \im b \in \C \), dann heißt \(\bar{z} = a - \im b \) die konjungiert komplexe Zahl von $z$. \\
-\(\abs{z} = \sqrt{z * \bar{z}} = \sqrt{a^2 + b^2}\) heißt Betrag von \(z\)
-$a = Re(z)$ heißt Realteil von $z$
-$b = Im(z)$ heißt Imaginärteil von $z$
+Sei \( z = a + \im b \in \C \)
+\begin{itemize}
+\item \(\overline{z} = a - \im b \) heißt die konjungiert komplexe Zahl von $z$.
+\item \(\abs{z} = \sqrt{z \overline{z}} = \sqrt{a^2 + b^2}\) heißt Betrag von \(z\).
+\item $a = Re(z)$ heißt Realteil von $z$.
+\item $b = Im(z)$ heißt Imaginärteil von $z$.
+\end{itemize}
 \end{defi}
 
+\newpage
 \begin{satz}
-Es gilt: $Re(z) = \frac{z + \bar{z}}{2}$ und $Im(z) = \frac{z - \bar{z}}{2\im}$.
-\begin{proof} selber mit grafik. % TODO
+Es gilt: \[Re(z) = \frac{z + \overline{z}}{2} \text{ und } Im(z) = \frac{z - \overline{z}}{2\im}\]
+\begin{proof} \sp
+\begin{center}
+\begin{tikzpicture}
+        \draw[step=1,help lines,black!0] (-1,-2.5) grid (4,3);
+        \draw[<->] (-0.5,0) -- (3.5,0)  node[below right] {$Re$};
+        \draw[<->] (0,-2) -- (0,2.5)  node[above left]{$Im$};
+        \draw[-] (1.5,1) -- (1.5,0) ;
+        \draw[-] (1.5,1) -- (0,1) ;
+        \draw[fill=black] (1.5,1) circle (0.05) node[above] {$\scriptstyle z$};
+        \foreach \Point/\PointLabel in {(1.5,-1)/\overline{z}, (3, 0)/{z+\overline{z}}, (1.5,0)/{\frac{z+\overline{z}}{2} = Re(z)}}
+        \draw[fill=black] \Point circle (0.05) node[below] {$\scriptstyle \PointLabel$};
+         \foreach \Point/\PointLabel in {(0,2)/{z-\overline{z}}, (0,1)/{Im(z) = \frac{z-\overline{z}}{2\im}}}
+        \draw[fill=black] \Point circle (0.05) node[left] {$\scriptstyle \PointLabel$};
+\end{tikzpicture}
+\end{center}
 \end{proof}
 \end{satz}
 
 \begin{prop}
 Es gilt:
 \begin{enumerate}[label=(\roman*)]
-\item \( \bar{\bar{z}} = z, \bar{z_1} + \bar{z_2} = \bar{z_1 + z_2}, \bar{z_1} * \bar{z_2} = \bar{z_1 * z_2}, \abs{\bar{z}} = \abs{z} \)
-\item \( \abs{z} \ge 0, \abs{z} = 0 \Leftrightarrow z = 0\)
+\item \( \overline{\overline{z}} = z, \quad \overline{z_1} + \overline{z_2} = \overline{z_1 + z_2}, \quad \overline{z_1}* \overline{z_2} = \overline{z_1  z_2}, \quad \abs{\overline{z}} = \abs{z} \)
+\item \( \abs{z} \ge 0, \quad \abs{z} = 0 \Leftrightarrow z = 0\)
 \item \(\abs{z_1 z_2} = \abs{z_1} \abs{z_2}\)
 \item \(\abs{z_1 + z_2} \le \abs{z_1} + \abs{z_2}\)
 \end{enumerate}
-\begin{proof}
+\begin{proof} \sp
 \begin{enumerate}[label=(\roman*)]
-\item nachrechnen. % TODO
-\item nachrechnen. % TODO
-\item \(\abs{z_1 z_2}^2 = (z_1 z_2)(\bar{z_1 z_2}) =  .... \) \\   % TODO
-\item Sei $a, b \in \R \Rightarrow a^2 \le a^2 + b^2 \Rightarrow a \le \sqrt{a^2 + b^2}$ \\
-Sei $ z = a + \im b , a = Re(z) \Rightarrow \abs{Re(z)} \le z \Rightarrow Re(z_1 \bar{z_2}) \le \abs{Re(z_1 \bar{z_2}} \le \abs{z_1 \bar{z_2}} = \abs{z_1}\abs{\bar{z_2}} = \abs{z_1}\abs{z_2}$
-$\Rightarrow \abs{z_1 + z_2}^2 = (z_1 + z_2)\bar{(z_1 + z_2)} = (z_1 + z_2)(\bar{z_1} + \bar{z_2}) = z_1\bar{z_1} + z_2\bar{z_1} + z_1\bar{z_2} z_2\bar{z_2} = \abs{z_1}^2 + z_1\bar{z_2} + \bar{z_1\bar{z_2}} + \abs{z_2}^2 = |z_1|^2 + 2 Re (z1 \bar{z2}) + |z_2|^2 \le $ realteil ersetzen nach oben und dann hamma quadrate , mit wurzel ziehen folgt die aussage. % TODO
+\item
+\begin{itemize}
+\item \(\overline{\overline{z}} = \overline{\overline{a + \im b}} = \overline{a - \im b} = a + \im b = z \)
+\item \(\overline{z_1} + \overline{z_2} = a - \im b + c - \im d = (a + c) - \im (b + d) = \overline{z_1 + z_2} \)
+\item \(\overline{z_1} * \overline{z_2} = (a - \im b) (c - \im d) = (ac + bd) - \im (ac + bc) = \overline{z_1  z_2} \)
+\item \( \abs{\overline{z}} = \sqrt{a^2 + b^2} = \abs{z}\)
+\end{itemize}
+\item
+\begin{itemize}
+\item \(\abs{z} = a^2 + b^2 > 0 \)
+\item \(\abs{z} = a^2 + b^2 = 0 \Leftrightarrow a^2 = - b^2 \Leftrightarrow a = b = 0 \)
+\end{itemize}
+\item \(\abs{z_1 z_2}^2 = (z_1 z_2)(\overline{z_1 z_2}) = (z_1\overline{z_1})(z_2\overline{z_2}) = \abs{z_1}^2\abs{z_2}^2 \Leftrightarrow \abs{z_1 z_2} = \abs{z_1}\abs{z_2} \) 
+\item  \begin{math}  
+\text{Sei }a, b \in \R \sp z \in \C \sp z = a + \im b \\
+\begin{aligned}[t]
+Re(z)^2 = a^2 \le a^2 + b^2 = \abs{z}^2 &\Rightarrow Re(z) \le \abs{Re(z)} = \sqrt{Re(z)} \le \abs{z} \\
+&\Rightarrow Re(z_1\overline{z_2}) \le \abs{z_1\overline{z_2}} = \abs{z_1}\abs{\overline{z_2}} = \abs{z_1}\abs{z_2} \\
+\end{aligned}\\
+\begin{aligned}[t]
+\abs{z_1 + z_2}^2 &= (z_1 + z_2)\overline{(z_1 + z_2)} = (z_1 + z_2)(\overline{z_1} + \overline{z_2}) \\
+&= z_1\overline{z_1} + z_2\overline{z_1} + z_1\overline{z_2} + z_2\overline{z_2} &&\text{denn } z_2\overline{z_1} = \overline{z_1\overline{z_2}} \\
+&= \abs{z_1}^2 + z_1\overline{z_2} + \overline{z_1\overline{z_2}} + \abs{z_2}^2 &&\text{denn } z_1\overline{z_2} + \overline{z_1\overline{z_2}} = 2Re(z_1z_2) \\
+&= \abs{z_1}^2 + 2 Re(z1 \overline{z2}) + \abs{z_2}^2 &&\text{denn } Re(z_1z_2) \le \abs{z_1}\abs{z_2}\\
+&\le  \abs{z_1}^2 + 2\abs{z_1}\abs{z_2} + \abs{z_2}^2 = \left(\abs{z_1} + \abs{z_2}\right)^2
+\end{aligned}\\
+\Rightarrow \abs{z_1 + z_2} \le \abs{z_1} + \abs{z_2}
+\end{math}  
 \end{enumerate}
 \end{proof}
 \end{prop}
 
-% AB HIER FORMATIEREN!!! und Korrigieren
 \section{Folgen und Reihen}
 \subsection{Folgen}
 
-\begin{bsp}
-Betrachte [Rechtwinkliges Dreieck mit beschriftung 1, 1, und $\sqrt{2}$]
-\( \Rightarrow \sqrt{2} \in \R\), aber \(\sqrt{2} \not\in \Q\)
+\begin{bsp} 
+Betrachte 
+\begin{center} \begin{tikzpicture}[scale=3]
+ \draw (0,0) -- node[above] {$1$} (1,0);
+ \draw (1,0) -- node[below left] {$1$} (1,1);
+ \draw (0,0) -- node[below] {$\sqrt{2}$}  (1,1);
+ \end{tikzpicture} \end{center}
+Annahme: \( \sqrt{2} \in \R\), aber \(\sqrt{2} \not\in \Q\)
 \end{bsp}
-\begin{proof}
-indirekter Beweis: Angenommen \(\sqrt{2} \in \Q\), d.h. 
-$\sqrt{2} = \frac{p}{q}\text{ mit }p \in \Z, q \in \N.$
-Wir können annehmen, dass p und q nicht beide durch $2$ teilbar sind (sonst kürzen wir.) teilerfremd.
-\(\Rightarrow 2 = \frac{p^2}{q^2} \Rightarrow p^2 = 2q^2 \Rightarrow 2 | p^2 \Rightarrow 2 | p \Rightarrow \exists m \text{ mit } p = 2 m.\)
-\( \Rightarrow 2q^2 = (2m)^2 = 4m^2 \Rightarrow q^2 = 2m^2 \text{ d.h. } 2 | q^2  \Rightarrow 2 | q \) Also p und q sind beide durch $2$ teilbar.  \WSP p und q sind teilerfremd. $\Rightarrow \sqrt{2} \not\in \Q$
+\begin{proof} Angenommen $\displaystyle \sqrt{2} \in \Q$ \\
+$ \displaystyle \sqrt{2} \in \Q \Rightarrow \frac{p}{q} \text{ mit }p \in \Z, q \in \N $ und p und q nicht beide durch 2 teilbar, sonst kürzen wir.
+\begin{align*}
+2 &= \frac{p^2}{q^2} &\Rightarrow\\
+2q^2 &= p^2 &\Rightarrow &&\text{Also } 2 | p^2 \Rightarrow 2 | p \Rightarrow \exists m \text{ mit } p = 2 m. \\
+2q^2 &= (2m)^2 = 4m^2 &\Rightarrow \\
+q^2 &= 2m^2 & &&\text{ d.h. } 2 | q^2 \Rightarrow 2 | q \text{ Also p und q sind beide durch 2 teilbar.}
+\end{align*}
+ \WSP p und q sind nicht beide durch 2 teilbar. $\displaystyle \Rightarrow \sqrt{2} \not\in \Q \Rightarrow \sqrt{2} \in \R\setminus\Q$
 \end{proof}
 
 \begin{bem}
-\( \sqrt{2} \) ist die positive Lösung von \(a^2 = 2 \Leftrightarrow a = \frac{2}{a} \Leftrightarrow  2a = a + \frac{2}{a} \Leftrightarrow a= \frac{1}{2}\left(a + \frac{2}{a}\right)\)
-Betrachte die rechte Seite dieser Gleichung und berechne diese induktiv
+\( \sqrt{2} \) ist die positive Lösung von $ \displaystyle a^2 = 2 \Leftrightarrow a = \frac{2}{a} \Leftrightarrow  2a = a + \frac{2}{a} \Leftrightarrow a= \frac{1}{2}\left(a + \frac{2}{a}\right)$ \\
+Betrachte die rechte Seite dieser Gleichung und berechne diese induktiv\\
 Setze zB
 \begin{align*}
-a_1 = 1\\
-a_{n+1} = \frac{1}{2}\left(a_n + \frac{2}{a_n}\right)
+a_1 &= 1\\
+a_{n+1} &= \frac{1}{2}\left(a_n + \frac{2}{a_n}\right)
 \end{align*}
-\(a_1 = 1 \quad a_2 = 1,5 \quad a_3 \approx 1.41 \quad a_3 \approx 1,4142 \quad \dots \)
-
-
-Also \(a_n\) nähert sich mit wachsendem \(n\) immer mehr an \(\sqrt{2}\)
-Dies führt zu dem Begriff \textbf{Grenzwert einer Folge}.
+\begin{align*}
+a_1 = 1 && a_2 = 1,5 && a_3 \approx 1.41 && a_3 \approx 1,4142 &&\dots 
+\end{align*}
+Also \(a_n\) nähert sich mit wachsendem \(n\) immer mehr an \(\sqrt{2}\). Dies führt zu dem Begriff \textbf{Grenzwert einer Folge}.
 \end{bem}
 
 \begin{defi}
 Eine Folge $(a_n)_{k=0}^{\infty}$ reeller Zahlen ist eine Abbildung $\N_0 \rightarrow \R\text{ mit } n \mapsto a_n$ 
 Bezeichnung: Wir schreiben für Folgen
-\begin{itemize}
-\item $(a_n)_{k=0}^{\infty}$
-\item $(a_n)_{n\ge0}$
-\item $(a_n)_{n\in\N}$
-\item $(a_n)$
-\item $(a_n)_{n\ge n_0}$ für $n_0 \in \N$
-\end{itemize}
+\begin{align*}
+&(a_n)_{k=0}^{\infty} && (a_n)_{n\ge0} && (a_n)_{n\in\N} & (a_n) && (a_n)_{n\ge n_0} 
+\end{align*}
 \end{defi}
 
+\newpage
 \begin{defi}
+Eine Folge \((a_n)\) heißt 
 \begin{enumerate}
-\item Eine Folge \((a_n)\) heißt (streng) monoton wachsend, wenn \( \fa a \in \N_0 \sp a_n \le a_{n+1} (a_n < a_{n+1})\) gilt.
-\[\text{Schreibweise: }(a_n)\nearrow, (a_n)\uparrow\].
-\item Eine Folge \((a_n)\) heißt (streng) monoton fallend, wenn \( \fa a \in \N \sp a_n \ge a_{n+1} (a_n > a_{n+1})\) gilt.
-\[\text{Schreibweise: } (a_n)\searrow, (a_n)\downarrow\].
-\item Eine Folge \((a_n)\) heißt (streng) monoton, sie (streng) monoton wachsend oder fallend ist.
+\item (streng) monoton wachsend, wenn \( \fa a \in \N \sp a_n \le a_{n+1}	\quad (a_n)\nearrow	\quad (a_n < a_{n+1} \quad (a_n)\uparrow)\)
+\item (streng) monoton fallend, wenn \( \fa a \in \N \sp a_n \ge a_{n+1}	\quad (a_n)\searrow	\quad (a_n > a_{n+1} \quad (a_n)\downarrow)\)
+\item (streng) monoton, sie (streng) monoton wachsend oder (streng) monoton fallend ist.
 \end{enumerate}
 \end{defi}
 
 \begin{bsp}
-\begin{enumerate}
-\item Die konstante Folge \(a_n = a\) ist monoton fallend und steigend.
-\item Die harmonische Folge \(a_n = \frac{1}{n} \fa n \ge 1\) ist streng monoton fallend.
-\item Die alternierende Folge \(a_n = (-1)^n\) ist nicht monoton.
-\item Die geometische Folge, Sei \(a \in \R a_n = a^n \fa n \ge 0 \) ist \(\begin{cases}
-\text{streng monoton wachsend} & \text{wenn } a > 0\\
-\text{streng monoton fallend} & \text{wenn } 0 < a < 1\\
-\text{monoton fallend und steigend} & \text{wenn } a = 1\\
-\text{nicht monoton} & \text{sonst}
-\end{cases} \)
-\item Die Fibonacci Folge \(f_0 = 0, f_1 = 1, f_n = f_{n-1} + f_{n-2} \fa{n \ge 2}\) ist monoton wachsend.
+Ein paar Beispiele zu Folgen:
+\begin{enumerate}[label=(\arabic*)]
+\item Die konstante Folge \(a_n = k\) ist monoton fallend und steigend.
+\item Die harmonische Folge $ \displaystyle a_n = \frac{1}{n} \sp \fa n \ge 1$ ist streng monoton fallend.
+\item Die alternierende Folge $ \displaystyle a_n = (-1)^n $ ist nicht monoton.
+\item Die geometische Folge $ \displaystyle  a_n = a^n \sp \fa n \ge 0 $ Sei $ \displaystyle a \in \R \sp a^n \text{ ist } 
+				\begin{cases}			\text{streng monoton wachsend} 	& a > 0\\
+									\text{streng monoton fallend} 		& 0 < a < 1\\
+									\text{monoton} 					& a = 1\\
+									\text{nicht monoton} 				&  \end{cases} $
+\item Die Fibonacci Folge ist monoton wachsend. $ \displaystyle f_n = \begin{cases}	1				& \text{wenn } n = 0, n = 1\\
+																f_{n-1} + f_{n-2}	& \text{sonst} \end{cases} $
 \end{enumerate}
 \end{bsp}
 
 \begin{defi}[der Konvergenz]
-Eine Folge zeeller Zahlen \((a_n)_{n\in\N}\) heißt konvergent gegen \( a\in\R\)
-\[\text{Schreibweise: } \liminf{a_n} = a, \lim{a_n} = a\]
-Wenn es für jedes \(\epsilon > 0 \text{ ein } N = N(\epsilon) \in \N\) gibt, sodass für alle \(n \ge N\) die Ungleichung \(\abs{a_n - a} < \epsilon\) gilt.\\
-\(a\) heißt der Grenzwert (Limes) der Folge \((a_n)\)\\
-Die Folge \((a_n)\) heißt divergent, wenn sie nicht konvergent ist.
-\[\text{Also: } \lim{a_n} = a \Leftrightarrow \fa \epsilon > 0 \sp \ex N(\epsilon) \in \N \sp \fa n\ge N \abs{a_n - a} < \epsilon\]
+Eine Folge reeller Zahlen \((a_n)_{n\in\N}\) heißt konvergent gegen \( a\in\R\) wenn 
+\[\forall \epsilon > 0 \quad \exists N \in \N \quad \forall n \ge N \quad \abs{a_n - a} < \epsilon\]
+\(a\) heißt der Grenzwert oder Limes der Folge \((a_n)\). Die Folge \((a_n)\) heißt divergent, wenn sie nicht konvergiert. Schreibweise: \(\lim{a_n} = a \) oder \( \lim\limits_{n \to k}{a_n} = a \). Wobei \( k \in \R\cup\{\infty, -\infty\}\)
 \end{defi}
 
 \begin{bem}
-\begin{enumerate}
-\item Sei \(a \in \R, \epsilon > 0 \sp U_\epsilon(a) = (a-\epsilon, a+\epsilon) = \menge{x \in \R}{a - \epsilon < x < a + \epsilon}\text{ heißt }\epsilon\text{-Umgebung von }a\).
+Sei \(a \in \R, \epsilon > 0\). \(U_\epsilon(a) = (a-\epsilon, a+\epsilon) = \menge{x \in \R}{a - \epsilon < x < a + \epsilon} \text{ heißt } \epsilon\text{-Umgebung von }a\).
 \[ a_n \in U_\epsilon(a) \Leftrightarrow a-\epsilon < a_n < a + \epsilon \Leftrightarrow -\epsilon < a_n - a < \epsilon \Leftrightarrow \abs{a_n - a} < \epsilon\]
-Also Die Folge \((a_n)\) konvergiert gegen \(a \Leftrightarrow \) Die Folgenglieder \(a_n\) liegen ab einer Schwelle \(N\) alle in der \(\epsilon\)-Umgebung von \(a\).
-\item \((a_n)\) konvergiert nicht gegen \(a \Leftrightarrow \exists \epsilon > 0 \forall N\in\N \sp \exists n \ge N \abs{a_n - a} \ge \epsilon\).
-\end{enumerate}
+Also: Die Folge \((a_n)\) konvergiert gegen \(a \Leftrightarrow \) Die Folgenglieder \(a_n\) liegen ab einer Schwelle \(N\) alle in der \(\epsilon\)-Umgebung von \(a\). \((a_n)\) konvergiert nicht gegen \(a \Leftrightarrow \exists \epsilon > 0 \forall N\in\N \sp \exists n \ge N \abs{a_n - a} \ge \epsilon\).
 \end{bem}
 
+\newpage
 \begin{bsp}
+Beispiele zur Konvergenz:
 \begin{enumerate}[label=(\arabic*)]
-\item Die harmonische Folge \(a_n = \frac{1}{n} \Rightarrow \liminf{\frac{1}{n}} = 0\)
-\begin{proof}
-Sei \(\epsilon > 0 \text{ Wähle } N > \frac{1}{\epsilon} \abs{a_n - 0} = \abs{\frac{1}{n} - 0} = \frac{1}{n} \le \frac{1}{N} < \epsilon\)
-\end{proof}
-\item Die alternierende Folge \(a_n = (-1)^n\)
-\begin{proof}
-Angenommen \(\exists a \in \R \text{ mit } \liminf{a_n} = a \text{ Wähle } \epsilon > 0 \Rightarrow \exists N \in \N \sp \forall n \ge N \abs{b_n - a} < \frac{1}{2}\).
-Da \(b_{n+1} - b_n = \pm 2 \text{ ist } \forall n \ge N \sp 2 = \abs{b_{n+1} - b_{n}} = \abs{b_{n+1} - a - (b_n - a)} \le \abs{b_{b+1} - a} + \abs{b_n - a} < \frac{1}{2} + \frac{1}{2} = 1 \Rightarrow 2 < 1 \WSP \Rightarrow (b_n) \) ist divergent.
-\end{proof}
-\item Die geometsiche Folge \((a^n)_{n\ge1}\)
-\begin{proof}
-\begin{enumerate}[label=\arabic*. Fall]
-\item \(\abs{a} < 1 \Rightarrow \liminf{a^n} = 0\) \\
-Sei \(\epsilon < 0 \overset{Archimedisches Axiom}{\Rightarrow} \exists N \in \N \sp \abs{a}^N < \epsilon \Rightarrow \forall n \ge N \quad \abs{a^n - 0} = \abs{a}^n \le \abs{a}^N < \epsilon\)
-\item \(a = 1 \Rightarrow a^n = 1 \Rightarrow \liminf{a^n} = 1\)
-\item \(a = -1 \Rightarrow \) divergent weil alternierend.
-\item \(\abs{a} > 1 \forall K > 0 \sp \exists n \in \N \abs{a}^n > K \text{ d.h. } (a^n)\) ist unbeschränkt.
-\end{enumerate}
-\end{proof}
+	\item Die harmonische Folge konvergiert: $ \displaystyle a_n = \frac{1}{n} \Rightarrow \liminf{\frac{1}{n}} = 0$
+	\begin{proof}
+		Sei $ \displaystyle \epsilon > 0 \text{ und } N > \frac{1}{\epsilon} \qquad \abs{a_n - 0} = \abs{\frac{1}{n} - 0} = \frac{1}{n} \le \frac{1}{N} < \epsilon $
+	\end{proof}
+	\item Die alternierende Folge $ \displaystyle b_n = (-1)^n$ ist divergent
+	\begin{proof}
+		Angenommen $ \displaystyle \exists a \in \R \text{ mit } \liminf{b_n} = b \\
+		\text{Wähle } \epsilon = \frac{1}{2} > 0 \Rightarrow \exists N \in \N \sp \forall n \ge N \abs{b_n - b} < \frac{1}{2} \text{. Da } b_{n+1} - b_n = 		\pm 2 \text{ ist } \forall n \ge N \\ 
+		\vphantom{\frac{1}{2}}\ 2 = \abs{b_{n+1} - b_{n}} = \abs{b_{n+1} - b - (b_n - b)} \le \abs{b_{b+1} - b} + \abs{b_n - b} < \frac{1}{2} + \frac{1}{2} = 1 \Rightarrow 2 < 1 \\
+		\WSP \Rightarrow (b_n) $ ist divergent.
+	\end{proof}
+	\item Ob die geometsiche Folge \((a^n)_{n\ge1}\) hängt davon ab, welchen Wert $a$ hat.
+	\begin{proof} Durch Fallunterscheidung
+		\begin{enumerate}
+			\item[Fall 1] \(\abs{a} < 1 \Rightarrow \liminf{a^n} = 0\) \\
+				Sei \(\epsilon > 0 \overset{\text{Archimedisches Axiom}}{\Rightarrow} \sp \exists N \in \N \quad \abs{a}^N < \epsilon \Rightarrow \forall n \ge N \quad\abs{a^n - 0} = \abs{a}^n \le \abs{a}^N < \epsilon\)
+			\item[Fall 2] \(a =  1 \Rightarrow a^n = 1 \Rightarrow \lim{a^n} = 1\)
+			\item[Fall 3] \(a = -1 \Rightarrow \) divergent weil alternierend.
+			\item[Fall 4] \(\abs{a} > 1 \quad  \forall K > 0 \sp \exists n \in \N \quad \abs{a}^n > K \text{ d.h. } (a^n)\) ist unbeschränkt.
+		\end{enumerate}
+	\end{proof}
 \end{enumerate}
 \end{bsp}
 
 \begin{defi}
-Eine Folge \((a_n)\) heißt nach oben (unten) beschränkt, wenn es ein \(A \in \R\) gibt mit \(\forall n \in \N a_n \le A (a_n \ge A)\).
-\((a_n)\) heißt beschränkt, wenn \((a_n)\) nach oben oder unten beschränkt ist. d.h. \(\exists K \in \R \abs{a_n} \le K \forall n \in \N\)
+Eine Folge \((a_n)\) heißt nach oben (unten) beschränkt, wenn es ein \(A \in \R\) gibt mit \[\forall n \in \N \quad a_n \le A \qquad (a_n \ge A)\]
+\((a_n)\) heißt beschränkt, wenn \((a_n)\) nach oben oder unten beschränkt ist. d.h. \[\exists K \in \R \quad \abs{a_n} \le K \lor \abs{a_n} \ge K \quad \forall n \in \N \]
 \end{defi}
 
 \begin{satz}
 Jede konvergente Folge \((a_n)\) ist beschränkt.
 \begin{proof}
-\begin{math}
-\liminf{a_n} = a \text{. Wähle } \epsilon = 1 > 0 \Rightarrow \exists N \in \N : \forall n \ge N \abs{a_n - a} < 1 \Rightarrow \abs{a_n} = \abs{a + (a_n - a)} \le \abs{a} + \abs{a_n- a} = \abs{a} + 1 \forall n \ge N\text{. Sei } K = max\{\abs{a_1}, \abs{a_2}, \dots, \abs{a_n-1}, \abs{a}+1\} \Rightarrow \abs{a_n} < k \forall n \ge 1 
+\begin{math} \displaystyle
+\begin{aligned}[t]
+	&\liminf{a_n} = a. \quad \text{Wähle } \epsilon = 1 > 0 \Rightarrow \exists N \in \N \quad \forall n \ge N \quad \abs{a_n - a} < 1. \\
+	&\abs{a_n} = \abs{a + (a_n - a)} \le \abs{a} + \abs{a_n- a} < \abs{a} + 1 \quad \forall n \ge N \\
+	&\text{Sei } K = max\{\abs{a_1}, \abs{a_2}, \dots, \abs{a_{n-1}}, \abs{a}+1\} \\
+	&\abs{a_n} < K \quad \forall n \ge 1 \\
+\end{aligned}
 \end{math}
 \end{proof}
 \end{satz}
 
 \begin{bem}
-Die Umkehrung gilt nicht. Das heißt eine beschränkte Folge ist nicht konvergent. Gegenbeispiel: die alternierende Folge.
+Die Umkehrung gilt nicht. Das heißt eine beschränkte Folge ist nicht konvergent.\\
+\textit{Gegenbeispiel}: die alternierende Folge $(-1)^n$.
 \end{bem}
 
-
 \begin{satz}[Monotoniekriterium]
-\begin{enumerate}[label=(\arabic*)]
-\item Jede monoton wachsende nach oben beschränkte Folge ist konvergent.
-\item Jede monoton fallende nach unten beschränkte Folge ist konvergent.
-\end{enumerate}
+Sei $(a_n)$ eine Folge. Dann gilt: 
+\begin{itemize}
+\item Ist $(a_n)$ monoton wachsend und nach oben beschränkt, dann ist $(a_n)$ konvergent.
+\item Ist $(a_n)$ monoton fallend  und nach unten beschränkt, dann ist $(a_n)$ konvergent.
+\end{itemize}
 \begin{proof}
-\begin{enumerate}[label=(\arabic*)]
-\item Sei \((a_n)\) monoton wachsen und nach oben beschränkt. Nach dem Vollständigkeitsaxiom existiert \(a := sup\menge{a_n}{n \in \N}\).
-Sei \(\epsilon > 0 \Rightarrow a - \epsilon\) ist keine obere Schranke von \(\menge{a_n}{n \in \N} \Rightarrow \exists N \in \N \quad a-\epsilon < a_N \le a\). Da \((a_n)\) monoton wachsend ist, \( \Rightarrow \forall n \ge N a_N \le a_n \Rightarrow a-\epsilon < a_N \le a_n \le a < a+\epsilon \forall n \ge N \Rightarrow a-\epsilon < a_n < a+\epsilon \forall n \ge N \Rightarrow \abs{a_n - a} < \epsilon \sp \forall n \ge N \Rightarrow \liminf[k]{a_k} = a\).
-\item analog.
-\end{enumerate}
+Es reicht die erste Aussage zu zeigen, denn ist $(a_n)$ monoton fallend und nach unten beschränkt \( \Rightarrow (-a_n)\) ist monoton wachsend und nach oben beschränkt $\Rightarrow (a_n) $ ist konvergent.
+
+Sei also \((a_n) \nearrow \) und nach oben beschränkt. Mit dem Vollständigkeitsaxiom \(\Rightarrow \exists a = sup\menge{a_n}{n \in \N}\). Und sei $\epsilon > 0$ 
+\begin{math}
+\Rightarrow a - \epsilon \text{ ist keine obere Schranke von } \menge{a_n}{n \in \N} \Rightarrow \exists N \in \N \quad a-\epsilon < a_N \le a.\\
+\text{Da }(a_n) \nearrow \begin{aligned}[t] 
+					&\Rightarrow \forall n \ge N 						&& a_N \le a_n \\
+					&\Rightarrow a-\epsilon < a_N \le a_n \le a < a+\epsilon 	&& \forall n \ge N \\
+					&\Rightarrow a-\epsilon < a_n < a+\epsilon 			&& \forall n \ge N \\
+					&\Rightarrow \abs{a_n - a} < \epsilon					&& \forall n \ge N \\
+					&\Rightarrow \liminf{a_n} = a \end{aligned}\end{math}
 \end{proof}
 \end{satz}
 
@@ -528,10 +608,20 @@ Das Monotonie-Kriterium ist äquivalent zur Vollständigkeit.
 Der Grenzwert einer Folge ist eindeutig bestimmt.
 \end{satz}
 \begin{proof}
-\begin{math}
+\begin{math} \displaystyle 
 \text{Angenommen } \liminf{a_n} = a\text{ und }\liminf{a_n} = b\text{ und } a \ne b.\\
-\text{Sei }\epsilon = \frac{1}{2}\abs{b-a} \Rightarrow \exists N_1 \sp \forall n \ge N_1 \sp \abs{a_n - a} < \epsilon \text{ und } \Rightarrow \exists N_2 \sp \forall n \ge N_2 \sp \abs{a_n - b} < \epsilon\text{. Sei } N = max\{N_1, N_2\}.\\
-\Rightarrow n \ge N \sp \abs{b-a} = \abs{(b-a_n) + (a_n - a)} \le \abs{b - a_n} + \abs{a_n - a} = \abs{a_n - b} + \abs{a_n - a} < \frac{1}{2}\abs{b-a} + \frac{1}{2}\abs{b-a} = \abs{b-a}  \Rightarrow \abs{b-a}  < \abs{b-a} \WSP \Rightarrow a = b
+\text{Sei }\epsilon = \frac{1}{2}\abs{b-a} \begin{aligned}[t]
+								&\Rightarrow \exists N_1 \sp \forall n \ge N_1 \sp \abs{a_n - a} < \epsilon \\
+								&\Rightarrow \exists N_2 \sp \forall n \ge N_2 \sp \abs{a_n - b} < \epsilon \end{aligned}\\
+\text{Sei } N = max\{N_1, N_2\} \quad \forall n \ge N \quad 
+\begin{aligned}[t]
+\abs{b-a} 	&= \abs{(b-a_n) + (a_n - a)} \\
+		&\le \abs{b - a_n} + \abs{a_n - a} \\
+		&= \abs{a_n - b} + \abs{a_n - a} \\
+		&< \frac{1}{2}\abs{b-a} + \frac{1}{2}\abs{b-a} \\
+		&= \abs{b-a}\\
+\end{aligned}\\
+\Rightarrow \abs{b-a}  < \abs{b-a} \WSP \Rightarrow a = b
 \end{math}
 \end{proof}
 
@@ -542,20 +632,26 @@ Seien \((a_n)\) und \((b_n)\) zwei konvergente Folgen. Dann gilt:
 \item \((a_n \pm b_n)\text{ ist konvergent und }\liminf{a_n  \pm  b_n} = \liminf{a_n}  \pm \liminf{b_n}\).
 \item \(\lambda (a_n)\text{ ist konvergent und }\liminf{\lambda a_n} = \lambda \liminf{a_n}\).
 \item \((a_n b_n)\text{ ist konvergent und }\liminf{a_n b_n} = \liminf{a_n} \lim{n}{b_n}\).
-\item Ist \((b_n) \ne 0 \forall n \ge n_0\text{ und }\liminf{b_n} \ne 0\text{. Dann } \frac{a_n}{b_n} \text{ ist konvergent und }\liminf{\frac{a_n}{b_n}} = \frac{\liminf{a_n}}{\liminf{b_n}}\).
+\item Ist \((b_n) \ne 0 \sp \forall n \ge n_0\text{ und }\liminf{b_n} \ne 0\text{. Dann ist } \left(\frac{a_n}{b_n}\right) \text{ konvergent und }\liminf{\frac{a_n}{b_n}} = \frac{\liminf{a_n}}{\liminf{b_n}}\).
 \item \(a_n \le b_n \text{ dann ist }\liminf{a_n} \le \liminf{b_n} \sp \forall n \ge n_0\).
 \end{enumerate}
 \begin{proof}
 Sei \(\liminf{a_n} = 0\text{ und } \lim{b_n} = b\).
 \begin{enumerate}
-\item Sei $\epsilon > 0 \Rightarrow \exists N_1, N_2, \in \N \\
-\abs{a_n - a} < \frac{\epsilon}{2} \forall n \ge N_1\\
-\abs{b_n - b} < \frac{\epsilon}{2} \forall n \ge N_2\\
-\Rightarrow \forall n \ge max{N_1, N_2}\\
-\abs{(a_n + b_n) - (a + b)} =\abs{(a_n - a) + (b_n - b)} \le \abs{a_n - a}+ \abs{b_n - b} < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon.
-\Rightarrow\text{ beschränkt und } \liminf{a_n+b_n} = a+b$.\\
-analog für $-$
-\item Übung
+\item Sei $\epsilon > 0 \Rightarrow \exists N_1, N_2, \in \N \quad 
+\begin{aligned}[t]
+&\abs{a_n - a} < \frac{\epsilon}{2} \quad \forall n \ge N_1 \quad \text{ und } \quad  \abs{b_n - b} < \frac{\epsilon}{2} \quad \forall n \ge N_2\\
+&\Rightarrow \forall n \ge max\{N_1, N_2\}\\
+& \begin{aligned}[t]
+\abs{(a_n \pm b_n) - (a \pm b)} &= \abs{(a_n - a) \pm (b_n - b)} \\
+&\le \abs{a_n - a} + \abs{b_n - b} < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon.
+\end{aligned}\\
+&\Rightarrow (a_n \pm b_n) \text{ beschränkt und } \liminf{a_n \pm b_n} = a+b.
+\end{aligned}$
+\item Sei $ \displaystyle \epsilon > 0 \Rightarrow \exists N \in \N \begin{aligned}[t] \quad 
+		&\abs{a_n - a} < \frac{\epsilon}{\lambda} \quad \forall n \ge N\\
+		& \abs{\lambda a_n - \lambda a} = \abs{\lambda(a_n - a)} = \abs{\lambda}\abs{a_n - a} < \lambda \frac{\epsilon}{\lambda} = \epsilon
+		\end{aligned}$
 \item Jede konvergente Folge ist beschränkt \(\Rightarrow \exists K \in \R \text{ mit } \abs{a_K} \le K \text{ und } \abs{b} \le K\\
 Sei \epsilon > 0 \Rightarrow \exists N_1, N_2 \in \N \sp \abs{a_n - a} < \frac{\epsilon}{2K} \text{ und } \abs{b_n - b} < \frac{\epsilon}{2K}. \Rightarrow \forall n \ge max\{N_1, N_2\} \text{ gilt } \abs{a_n b_n - a b} = \abs{a_n b_n - a_n b + a_n b + a b} = \abs{ a_n (b_n - b) + b (a_n - a)} \le \abs{ a_n (b_n - b)} + \abs{b (a_n - a)} = \underbrace{\abs{a_n}}_{\le K} \abs{b_n - b} + \underbrace{\abs{b}}_{\le K}\abs{a_n - a} < K \frac{\epsilon}{2K} + K \frac{\epsilon}{2K} = \epsilon\)
 \item 
@@ -992,6 +1088,21 @@ Verschiedene Größen:
         \draw \Point circle (0.05) node[above right] {$\PointLabel$};
 \end{tikzpicture}
 \end{center}
+
+ \begin{tikzpicture}[scale=3]
+ \draw[step=.5cm, gray, very thin] (-1.2,-1.2) grid (1.2,1.2); 
+ \filldraw[fill=green!20,draw=green!50!black] (0,0) -- (3mm,0mm) arc (0:30:3mm) -- cycle; 
+ \draw[->] (-1.25,0) -- (1.25,0) coordinate (x axis);
+ \draw[->] (0,-1.25) -- (0,1.25) coordinate (y axis);
+ \draw (0,0) circle (1cm);
+ \draw[very thick,red] (30:1cm) -- node[left,fill=white] {$\sin \alpha$} (30:1cm |- x axis);
+ \draw[very thick,blue] (30:1cm |- x axis) -- node[below=2pt,fill=white] {$\cos \alpha$} (0,0);
+ \draw (0,0) -- (30:1cm);
+ \foreach \x/\xtext in {-1, -0.5/-\frac{1}{2}, 1} 
+   \draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north,fill=white] {$\xtext$};
+ \foreach \y/\ytext in {-1, -0.5/-\frac{1}{2}, 0.5/\frac{1}{2}, 1} 
+   \draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east,fill=white] {$\ytext$};
+ \end{tikzpicture}
 
 
 \end{document}
