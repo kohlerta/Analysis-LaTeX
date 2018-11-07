@@ -27,6 +27,7 @@
 \def\R{\ensuremath{\mathbb{R}} }
 \def\im{\ensuremath{\mathit{i}} }
 \def\e{\ensuremath{\mathit{e}}}
+\renewcommand{\epsilon}{\ensuremath{\varepsilon}}
 
 % für Beweise
 \def\WSP{\text{Widerspruch! }}
@@ -228,7 +229,7 @@ Sei \(a > -1\) dann gilt \[\fa n \in \N \sp (1+a)^n \ge 1 + na \]
 \begin{proof}
 \begin{math}
 \begin{aligned}[t]
-	&\IA{n=0} \sp 1 = (1 + a)^0 \ge 1 + 0*a = 1				&&\\
+	&\IA{n=0} \sp 1 = (1 + a)^0 \ge 1 + 0*a = 1					&&\\
 	&\IV (1+a)^n \ge 1 + na								&&\\
 	&\IS{n \mapsto n+1} \\ 
 	&\begin{aligned}[t]
@@ -251,11 +252,11 @@ Sei \(a > 0\).
 \end{enumerate}
 \begin{proof}\sp
 \begin{enumerate}[label=(\arabic*)]
-	\item \begin{math}
+	\item \begin{math} \displaystyle
 		\text{Sei } a = x + 1 > 1 \Rightarrow a^n = (x + 1)^n \overset{\text{Bernoulli}}{\ge} 1 + nx \\
 		\forall n \in \N \sp \exists x > 0 \text{ mit } nx > k - 1 \Rightarrow a^n \ge 1 + nx > 1 + k -1 = k 
 		\end{math}
-	\item \begin{math}
+	\item \begin{math} \displaystyle
 		\text{Sei } 0 < a < 1 \text{ und } b = \frac{1}{a} > 1 \overset{\tiny{mit (1)}}{\Rightarrow} \exists k \in \R \text{ mit }  \left(\frac{1}{a}\right)^n = b^n > k = \frac{1}{\epsilon}\\
 		\Rightarrow  \left(\frac{1}{a}\right)^n > \frac{1}{\epsilon} \Rightarrow  \frac{1}{a^n} > \frac{1}{\epsilon} \Rightarrow a^n < \epsilon.
 		\end{math}
