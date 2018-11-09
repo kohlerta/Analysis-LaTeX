@@ -12,11 +12,13 @@
 \usepackage{tikz}
 \usepackage{setspace}
 \usepackage{geometry}
+\usepackage{wrapfig}
 
-%Formatting
+
 \author{Tanja Kohler}
 \title{Analysis für Informatik\small{ \\ - \\ Ass.Prof. Clemens Amstler}}
 \geometry{verbose,a4paper,tmargin=25mm,bmargin=25mm,lmargin=25mm,rmargin=25mm}
+\graphicspath{ {./images/} }
 
 %Definitions
 %Konstante Mengen und Zahlen C, N, Q Z, R, i, e
@@ -65,6 +67,8 @@
 
 % absolutbetrag mit abständen zwischen | und inhalt.
 \newcommand{\abs}[1]{\ensuremath{\left|\:#1\:\right|}}
+\newcommand{\floor}[1]{\ensuremath{\left\lfloor\:#1\:\right\rfloor}}
+\newcommand{\ceil}[1]{\ensuremath{\left\lceil\:#1\:\right\rceil}}
 
 % mathematische definitionen, menge, funktion
 \newcommand{\menge}[2]{\ensuremath{\{#1\sp : \sp #2\}}}
@@ -1026,15 +1030,7 @@ Seien die Reihen \suminf{a_n} und \suminf{b_n} absolut konvergent. Für $n \in \
 \[c_n = \sum_{k = 0}{n}{a_kb_{n-k}} = a_0b_n + \dots + a_nb_0\]
 Dann gilt: Die Reihe \suminf{c_n} ist absolut konvergent und $\suminf{c_n} = \left( \suminf{a_n} \right)  \left( \suminf{b_n} \right) $
 \proof[Beweisidee] 
-\begin{center}
-\begin{tikzpicture}
-        \draw[step=1,help lines,black!0] (-1,-1) grid (4,4);
-        \draw[->] (-0.5,0) -- (3.5,0)  node[below right] {$\suminf{a_n}$};
-        \draw[->] (0,-0.5) -- (0,3.5)  node[above left]{$\suminf{b_n}$};
-        %\foreach \Point/\PointLabel in {(1,1), (1,2), (1,3), (1,4), (2,1)} % alle punkte 
-% einzeichnungen bei x und y linien - und mit schrägenstrichen verbinden
-\end{tikzpicture}
-\end{center}
+%Beweisidee_Cauchy_Produkt.JPG
 \end{satz}
 
 \begin{korr}[Funktionalgleichung der Exponentialfunktion]
@@ -1044,7 +1040,11 @@ Sei $exp(x) = \e^x = \suminf{\frac{x^n}{n!}}$ die Exponentialfunktion. Dann gilt
 \begin{proof}
 Wir bilden das Cauchy-Produkt, der absolut konvergenten Reihen $e^x$ und $ e^y$. Dafür verwenden wir den Binomischen Lehrsatz: $(a+n)^n = \sum_{k_0}^{n}{\binom{n}{k}a^kb^{n-k}} = \sum_{k_0}^{n}{\\frac{n!}{k!(n-k)!}a^kb^{n-k}}$\\
 \begin{math} \displaystyle
-e^x e^y = \left(\suminf{\frac{x^n}{n!}}\right)\left(\suminf{\frac{y^n}{n!}}\right) = \suminf{\sum_{k = 0}{n}{\frac{x^k}{k!}\frac{y^{n-k}}{(n-k)!}}} =  \suminf{\frac{1}{n!}\left(\sum_{k = 0}{n}{\frac{n!}{k!(n-k)!}x^ky^{n-k}}\right)} = \suminf{\frac{1}{n!}\left(\sum_{k = 0}{n}{\binom{n}{k}x^ky^{n-k}}\right)} \overset{Binom.LS}{=} \suminf{\frac{1}{n!}(x+y)^n)}} = e^{x+y}
+\begin{aligned}
+e^x e^y &= \left(\suminf{\frac{x^n}{n!}}\right)\left(\suminf{\frac{y^n}{n!}}\right) = \suminf{\sum_{k = 0}^{n}{\frac{x^k}{k!}\frac{y^{n-k}}{(n-k)!}}} \\
+&= \suminf{\frac{1}{n!}\left(\sum_{k = 0}^{n}{\frac{n!}{k!(n-k)!}x^ky^{n-k}}\right)} = \suminf{\frac{1}{n!}\left(\sum_{k = 0}^{n}{\binom{n}{k}x^ky^{n-k}}\right)}\\
+& \overset{Binom.LS}{=} \suminf{\frac{1}{n!}(x+y)^n} = e^{x+y}
+\end{aligned}
 \end{math}
 \end{proof}
 \end{korr}
@@ -1061,7 +1061,7 @@ Sei $ D \subset \R$. Eine Funktion $f : D \to \R \text{ mit } x \mapsto f(x) $. 
 \item $f : \R \to \R \text{ mit } x \mapsto f(x) = x $ heißt identische Funktion % + BILD
 \item $f : \R \to \R \text{ mit } x \mapsto f(x) = \abs{x} $ heißt Betragsunktion % + BILD
 \item $f : \R \to \R \text{ mit } x \mapsto f(x) = \floor{x} $ % + BILD
-\item $f : \R_+ \to \R \text{ mit } x \mapsto f(x) = \sqrt[x] $ heißt Wurzelfunktion % + BILD
+\item $f : \R_+ \to \R \text{ mit } x \mapsto f(x) = \sqrt{x} $ heißt Wurzelfunktion % + BILD
 \item $f : \R \to \R \text{ mit } x \mapsto f(x) = e^x $ heißt Exponentialfunktion % + BILD
 \item $p : \R \to \R \text{ mit } x \mapsto p(x) = \sum_{k=0}{n}{a_kx^k} \text{ mit } a_k \in \R $ heißt Polynomfunktion % ev BILD
 \end{enumerate}
@@ -1073,92 +1073,94 @@ Seien $f,g : D \to \R \text{ Funktionen und } \lambda \in \R.$ Wir definieren.
 \[(f+g)(x) = f(x) + g(x)\]
 \[(fg)(x) = f(x) g(x)\]
 \[(\lambda f)(x) = \lambda f(x) \]
-Sei weiters g(x) \ne 0 \forall x }in D
-\frac{f}{g} : D \to \R mit \left(\frac{f}{g}\right)(x) = \frac{f(x)}{g(x)} \\
+Sei weiters $g(x) \ne 0 \forall x \in D
+\frac{f}{g} : D \to \R mit \left(\frac{f}{g}\right)(x) = \frac{f(x)}{g(x)} $\\
 Sei $ f: D \to \R, g: E \to \R, mit f(D) \subset E (f(D) = \menge{f(x)}{x \in D}
-(g ring f)  :  D \to \R
-(g ring f)(x) = g(f(x)) ..
+(g  \circ  f)  :  D \to \R
+(g  \circ  f)(x) = g(f(x)) ..$
 %Grafik - D---f--->E----g--->E----g°f--> D
 \end{defi}
  
 \begin{bsp}
 \begin{enumerate}
-\item f: \R_+ -> \R mit f(x) = \sqrt{x}
- g: \r-> \R
- f°g(x) = f(g(x)) = f(x^2) = \sqrt{x^2} = \abs{x}
-\item
+\item $f: \R_+ -> \R mit f(x) = \sqrt{x}
+ g: \R -> \R
+ f \circ g(x) = f(g(x)) = f(x^2) = \sqrt{x^2} = \abs{x}$
+\item $
  p(x) = \sum_{k=0}{n}{a_kx^k}  
  q(x) = \sum_{k=0}{n}{b_kx^k}  
- D:= \menge{x\in \R}{q(x) \ne 0\
+ D:= \menge{x\in \R}{q(x) \ne 0}
  r = \frac{p}{q} : D \to \R
- r(x) = \frac{p(x)}{q(x)} heißt rationale Funktion.
+ r(x) = \frac{p(x)}{q(x)} heißt rationale Funktion.$
 \end{enumerate}
 \end{bsp}
 
 \begin{defi}[Grenzwert einer Funktion]
-Sei $f : D \to \R$ eine Funktion, $a \in \R$ eine Zahl, sodass es mindestens eine Folge $(a_n)$ gibt mit $a_n \in D$ mit $\liminf{a_n} = a $ gibt. Man definiert \(\lim\limits_{x \to a}{f(x) = c\), wenn gilt: Für jede Folge (x_n)_{n\ge0} mit \liminf{x_n} = a  gilt lim\liminf{f(x_n)} = c.
-c heißt dann Grenzwert
+Sei $f : D \to \R$ eine Funktion, $a \in \R$ eine Zahl, sodass es mindestens eine Folge $(a_n)$ gibt mit $a_n \in D$ mit $\liminf{a_n} = a $ gibt. Man definiert \(\lim\limits_{x \to a}{ f(x)} = c\), wenn gilt: Für jede Folge $(x_n)_{n\ge0}$ mit $\liminf{x_n} = a$  gilt $\liminf{f(x_n)} = c$.\\
+$c$ heißt dann Grenzwert
 \end{defi}
  
 \begin{defi}[Stetigkeit]
-Sei f. D -> \R und a \in D . F heißt stetig in a, wenn  \(\lim\limits_{x \to a}{f(x) = f(a)\)
-D.h. Für \jede Folge (x_n) mit lim(x_n) ) a ist lim(f(x_n)) = f(a)
-f heißt stetig in D, falls f in jedem Punkt a \in D  stetig ist.
+Sei $f: D \to \R$ und $a \in D$. $f$ heißt stetig in $a$, wenn \(\lim\limits_{x \to a}{f(x)} = f(a)\). Das heißt für jede Folge $(x_n)$ mit $\liminf{x_n} = a$ ist $\liminf{f(x_n)} = f(a)$.\\
+$f$ heißt stetig in $D$, falls $f$ in jedem Punkt $a \in D$ stetig ist.
 %grafik stetigefunktionbsp.gif
 %grafik nichtstetigefunktionbsp.gif
 \end{defi}
 
 \begin{bem}
-f ist in a \in D nicht stetig \Leftrightarrow \exists  eine Folge (x_n) mit lim x_n = a aber die Folge (f(x_n) ) ist divergent oder
-lim (f(x_n)) \ne f(a)
+$f$ ist in $a \in D$ nicht stetig $\Leftrightarrow \exists$ eine Folge $(x_n)$ mit $\liminf{x_n} = a$ aber die Folge $(f(x_n))$ ist divergent oder $\liminf{f(x_n)} \ne f(a)$
 \end{bem}
 
 \begin{prop}[Rechenregeln]
-\begin{enumerate}[label=\alpha*)]
-\item Seien f, g : D \to \R stetig  \lambda \in \R
-\Rightarrow f+ g, fg, \labda f : D \to \R ist stetig 
-Sei g(x) \ne 0 \forall x \in D \Rightarrow \frac{f}{g}: D \to \R ist stetig
-\item Seien f: D \to \R und g:E \to \R stetig, mit f(D) \subset E \Rightarrow g°f : D \to \R ist stetig
+\begin{enumerate}
+\item Seien  $f, g : D \to \R$ stetig $\lambda \in \R \Rightarrow f+ g, fg, \lambda f : D \to \R$ ist stetig.
+\item Sei $g(x) \ne 0 \forall x \in D \Rightarrow \frac{f}{g}: D \to \R$ ist stetig.
+\item Seien $f: D \to \R $ und $g:E \to \R$ stetig, mit $f(D) \subset E \Rightarrow g \circ f : D \to \R$ ist stetig.
 \end{enumerate}
-\begin{proof}
+\begin{proof} \begin{math}
 f+g : D \to \R. Sei x_n eine beliebige Folge mit \liminf{(x_n)} = a. 
 \liminf{(f+g)(x_n)} = nach Definition = \liminf{f(x_n) + g(x_n)} = Rechenregeln f Folgen = \liminf{f(x_n)} +  \liminf{g(x_n)} = f(a) + g(a) = nach Definition = (f+g)(a). \\ analog für mal, und \lambda und division. %TODO
 \\
-g°f : D \to \R. Sei x_n eine beliebige Folge mit \liminf{(x_n)} = a, da f stetig ist folgt: \lim{(f(x_n)} = f(a)
+g \circ f : D \to \R. Sei x_n eine beliebige Folge mit \liminf{(x_n)} = a, da f stetig ist folgt: \lim{(f(x_n)} = f(a)
 Sei y_n = f(x_n)  und b = f(a) . Da f(D) \subset E folgt \liminf{y_n} = b \in E\\
 Da g stetig in b ist, folgt \liminf(g(x_n)) = g(b) \\
-Also: \liminf{(g°f)(x)} = \liminf{g(f(x_n))} = \liminf{g(x_n)} = g(b) = g(f(a)) = (g°f)(a)
+Also: \liminf{(g \circ f)(x)} = \liminf{g(f(x_n))} = \liminf{g(x_n)} = g(b) = g(f(a)) = (g \circ f)(a)
+\end{math}
 \end{proof}
 \end{prop}
 
-\begin{satz}[\epsilon-\delta Kriterium für Stetigkeit]
-Sei f: D \to \R eine Funktion und a \in D. Dann gilt f ist stetig in a \Leftrightarrow 
-\[\forall \epsilon > 0 \exists \delta > 0 :  \forall x : \abs{x-a} < \delta \text{ gilt } \abs{f(x) - f(a)} < \epsilon\]
+\begin{satz}[$\epsilon-\delta$ Kriterium für Stetigkeit]
+Sei $f: D \to \R$ eine Funktion und $a \in D$. Dann gilt 
+\[f \text{ ist stetig in }a \Leftrightarrow \forall \epsilon > 0 \exists \delta > 0 :  \forall x : \abs{x-a} < \delta \text{ gilt } \abs{f(x) - f(a)} < \epsilon\]
 %bild: deltaepsilonkrit.png // stetige Funktion
 %bild2: nichtdeltaepsilonkrit.png // Nicht stetige Funktion
 \begin{proof}
 \begin{enumerate}
-\item[$\Leftarrow$]	Sei (x_n) eine Folge mit \lim{x_n} = a . zz lim(f(x_n)) ) f(a)
+\item[$\Leftarrow$]	Sei $(x_n)$ eine Folge mit $\liminf{x_n} = a$. \quad zz: $\liminf{f(x_n)} =  f(a)$\\
+\begin{math}
 Sei \epsilon > 0 \exists \delta > 0 :  \forall x : \abs{x-a} < \delta \text{ gilt } \abs{f(x) - f(a)} < \epsilon \\
 Da \lim{x_n} = a \Rightarrow \exists N = N(\delta) : \forall n \ge N(\delta) \quad \abs{x_n - a} < \delta
-\overset{\epsilon-\delta Kriterium}{\Rightarrow} \abs{f(x) - f(a) \< \epsilon \forall n \ge N \Rightarrow \lim{f(x_n)} = f(a)
-\item[$\Rightarrow$] Sei f in a stetig. zz ist das \epsilon-\delta-Kriterium.
+\overset{\epsilon-\delta Kriterium}{\Rightarrow} \abs{f(x) - f(a)} < \epsilon \forall n \ge N \Rightarrow \lim{f(x_n)} = f(a)
+\end{math}
+\item[$\Rightarrow$] Sei $f$ in $a$ stetig. \quad zz: ist das $\epsilon-\delta$-Kriterium.
+\begin{math}
 Angenommen: \epsilon-\delta-Kriterium gilt nicht: 
  \exists \epsilon > 0 \forall \delta > 0 : \exists x \in D : \abs{x-a} < \delta \text{ und } \abs{f(x) - f(a)} \ge \epsilon.
  \Rightarrow \exists \epsilon > 0 \forall n \in \N \exists x_n \in D : \abs{x_n - a} < \frac{1}{n} = \delta \text{und} \abs{f(x_n) - f(a)} \ge \epsilon
  Betrachöte die Folge (x_n), da \abs{x_n - a} < \frac{1}{n} \Rightarrow (x_n) \longtoinf a.
  Da f stetig in a ist, folgt \liminf{f(x_n)} = f(a). \WSP zu \abs{f(x_n) -f(a)} \ge \epsilon \Rightarrow das \epsilon-\delta-Kriterium gilt.
+\end{math}
 \end{enumerate}
 \end{proof}
 \end{satz}
 
 \begin{bsp}
 \begin{enumerate}
-\item die konstante Funktion $ f : \R \to \R \text{ mit } x \mapsto f(x) = 1 $ ist stetig für alle x \in \R
-Sei a \in \R und (x_n) eine Folge mit \liminf{x_n} = a \Rightarrow \liminf{f(x)} = lim 1 = 1 = f(a)
+\item Die konstante Funktion $ f : \R \to \R \text{ mit } x \mapsto f(x) = 1 $ ist stetig für alle $x \in \R$
+Sei $a \in \R$ und $(x_n)$ eine Folge mit $\liminf{x_n} = a \Rightarrow \liminf{f(x)} = lim 1 = 1 = f(a)$
 
-\item Die identische Funktion $f : \R \to \R \text{ mit } x \mapsto f(x) = x $  ist stetig für alle x \in \R
-Sei a\in \R und (x_n) eine Folge mit \limin{x_n} = a \Rightarrow \liminf{f(x_n)} = \liminf{x_n} = a = f(a)
+\item Die identische Funktion $f : \R \to \R \text{ mit } x \mapsto f(x) = x $  ist stetig für alle $x \in \R$
+Sei $a\in \R und (x_n) eine Folge mit \liminf{x_n} = a \Rightarrow \liminf{f(x_n)} = \liminf{x_n} = a = f(a)$
 
 \item Jede Polynomfunktion $p : \R \to \R \text{ mit } x \mapsto p(x) = \sum_{k=0}{n}{a_kx^k} \text{ mit } a_k \in \R $ ist auf \R stetig.
 Dies folgt sofort aus den Rechenregeln.
@@ -1167,36 +1169,47 @@ Dies folgt sofort aus den Rechenregeln.
 Dies folgt auch sofort aus den Rechenregeln.
 
 \item Die Betragsunktion $f : \R \to \R \text{ mit } x \mapsto f(x) = \abs{x} $  ist stetig auf \R
-Denn f(x) = \begin{cases}
-x & x > 0 & die identische Funktion ist stetig \\
--x & x < 0 & (-1)x ist stetig (Rechenregeln) \\
-0 & x = 0  & denn Sei \liminf{x_n} = 0 \Rightarrow \liminf{\abs{x_n}} = 0 = \abs{0}
-\end{cases}
+Denn $f(x) = \begin{cases}
+x & x > 0 \qquad die identische Funktion ist stetig \\
+-x & x < 0 \qquad (-1)x ist stetig (Rechenregeln) \\
+0 & x = 0 \qquad denn Sei \liminf{x_n} = 0 \Rightarrow \liminf{\abs{x_n}} = 0 = \abs{0}
+\end{cases}$
 
 \item Die Funktion $\abs{f} : \R \to \R $  ist stetig, wenn $ f: D \to \R $ stetig ist.
 folgt aus den Rechenregeln
 
-\item Sei $f : \R \to \R \text{ mit } x \mapsto f(x) = \begin{cases} 1 & x > 0 \\ -1 & x < 0\end{cases} $ ist in a = 0 nicht stetig. % mit bild
+\item Sei $f : \R \to \R \text{ mit } x \mapsto f(x) = \begin{cases} 1 & x > 0 \\ -1 & x < 0\end{cases} $ ist in $a = 0$ nicht stetig. % mit bild
+\begin{math}
 denn: Sei (x_n) =  \frac{1}{n} \Rightarrow \liminf{x_n} = \liminf{\frac{1}{n}} = 0  und \liminf{f(x_n)} = \liminf{1} = 1 
 Sei (y_n) = - \frac{1}{n} \Rightarrow \liminf{y_n} = \liminf{-\frac{1}{n}} = 0  und \liminf{f(y_n)} = \liminf{-1} = -1 
 \Rightarrow f ist nicht stetig in a = 0
+\end{math}
 
-\item Die Exponentialfunktion $exp : \R \to \R \text{ mit } exp(x) = e^x = \suminf{\frac{x^n}{n!} $ ist auf R stetig.
+\item Die Exponentialfunktion $exp : \R \to \R \text{ mit } exp(x) = e^x = \suminf{\frac{x^n}{n!}} $ ist auf \R stetig.
 \begin{proof}
-\begin{enumerate}[label=\alpha*)]
-\item exp ist in a = 0 stetig.
+\begin{enumerate}
+\item $exp$ ist in $a = 0$ stetig.
 \begin{enumerate}[label=\roman*)]
-\item Sei \abs{x} < 1 \Rightarrow \abs{a^x - 1} \le 2 \abs{x}. 
-denn: es gilt (n+1)! \ge 2^n, da (n+1)! = \underbrace{(\underbrace{n+1}_{\ge2}\underbrace{n}_{\ge2}\dots\underbrace{2}_{=2}}_{n-mal}1 \ge 2^n \forall n \ge 1 \vphantom{\underbrace{\underbrace{2}_{2}}_{2}}\\
+\item Sei $\abs{x} < 1 \Rightarrow \abs{a^x - 1} \le 2 \abs{x}$. 
+\begin{math}
+denn: es gilt (n+1)! \ge 2^n, da (n+1)! = \underbrace{(\underbrace{n+1}_{\ge2})\underbrace{n}_{\ge2}\dots\underbrace{2}_{=2}}_{n-mal}1 \ge 2^n \forall n \ge 1 \vphantom{\underbrace{\underbrace{2}_{2}}_{2}}\\
 Sei m \ge 1 \\
-\abs{\sum_{n=1}^{m}{\frac{x^n}{n!}} \le \sum_{n=1}^{m}{\abs{\frac{x^n}{n!}} = \sum_{n=1}^{m}{\frac{\abs{x}^n}{n!} = \sum_{n= 0}^{m-1}{\frac{\abs{x}^{n+1}}{(n+1)!}} \le \sum_{n= 0}^{m}{\frac{\abs{x}^{n+1}}{(n+1)!}} = \abs{x}\sum_{n= 0}^{m}{\frac{\abs{x}^{n}}{(n+1)!}} \le \abs{x}\sum_{n= 0}^{m}{\frac{\abs{x}^{n}}{2^n}} = \abs{x}\sum_{n= 0}^{m}{\left(\frac{\abs{x}}{2}\right)^n}\\
-Daraus folgt \abs{a^x - 1} = \abs{\sumInf{\frac{x^n}{n!}} = \liminf{\abs{\sum_{n=1}^{m}{\frac{x^n}{n!}}}} \le \liminf{\abs{x}\sum_{n=0}^{m}{\left(\frac{\abs{x}}{2}\right)^n}} = \abs{x}\suminf{\left(\underbrace{\frac{\abs{x}}{2}}_{< 1}\right)^n} = \abs{x}\frac{1}{1-\frac{\abs{x}}{2}} = \frac{2\abs{x}}{2-\abs{x}} \le 2\abs{x}
-\item Sei (x_n) eine Folge mit \liminf{x_n} = 0 \Rightarrow \liminf{\abs{exp(x_n) -1} \overset{i)}{\le} \liminf{2\abs{x_n}} = 0 \Rightarrow \liminf{exp(x_n)} = 1 = exp(0)
+\abs{\sum_{n=1}^{m}{\frac{x^n}{n!}}} \le \sum_{n=1}^{m}{\abs{\frac{x^n}{n!}}} = \sum_{n=1}^{m}{\frac{\abs{x}^n}{n!}} 
+= \sum_{n= 0}^{m-1}{\frac{\abs{x}^{n+1}}{(n+1)!}} \le \sum_{n= 0}^{m}{\frac{\abs{x}^{n+1}}{(n+1)!}} 
+= \abs{x}\sum_{n= 0}^{m}{\frac{\abs{x}^{n}}{(n+1)!}} \le \abs{x}\sum_{n= 0}^{m}{\frac{\abs{x}^{n}}{2^n}} 
+= \abs{x}\sum_{n= 0}^{m}{\left(\frac{\abs{x}}{2}\right)^n}\\
+Daraus folgt \abs{a^x - 1} = \abs{\Suminf{\frac{x^n}{n!}}} = \liminf{\abs{\sum_{n=1}^{m}{\frac{x^n}{n!}}}} 
+\le \liminf{\abs{x}\sum_{n=0}^{m}{\left(\frac{\abs{x}}{2}\right)^n}} = \abs{x}\suminf{\left(\underbrace{\frac{\abs{x}}{2}}_{< 1}\right)^n} 
+= \abs{x}\frac{1}{1-\frac{\abs{x}}{2}} = \frac{2\abs{x}}{2-\abs{x}} \le 2\abs{x} 
+\end{math}
+\item Sei $(x_n)$ eine Folge mit $\liminf{x_n} = 0 \Rightarrow \liminf{\abs{exp(x_n) -1}} \overset{i)}{\le} \liminf{2\abs{x_n}} = 0 \Rightarrow \liminf{exp(x_n)} = 1 = exp(0)$
 \end{enumerate}
-\item exp ist in a \in \R stetig.
-Sei a \in \R und (x_n) eine Folge mit \limin{x_n} = a \Rightarrow \liminf{x_n - a} = 0. Da exp stetig in 0, folgt \liminf{exp(x_n -a) = exp(0) = 1 
-\Rightarrow \liminf{exp(x_n)} = \liminf{e^{x_n}} = \liminf{e^{(x_n - a)+a} \overset{Funktionsgleichung}{=} \liminf{e^{x_n-a}e^a = e^a \underbrace{\liminf{e^{x_n-a}}}_{=1} = e^a ^= e^a.
+\item $exp$ ist in $a \in \R$ stetig.
+\begin{math}
+Sei a \in \R und (x_n) eine Folge mit \liminf{x_n} = a \Rightarrow \liminf{x_n - a} = 0. Da exp stetig in 0, folgt \liminf{exp(x_n -a)} = exp(0) = 1 
+\Rightarrow \liminf{exp(x_n)} = \liminf{e^{x_n}} = \liminf{e^{(x_n - a)+a}} \overset{Funktionsgleichung}{=} \liminf{e^{x_n-a} e^a} = e^a \underbrace{\liminf{e^{x_n-a}}}_{=1} = e^a 1 = e^a.
 \Rightarrow exp ist in a\in \R stetig.
+\end{math}
 \end{enumerate}
 \end{proof}
 \end{enumerate}
@@ -1233,78 +1246,8 @@ Sei a \in \R und (x_n) eine Folge mit \limin{x_n} = a \Rightarrow \liminf{x_n - 
 
 
 
-%soll am ende stehen7
-\newpage
-\section{Test}
-zum Formeln raus kopieren
-\begin{enumerate}
-\item \(\to\)
-\item $(a_n)$
-\item \(\liminf{a_n}\)
-\item \(\suminf{a_n}\)
-\item \longtoinf
-\end{enumerate}
-\[\liminf{a_n}\]
-\[\sum_{n = 0}^{\infty}{a_n}\]
-\[\Sum{n}{k}\]
-
-Verschiedene Größen:
-\begin{enumerate}
-\item $\displaystyle \suminf[n]{a_{n_k} + \frac{b_n}{c_n}}$	
-\item $\textstyle \suminf[n]{a_{n_k} + \frac{b_n}{c_n}}$	
-\item $\scriptstyle \suminf[n]{a_{n_k} + \frac{b_n}{c_n}}$	
-\item$\scriptscriptstyle \suminf[n]{a_{n_k} + \frac{b_n}{c_n}}$	
-\end{enumerate}
-
-\begin{proof}
-\IA \\
-\IV \\
-\IS \\
-\end{proof}
 
 
-Funktionen:\\
-$ f : \R \to \R \text{ mit } x \mapsto f(x) $ \\
-$ f : \R \times \R \to \R \text{ mit } (a,b) \mapsto f(a,b) $\\
-$p(x) = \sum_{k=0}{n}{a_kx^k}  $\\
-
-
-\begin{tikzpicture}[thick]
-\newline
-    \draw(0,0)--(12.5,0);
-    \foreach \x/\xtext in {0/0,3/1,6/2,9/3,12/4}
-      \draw(\x,0pt)--(\x,3pt) node[above] {\xtext};
-    \foreach \x in {0,1,...,12}
-      \draw(\x,0pt)--(\x,-3pt) node[below] {$\frac{\x}{3}$};
-  \end{tikzpicture}
-
-
-\begin{center}
-\begin{tikzpicture}
-        \draw[step=1,help lines,black!0] (-1,-1) grid (4,4);
-        \draw[->] (-0.5,0) -- (3.5,0)  node[below right] {$Re(z)$};
-        \draw[->] (0,-0.5) -- (0,3.5)  node[above left]{$Im(z)$};
-        \foreach \Point/\PointLabel in {(0,1)/{\im}, (1,0)/1, (2.21,1.75)/{z=(a,b)}}
-        \draw[fill=black] \Point circle (0.05) node[above right] {$\PointLabel$};
-        \foreach \Point/\PointLabel in {(2.21,0)/a, (0,1.75)/b}
-        \draw \Point circle (0.05) node[above right] {$\PointLabel$};
-\end{tikzpicture}
-\end{center}
-
- \begin{tikzpicture}[scale=3]
- \draw[step=.5cm, gray, very thin] (-1.2,-1.2) grid (1.2,1.2); 
- \filldraw[fill=green!20,draw=green!50!black] (0,0) -- (3mm,0mm) arc (0:30:3mm) -- cycle; 
- \draw[->] (-1.25,0) -- (1.25,0) coordinate (x axis);
- \draw[->] (0,-1.25) -- (0,1.25) coordinate (y axis);
- \draw (0,0) circle (1cm);
- \draw[very thick,red] (30:1cm) -- node[left,fill=white] {$\sin \alpha$} (30:1cm |- x axis);
- \draw[very thick,blue] (30:1cm |- x axis) -- node[below=2pt,fill=white] {$\cos \alpha$} (0,0);
- \draw (0,0) -- (30:1cm);
- \foreach \x/\xtext in {-1, -0.5/-\frac{1}{2}, 1} 
-   \draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north,fill=white] {$\xtext$};
- \foreach \y/\ytext in {-1, -0.5/-\frac{1}{2}, 0.5/\frac{1}{2}, 1} 
-   \draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east,fill=white] {$\ytext$};
- \end{tikzpicture}
 
 
 \end{document}
