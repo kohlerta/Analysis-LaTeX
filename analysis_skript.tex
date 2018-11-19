@@ -13,6 +13,8 @@
 \usepackage{setspace}
 \usepackage{geometry}
 \usepackage{wrapfig}
+\usepackage{multicol}
+
 
 
 \author{Tanja Kohler}
@@ -28,11 +30,12 @@
 \def\Z{\ensuremath{\mathbb{Z}} }
 \def\R{\ensuremath{\mathbb{R}} }
 \def\im{\ensuremath{\mathit{i}} }
-\def\e{\ensuremath{\mathit{e}}}
-\renewcommand{\epsilon}{\ensuremath{\varepsilon}}
+\def\e{\ensuremath{\mathit{e}} }
+\renewcommand{\epsilon}{\ensuremath{\varepsilon} }
 
 % für Beweise
 \def\WSP{\text{Widerspruch! }}
+\def\zz{\text{zu zeigen: }}
 \newcommand{\IA}[1][n=0]{\vspace{0.1pt}\ensuremath{\text{IA}\sp#1:}}
 \newcommand{\IV}{\vspace{0.1pt}\ensuremath{\text{IV}\sp}}
 \newcommand{\IS}[1][n \mapsto n+1]{\vspace{0.1pt}\ensuremath{\text{IS}\sp#1}}
@@ -128,31 +131,33 @@ Die Natürlichen Zahlen \(\N = \{1,\dots,\infty \} \) und die Ganzen Zahlen \Z b
 
 \begin{prop}
 \(\fa x \in \R \text{ gilt } 0 * a = 0\).
-\begin{proof}\begin{flalign*}0+0 = 0 	&\Rightarrow a ( 0 + 0 ) = a * 0 					&&\text{Distributivgesetz }\\
-							& \Rightarrow a * 0 + a * 0 = a * 0 				&&\text{\R assiozativ}\\
-							&\Rightarrow a * 0 + (a * 0 - a * 0) = (a * 0 - a * 0) 	&& \text{add Inv}\\
-							&\Rightarrow a * 0 +  0	 					&& 0+0 = 0\\
-							&\Rightarrow a * 0 = 0 \end{flalign*}
+\begin{proof}
+\begin{math}
+0+0 = 0 \begin{aligned}[t] a ( 0 + 0 ) &= a * 0 					&&\text{Distributivgesetz } \Rightarrow \\
+					a * 0 + a * 0 &= a * 0 				&&\text{\R assiozativ} \Rightarrow\\
+					a * 0 + (a * 0 - a * 0) &= (a * 0 - a * 0) 	&& \text{additives Inverses} \Rightarrow\\
+					a * 0 +  0 &= 0	 					&& 0+0 = 0 \Rightarrow\\
+					a * 0 &= 0 \end{aligned}\\ 
+\end{math}
 \end{proof}
 \end{prop}
 
 \begin{defi}[Potenzschreibweise]
-Für \(a \in \R \text{ und }n \in \Z \text{ wird }a^n\) folgendermapen induktiv definiert:
-\begin{itemize}
-	\item \(a^0 = 1\)
-	\item \(\fa n > 1 \quad a^{n+1} = a * a^n \)
-	\item \(\fa n > 1 \sp \fa a \ne 0 \quad a^{-n} = \left(a^{-1}\right)^n\)
-\end{itemize}
+Für \(a \in \R \text{ und }n \in \Z \text{ wird }a^n\) folgendermaßen induktiv definiert:
+$a^n = \begin{cases} 1 			& n = 0\\
+				a(a^{n-1}) 	& n > 0\\
+				(a^{-1})^n 	& n < 0 \sp \forall a \ne 0 \end{cases}$
 \end{defi}
-\newpage
 
 \begin{bem}
 \(\fa a, b \in \R \setminus \{0\} \) und \( \fa n, m \in \Z\) gilt:
+\begin{multicols}{3}
 \begin{enumerate}[label=(\arabic*)]
 	\item $\displaystyle a^n * a^m = a^{n+m} $
 	\item $\displaystyle a^{n^m} = a^{n * m} $
 	\item $\displaystyle a^n * b^n = (a * b)^n $
 \end{enumerate}
+\end{multicols}
 \begin{proof}\sp
 \begin{enumerate}[label=(\arabic*)]
 	\item $\displaystyle a^n * a^m \overset{\text{n. Def.}}{=} \overbrace{a \dots a}^{n\text{-mal}}*\overbrace{a \dots a}^{m\text{-mal}} = \overbrace{a \dots a}^{n+m\text{-mal}} \overset{\text{n. Def.}}{=} a^{n+m}$
@@ -190,12 +195,11 @@ Sei \( a < b \text{ und } b < c \Rightarrow a - b < 0  \text{ und } b - c < 0 \R
 
 \begin{defi}
 Für \(a \in \R\) und der Betrag \abs{a} folgendermaßen definiert. 
-\[\abs{a} = \begin{cases}
+$\abs{a} = \begin{cases}
 		 a 	& a > 0\\
-		-a 	& a < 0  \end{cases}\]
+		-a 	& a < 0  \end{cases}$
 \end{defi}
 
-\newpage
 \begin{satz}
 \(\fa b \in \R\) gilt:
 \begin{enumerate}[label=(\arabic*)]
@@ -591,8 +595,7 @@ Sei $(a_n)$ eine Folge. Dann gilt:
 \item Ist $(a_n)$ monoton fallend  und nach unten beschränkt, dann ist $(a_n)$ konvergent.
 \end{itemize}
 \begin{proof}
-Es reicht die erste Aussage zu zeigen, denn ist $(a_n)$ monoton fallend und nach unten beschränkt \( \Rightarrow (-a_n)\) ist monoton wachsend und nach oben beschränkt $\Rightarrow (a_n) $ ist konvergent.
-
+Es reicht die erste Aussage zu zeigen, denn ist $(a_n)$ monoton fallend und nach unten beschränkt \( \Rightarrow (-a_n)\) ist monoton wachsend und nach oben beschränkt $\Rightarrow (a_n) $ ist konvergent.\\
 Sei also \((a_n) \nearrow \) und nach oben beschränkt. Mit dem Vollständigkeitsaxiom \(\Rightarrow \exists a = sup\menge{a_n}{n \in \N}\). Und sei $\epsilon > 0$ 
 \begin{math}
 \Rightarrow a - \epsilon \text{ ist keine obere Schranke von } \menge{a_n}{n \in \N} \Rightarrow \exists N \in \N \quad a-\epsilon < a_N \le a.\\
@@ -611,7 +614,6 @@ Das Monotonie-Kriterium ist äquivalent zur Vollständigkeit.
 
 \begin{satz}
 Der Grenzwert einer Folge ist eindeutig bestimmt.
-\end{satz}
 \begin{proof}
 \begin{math} \displaystyle 
 \text{Angenommen } \liminf{a_n} = a\text{ und }\liminf{a_n} = b\text{ und } a \ne b.\\
@@ -629,15 +631,16 @@ Der Grenzwert einer Folge ist eindeutig bestimmt.
 \Rightarrow \abs{b-a}  < \abs{b-a} \WSP \Rightarrow a = b
 \end{math}
 \end{proof}
+\end{satz}
 
-%% KORRIGIERE AB HIER!!
+\newpage
 \begin{satz}[Rechenregeln für konvergente Folgen]
 Seien \((a_n)\) und \((b_n)\) zwei konvergente Folgen. Dann gilt:
 \begin{enumerate}
 \item \((a_n \pm b_n)\text{ ist konvergent und }\liminf{a_n  \pm  b_n} = \liminf{a_n}  \pm \liminf{b_n}\).
 \item \(\lambda (a_n)\text{ ist konvergent und }\liminf{\lambda a_n} = \lambda \liminf{a_n}\).
 \item \((a_n b_n)\text{ ist konvergent und }\liminf{a_n b_n} = \liminf{a_n} \lim{n}{b_n}\).
-\item Ist \((b_n) \ne 0 \sp \forall n \ge n_0\text{ und }\liminf{b_n} \ne 0\text{. Dann ist } \left(\frac{a_n}{b_n}\right) \text{ konvergent und }\liminf{\frac{a_n}{b_n}} = \frac{\liminf{a_n}}{\liminf{b_n}}\).
+\item Ist $ \displaystyle (b_n) \ne 0 \sp \forall n \ge n_0\text{ und }\liminf{b_n} \ne 0\text{. Dann ist } \left(\frac{a_n}{b_n}\right) \text{ konvergent und }\liminf{\frac{a_n}{b_n}} = \frac{\liminf{a_n}}{\liminf{b_n}}$.
 \item \(a_n \le b_n \text{ dann ist }\liminf{a_n} \le \liminf{b_n} \sp \forall n \ge n_0\).
 \end{enumerate}
 \begin{proof}
@@ -653,19 +656,19 @@ Sei \(\liminf{a_n} = 0\text{ und } \lim{b_n} = b\).
 \end{aligned}\\
 &\Rightarrow (a_n \pm b_n) \text{ beschränkt und } \liminf{a_n \pm b_n} = a+b.
 \end{aligned}$
-\item Sei $ \displaystyle \epsilon > 0 \Rightarrow \exists N \in \N \begin{aligned}[t] \quad 
+\item Sei $ \displaystyle \epsilon > 0 \Rightarrow \exists N \in \N \\\begin{aligned}[t] \quad 
 		&\abs{a_n - a} < \frac{\epsilon}{\lambda} \quad \forall n \ge N\\
 		& \abs{\lambda a_n - \lambda a} = \abs{\lambda(a_n - a)} = \abs{\lambda}\abs{a_n - a} < \lambda \frac{\epsilon}{\lambda} = \epsilon
 		\end{aligned}$
 \item Jede konvergente Folge ist beschränkt $ \displaystyle \Rightarrow \exists K \in \R \text{ mit } \abs{a_K} \le K \text{ und } \abs{b} \le K\vphantom{\frac{\epsilon}{2K}}\\
 \text{Sei } \epsilon > 0 \Rightarrow \exists N_1, N_2 \in \N \sp \abs{a_n - a} < \frac{\epsilon}{2K} \text{ und } \abs{b_n - b} < \frac{\epsilon}{2K}. \Rightarrow \vphantom{\frac{\epsilon}{2K}} \\
-\begin{aligned}[]
-\vphantom{\frac{\epsilon}{2K}} \forall n \ge max\{N_1, N_2\} \abs{a_n b_n - a b} &= \abs{a_n b_n - a_n b + a_n b + a b} = \abs{ a_n (b_n - b) + b (a_n - a)} \\
+\begin{aligned}[t]
+\vphantom{\frac{\epsilon}{2K}} \forall n \ge max\{N_1, N_2\} \quad \abs{a_n b_n - a b} &= \abs{a_n b_n - a_n b + a_n b + a b} = \abs{ a_n (b_n - b) + b (a_n - a)} \\
 &\le \abs{ a_n (b_n - b)} + \abs{b (a_n - a)} \\
 &= \underbrace{\abs{a_n}}_{\le K} \abs{b_n - b} + \underbrace{\abs{b}}_{\le K}\abs{a_n - a} < K \frac{\epsilon}{2K} + K \frac{\epsilon}{2K} = \epsilon
 \end{aligned}$
 \item 
-Zeige \(\liminf{\frac{1}{b_n}} = \frac{1}{\liminf{b_n}}\)\\
+Zeige $ \displaystyle \liminf{\frac{1}{b_n}} = \frac{1}{\liminf{b_n}} $\\
 \begin{math} \displaystyle \begin{aligned}[t]
 \abs{\abs{ b_n } - \abs{b}} \le \abs{ b_n - b} < \frac{\abs{b}}{2} \quad \forall n \ge n_0 &\Rightarrow -\frac{\abs{b}}{2} < \abs{b_n} - \abs{b} < \frac{\abs{b}}{2} \\
 &\Rightarrow  \frac{\abs{b}}{2} < \abs{b_n} \quad \Rightarrow \frac{1}{\abs{b_n}} < \frac{2}{\abs{b}} \quad \forall n \ge n_0 
@@ -687,66 +690,76 @@ b_n < b + \epsilon &= b + \frac{a-b}{2} = \frac{2b + a - b}{2} = \frac{b + a}{2}
 
 \begin{satz}[Sandwich-Theorem]
 Sei \((a_n)\text{ und }(b_n)\) zwei konvergente Folgen mit der Eigenschaft, dass \(\liminf{a_n} = \liminf{b_n} = a\).
-Sei \((c_n)\) eine Folge mit der Eigenschaft, dass \(a_n \le c_n \le b_n \quad \forall n \ge n_0\)
+Sei \((c_n)\) eine Folge mit der Eigenschaft, dass \(a_n \le c_n \le b_n \quad \forall n \ge n_0\). 
 Dann ist \((c_n)\) konvergent und \(\liminf{c_n} = a\).
 \begin{proof}
 \begin{math} \displaystyle \text{Sei }\epsilon > 0 \Rightarrow \exists  N_1, N_2 \in \N \quad 
 \begin{aligned}[t] a - \epsilon < a_n < a + \epsilon \quad \forall n \ge N_1 \\
 			   a - \epsilon < b_n < a + \epsilon \quad \forall n \ge N_2 
 \end{aligned} \\
-\Rightarrow \forall n \ge max\{N_1, N_2\} \sp \text{gilt: } \quad \begin{aligned} a-\epsilon < a_n \le c_n \le b_n < a + \epsilon \quad  \forall n \ge N \\
-\Rightarrow \abs{c_n - a} < \epsilon \Rightarrow \liminf{c_n} = a
+\Rightarrow \forall n \ge max\{N_1, N_2\} \sp \text{gilt: } \quad \begin{aligned}[t] &a-\epsilon < a_n \le c_n \le b_n < a + \epsilon \quad  \forall n \ge N \\
+&\Rightarrow \abs{c_n - a} < \epsilon \Rightarrow \liminf{c_n} = a
 \end{aligned}
 \end{math}
 \end{proof}
 \end{satz}
 
 \begin{bsp}
+Zwei Beispiele zum Sandwich-Theorem:
 \begin{enumerate}
 \item Sei \((a_n)\) eine Folge mit \(0 \le a_n \le \frac{1}{n} \Rightarrow \liminf{a_n} = 0\)
-\item \(a_n = \sqrt{2n} - \sqrt{n}\) ist divergent\\
-denn \(a_n = \left(\sqrt{2n} - \sqrt{n}\right)\frac{\sqrt{2n} + \sqrt{n}}{\sqrt{2n} + \sqrt{n}} = \frac{2_n - n}{\sqrt{n}*\left(\sqrt{2} - 1\right)} \underbrace{\ge}_{\left(\sqrt{2} - 1\right)\le 3} \frac{n}{3\sqrt{n}} = \frac{sqrt{n}}{3} \longtoinf{n} \infty\).
+\item \(a_n = \sqrt{2n} - \sqrt{n}\) ist divergent, denn \\
+$ \displaystyle a_n = \left(\sqrt{2n} - \sqrt{n}\right)\frac{\sqrt{2n} + \sqrt{n}}{\sqrt{2n} + \sqrt{n}} = \frac{2n - n}{\sqrt{n} \left(\sqrt{2} - 1\right)} \overset{\left(\sqrt{2} - 1\right)\le 3}{\ge} \frac{n}{3\sqrt{n}} = \frac{\sqrt{n}}{3} \ge \sqrt{n} \longtoinf \infty $.
 \end{enumerate}
 \end{bsp}
 
 \begin{defi}
-Eine Folge \((a_n)\) heißt bestimmt divergent gegen \(\pm \infty \) wenn gilt: \(\forall K \in \R \exists N \in \N \quad \forall n \ge N \sp a_n \lessgtr K \)
-\[\text{Schreibweise: }\liminf{a_n} = \pm \infty \]
-nach oben unbeschränkt oder nach unten unbeschränkt
+Eine Folge \((a_n)\) heißt bestimmt divergent gegen \(\pm \infty \) wenn gilt:
+\[\forall K \in \R \quad \exists N \in \N \quad \forall n \ge N \quad  a_n \lessgtr K \]
+Für jedes $K$ aus \R  gibt es ein $N$ aus \N ab dem $a_n$ größer/kleiner als $K$ wird. Schreibweise: \(\liminf{a_n} = \pm \infty \)
 \end{defi}
 
 \begin{bsp}
+Beispiele zu bestimmt divergenten Folgen:
 \begin{enumerate}
-\item Die Fibonacci Folge ist bestimmt divergent gegen \(+ \infty\)
+\item Die Fibonacci Folge ist bestimmt divergent gegen \(+ \infty = \infty \)
 \item Sei \(a_n = n\text{, dann folgt }\liminf{a_n} = \infty\)
 \item Sei \(\liminf{a_n} = \infty \Leftrightarrow \liminf{-a_n} = - \infty\)
 \item Die Folge \(a_n = (-1)^n\) ist divergent aber nicht bestimmt divergent.
-\item Sei \((a_n)\) bestimmt divergent und \(a_n \ne 0 \sp \forall n \ge n_0\text{, dann folgt }\liminf{\frac{1}{a_n}} = 0\).
-\end{enumerate}
-\begin{proof}
-\(\text{Sei } \liminf{a_n} = \infty \Rightarrow \forall \epsilon > 0 \sp \exists N \in \N \sp \forall n \ge N \sp a_n > \frac{1}{\epsilon} > 0 \Rightarrow \frac{1}{a_n} < \epsilon \Rightarrow \abs{\frac{1}{a_n} - 0} < \epsilon \text{, da } a_n > 0 \Rightarrow \liminf{\frac{1}{a_n}} = 0\)
+\item Sei \((a_n)\) bestimmt divergent und $ \displaystyle a_n \ne 0 \quad \forall n \ge n_0\text{, dann folgt }\liminf{\frac{1}{a_n}} = 0$.
+\begin{proof}Sei $ \displaystyle \liminf{a_n} = \infty \quad 
+\begin{aligned}[t] &&\forall \epsilon > 0 \sp \exists N \in \N \sp \forall n \ge N \sp a_n &> \frac{1}{\epsilon} > 0 \\
+&&\Rightarrow \frac{1}{a_n} &< \epsilon \Rightarrow \abs{\frac{1}{a_n} - 0} < \epsilon  \\
+&&\text{da } a_n > 0 \Rightarrow \liminf{\frac{1}{a_n}} = 0.
+\end{aligned}$\\
 \end{proof}
-\end{bsp}
+\end{enumerate}
+\end{bsp} 
 
 \begin{defi}
-Sei \((a_n)\) eine Folge reeller Zahlen und \(n_0 < n_1 < n_2 <... < n_k < \dots \) eine Teilmenge von \N.\\
-Dann heißt die Folge \((a_{n_k})_{k \in \N }\) eine Teilfolge von \((a_n)_{n \in \N}\)
+Sei \((a_n)\) eine Folge reeller Zahlen und \(n_0 < n_1 < n_2 < \dots < n_k < \dots \) eine Teilmenge von \N.\\
+Dann heißt die Folge \((a_{n_k})_{k \in \N }\) eine Teilfolge von \((a_n)_{n \in \N}\).
 \end{defi}
 
 \begin{bem}
 Ist die Folge \((a_n)\) konvergent, dann ist auch jede Teilfolge von \((a_n)\) konvergent.
-\begin{proof} Übung \end{proof}
+\begin{proof} Sei $(a_n)$ konvergent gegen $a$. Also $ \forall \epsilon > 0  \sp \exists N \in \N \quad \abs{a_n - a} < \epsilon \quad \forall n \ge N$. Da $(a_{n_k})$ eine Teilfolge von $(a_n)$ mit $n_0 < n_1 < n_2 < \dots < n_k < \dots$ und da $n_k$ monoton steigend ist, ist $k \le n_k$ und $n_k \ge N \quad \forall k \ge N $ daraus folgt $\abs{a_{n_k} - a} < \epsilon \quad \forall n \ge N$.
+\end{proof}
 \end{bem}
 
 \begin{defi}
-Sei \((a_n)\) eine Folge. Eine Zahl \(a \in \R\) heißt Häufungspunkt (Häufungswert) der Folge \((a_n)\), wenn es eine Teilfolge von \((a_n)\) gibt die gegen \(a\) konvergiert.
+Sei \((a_n)\) eine Folge. Eine Zahl \(a \in \R\) heißt Häufungspunkt (Häufungswert) der Folge \((a_n)\), wenn es eine Teilfolge von \((a_n)\) gibt, die gegen \(a\) konvergiert.
 \end{defi}
 
 \begin{bem}
+Beispiele zu Häufungspunkten:
 \begin{enumerate}
 \item Sei \(\liminf{a_n} = a\), dann ist \(a\) der einzige Häufungspunkt der Folge \((a_n)\).
 \item Eine bestimmt divergente Folge hat keinen Häufungspunkt.
-\item Die Folge \(a_n = \frac{1}{n}+ (-1)^n\) besitzt die zwei Häufungspunkte \(-1\text{ und }+1\text{. }\liminf{a_{2n}} = \liminf{\frac{1}{2n} (-1)^{2n}} = \liminf{\frac{1}{2n}} + 1 = 1 \text{ und } \liminf{a_{2n+1}} = \liminf{\frac{1}{2n+1} (-1)^{2n+1}} = \liminf{\frac{1}{2n+1}} - 1 = - 1\)
+\item Die Folge $ \displaystyle a_n = \frac{1}{n}+ (-1)^n $ besitzt die zwei Häufungspunkte $ \displaystyle \pm 1:\\
+\begin{aligned}[t] &\liminf{a_{2n}} &&= \liminf{\frac{1}{2n} (-1)^{2n}} &&= \liminf{\frac{1}{2n}} + 1 &&= 1 \\
+&\liminf{a_{2n+1}} &&= \liminf{\frac{1}{2n+1} (-1)^{2n+1}} &&= \liminf{\frac{1}{2n+1}} - 1 &&= - 1
+\end{aligned}$
 \item Jede konvergente Folge ist beschränkt, aber jede beschränkte Folge muss nicht konvergent sein.
 \end{enumerate}
 \end{bem}
@@ -754,39 +767,38 @@ Sei \((a_n)\) eine Folge. Eine Zahl \(a \in \R\) heißt Häufungspunkt (Häufung
 \begin{satz}[von Bolzano-Weierstraß]
 Jede beschränkte Folge reeller Zahlen besitzt eine konvergente Teilfolge.
 \begin{proof}
-\begin{math}
-(a_n)_{n \in \N_0} \text{ ist beschränkt, d.h. }\exists A \in \R\text{ mit }-A \le a_n \le A \forall n \ge 0\\
-\text{Sei }A_k = \menge{a_m}{m \ge k} \Rightarrow \text{ jede der Mengen }A_k{ ist beschränkt.}\\
-\text{Mit dem Vollständigkeitsaxiom } \exists inf \sp \forall A_k \text{. Sei etwa, } X_k = inf(A_k)\\
-A_0 \supset A_1 \supset \dots \supset A_{k-1} \supset A_k \supset \dots \Rightarrow x_k \le x_{k+1} \sp \forall k \ge 0\\
+\begin{math} \displaystyle
+\begin{aligned}[t]
+&(a_n)_{n \in \N_0} \text{ ist beschränkt, d.h. }\exists A \in \R \text{ mit }-A \le a_n \le A \quad \forall n \ge 0\\
+&\text{Sei } A_k = \menge{a_m}{m \ge k} \text{. Beachte: dass jede der Mengen } A_k \text{ beschränkt ist, durch }A\\
+&\text{Daraus folgt mit dem Vollständigkeitsaxiom } \exists \sp inf(A_k) \quad \forall A_k \qquad \text{Wähle } x_k = inf(A_k). \\
+&\text{Da } A_0 \supset A_1 \supset \dots \supset A_k \supset A_{k+1} \supset \dots \quad \Rightarrow \quad x_k \le x_{k+1} \quad \forall k \ge 0.\\
+&\text{Betrachte die Folge }(x_n)_{k \ge 0}. \quad (x_n) \text{ ist monoton wachsend und durch $A$ beschränkt.}\\
+&\text{Mit dem Monotoniekritierium konvergiert } (x_n). \quad \text{Sei etwa } \liminf[k]{x_k} = z\\
+&\zz z \text{ ist Häufungspunkt von } (a_n) \\
+&\begin{aligned}[t]
+& 1. &&\text{Sei } \epsilon > 0 \text{ , da } \liminf[k]{x_k} = z \Rightarrow \exists N \in \N \text{ mit } \abs{x_k - z} < \frac{\epsilon}{2} \quad \forall n \ge N \\
+& 2. &&\text{Da }x_k = inf(A_k) = inf\menge{a_m}{m \ge k} \Rightarrow \exists a_{k_m} \text{ mit } \abs{x_k - a_{k_m}} < \frac{\epsilon}{2}.
+\end{aligned} \\ \vphantom{\frac{\epsilon}{2}}
+&\qquad \Rightarrow \abs{a_{k_m} - z} = \abs{a_{k_m} - x_k + x_k - z} \le \abs{a_{k_m} - x_k} + \abs{x_k - z} < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon  \\ \vphantom{\frac{\epsilon}{2}}
+&\qquad \text{Also } \forall \epsilon > 0 \exists N \in \N \quad \forall k \ge N \quad \exists a_{k_m} \in (a_n) \quad \abs{a_{k_m} - z} < \epsilon  \\ 
+&\qquad \text{d.h. die Teilfolge }(a_{k_m})_{m\ge 0}\text{ ist konvergent gegen } z \\
+&\text{Also }(a_{k_m})\text{ ist eine konvergente Teilfloge von der beschränkten Folge }(a_n).
+\end{aligned} \\
 \end{math}
-\(\Rightarrow \) d.h. Die Folge \((x_k)_{k \ge 0} \) ist monoton wachsen und durch \(A\) nach oben beschränkt. Nach dem Monotoniekriterium ist die Folge \((x_k)_{k \ge 0}\) konvergent. Sei etwa der \(\liminf[k]{x_k} = z\)\\
- Behauptung: \(z\) ist Häufungspunkt von \((a_n)\).
-\begin{enumerate}[label=\Roman*)]
-\item Sei \(\epsilon > 0 \text{ , da } \liminf[k]{x_k} = z \Rightarrow \exists N \in \N\text{ mit } \abs{x_k - z} < \frac{\epsilon}{2} \sp \forall n \ge N \)
-\item Da \(x_k = inf(A_k) = inf\menge{a_m}{m \ge k} \Rightarrow \exists a_{k_m} \text{ mit } \abs{x_k - a_{k_m}} < \frac{\epsilon}{2}\).
-\newline
-\newline
-\begin{tikzpicture}[thick]
+\begin{figure}[h!] \begin{center} \begin{tikzpicture}
     \draw(-1,0)--(5.5,0);
     \foreach \x/\xtext in {1/{x_k},2.25/{a_{k_m}},3.5/{x_k + \frac{\epsilon}{2}}}
       \draw(\x,3pt)--(\x,-3pt) node[below] {$\xtext$};
-  \end{tikzpicture}
-\newline
-\(\Rightarrow \abs{a_{k_m} - z} = \abs{a_{k_m} - x_k + x_k - z} \le \abs{a_{k_m} - x_k} + \abs{x_k - z} < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon \) \\
-Also \(\forall \epsilon > 0 \exists N \in \N \forall k \ge N\exists a_{k_m} \in (a_n) \quad \abs{a_{k_m} - z} < \epsilon \)
-d.h. die Teilfolge \((a_{k_m})_{m\ge 0}\) ist konvergent gegen \(z\)\\
-Also \((a_{k_m})\) ist eine konvergente Teilfloge von der beschränkten Folge \((a_n)\).
-\end{enumerate}
+\end{tikzpicture} \end{center}\end{figure} 
 \end{proof}
 \end{satz}
 
 \begin{bem}
-Der Satz von Bolzano-Weierstraß ist äquivalent zum Vollstaändigkeitsaxiom.\\
-Äquivalente Formulierungen:\\
+Der Satz von Bolzano-Weierstraß ist äquivalent zum Vollständigkeitsaxiom. Andere äquivalente Formulierungen zu Bolzano-Weierstraß:
 \begin{itemize}
-\item Jede beschränkte Folge reeller Zahlen hat mindestens einen Häufungspunkt
-\item Jede beschränkte Folge reeller Zahlen hat einen größten und einen kleinsten Häufungspunkt
+\item Jede beschränkte Folge reeller Zahlen hat mindestens einen Häufungspunkt.
+\item Jede beschränkte Folge reeller Zahlen hat einen größten und einen kleinsten Häufungspunkt.
 \end{itemize}
 \end{bem}
 
@@ -1136,13 +1148,13 @@ Sei $f: D \to \R$ eine Funktion und $a \in D$. Dann gilt
 %bild2: nichtdeltaepsilonkrit.png // Nicht stetige Funktion
 \begin{proof}
 \begin{enumerate}
-\item[$\Leftarrow$]	Sei $(x_n)$ eine Folge mit $\liminf{x_n} = a$. \quad zz: $\liminf{f(x_n)} =  f(a)$\\
+\item[$\Leftarrow$]	Sei $(x_n)$ eine Folge mit $\liminf{x_n} = a. \quad \zz \liminf{f(x_n)} =  f(a)$\\
 \begin{math}
 Sei \epsilon > 0 \exists \delta > 0 :  \forall x : \abs{x-a} < \delta \text{ gilt } \abs{f(x) - f(a)} < \epsilon \\
 Da \lim{x_n} = a \Rightarrow \exists N = N(\delta) : \forall n \ge N(\delta) \quad \abs{x_n - a} < \delta
 \overset{\epsilon-\delta Kriterium}{\Rightarrow} \abs{f(x) - f(a)} < \epsilon \forall n \ge N \Rightarrow \lim{f(x_n)} = f(a)
 \end{math}
-\item[$\Rightarrow$] Sei $f$ in $a$ stetig. \quad zz: ist das $\epsilon-\delta$-Kriterium.
+\item[$\Rightarrow$] Sei $f$ in $a$ stetig. \quad \zz ist das $\epsilon-\delta$-Kriterium.
 \begin{math}
 Angenommen: \epsilon-\delta-Kriterium gilt nicht: 
  \exists \epsilon > 0 \forall \delta > 0 : \exists x \in D : \abs{x-a} < \delta \text{ und } \abs{f(x) - f(a)} \ge \epsilon.
@@ -1214,11 +1226,6 @@ Sei a \in \R und (x_n) eine Folge mit \liminf{x_n} = a \Rightarrow \liminf{x_n -
 \end{proof}
 \end{enumerate}
 \end{bsp}
-
-
-
-
-
 
 
 
