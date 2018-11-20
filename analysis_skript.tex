@@ -295,8 +295,8 @@ Sei \(M \subset \R\) eine Teilmenge.
 \begin{bsp}
 Sei \(a < b\) dann ist \(inf[a,b] = a = inf(a,b) \text{ und } sup[a,b] = b = sup(a,b)\).
 \begin{align*}
-[a, b] = &\sp \menge{a \in \R}{a \le x \le b} \sp \text{ heißt abgeschlossenes Intervall}\\
-(a, b) = &\sp \menge{a \in \R}{a < x < b} \sp \text{ heißt offenes Intervall}
+	[a, b] = &\sp \menge{a \in \R}{a \le x \le b} \sp \text{ heißt abgeschlossenes Intervall}\\
+	(a, b) = &\sp \menge{a \in \R}{a < x < b} \sp \text{ heißt offenes Intervall}
 \end{align*}
 \end{bsp}
 
@@ -357,25 +357,25 @@ zusätzlkich verlangen wir \(\im^2 = -1\) Also: \(\C = \menge{z = a + \im b }{ a
 Es gilt:  \C ist ein Körper.
 \begin{proof} Sei \( x,y,z \in \C \text{ und } x = a + \im b, y = c + \im d, z = e + \im f \)
 \begin{enumerate}[label=\Roman*)]
-\item \C ist eine abelsche Gruppe bezüglich der Addition:
-\begin{enumerate}[label=\roman*)]
-\item \( x + y = a + \im b + c + \im d = (a+c) + \im (b + d) \in \C\)
-\item \(x + 0 = a + \im b + 0 + \im 0 = a + \im b = x \)
-\item \( \exists -x \in \C \text{ mit } x + -x = a + \im b - a -\im b = 0 \)
-\item \( x+y =  (a+c) + \im (b + d) =  (c + a) + \im (d + b) = y + x \)
-\end{enumerate}
-\item \C ist eine abelsche Gruppe bezüglich der Multiplikation:
-\begin{enumerate}[label=\roman*)]
-\item \( xy = (a + \im b)(c + \im d) = (ac - bd) + \im (ad - bc) \in \C\)
-\item \( 1x = (1+\im 0)(a + \im b ) = a + \im b = x \)
-\item \( \exists x^{-1} \in \C \text{ mit } xx^{-1} = (a + \im b)\frac{a + \im b}{a^2 - b^2} = \frac{a^2 - b^2}{a^2 - b^2} = 1\)
-\item \( xy = (ac - bd) + \im (ad - bc) = (ca - bd) + \im (da - cb) = yx\)
-\end{enumerate}
-\item Das Distributivgesetz gilt:\\
- \begin{math}\begin{aligned} z (x + y) &= (e + \im f)( a+c + \im b + \im d) \\
- &= ea + ec - fb - fd + \im fa +\im fc + \im eb + \im ed \\
- &= ea - fb + \im fa + \im eb + ec - fd + \im ed + \im fc \\
- &= xy + xz\end{aligned}\end{math}
+	\item \C ist eine abelsche Gruppe bezüglich der Addition:
+	\begin{enumerate}[label=\roman*)]
+		\item \( x + y = a + \im b + c + \im d = (a+c) + \im (b + d) \in \C\)
+		\item \(x + 0 = a + \im b + 0 + \im 0 = a + \im b = x \)
+		\item \( \exists -x \in \C \text{ mit } x + -x = a + \im b - a -\im b = 0 \)
+		\item \( x+y =  (a+c) + \im (b + d) =  (c + a) + \im (d + b) = y + x \)
+	\end{enumerate}
+	\item \C ist eine abelsche Gruppe bezüglich der Multiplikation:
+	\begin{enumerate}[label=\roman*)]
+		\item \( xy = (a + \im b)(c + \im d) = (ac - bd) + \im (ad - bc) \in \C\)
+		\item \( 1x = (1+\im 0)(a + \im b ) = a + \im b = x \)
+		\item \( \exists x^{-1} \in \C \text{ mit } xx^{-1} = (a + \im b)\frac{a + \im b}{a^2 - b^2} = \frac{a^2 - b^2}{a^2 - b^2} = 1\)
+		\item \( xy = (ac - bd) + \im (ad - bc) = (ca - bd) + \im (da - cb) = yx\)
+	\end{enumerate}
+	\item Das Distributivgesetz gilt:\\
+	 \begin{math}\begin{aligned} z (x + y) 	&= (e + \im f)( a+c + \im b + \im d) \\
+							&= ea + ec - fb - fd + \im fa +\im fc + \im eb + \im ed \\
+							&= ea - fb + \im fa + \im eb + ec - fd + \im ed + \im fc \\
+							&= xy + xz\end{aligned}\end{math}
 \end{enumerate}
 \end{proof}
 \end{satz}
@@ -383,10 +383,10 @@ Es gilt:  \C ist ein Körper.
 \begin{defi}
 Sei \( z = a + \im b \in \C \)
 \begin{itemize}
-\item \(\overline{z} = a - \im b \) heißt die konjungiert komplexe Zahl von $z$.
-\item \(\abs{z} = \sqrt{z \overline{z}} = \sqrt{a^2 + b^2}\) heißt Betrag von \(z\).
-\item $a = Re(z)$ heißt Realteil von $z$.
-\item $b = Im(z)$ heißt Imaginärteil von $z$.
+	\item \(\overline{z} = a - \im b \) heißt die konjungiert komplexe Zahl von $z$.
+	\item \(\abs{z} = \sqrt{z \overline{z}} = \sqrt{a^2 + b^2}\) heißt Betrag von \(z\).
+	\item $a = Re(z)$ heißt Realteil von $z$.
+	\item $b = Im(z)$ heißt Imaginärteil von $z$.
 \end{itemize}
 \end{defi}
 
@@ -414,41 +414,39 @@ Es gilt: \[Re(z) = \frac{z + \overline{z}}{2} \text{ und } Im(z) = \frac{z - \ov
 \begin{prop}
 Es gilt:
 \begin{enumerate}[label=(\roman*)]
-\item \( \overline{\overline{z}} = z, \quad \overline{z_1} + \overline{z_2} = \overline{z_1 + z_2}, \quad \overline{z_1}* \overline{z_2} = \overline{z_1  z_2}, \quad \abs{\overline{z}} = \abs{z} \)
-\item \( \abs{z} \ge 0, \quad \abs{z} = 0 \Leftrightarrow z = 0\)
-\item \(\abs{z_1 z_2} = \abs{z_1} \abs{z_2}\)
-\item \(\abs{z_1 + z_2} \le \abs{z_1} + \abs{z_2}\)
+	\item \( \overline{\overline{z}} = z, \quad \overline{z_1} + \overline{z_2} = \overline{z_1 + z_2}, \quad \overline{z_1}* \overline{z_2} = \overline{z_1  z_2}, \quad \abs{\overline{z}} = \abs{z} \)
+	\item \( \abs{z} \ge 0, \quad \abs{z} = 0 \Leftrightarrow z = 0\)
+	\item \(\abs{z_1 z_2} = \abs{z_1} \abs{z_2}\)
+	\item \(\abs{z_1 + z_2} \le \abs{z_1} + \abs{z_2}\)
 \end{enumerate}
 \begin{proof} \sp
 \begin{enumerate}[label=(\roman*)]
-\item
-\begin{itemize}
-\item \(\overline{\overline{z}} = \overline{\overline{a + \im b}} = \overline{a - \im b} = a + \im b = z \)
-\item \(\overline{z_1} + \overline{z_2} = a - \im b + c - \im d = (a + c) - \im (b + d) = \overline{z_1 + z_2} \)
-\item \(\overline{z_1} * \overline{z_2} = (a - \im b) (c - \im d) = (ac + bd) - \im (ac + bc) = \overline{z_1  z_2} \)
-\item \( \abs{\overline{z}} = \sqrt{a^2 + b^2} = \abs{z}\)
-\end{itemize}
-\item
-\begin{itemize}
-\item \(\abs{z} = a^2 + b^2 > 0 \)
-\item \(\abs{z} = a^2 + b^2 = 0 \Leftrightarrow a^2 = - b^2 \Leftrightarrow a = b = 0 \)
-\end{itemize}
-\item \(\abs{z_1 z_2}^2 = (z_1 z_2)(\overline{z_1 z_2}) = (z_1\overline{z_1})(z_2\overline{z_2}) = \abs{z_1}^2\abs{z_2}^2 \Leftrightarrow \abs{z_1 z_2} = \abs{z_1}\abs{z_2} \) 
-\item  \begin{math}  
-\text{Sei }a, b \in \R \sp z \in \C \sp z = a + \im b \\
-\begin{aligned}[t]
-Re(z)^2 = a^2 \le a^2 + b^2 = \abs{z}^2 &\Rightarrow Re(z) \le \abs{Re(z)} = \sqrt{Re(z)} \le \abs{z} \\
-&\Rightarrow Re(z_1\overline{z_2}) \le \abs{z_1\overline{z_2}} = \abs{z_1}\abs{\overline{z_2}} = \abs{z_1}\abs{z_2} \\
-\end{aligned}\\
-\begin{aligned}[t]
-\abs{z_1 + z_2}^2 &= (z_1 + z_2)\overline{(z_1 + z_2)} = (z_1 + z_2)(\overline{z_1} + \overline{z_2}) \\
-&= z_1\overline{z_1} + z_2\overline{z_1} + z_1\overline{z_2} + z_2\overline{z_2} &&\text{denn } z_2\overline{z_1} = \overline{z_1\overline{z_2}} \\
-&= \abs{z_1}^2 + z_1\overline{z_2} + \overline{z_1\overline{z_2}} + \abs{z_2}^2 &&\text{denn } z_1\overline{z_2} + \overline{z_1\overline{z_2}} = 2Re(z_1z_2) \\
-&= \abs{z_1}^2 + 2 Re(z1 \overline{z2}) + \abs{z_2}^2 &&\text{denn } Re(z_1z_2) \le \abs{z_1}\abs{z_2}\\
-&\le  \abs{z_1}^2 + 2\abs{z_1}\abs{z_2} + \abs{z_2}^2 = \left(\abs{z_1} + \abs{z_2}\right)^2
-\end{aligned}\\
-\Rightarrow \abs{z_1 + z_2} \le \abs{z_1} + \abs{z_2}
-\end{math}  
+	\item \begin{itemize}
+		\item \(\overline{\overline{z}} = \overline{\overline{a + \im b}} = \overline{a - \im b} = a + \im b = z \)
+		\item \(\overline{z_1} + \overline{z_2} = a - \im b + c - \im d = (a + c) - \im (b + d) = \overline{z_1 + z_2} \)
+		\item \(\overline{z_1} * \overline{z_2} = (a - \im b) (c - \im d) = (ac + bd) - \im (ac + bc) = \overline{z_1  z_2} \)
+		\item \( \abs{\overline{z}} = \sqrt{a^2 + b^2} = \abs{z}\)
+		\end{itemize}
+	\item \begin{itemize}
+		\item \(\abs{z} = a^2 + b^2 > 0 \)
+		\item \(\abs{z} = a^2 + b^2 = 0 \Leftrightarrow a^2 = - b^2 \Leftrightarrow a = b = 0 \)
+		\end{itemize}
+	\item \(\abs{z_1 z_2}^2 = (z_1 z_2)(\overline{z_1 z_2}) = (z_1\overline{z_1})(z_2\overline{z_2}) = \abs{z_1}^2\abs{z_2}^2 \Leftrightarrow \abs{z_1 z_2} = \abs{z_1}\abs{z_2} \) 
+	\item  \begin{math}  
+	\text{Sei }a, b \in \R \sp z \in \C \sp z = a + \im b \\
+	\begin{aligned}[t]
+	Re(z)^2 = a^2 \le a^2 + b^2 = \abs{z}^2	&\Rightarrow Re(z) \le \abs{Re(z)} = \sqrt{Re(z)} \le \abs{z} \\
+								&\Rightarrow Re(z_1\overline{z_2}) \le \abs{z_1\overline{z_2}} = \abs{z_1}\abs{\overline{z_2}} = \abs{z_1}\abs{z_2} 
+	\end{aligned}\\
+	\begin{aligned}[t]
+	\abs{z_1 + z_2}^2		&= (z_1 + z_2)\overline{(z_1 + z_2)} = (z_1 + z_2)(\overline{z_1} + \overline{z_2}) \\
+					&= z_1\overline{z_1} + z_2\overline{z_1} + z_1\overline{z_2} + z_2\overline{z_2} 			&&\text{denn } z_2\overline{z_1} = \overline{z_1\overline{z_2}} \\
+					&= \abs{z_1}^2 + z_1\overline{z_2} + \overline{z_1\overline{z_2}} + \abs{z_2}^2			&&\text{denn } z_1\overline{z_2} + \overline{z_1\overline{z_2}} = 2Re(z_1z_2) \\
+					&= \abs{z_1}^2 + 2 Re(z1 \overline{z2}) + \abs{z_2}^2 							&&\text{denn } Re(z_1z_2) \le \abs{z_1}\abs{z_2}\\
+					&\le  \abs{z_1}^2 + 2\abs{z_1}\abs{z_2} + \abs{z_2}^2 = \left(\abs{z_1} + \abs{z_2}\right)^2
+	\end{aligned}\\
+	\Rightarrow \abs{z_1 + z_2} \le \abs{z_1} + \abs{z_2}
+	\end{math}  
 \end{enumerate}
 \end{proof}
 \end{prop}
@@ -459,9 +457,9 @@ Re(z)^2 = a^2 \le a^2 + b^2 = \abs{z}^2 &\Rightarrow Re(z) \le \abs{Re(z)} = \sq
 \begin{bsp} 
 Betrachte 
 \begin{center} \begin{tikzpicture}[scale=3]
- \draw (0,0) -- node[above] {$1$} (1,0);
- \draw (1,0) -- node[below left] {$1$} (1,1);
- \draw (0,0) -- node[below] {$\sqrt{2}$}  (1,1);
+	 \draw (0,0) -- node[above] {$1$} (1,0);
+	 \draw (1,0) -- node[below left] {$1$} (1,1);
+	 \draw (0,0) -- node[below] {$\sqrt{2}$}  (1,1);
  \end{tikzpicture} \end{center}
 Annahme: \( \sqrt{2} \in \R\), aber \(\sqrt{2} \not\in \Q\)
 \end{bsp}
@@ -728,9 +726,9 @@ Beispiele zu bestimmt divergenten Folgen:
 \item Die Folge \(a_n = (-1)^n\) ist divergent aber nicht bestimmt divergent.
 \item Sei \((a_n)\) bestimmt divergent und $ \displaystyle a_n \ne 0 \quad \forall n \ge n_0\text{, dann folgt }\liminf{\frac{1}{a_n}} = 0$.
 \begin{proof}Sei $ \displaystyle \liminf{a_n} = \infty \quad 
-\begin{aligned}[t] &&\forall \epsilon > 0 \sp \exists N \in \N \sp \forall n \ge N \sp a_n &> \frac{1}{\epsilon} > 0 \\
-&&\Rightarrow \frac{1}{a_n} &< \epsilon \Rightarrow \abs{\frac{1}{a_n} - 0} < \epsilon  \\
-&&\text{da } a_n > 0 \Rightarrow \liminf{\frac{1}{a_n}} = 0.
+\begin{aligned}[t] 	&&\forall \epsilon > 0 \sp \exists N \in \N \sp \forall n \ge N \sp a_n 	&> \frac{1}{\epsilon} > 0 \\
+			&&\Rightarrow \frac{1}{a_n} 							&< \epsilon \Rightarrow \abs{\frac{1}{a_n} - 0} < \epsilon  \\
+			&&\text{da } a_n > 0 \Rightarrow \liminf{\frac{1}{a_n}} = 0.
 \end{aligned}$\\
 \end{proof}
 \end{enumerate}
@@ -757,8 +755,8 @@ Beispiele zu Häufungspunkten:
 \item Sei \(\liminf{a_n} = a\), dann ist \(a\) der einzige Häufungspunkt der Folge \((a_n)\).
 \item Eine bestimmt divergente Folge hat keinen Häufungspunkt.
 \item Die Folge $ \displaystyle a_n = \frac{1}{n}+ (-1)^n $ besitzt die zwei Häufungspunkte $ \displaystyle \pm 1:\\
-\begin{aligned}[t] &\liminf{a_{2n}} &&= \liminf{\frac{1}{2n} (-1)^{2n}} &&= \liminf{\frac{1}{2n}} + 1 &&= 1 \\
-&\liminf{a_{2n+1}} &&= \liminf{\frac{1}{2n+1} (-1)^{2n+1}} &&= \liminf{\frac{1}{2n+1}} - 1 &&= - 1
+\begin{aligned}[t] 	&\liminf{a_{2n}} 		&&= \liminf{\frac{1}{2n} (-1)^{2n}} 		&&= \liminf{\frac{1}{2n}} + 1 	&&= 1 \\
+			&\liminf{a_{2n+1}} 	&&= \liminf{\frac{1}{2n+1} (-1)^{2n+1}} 	&&= \liminf{\frac{1}{2n+1}} - 1 	&&= - 1
 \end{aligned}$
 \item Jede konvergente Folge ist beschränkt, aber jede beschränkte Folge muss nicht konvergent sein.
 \end{enumerate}
@@ -769,27 +767,27 @@ Jede beschränkte Folge reeller Zahlen besitzt eine konvergente Teilfolge.
 \begin{proof}
 \begin{math} \displaystyle
 \begin{aligned}[t]
-&(a_n)_{n \in \N_0} \text{ ist beschränkt, d.h. }\exists A \in \R \text{ mit }-A \le a_n \le A \quad \forall n \ge 0\\
-&\text{Sei } A_k = \menge{a_m}{m \ge k} \text{. Beachte: dass jede der Mengen } A_k \text{ beschränkt ist, durch }A\\
-&\text{Daraus folgt mit dem Vollständigkeitsaxiom } \exists \sp inf(A_k) \quad \forall A_k \qquad \text{Wähle } x_k = inf(A_k). \\
-&\text{Da } A_0 \supset A_1 \supset \dots \supset A_k \supset A_{k+1} \supset \dots \quad \Rightarrow \quad x_k \le x_{k+1} \quad \forall k \ge 0.\\
-&\text{Betrachte die Folge }(x_n)_{k \ge 0}. \quad (x_n) \text{ ist monoton wachsend und durch $A$ beschränkt.}\\
-&\text{Mit dem Monotoniekritierium konvergiert } (x_n). \quad \text{Sei etwa } \liminf[k]{x_k} = z\\
-&\zz z \text{ ist Häufungspunkt von } (a_n) \\
-&\begin{aligned}[t]
-& 1. &&\text{Sei } \epsilon > 0 \text{ , da } \liminf[k]{x_k} = z \Rightarrow \exists N \in \N \text{ mit } \abs{x_k - z} < \frac{\epsilon}{2} \quad \forall n \ge N \\
-& 2. &&\text{Da }x_k = inf(A_k) = inf\menge{a_m}{m \ge k} \Rightarrow \exists a_{k_m} \text{ mit } \abs{x_k - a_{k_m}} < \frac{\epsilon}{2}.
-\end{aligned} \\ \vphantom{\frac{\epsilon}{2}}
-&\qquad \Rightarrow \abs{a_{k_m} - z} = \abs{a_{k_m} - x_k + x_k - z} \le \abs{a_{k_m} - x_k} + \abs{x_k - z} < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon  \\ \vphantom{\frac{\epsilon}{2}}
-&\qquad \text{Also } \forall \epsilon > 0 \exists N \in \N \quad \forall k \ge N \quad \exists a_{k_m} \in (a_n) \quad \abs{a_{k_m} - z} < \epsilon  \\ 
-&\qquad \text{d.h. die Teilfolge }(a_{k_m})_{m\ge 0}\text{ ist konvergent gegen } z \\
-&\text{Also }(a_{k_m})\text{ ist eine konvergente Teilfloge von der beschränkten Folge }(a_n).
-\end{aligned} \\
+	&(a_n)_{n \in \N_0} \text{ ist beschränkt, d.h. }\exists A \in \R \text{ mit }-A \le a_n \le A \quad \forall n \ge 0\\
+	&\text{Sei } A_k = \menge{a_m}{m \ge k} \text{. Beachte: dass jede der Mengen } A_k \text{ beschränkt ist, durch }A\\
+	&\text{Daraus folgt mit dem Vollständigkeitsaxiom } \exists \sp inf(A_k) \quad \forall A_k \qquad \text{Wähle } x_k = inf(A_k). \\
+	&\text{Da } A_0 \supset A_1 \supset \dots \supset A_k \supset A_{k+1} \supset \dots \quad \Rightarrow \quad x_k \le x_{k+1} \quad \forall k \ge 0.\\
+	&\text{Betrachte die Folge }(x_n)_{k \ge 0}. \quad (x_n) \text{ ist monoton wachsend und durch $A$ beschränkt.}\\
+	&\text{Mit dem Monotoniekritierium konvergiert } (x_n). \quad \text{Sei etwa } \liminf[k]{x_k} = z\\
+	&\zz z \text{ ist Häufungspunkt von } (a_n) \\
+	&\begin{aligned}[t]
+		& 1. &&\text{Sei } \epsilon > 0 \text{ , da } \liminf[k]{x_k} = z \Rightarrow \exists N \in \N \text{ mit } \abs{x_k - z} < \frac{\epsilon}{2} \quad \forall n \ge N \\
+		& 2. &&\text{Da }x_k = inf(A_k) = inf\menge{a_m}{m \ge k} \Rightarrow \exists a_{k_m} \text{ mit } \abs{x_k - a_{k_m}} < \frac{\epsilon}{2}.
+		\end{aligned} \\ \vphantom{\frac{\epsilon}{2}}
+	&\qquad \Rightarrow \abs{a_{k_m} - z} = \abs{a_{k_m} - x_k + x_k - z} \le \abs{a_{k_m} - x_k} + \abs{x_k - z} < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon  \\ \vphantom{\frac{\epsilon}{2}}
+	&\qquad \text{Also } \forall \epsilon > 0 \exists N \in \N \quad \forall k \ge N \quad \exists a_{k_m} \in (a_n) \quad \abs{a_{k_m} - z} < \epsilon  \\ 
+	&\qquad \text{d.h. die Teilfolge }(a_{k_m})_{m\ge 0}\text{ ist konvergent gegen } z \\
+	&\text{Also }(a_{k_m})\text{ ist eine konvergente Teilfloge von der beschränkten Folge }(a_n).
+\end{aligned}\\
 \end{math}
 \begin{figure}[h!] \begin{center} \begin{tikzpicture}
-    \draw(-1,0)--(5.5,0);
-    \foreach \x/\xtext in {1/{x_k},2.25/{a_{k_m}},3.5/{x_k + \frac{\epsilon}{2}}}
-      \draw(\x,3pt)--(\x,-3pt) node[below] {$\xtext$};
+	\draw(-1,0)--(5.5,0);
+    	\foreach \x/\xtext in {1/{x_k},2.25/{a_{k_m}},3.5/{x_k + \frac{\epsilon}{2}}}
+	\draw(\x,3pt)--(\x,-3pt) node[below] {$\xtext$};
 \end{tikzpicture} \end{center}\end{figure} 
 \end{proof}
 \end{satz}
@@ -803,39 +801,41 @@ Der Satz von Bolzano-Weierstraß ist äquivalent zum Vollständigkeitsaxiom. And
 \end{bem}
 
 \begin{defi}[Cauchy-Folge] 
-Eine Folge \((a_n)_{n \ge 0}\) heißt CAUCHY-Folge, wenn gilt:
+Eine Folge \((a_n)_{n \ge 0}\) heißt Cauchy-Folge, wenn gilt:
 \[\forall \epsilon > 0 \sp \exists N \in \N \forall n, m \ge N \abs{a_n - a_m} < \epsilon\]
 \end{defi}
 
 \begin{satz}
-Folgende Aussagen sind äquivalent
-\begin{enumerate}
+Folgende Aussagen sind äquivalent:
+\begin{enumerate}[label=\arabic*)]
 \item Die Folge \((a_n)\) ist konvergent
 \item Die Folge \((a_n)\) ist eine Cauchy-Folge
 \end{enumerate}
 \begin{proof}
 \(1) \Rightarrow 2) \) \\
-Sei \(\liminf{a_n} = a \Rightarrow \forall \epsilon > 0 \sp \exists N \sp \forall m \ge N \abs{a_n a} < \frac{\epsilon}{2} \Rightarrow \forall n, m \ge N \\
+Sei $ \displaystyle \liminf{a_n} = a \Rightarrow \forall \epsilon > 0 \sp \exists N \sp \forall m \ge N \abs{a_n a} < \frac{\epsilon}{2} \Rightarrow \forall n, m \ge N \\
 \abs{a_n - a_m} = \abs{a_n - a + a - a_m} \le \abs{a_n - a }  + \abs{a_m - a} <  \frac{\epsilon}{2}+ \frac{\epsilon}{2} = \epsilon \\
-\Rightarrow a_n\) ist eine Cauchy Folge\\
+\Rightarrow a_n$ ist eine Cauchy Folge\\
 \(2) \Rightarrow 1) \) \\
-Jede Cauchy Folge ist beschränkt. Sei \(\epsilon = 1 \Rightarrow \exists N \in N \sp \forall n, m \ge N \abs{a_n - a_m} < 1 \Rightarrow \abs{a_n - a_N} < 1 \\
+Jede Cauchy Folge ist beschränkt. Sei $ \displaystyle \epsilon = 1 \Rightarrow \exists N \in N \sp \forall n, m \ge N \abs{a_n - a_m} < 1 \Rightarrow \abs{a_n - a_N} < 1 \\
 \Rightarrow \abs{a_n} = \abs{a_n - a_N + a_N} \le \abs{a_n - a_N} + \abs{a_N} < 1 + \abs{a_N} \forall n  \ge N\\
-\Rightarrow \forall n \in \N \sp \abs{a_n} \le max\{\abs{a_0},\dots,\abs{a_{N-1}},\abs{a_N} + 1\} \Rightarrow (a_n)\) ist beschränkt.\\
-Nach dem Satz von Bolzano-Weierstraß existiert eine konvergente Teilfolge \((a_{n_k})_{k \ge 0} \text{ sei } \liminf[k]{a_{n_k}} = a\).\\
-Wir zeigen. \(\liminf{a_n} = a.\)\\
-Sei \(\epsilon > 0\). Wähle \(m\) so groß, dass \(\abs{a_m - a_n} < \frac{\epsilon}{2} \forall n,m \ge N \text{ und } \abs{a_{n_k} - a} < \frac{\epsilon}{2} \sp \forall k \ge N\\
-\Rightarrow \abs{a-a_n} = \frac{a - a_{n_k} + a_{n_k} - a_n} \le \abs{a- a_{n_k}} + \abs{a_{n_k} - a_n} < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon \text{, da } n_k \ge n \ge N\)
+\Rightarrow \forall n \in \N \sp \abs{a_n} \le max\{\abs{a_0},\dots,\abs{a_{N-1}},\abs{a_N} + 1\} \Rightarrow (a_n)$ ist beschränkt.\\
+Nach dem Satz von Bolzano-Weierstraß existiert eine konvergente Teilfolge $ \displaystyle (a_{n_k})_{k \ge 0} \text{ sei } \liminf[k]{a_{n_k}} = $).\\
+Wir zeigen. $\displaystyle \liminf{a_n} = a.$\\
+Sei $ \displaystyle \epsilon > 0\text{. Wähle }m\text{ so groß, dass } \abs{a_m - a_n} < \frac{\epsilon}{2} \forall n,m \ge N \text{ und } \abs{a_{n_k} - a} < \frac{\epsilon}{2} \sp \forall k \ge N\\
+\Rightarrow \abs{a-a_n} = \frac{a - a_{n_k} + a_{n_k} - a_n} \le \abs{a- a_{n_k}} + \abs{a_{n_k} - a_n} < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon \text{, da } n_k \ge n \ge N$
 \end{proof}
 \end{satz}
 
-%% KORRIGIERE AB HIER!
+%korrigiere
+
 \begin{bsp}[Verfahren zur Berechnung der Quadratwurzel]
 Seien \(a = 0\), \(a_0 > 0\) reelle Zahlen. Wir definieren die Folge \((x_n)\) rekursiv.
-\begin{align*}
-x_0 = x_0
-x_{n+1} = \frac{1}{2}\left(x_n + \frac{a}{x_n}\right)
-\end{align*}
+\begin{math}\begin{aligned}[t]
+x_0 &= x_0 \\
+x_{n+1} &= \frac{1}{2}\left(x_n + \frac{a}{x_n}\right)
+\end{aligned}\\
+\end{math}
 Wir zeigen: \((x_n)\) ist konvergent und \(\liminf{x_n} = x \text{ und } x^2 = a\).
 \begin{proof}
 \begin{enumerate}
@@ -1226,7 +1226,6 @@ Sei a \in \R und (x_n) eine Folge mit \liminf{x_n} = a \Rightarrow \liminf{x_n -
 \end{proof}
 \end{enumerate}
 \end{bsp}
-
 
 
 
