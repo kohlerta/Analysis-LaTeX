@@ -396,9 +396,9 @@ Es gilt: \[Re(z) = \frac{z + \overline{z}}{2} \text{ und } Im(z) = \frac{z - \ov
 \begin{proof} \sp
 \begin{center}
 \begin{tikzpicture}
-        \draw[step=1,help lines,black!0] (-1,-2.5) grid (4,3);
+        \draw[step=1,help lines,black!0] (-1,-1) grid (4,3);
         \draw[<->] (-0.5,0) -- (3.5,0)  node[below right] {$Re$};
-        \draw[<->] (0,-2) -- (0,2.5)  node[above left]{$Im$};
+        \draw[<->] (0,-1.5) -- (0,2.5)  node[above left]{$Im$};
         \draw[-] (1.5,1) -- (1.5,0) ;
         \draw[-] (1.5,1) -- (0,1) ;
         \draw[fill=black] (1.5,1) circle (0.05) node[above] {$\scriptstyle z$};
@@ -656,7 +656,7 @@ Sei \(\liminf{a_n} = 0\text{ und } \lim{b_n} = b\).
 \end{aligned}\\
 &\Rightarrow (a_n \pm b_n) \text{ beschränkt und } \liminf{a_n \pm b_n} = a+b.
 \end{aligned}$
-\item Sei $ \displaystyle \epsilon > 0 \Rightarrow \exists N \in \N \\\begin{aligned}[t] \quad 
+\item Sei $ \displaystyle \epsilon > 0 \Rightarrow \exists N \in \N \begin{aligned}[t] \quad 
 		&\abs{a_n - a} < \frac{\epsilon}{\lambda} \quad \forall n \ge N\\
 		& \abs{\lambda a_n - \lambda a} = \abs{\lambda(a_n - a)} = \abs{\lambda}\abs{a_n - a} < \lambda \frac{\epsilon}{\lambda} = \epsilon
 		\end{aligned}$
@@ -668,20 +668,17 @@ Sei \(\liminf{a_n} = 0\text{ und } \lim{b_n} = b\).
 &= \underbrace{\abs{a_n}}_{\le K} \abs{b_n - b} + \underbrace{\abs{b}}_{\le K}\abs{a_n - a} < K \frac{\epsilon}{2K} + K \frac{\epsilon}{2K} = \epsilon
 \end{aligned}$
 \item 
-Zeige $ \displaystyle \liminf{\frac{1}{b_n}} = \frac{1}{\liminf{b_n}} $\\
-\begin{math} \displaystyle \begin{aligned}[t]
-\abs{\abs{ b_n } - \abs{b}} \le \abs{ b_n - b} < \frac{\abs{b}}{2} \quad \forall n \ge n_0 &\Rightarrow -\frac{\abs{b}}{2} < \abs{b_n} - \abs{b} < \frac{\abs{b}}{2} \\
-&\Rightarrow  \frac{\abs{b}}{2} < \abs{b_n} \quad \Rightarrow \frac{1}{\abs{b_n}} < \frac{2}{\abs{b}} \quad \forall n \ge n_0 
-\end{aligned} \\ \text{Sei } \epsilon > 0 \Rightarrow \exists N \quad \forall n \ge N \quad \abs{b_n - b} < \frac{\epsilon \abs{b} ^2}{2} \Rightarrow \\
+Zeige \begin{math} \displaystyle \liminf{\frac{1}{b_n}} = \frac{1}{\liminf{b_n}} \quad\Rightarrow  \abs{\abs{ b_n } - \abs{b}} \le \abs{ b_n - b} < \frac{\abs{b}}{2} \quad \forall n \ge n_0 \\
+\Rightarrow -\frac{\abs{b}}{2} < \abs{b_n} - \abs{b} < \frac{\abs{b}}{2} \Rightarrow  \frac{\abs{b}}{2} < \abs{b_n} \quad \Rightarrow \frac{1}{\abs{b_n}} < \frac{2}{\abs{b}} \quad \forall n \ge n_0 \\
+\text{Sei } \epsilon > 0 \Rightarrow \exists N \quad \forall n \ge N \quad \abs{b_n - b} < \frac{\epsilon \abs{b} ^2}{2} \Rightarrow \\
 \abs{\frac{1}{b_n} - \frac{1}{b}} = \abs{\frac{b - b_n}{b b_n}} = \frac{1}{\abs{b_n}}\frac{1}{\abs{b}} \abs{b - b_n} < \frac{2}{\abs{b}}\frac{1}{\abs{b}}\abs{b_n - b} < \frac{2}{\abs{b}^2}\frac{\epsilon\abs{b}^2}{2} = \epsilon.
 \end{math}
-\item Sei \(a_n \le b_n \quad \forall n \ge n_0. \)\\
-Angenommen \(a > b\). Sei \begin{math} \displaystyle \epsilon =  \frac{a-b}{2} > 0 \Rightarrow \exists N_1, N_2 \in \N  \\ 
-\abs{a_n - a} < \epsilon \quad \forall n \ge N_1 \qquad \text{und} \qquad \abs{b_n - b} < \epsilon \quad \forall n \ge N_2 \vphantom{\frac{a-b}{2}} \\
+\item Sei \(a_n \le b_n \quad \forall n \ge n_0. \) \quad Angenommen \(a > b\). \quad Sei \begin{math} \displaystyle \epsilon =  \frac{a-b}{2} > 0 \\ 
+\Rightarrow \exists N_1, N_2 \in \N \quad \abs{a_n - a} < \epsilon \quad \forall n \ge N_1 \qquad \text{und} \qquad \abs{b_n - b} < \epsilon \quad \forall n \ge N_2 \vphantom{\frac{a-b}{2}} \\
 \begin{aligned}[t]
 b_n < b + \epsilon &= b + \frac{a-b}{2} = \frac{2b + a - b}{2} = \frac{b + a}{2} = \frac{2a - a + b}{2} \\
 &= a - \frac{a-b}{2} = a - \epsilon < a_n && \quad \forall n \ge max\{N_1, N_2\} 
-\end{aligned} \\ \vphantom{\frac{a-b}{2}}
+\end{aligned} \\
 \Rightarrow  b_n < a_n \quad \forall n \ge max\{N_1, N_2\} \quad \WSP \Rightarrow a \le b
 \end{math}
 \end{enumerate}
@@ -693,13 +690,15 @@ Sei \((a_n)\text{ und }(b_n)\) zwei konvergente Folgen mit der Eigenschaft, dass
 Sei \((c_n)\) eine Folge mit der Eigenschaft, dass \(a_n \le c_n \le b_n \quad \forall n \ge n_0\). 
 Dann ist \((c_n)\) konvergent und \(\liminf{c_n} = a\).
 \begin{proof}
-\begin{math} \displaystyle \text{Sei }\epsilon > 0 \Rightarrow \exists  N_1, N_2 \in \N \quad 
-\begin{aligned}[t] a - \epsilon < a_n < a + \epsilon \quad \forall n \ge N_1 \\
-			   a - \epsilon < b_n < a + \epsilon \quad \forall n \ge N_2 
+\begin{math}
+\begin{aligned}[t] \displaystyle \text{Sei }\epsilon > 0 &\Rightarrow \exists  N_1, N_2 \in \N \quad 
+&&\begin{aligned}[t] a - \epsilon < a_n < a + \epsilon & \quad \forall n \ge N_1 \\
+			   a - \epsilon < b_n < a + \epsilon & \quad \forall n \ge N_2 
 \end{aligned} \\
-\Rightarrow \forall n \ge max\{N_1, N_2\} \sp \text{gilt: } \quad \begin{aligned}[t] &a-\epsilon < a_n \le c_n \le b_n < a + \epsilon \quad  \forall n \ge N \\
+&\Rightarrow \forall n \ge max\{N_1, N_2\} \sp \text{gilt: } \quad &&\begin{aligned}[t] &a-\epsilon < a_n \le c_n \le b_n < a + \epsilon \quad  \forall n \ge N \\
 &\Rightarrow \abs{c_n - a} < \epsilon \Rightarrow \liminf{c_n} = a
 \end{aligned}
+\end{aligned}\\
 \end{math}
 \end{proof}
 \end{satz}
@@ -709,7 +708,7 @@ Zwei Beispiele zum Sandwich-Theorem:
 \begin{enumerate}
 \item Sei \((a_n)\) eine Folge mit \(0 \le a_n \le \frac{1}{n} \Rightarrow \liminf{a_n} = 0\)
 \item \(a_n = \sqrt{2n} - \sqrt{n}\) ist divergent, denn \\
-$ \displaystyle a_n = \left(\sqrt{2n} - \sqrt{n}\right)\frac{\sqrt{2n} + \sqrt{n}}{\sqrt{2n} + \sqrt{n}} = \frac{2n - n}{\sqrt{n} \left(\sqrt{2} - 1\right)} \overset{\left(\sqrt{2} - 1\right)\le 3}{\ge} \frac{n}{3\sqrt{n}} = \frac{\sqrt{n}}{3} \ge \sqrt{n} \longtoinf \infty $.
+$ \displaystyle a_n = \frac{\left(\sqrt{2n} - \sqrt{n}\right)\left(\sqrt{2n} + \sqrt{n}\right)}{\left(\sqrt{2n} + \sqrt{n}\right)} = \frac{2n - n}{\sqrt{n} \underbrace{\left(\sqrt{2} - 1\right)}_{\le3}} \ge \frac{n}{3\sqrt{n}} = \frac{\sqrt{n}}{3} \ge \sqrt{n} \longtoinf \infty $.
 \end{enumerate}
 \end{bsp}
 
@@ -804,7 +803,7 @@ Der Satz von Bolzano-Weierstraß ist äquivalent zum Vollständigkeitsaxiom. And
 
 \begin{defi}[Cauchy-Folge] 
 Eine Folge \((a_n)_{n \ge 0}\) heißt CAUCHY-Folge, wenn gilt:
-\[\forall \epsilon > 0 \sp \exists N \in \N \forall n, m \ge N \abs{a_n - a_m} < \epsilon\]
+\[\forall \epsilon > 0 \quad \exists N \in \N \quad \forall n, m \ge N \quad \abs{a_n - a_m} < \epsilon\]
 \end{defi}
 
 \begin{satz}
@@ -814,18 +813,20 @@ Folgende Aussagen sind äquivalent
 \item Die Folge \((a_n)\) ist eine Cauchy-Folge
 \end{enumerate}
 \begin{proof}
-\(1) \Rightarrow 2) \) \\
-Sei \(\liminf{a_n} = a \Rightarrow \forall \epsilon > 0 \sp \exists N \sp \forall m \ge N \abs{a_n a} < \frac{\epsilon}{2} \Rightarrow \forall n, m \ge N \\
-\abs{a_n - a_m} = \abs{a_n - a + a - a_m} \le \abs{a_n - a }  + \abs{a_m - a} <  \frac{\epsilon}{2}+ \frac{\epsilon}{2} = \epsilon \\
-\Rightarrow a_n\) ist eine Cauchy Folge\\
-\(2) \Rightarrow 1) \) \\
-Jede Cauchy Folge ist beschränkt. Sei \(\epsilon = 1 \Rightarrow \exists N \in N \sp \forall n, m \ge N \abs{a_n - a_m} < 1 \Rightarrow \abs{a_n - a_N} < 1 \\
-\Rightarrow \abs{a_n} = \abs{a_n - a_N + a_N} \le \abs{a_n - a_N} + \abs{a_N} < 1 + \abs{a_N} \forall n  \ge N\\
-\Rightarrow \forall n \in \N \sp \abs{a_n} \le max\{\abs{a_0},\dots,\abs{a_{N-1}},\abs{a_N} + 1\} \Rightarrow (a_n)\) ist beschränkt.\\
-Nach dem Satz von Bolzano-Weierstraß existiert eine konvergente Teilfolge \((a_{n_k})_{k \ge 0} \text{ sei } \liminf[k]{a_{n_k}} = a\).\\
-Wir zeigen. \(\liminf{a_n} = a.\)\\
-Sei \(\epsilon > 0\). Wähle \(m\) so groß, dass \(\abs{a_m - a_n} < \frac{\epsilon}{2} \forall n,m \ge N \text{ und } \abs{a_{n_k} - a} < \frac{\epsilon}{2} \sp \forall k \ge N\\
-\Rightarrow \abs{a-a_n} = \frac{a - a_{n_k} + a_{n_k} - a_n} \le \abs{a- a_{n_k}} + \abs{a_{n_k} - a_n} < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon \text{, da } n_k \ge n \ge N\)
+\begin{math} \displaystyle 
+\begin{aligned}[t]
+1) \Rightarrow 2) \quad &\text{Sei }\liminf{a_n} = a \Rightarrow \forall \epsilon > 0 \sp \exists N \sp \forall m \ge N \abs{a_n a} < \frac{\epsilon}{2} \Rightarrow \forall n, m \ge N \\
+&\abs{a_n - a_m} = \abs{a_n - a + a - a_m} \le \abs{a_n - a }  + \abs{a_m - a} <  \frac{\epsilon}{2}+ \frac{\epsilon}{2} = \epsilon \\
+&\Rightarrow a_n \text{ ist eine Cauchy Folge}\\
+2) \Rightarrow 1) \quad &\text{Jede Cauchy Folge ist beschränkt. Sei } \epsilon = 1 \Rightarrow \exists N \in N \sp \forall n, m \ge N \abs{a_n - a_m} < 1 \Rightarrow \abs{a_n - a_N} < 1 \\
+&\Rightarrow \abs{a_n} = \abs{a_n - a_N + a_N} \le \abs{a_n - a_N} + \abs{a_N} < 1 + \abs{a_N} \forall n  \ge N\\
+&\Rightarrow \forall n \in \N \sp \abs{a_n} \le max\{\abs{a_0},\dots,\abs{a_{N-1}},\abs{a_N} + 1\} \Rightarrow (a_n) \text{ ist beschränkt.}\\
+&\text{Nach dem Satz von Bolzano-Weierstraß existiert eine konvergente Teilfolge }(a_{n_k})_{k \ge 0} \text{ sei } \liminf[k]{a_{n_k}} = a.\\
+&\text{Wir zeigen. }\liminf{a_n} = a.\\
+&\text{Sei }\epsilon > 0. \text{ Wähle $m$ so groß, dass }\abs{a_m - a_n} < \frac{\epsilon}{2} \forall n,m \ge N \text{ und } \abs{a_{n_k} - a} < \frac{\epsilon}{2} \sp \forall k \ge N\\
+&\Rightarrow \abs{a-a_n} = \frac{a - a_{n_k} + a_{n_k} - a_n} \le \abs{a- a_{n_k}} + \abs{a_{n_k} - a_n} < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon \text{, da } n_k \ge n \ge N
+\end{aligned}\\
+\end{math}
 \end{proof}
 \end{satz}
 
@@ -1063,6 +1064,7 @@ e^x e^y &= \left(\suminf{\frac{x^n}{n!}}\right)\left(\suminf{\frac{y^n}{n!}}\rig
 
 \newpage
 \section{Stetigkeit}
+\subsection{Stetigkeit}
 \begin{defi}
 Sei $ D \subset \R$. Eine Funktion $f : D \to \R \text{ mit } x \mapsto f(x) $. ist eine Vorschrift, die jedes $ x \in D$ genau einem WErt $f(x)$ zuordnent.
 \end{defi}
@@ -1227,15 +1229,145 @@ Sei a \in \R und (x_n) eine Folge mit \liminf{x_n} = a \Rightarrow \liminf{x_n -
 \end{enumerate}
 \end{bsp}
 
+\begin{bem}[Wiederholung Stetigkeit]
+$ f: D \to \R $ heißt stetig in $x_0 \in D$ wenn gilt: \\
+Für jede Folge $(x_n)$ mit $\liminf{x_n} = x_0$ ist die Folge $(f(x_n))$ konvergent und $\liminf{f(x_n)} = f(x_0)$.
+\end{bem}
 
+\begin{satz}[Zwischenwertsatz]
+Sei $f:[a,b] \to \R$ stetig mit $f(a) < 0$ und $f(b) > 0$. Dann gibt es ein $ x \in (a,b)$ mit f(x) = 0.
+% zwischenwertsatz.png
+\begin{proof}
+Wir konstruieren durch Intervallhalbierung eine Folge, deren Grenzwert eine Nullstelle von $f$ ist.\\
+Wir definieren induktiv zwei Folgen $(a_n)$ und $(b_n)$ mit folgenden Eigenschaften:
+\begin{itemize}
+\item $0 \le b_n - a_n \le \frac{b-a}{2^n}$
+\item $f(a_n) < 0 < f(b_n)$
+\end{itemize}
+\begin{math}
+\IA \quad a_0 = a, \quad b_n = b\\
+\IV{\text{Seien $a_n$ und $b_n$ schon konstruiert}} \\
+	\text{Definiere den Mittelpunkt }M = \frac{a_n + b_n}{2}. \text{ Ist } f(M) = 0, \text{ dann setze } x = M \\
+\IS\\
+\text{Fall 1: Ist } f(M) < 0 : a_{n+1} = M, b_{n+1} = b_n.\\
+\text{Fall 2: Ist } f(M) > 0 : a_{n+1} = b_n, b_{n+1} = M. \\
+% ev mit grafik erklären
+\text{ Nach Definition ist } f(a_{n+1}) < 0 und f(b_{n+1}) > 0.\\
+0 \le b_{n+1} - a_{n+1} \le \frac{b_n - a_n}{2}\\
+\text{Denn Fall 1: }b_{n+1} - a_{n+1} = b_n - \frac{a_n+b_n}{2} = \frac{2b_n + a_n - b_n}{2} = \frac{b_n - a_n}{2}
+\text{und Fall 2: } b_{n+1} - a_{n+1} = \frac{a_n+b_n}{2} - a_n = \frac{b_n + a_n - 2a_n}{2} = \frac{b_n - a_n}{2}
+\le \frac{b_{n-1} - a_{n-1}}{2^2} \le \dots \le \frac{b-a}{2^n+1}\\
+\end{math}
+Nach Konstruktion ist die Folge $(a_n)$ monoton wachsend und durch $b$ nach oben beschränkt. Die Folge $(b_n)$ ist monoton fallend und durch $a$ nach unten beschränkt.
+Nach dem Monotoniekriterium konvergieren die beiden Folgen $(a_n)$ und $(b_n)$. Sei $\liminf{b_n} = b_0$ und $\liminf{a_n}  = a_0$\\
+Aus $0 \le b_n - a_n \le \frac{b-a}{2}$ folgt $0 \le b_0 - a_0 \le \liminf{\frac{b-a}{2^n}} = 0$
+Dann folgt: $\liminf{a_n} = lim{b_n} = x \in (a,b)$
+Da $f(a_n) < 0 < f(b_n)$ und $f$ stetig ist, folgt $0 \le \liminf{f(b_n)} = f(x) = \liminf{f(a_n)} \le 0 \Rightarrow f(x) = 0$.
+\end{proof}
+\end{satz}
 
+\begin{defi}
+Eine Funktion $f: D \to \R$ heißt beschränkt, wenn die Menge $f(D) = \menge{f(x)}{x \in D}$ beschränkt ist. 
+d.h. $\exists M \in \R$ sodass $\abs{f(x)} \le M \quad \forall x\in D$
+\end{defi}
 
+\begin{satz}[vom Maximum u nd Minimum]
+Sei $[a,b]$ ein abgeschlossenes Intervall. Dann ist jede stetige Funktion $f: [a,b] \to \R$ beschränkt und nimmt ihr Maximum und Minimum an.\\
+d.h. $\exists p,q \in [a,b] \text{ mit } f(p) = sup(\menge{f(x)}{x\in[a,b]}) = sup_f und f(q) = inf(\menge{f(x)}{x\in[a,b]}) = inf_f$
+\begin{proof}
+Wir zeigen nur das Maximum. Denn das Minimum ist das Maximum von $-f$. \\
+Sei $M = sup(\menge{f(x)}{x\in[a,b]}) \in \R \cup \{\infty\}$.\\
+1. Ist $f$ nicht nach oben beschränkt, dann gibt es $\forall n \in \N$ ein $f(x_n)$ mit $f(x_n) \ge n \Rightarrow \liminf{f(x_n)} = \infty = M$\\
+2. Ist $f$ beschränkt $\Rightarrow M \in \R$ und $\forall n \in \N \quad \exists f(x_n)$ mit $ M-\frac{1}{n} < f(x_n) \le M \Rightarrow \liminf{f(x_n)} = M$
+Also gibt es in beiden Fällen eine Folge $(x_n)$ mit $x_n \in [a,b]$ mit $\liminf{f(x_n)} = M$.\\
+Da $x_n \in [a,b]$ ist die Folge $(x_n)$ beschränkt. Nach dem Satz von Bolzano-Weierstraß besitzt die Folge $(x_n)$ eine konvergente Teilfolge $(x_{n_k})$ mit $\liminf[k]{x_{n_k}} = p \in [a,b]$.
+Da \liminf{f(x_n)} = M und jede Teilfolge eine konvergente Folge den selben Grenzwert hat folgt \liminf[k]{f(x_{n_k})} = M\\
+Wir wissen \liminf[k]{x_{n_k}} = p. Da $f$ stetig ist, folgt $\liminf[k]{f(x_{n_k})} = f(p)$. Aber $\liminf[k]{f(x_{n_k})} = M \Rightarrow M = f(p).$\\
+$\Rightarrow p$ ist Maximum der Funktion $f$.
+\end{proof}
+\end{satz}
 
+\begin{bem} 
+$f:(0,1] \to \R \text{ mit } f(x) = \frac{1}{x}$ \\ % mit grafik!
+$f$ ist stetig aber nicht nach oben beschränkt.
+\end{bem}
 
+\begin{defi}
+Eine Funktion $f: D \to \R$ heißt (streng) monoton wachsen wenn gilt: $\forall a,b \in D \quad a \le b \quad (a < b) \Rightarrow f(a) \le f(b) \quad (f(a) < f(b))$. Entsprechend für (streng) monoton fallend.
+\end{defi}
 
+\begin{satz}[von der stetigen Umkehrfunktion]
+Sei $f: [a,b] \to \R$ stetig und streng monoton wachsend (fallend). Sei $ A= f(a)$ und $ B = f(b)$.
+Dann ist $f: [a,b] \to [A,B]$ bijektiv und die Umkehrabbildung $f^{-1} : [A,B] \to [a,b]$ ist stetig und streng monoton wachsend (fallend).
+\begin{proof}
+Sei $f: [a,b] \to \R$ stetig und streng monoton wachsend. $f(a) = A$ und $f(b) = B$.\\
+Sei $x \in[a,b]$ mit $a < x < b$\\
+$\overset{\nearrow}{\Rightarrow} f(a) < f(x) < f(b) \text{ also } A < f(x) < B \Rightarrow f(x) \in [A,B] \quad \forall x \in[a,b]$\\
+Injektiv: $x \ne x' \Rightarrow x < x' \Rightarrow f(x) < f(x') \Rightarrow f(x) \ne f(x') \Rightarrow f$ ist injektiv.\\
+Surjektiv: Sei $ C \in [A,B]$. Für $C = A $ oder $C = B$ wähle $ x = a$ oder $x = b$.\\
+Sei also $C \in (A,B)$. Betrachte $g: [a,b] \to \R \text{ mit } g(x) = f(x)-C$ Da $f$ stetig ist, ist auch $g$ stetig. $g(a) = f(a) -C = A- C < 0$ und $g(b) = f(b) -C = B - C > 0$ Aus dem Zwischenwertsatz folgt: $\exists p \in [a,b]\text{ mit }g(p) = 0\text{also } f(p) - C = 0 \Rightarrow f(p) = C. \Rightarrow f$ ist surjektiv.\\
+$\Rightarrow  f: [a,b] \to [A,B] $ ist bijektiv.\\
+Betrachte die Umkehrfunktion. $f^{-1} : [A,B] \to [a,b]$.
+1. $f^{-1}$  ist streng monoton wachsend:
+Sei $y < y'. \zz f^{-1}(y) < f^{-1}(y')$.
+Angenommen $f^{-1}(y) \ge f^{-1}(y')$, da $f$ streng monoton wachsend ist folgt $f(f^{-1}(y)) \ge f(f^{-1}(y')) \Rightarrow y \ge y' \WSP \Rightarrow f^{-1}(y) < f^{-1}(y')$\\
+2. Noch zu zeigen: $g = f^{-1}: [A,B] \to [a,b]$ ist stetig.
+Sei $y \in [A,B]$ und $(y_n)$ eine Folge mit $y_n \in[A,B]$ mit $\liminf{y_n} = y$.\\
+\zz $\liminf{f^{-1}(y_n)} = f^{-1}(y)$\\
+Angenommen, das gilt nicht.\\
+Dann gibt es ein $\epsilon > 0$, sodass $\abs{f^{-1}(y_n) - f^{-1}(y)} \ge \epsilon$ für unendlich viele $n$. d.h. es gibt eine Teilfolge $(y_{n_k})$ von $(y_n)$ mit $\abs{f^{-1}(y_{n_k}) - f^{-1}(y)} \ge \epsilon.$ Da $a \le f^{-1}(y_{n_k}) \le b$, also beschränkt ist. folgt aus dem Satz von Bolzano-Weierstraß, es gibt eine konvergente Teilfolge $(f^{-1}(y_{n_{k_l}}))_{l \ge 0}$ von $(f^{-1}(y_{n_k}))_{k \ge 0}$.\\
+Wir können also annehmen. Es gibt eine konvergente Teilfolge $(f^{-1}(y_{n_{k_l}}))_{l \ge 0}$ von $(f^{-1}(y_n))_{n \ge 0}$ mit $(f^{-1}(y_{n_{k_l}}) = c$  und $\abs{f^{-1}(y_{n_{k_l}}) - f^{-1}(y)} \ge \epsilon \Rightarrow \abs{c - f^{-1}(x)} \ge \epsilon$. \\
+ Nach der Definition der Umkehrabbildung ist $f(f^{-1}(y_{n_k})) = y_{n_k}$. Aus der Stetigkeit von $f$ folgt daher $y = \liminf[k]{y_{n_k}} = \liminf[k]{f(f^{-1}(y_{n_k}))}  \overset{f \text{ stetig}}{=} f(c)\\
+ \Rightarrow f^{-1}(y) = f^{-1}(f(c)) = c
+\Rightarrow \abs{f^{-1}(y) - f^{-1}(y)} \ge \epsilon > 0 \WSP \Rightarrow f^{-1}:[A,B] \to [a,b] $ ist stetig.
+\end{proof}
+\end{satz}
 
-
-
+\begin{bsp}
+Beispiele zur...
+\begin{enumerate}
+\item Die Wurzelfunktion $\sqrt[k]{x}$\\
+Sei $f: \R_+ \to \R_+ \text{ mit } f(x) = x^k $ und $ k \ge 2$.
+Für $x \in \R_+$ ist $f$ stetig, streng monoton wachsend und $f(x) \in \R_+ \Rightarrow $ Es gibt eine streng monoton wachsende und stetige Umkehrfunktion $f^{-1}: \R_+ \to \R_+ \text{ mit } = \sqrt[k]{x}$\\
+Für $k$ ungerade sind $f$ und $f^{-1}$ auf $\R \to \R$ definiert.
+\item Der natürliche Logarithmus $ln(x)$\\
+Die Exponentialfunktion $exp: \R \to \R_+ \text{ mit } exp(x) = e^x = \suminf{\frac{x^n}{n!}}$ ist streng monoton wachsend und bijektiv von \R nach $\R_+$
+\begin{proof}
+	$e^x = e^{\frac{x}{2} + \frac{x}{2}} = e^{\frac{x}{2}} e^{\frac{x}{2}} = (e^{\frac{x}{2}})^2 \ge 0$\\
+	Für $x > 0$ folgt: $e^x = 1 + \frac{x}{1} + \frac{x^2}{2} + \dots + \frac{x^n}{n!} > 1$, also $e^x > 1$\\
+	Sei $x < x' \Rightarrow y = x' - x > 0 \Rightarrow e^y > 1 \Rightarrow e^{x'} = e^{x+(x'-x)} = e^{x+y} = e^x \underbrace{e^y}_{> 1} > e^x \Rightarrow exp$ ist streng monoton.
+	d.h. $exp$ ist auf jedem abgeschlossenen Intervall $[a,b]$ stetig und bijektiv.\\
+	$\forall n\in\N \quad 	exp(n)\ge 1 + n \longtoinf \infty \\
+					exp(-n) = \frac{1}{exp(n)} \le \frac{1}{1+n} \longtoinf 0.$\\
+	Also $\liminf{exp(x)} = \infty$ und $\liminf{exp(x)} = 0$
+	%grafik der exponentialfunktion.
+	Es gibt daher eine stetige Umkehrfunktion $ ln : \R_+ \to  \R \text{ mit } x \mapsto ln(x)$ der natürliche Logarithmus.
+	$ln$ ist wieder stetig und streng monoton wachsend.
+\end{proof}
+\[\text{Es gilt: } ln(x y) = ln(x) + ln(y)\]
+	\begin{proof}
+	$ ln(x) = \xi$ und $ ln(y) = \eta$\\
+	d.h. $ e^{\xi} = x $ und $ e^{\eta} = y$\\
+	$\Rightarrow e^{\xi + \eta} = e^{\xi} e^{\eta} = x y \qquad | ln \\
+	\Rightarrow ln(e^{\xi + \eta}) = ln(xy) \\
+	\Rightarrow \xi + \eta = ln(xy) \\
+	\Rightarrow ln(x) + ln(y) = ln(xy)$
+	\end{proof}
+\item Die allgmeine Potenz und der allgemeine Logarithmus.\\
+Sei $ a < 0, x \in \R$ \[a^x = e^{x ln(a)}\] 
+\begin{proof}
+Sei $x = n \in N$
+$e^{n ln(a)} = \underbrace{e^{ln(a)} \dots e^{ln(a)}}_{n-\text{mal}} = a\dots a = a ^n$
+\end{proof}
+Diese Funtkion $\R \to \R_+$ ist stetig, bijektiv und stereng monoton wachsend.
+Es gilt: $a^{x+y} = a^x a^y \quad (a^x)^y = a^{xy} \quad a^x b^x = (ab)^x \quad (\frac{1}{a})^x = \frac{1}{a^x} = a^{-x}$
+\proof[Beweis: Übung]
+Die Umkehrfunktion $log_a : \R_+ \to \R \text{ mit } x \mapsto log_a(x)$ heißt der logarithmus zur Basis $a$.\\
+Also $log_a(a^x) = x \quad _alog(x) = x.$
+\[\text{Es gilt: } log_a(x) = \frac{ln(x)}{ln(a)}\]
+\proof[Beweis: Übung]
+\end{enumerate}
+\end{bsp}
 
 
 
