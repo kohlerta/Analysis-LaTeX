@@ -16,7 +16,6 @@
 \usepackage{multicol}
 
 
-
 \author{Tanja Kohler}
 \title{Analysis für Informatik\small{ \\ - \\ Ass.Prof. Clemens Amstler}}
 \geometry{verbose,a4paper,tmargin=25mm,bmargin=25mm,lmargin=25mm,rmargin=25mm}
@@ -818,43 +817,46 @@ Folgende Aussagen sind äquivalent
 1) \Rightarrow 2) \quad &\text{Sei }\liminf{a_n} = a \Rightarrow \forall \epsilon > 0 \sp \exists N \sp \forall m \ge N \abs{a_n a} < \frac{\epsilon}{2} \Rightarrow \forall n, m \ge N \\
 &\abs{a_n - a_m} = \abs{a_n - a + a - a_m} \le \abs{a_n - a }  + \abs{a_m - a} <  \frac{\epsilon}{2}+ \frac{\epsilon}{2} = \epsilon \\
 &\Rightarrow a_n \text{ ist eine Cauchy Folge}\\
-2) \Rightarrow 1) \quad &\text{Jede Cauchy Folge ist beschränkt. Sei } \epsilon = 1 \Rightarrow \exists N \in N \sp \forall n, m \ge N \abs{a_n - a_m} < 1 \Rightarrow \abs{a_n - a_N} < 1 \\
-&\Rightarrow \abs{a_n} = \abs{a_n - a_N + a_N} \le \abs{a_n - a_N} + \abs{a_N} < 1 + \abs{a_N} \forall n  \ge N\\
+2) \Rightarrow 1) \quad &\text{Jede Cauchy Folge ist beschränkt.} \\
+& \text{Sei } \epsilon = 1 \Rightarrow \exists N \in \N \sp \forall n, m \ge N \abs{a_n - a_m} < 1 \quad \Rightarrow \abs{a_n - a_N} < 1 \\
+&\Rightarrow \abs{a_n} = \abs{a_n - a_N + a_N} \le \abs{a_n - a_N} + \abs{a_N} < 1 + \abs{a_N} \quad \forall n  \ge N\\
 &\Rightarrow \forall n \in \N \sp \abs{a_n} \le max\{\abs{a_0},\dots,\abs{a_{N-1}},\abs{a_N} + 1\} \Rightarrow (a_n) \text{ ist beschränkt.}\\
-&\text{Nach dem Satz von Bolzano-Weierstraß existiert eine konvergente Teilfolge }(a_{n_k})_{k \ge 0} \text{ sei } \liminf[k]{a_{n_k}} = a.\\
-&\text{Wir zeigen. }\liminf{a_n} = a.\\
-&\text{Sei }\epsilon > 0. \text{ Wähle $m$ so groß, dass }\abs{a_m - a_n} < \frac{\epsilon}{2} \forall n,m \ge N \text{ und } \abs{a_{n_k} - a} < \frac{\epsilon}{2} \sp \forall k \ge N\\
-&\Rightarrow \abs{a-a_n} = \frac{a - a_{n_k} + a_{n_k} - a_n} \le \abs{a- a_{n_k}} + \abs{a_{n_k} - a_n} < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon \text{, da } n_k \ge n \ge N
+&\text{Nach Bolzano-Weierstraß existiert eine konvergente Teilfolge: } (a_{n_k}) \longtoinf[k] a\\
+&\zz \liminf{a_n} = a.\\
+&\text{Sei }\epsilon > 0. \text{ Wähle $m$ so groß, dass }\begin{aligned}[t]&\abs{a_m - a_n} < \frac{\epsilon}{2} \quad \forall n,m \ge N \text{ und } \\
+&\abs{a_{n_k} - a} < \frac{\epsilon}{2} \quad \forall n_k \ge k \ge N \end{aligned} \\
+&\Rightarrow \abs{a-a_n} = \abs{a - a_{n_k} + a_{n_k} - a_n} \le \abs{a- a_{n_k}} + \abs{a_{n_k} - a_n} < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon
 \end{aligned}\\
 \end{math}
 \end{proof}
 \end{satz}
 
-%% KORRIGIERE AB HIER!
 \begin{bsp}[Verfahren zur Berechnung der Quadratwurzel]
 Seien \(a = 0\), \(a_0 > 0\) reelle Zahlen. Wir definieren die Folge \((x_n)\) rekursiv.
 \begin{align*}
-x_0 = x_0
-x_{n+1} = \frac{1}{2}\left(x_n + \frac{a}{x_n}\right)
+x_0 &= x_0 \\
+x_{n+1} &= \frac{1}{2}\left(x_n + \frac{a}{x_n}\right)
 \end{align*}
 Wir zeigen: \((x_n)\) ist konvergent und \(\liminf{x_n} = x \text{ und } x^2 = a\).
-\begin{proof}
-\begin{enumerate}
-\item \(x_n > 0 \forall n \ge 0\) \\
-IA{n=0} \( x_0 > 0 \) \\
-IV \(x_{n+1} =  \frac{1}{2}\left(x_n + \frac{a}{x_n}\right)\) \\
-IS{n $\mapsto$ n+1}
-Sei \(x_n > 0 \Rightarrow x_{n+1} = \underbrace{\frac{1}{2}}_{> 0}\left(\underbrace{x_n}_{> 0} + \underbrace{\overbrace{\frac{a}{x_n}}^{> 0}}_{>0}\right) > 0\) \\
-\(\Rightarrow (x_n) \) ist nach unten durch \(0\) beschränkt.
-\item \(x_n^2 \ge a \quad \forall n \ge 1\) \\
-denn \(x_{n+1}^2 - a = \frac{1}{4}\left(x_n + \frac{a}{x_n}\right)^2  - a = ... a in klammer rein zieihen und ausrechnen ... = \frac{1}{4} (mals a quradrat) \ge 0\)
-\item \((x_n)\) ist monoton fallend \\
-\(x_n - x_{n+1} = x_n - \frac{1}{2} \left(x_n + \frac{a}{x_n}\right) = (x_n in klammer rein zeihen und ausrehcnen ) = \frac{1}{(2x_n)(x_n^2 - a)} \ge 0 \\
- weil beides \ge 0 (x_n > 0) \Rightarrow x_>n >= x_{n+1} \) \\
-Nach dem Monotonie-Kriterium ist \((x_n)\) konvergent.
-\item Sei \(x= \liminf{x_n} \Rightarrow x = \liminf{x_{n+1}} = \liminf{\frac{1}{2}\left(x_n + \frac{a}{x_n}\right)} = \frac{1}{2}\left(\liminf{x_n} + \frac{a}{\liminf{x_n}}\right) =  \frac{1}{2}\left(x + \frac{a}{x}\right) \Rightarrow 2x = x + \frac{a}{x} \Rightarrow  \\
-x = \frac{a}{x} \Rightarrow x^2 = a\).
-\end{enumerate}
+\begin{proof}$\begin{aligned}[t]
+&\zz \begin{aligned}[t] &\text{nach unten durch $0$ beschränkt: } x_n > 0 \quad \forall n \ge 0 \\
+&\IA \quad  x_0 > 0 \\
+&\IV x_{n+1} = \frac{1}{2}\left(x_n + \frac{a}{x_n}\right) \\
+&\IS \\
+&\text{Sei } x_n > 0 \Rightarrow x_{n+1} = \underbrace{\frac{1}{2}}_{> 0}\bigg( \underbrace{x_n}_{> 0} + \underbrace{\overbrace{\frac{a}{x_n}}^{> 0}}_{>0}\bigg) > 0 \Rightarrow (x_n) \text{ ist n.u. durch $0$ beschränkt.} \end{aligned} \\
+&\zz \begin{aligned}[t] &x_n^2 \ge a \quad \forall n \ge 1 \text{ denn } \\
+&x_{n+1}^2 - a \begin{aligned}[t] &= \frac{1}{4}\left(x_n + \frac{a}{x_n}\right)^2  - a = \frac{1}{4}\left(x_n^2 + 2x_n\frac{a}{x_n} + \frac{a^2}{x_n^2} \right) - a \\
+&= \frac{1}{4}\left(x_n^2 + \frac{2ax_n}{x_n} + \frac{a^2}{x_n^2} - 4a \right) = \frac{1}{4} \left(x_n^2 + \frac{2ax_n}{x_n} + \frac{a^2}{x_n^2} -\frac{4ax_n}{x_n} \right)\\
+&= \frac{1}{4} \left(x_n^2 - 2x_n\frac{a}{x_n} + \frac{a^2}{x_n^2} \right) = \frac{1}{4} \left(x_n - \frac{a}{x_n} \right)^2 \ge 0
+\end{aligned} 
+\end{aligned} \\
+&(x_n)\text{ ist monoton fallend} \\ %KORRIGIERE AB HIER
+&x_n - x_{n+1} = x_n - \frac{1}{2} \left(x_n + \frac{a}{x_n}\right) =\frac{1}{2} \left(2x_n - x_n - \frac{a}{x_n}\right) = \frac{1}{(2x_n)(x_n^2 - a)} \ge 0 \\
+&\text{ weil beides } \ge 0 (x_n > 0) \Rightarrow x_>n >= x_{n+1} \\
+&\text{Nach dem Monotonie-Kriterium ist $(x_n)$ konvergent.} \\
+&\text{Sei } x= \liminf{x_n} \Rightarrow x = \liminf{x_{n+1}} = \liminf{\frac{1}{2}\left(x_n + \frac{a}{x_n}\right)} = \frac{1}{2}\left(\liminf{x_n} + \frac{a}{\liminf{x_n}}\right) =  \frac{1}{2}\left(x + \frac{a}{x}\right) \Rightarrow 2x = x + \frac{a}{x} \Rightarrow  \\
+&x = \frac{a}{x} \Rightarrow x^2 = a
+\end{aligned}$
 \end{proof}
 \end{bsp}
 Die positive Lösung der Gleichung \(x^2 = a\) heißt die Quadratwurzeln von \(a\). Wir Schreiben \(x = \sqrt{a}\).
@@ -1368,6 +1370,225 @@ Also $log_a(a^x) = x \quad _alog(x) = x.$
 \proof[Beweis: Übung]
 \end{enumerate}
 \end{bsp}
+
+\begin{defi}
+Sei $(z_n)$ mit $z_n = a_n + \im b_n$ eine Folge komplexer Zahlen. \\
+$\liminf{z_n} = z = a+\im b \Leftrightarrow \forall \epsilon > 0 \exists N  \forall n \ge N \quad \abs{z_n - z} < \epsilon $\\
+% \epsilon umgebung ist ein Kreis.
+Es gelten alle Sätze auch für komplexe Folgen. Nur das Monotonie-Kriterium gilt nicht, da \C nicht angeordnet ist.
+\end{defi}
+
+\begin{bem}
+Speziell gilt: 
+Sei $z_n = a_n + \im b_n$. $\liminf{z_n} = z = a+\im b \Leftrightarrow \liminf{a_n} = a und \liminf{b_n} = b$
+\begin{proof}
+Sei $\liminf{z_n} = a + \im b \Rightarrow  \forall \epsilon > 0 \exists N  \forall n \ge N \quad \abs{z_n - (a+\im b)} < \epsilon  \\
+\Rightarrow  
+\abs{a_n - a} = \abs{Re(z_n - z)} \le \abs{z_n - z} < \epsilon \forall n \ge N \\
+\abs{b_n - b} = \abs{Im(z_n - z)} \le \abs{z_n - z} < \epsilon \forall n \ge N\\
+\text{Sei} \abs{z_n - z} = \abs{a_n + \im b_n - (a + \im b)} = \abs{a_n - a + \im (b_n - b)} \le \abs{a_n - a} + \abs{i}\abs{b_n - b} < \epsilon $
+\end{proof}
+Weiters gilt: 
+$\liminf{\overline{z_n}} = \overline{\liminf{z_n}}$
+\begin{proof}
+$\liminf{\overline{z_n}} = \liminf{\overline{a_n + \im b_n}} = \liminf{a_n - \im b_n} = \liminf{a_n} - \im \liminf{b_n} = \overline{\liminf{a_n} + \im \liminf{b_n}} = \overline{\liminf{z_n}}$
+\end{proof}
+\end{bem}
+
+\begin{defi}
+Sei $ D \subset \C$. Eine Funktion $f: D \to \C $ heißt stetig in $z \in D$, wenn für jede komplexe Folge $(z_n), z_n \in \C$, mit $\liminf{z_n} = z$ gilt:
+$\liminf{f(z_n)} = f(z_n)$
+\end{defi}
+
+
+\begin{bsp}[Die komplexe Exponentialfunktion]
+$exp: \C \to \C\setminus\{0\} \text{ mit } exp(z) = \suminf{\frac{z^n}{n!}}$ ist definiert $\forall z\in \C$ und stetig $\forall z\in \C$
+\begin{proof} Analog zu dem Beweis der Exponentialfunktion im Reellen.
+\end{proof}
+Achtung: Die komplexe Exponentialfunktion $exp: \C \to \C\setminus{0}$ ist nicht bijektiv $\Rightarrow$ Schwierigkeiten beim Logarithmus im Komplexen.
+\end{bsp}
+
+\begin{bem}
+Es gilt: $ \overline{\e^z} = \e^{\overline{z}} \qquad \forall z\in \C$
+\begin{proof}
+$\overline{\e^z} = \overline{\suminf{\frac{z^n}{n!}}} = \overline{\liminf[N]{\sum_{n=0}^{n=N}{\frac{z^n}{n!}}}} =  \suminf{\frac{\overline{z}^n}{n!}} = \e^{\overline{z}}$
+\end{proof}
+\end{bem}
+
+\begin{bem}
+Wir betrachten für $x \in \R$ \[\e^{\im x} = Re(\e^{\im x}) + \im Im(\e^{\im x}) \]
+\end{bem}
+
+\begin{defi}
+Für $ x\in \R$ heißt $\cos x = Re(\e^{\im x})$ der Kosinus von x und $\sin x = Im(\e^{\im x})$ der Sinus von x.\\
+Es gilt die Eulersche Formel: $\e^{\im x} = \cos x + \im \sin x$
+\end{defi}
+
+\begin{bem}
+Da $\overline{\im x} = - \im x \quad \forall x \in \R$
+folgt $1 = \e^0 = \e^{\im x - \im x}= \e^{\im x}\e^{-\im x} = \e^{\im x} \e^{\overline{\im x}} = \e^{\im x} \overline{\e^{\im x}} = \abs{\e^{\im x}}^2\\
+\Rightarrow 1 = \abs{\e^{\im x}}$ \\
+D.h. $ \e^{\im x}$ liegt auf dem Einheitskreis $ \abs{z} = 1$ %zusätzlich einheitskreis mit einzeichnen von cos und sinus als a und b von \e^{\im x}
+\end{bem}
+
+\begin{prop}
+\begin{enumerate}
+\item $\cos x  = \frac{\e^{\im x} + \e^{-\im x}}{2}$
+\item $\sin x = \frac{\e^{\im x} - \e^{-\im x}}{2\im}$
+\item $\cos^2x + \sin^2 x = 1$
+\end{enumerate}
+\begin{proof}
+Von a und b: \\
+$\e^{\im x} = Re(\e^{\im x}) + \im Im(\e^{\im x}) = \cos x + \im \sin x \\
+\e^{-\im x} = \e^{\overline{\im x}} = \overline{\e^{\im x}} = Re(\e^{\im x}) - \im Im(\e^{\im x}) = \cos x - \im \sin x $\\
+Also $\e^{\im x} = \cos x + \im \sin x\\ % klammer herum mit \pm
+	\e^{-\im x} = \cos - \im \sin x\\  % die zwei
+	\Rightarrow  \e^{\im x} + \e^{-\im x} = 2\cos x  \text{ und } \e^{\im x} - \e^{-\im x} = 2\im \sin x \\
+\text{von c:}\\
+\cos^2 x + \sin^2 x = \left(\frac{\e^{\im x} + \e^{-\im x}}{2}\right)^2 + \left( \frac{\e^{\im x} - \e^{-\im x}}{2\im}\right)^2 = \frac{1}{4}\left(\e^{2 \im x} + 2 \e^{\im x - \im x} + \e^{-2\im x} - \e^{2\im x} + 2 \e^{\im x -\im x} - \e^{-2\im x}\right) = \frac{1}{4}(2+2) = 1$
+\end{proof}
+\end{prop}
+
+\begin{bem}
+Die Funktionen cos und sin von \R nach\R sind stetig auf \R:
+Folgt aus den Rechenregeln für stetige Funktionen auf \R
+\end{bem}
+
+\begin{prop}[Additionstheoreme]
+$\forall x,y \in \R$
+\[ \cos (x + y) = \cos x \cos y - \sin x \sin y\]
+\[ \sin (x + y) = \cos x \sin y + \sin x \cos y \]
+\begin{proof}
+$\cos (x + y) + \im \sin (x + y) = \e^{\im(x+y)} = \e^{\im x + \im y} = \e^{\im x} + \e^{\im y} = (\cos x + \im \sin x) (\cos y + \im \sin y) = \cos x \cos y - \sin x \sin y + \im(\cos x \sin y + \sin x \cos y) $ Vergleich von Real- und Imaginärteil, folgt die Behauptung.
+\end{proof}
+\end{prop}
+
+\begin{prop}[Reihendarstellung]
+$\forall x \in \R $ gilt
+\[\cos x = \suminf{(-1)^n \frac{x^{2n}}{(2n)!}}\]
+\[\sin x = \suminf{(-1)^n \frac{x^{2n+1}}{(2n+1)!}}\]
+Beide Reihen konvergieren absolut für alle $ x \in \R$
+\begin{proof}
+Absolute Konvergenz folgt aus der absoluten Konvergenz der Exponentialreihe. (oder aus dem Quotientenkriterium)\\
+$\cos x + \im \sin x = \e^{\im x} = \suminf[k]{\frac{(\im x)^k}{k!}} = \suminf[k]{\im^k\frac{x^k}{k!}} = \suminf{\im^{2n} \frac{x^{2n}}{(2n)!}} + \suminf{\im^{2n+1} \frac{x^{2n+1}}{(2n+1)!}}  \overset{\im^2 = -1}{=} \suminf{\im^{n} \frac{x^{2n}}{(2n)!}} + \im \suminf{\im^{n} \frac{x^{2n+1}}{(2n+1)!}}$\\
+Die Formeln folgen durch Vergleich von Real- und Imaginärteil.
+\end{proof}
+\end{prop}
+
+% Ziel: Definition von \PI
+\begin{satz}
+Die Funktion $\cos : \R \to \R $ hat im Intervall von $[0,2]$ genau eine Nullstelle $x_0$.
+\begin{proof}
+1.) Existenz:
+$\cos$ ist stetig, $\cos 0 = 1 > 0$ und $\cos 2 < 0 $\\
+$\zz. \cos 2 < 0\\
+a) \forall x \in [0,2], \forall n \ge 1 \text{ g ilt } -\frac{x^{2n}}{(2n)! }+ \frac{x^{2n+2}}{(2n+2)!} < 0 \\
+\text{denn } \forall n \ge 1 \quad (2n + 1)(2n + 2) > 2 \cdot 2 \ge x ^2\\
+\Rightarrow 1 > \frac{x^2}{(2n + 1)(2n + 2)} \Rightarrow 0 > (\frac{x^2}{(2n + 1)(2n + 2)} - 1) \cdot \frac{x^2_n}{(2n)!}  = \frac{x^{2n+2}}{(2n+2)!} -\frac{x^{2n}}{(2n)! }
+b) \cos x = \suminf{(-1)^n \frac{x^{2n}}{(2n)!}} = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} + \sum_{n \ge 3, n \text{ungerade}}{\frac{x^{2n}}{(2n)! }+ \frac{x^{2n+2}}{(2n+2)!}} < 1 - \frac{x^2}{2!} + \frac{x^4}{4!}\\
+\Rightarrow \cos 2 < 1 - \frac{2^2}{2!} + \frac{2^4}{4!} = 1 - \frac{4}{2} + \frac{16}{24} = 1 - 2 + \frac{2}{3} = -\frac{1}{3} < 0\\
+\overset{Zwischenwertsatz}{\Rightarrow} \exists x_0 \in [0,2] \text{ mit } \cos{x_0} = 0$.
+2.) Eindeutigkeit:\\
+a) $\sin x > 0 \forall x \in (0,2)$\\
+$\sin x = \suminf{(-1)^n \frac{x^{2n+1}}{(2n+1)!}} = x - \frac{x^3}{3!} + \underbrace{\frac{x^5}{5!} + \frac{x^7}{7!}}_{>0}  + \underbrace{\frac{x^9}{9!} + \frac{x^{11}}{11!}}_{>0} + \dots > x - \frac{x^3}{3!} = \frac{1}{6}(6x - x^3) = \frac{x}{6}\underbrace{(6-x^2)}_{0 < x < 2} > 0$\\
+b) $\cos : (0,2) \to \R$ ist streng monoton fallend.\\
+Seien $ 0 < x_1 < x_2 < 2$ \\
+Setze $ x = \frac{x_1 + x_2}{2} \in (0,2) und y = \frac{x_2 - x_1}{2} \in (0,2) \\
+\Rightarrow x_2 = x + y  und x_1 = x - y$ \\
+Aus den Additionstheoremen folgt:  \\
+$\cos x_2 = \cos (x + y) = \cos x \cos y - \sin x \sin y \\
+\cos x_1 = \cos (x - y) = \cos x \cos(-y) + \sin x \sin (-y) \	qquad \cos -x = \frac{\e^{-\im x} + \e^{\im x}}{2} = \cos x\\	
+										\qquad \sin -x = \frac{\e^{-\im x} - \e^{\im x}}{2\im}  = -\frac{\e^{\im x} - \e^{-\im x}}{2\im}= - \sin x\\	
+\Rightarrow \cos(x_2) - \cos(x_1) = - 2\sin x \sin y = - 2 \underbrace{\sin(\frac{x_1 + x_2}{2})}_{> 0}  \underbrace{\sin(\frac{x_2 - x_1}{2})}_{> 0} < 0 \\
+\Rightarrow \cos x_2 < \cos x_1 \Rightarrow \cos $ ist auf $(0,2)$ streng monoton fallen, speziell injektiv.\\
+$\Rightarrow \cos $ hat genau eine Nullstelle.
+\end{proof}
+\end{satz}
+
+\begin{defi}
+Sei$x_0 \in (0,2)$ die eindeutig bestimmte Nullstelle von $\cos : (0,2) \to \R$. Dann definieren wir die Kreiszahl \[ \pi = 2 x_0 \].
+Also $\cos (\frac{\pi}{2}) = 0$
+\end{defi}
+
+\begin{bem}
+$\pi \approx 3,1415\dots $\\
+$\pi$ und \e sind irrational und transzendent, sind also keine Lösung einer algebraischen Gleichung.
+Wir werden später (Integralrechnung zeigen, dass $\pi$ die Fläche des Einheitskreises ist.
+\end{bem}
+
+\begin{bem}[Eigenschaften von $\pi$]
+$
+\cos \frac{\pi}{2} = 0\\
+\text{Da} \cos^2 \frac{\pi}{2}  + \sin^2 \frac{\pi}{2} = 1 \Rightarrow \sin \frac{\pi}{2} = 1, \text{ da } \sin \frac{\pi}{2}  > 0
+$\\
+Weiter gilt: \\
+$\e^{\im \frac{\pi}{2}} = \cos \frac{\pi}{2} + \im \sin \frac{\pi}{2}= \im \\
+\Rightarrow -1 = \im^2 = \e^{\im \frac{\pi}{2}} \e^{\im \frac{\pi}{2}}  = \e^{\pi \im} \\
+\Rightarrow -\im = \im^2 = \e^{\frac{3\pi \im}{2}}  \\
+\Rightarrow 1 = \im^2 = \e^{2\pi \im} \\
+\Rightarrow \e^{\im (x + 2\pi)} = \e^{\im x + \im 2\pi)} = \e^{\im x} +  \e^{\im 2\pi)} = \e^{\im x} \\
+\Rightarrow \cos (x + 2\pi) + \im \sin (x + 2\pi) = \e^{\im (x + 2\pi)} =  \e^{\im x}  = \cos x + \im \sin x $\\
+Also $\cos$ und $\sin$ sind $2\pi$-periodische Funktionen.
+%grafik mit sin und cos in versch farben mit nullstellen und 1 und -1 auf y achse
+Nullstellen von $\sin$ und $\cos$:
+\[\sin x = 0 \Leftrightarrow x = k\pi \quad (k \in \Z\]
+\[\cos x = 0 \Leftrightarrow x = \frac{pi}{2} + k\pi \quad (k \in \Z\]
+\proof[ohne Beweis.]
+\end{bem}
+
+
+\begin{defi}
+Der Tangens und Kotangens sind definiert durch:
+\[\tan: \R\setminus\menge{\frac{\pi}{2} + k \pi}{k \in \Z} \to \R  \text{ mit } \tan x = \frac{\sin x}{\cos x}\]
+\[\cot: \R\setminus\menge{k \pi}{k \in \Z} \to \R  \text{ mit } \cot x = \frac{\cos x}{\sin x}\]
+%grafik mit tangens inkl strichlierten asymptoten bei \pi/2 
+%grafik mit cotengens inkl strichlierten asymptoten bei \pi 
+Die Umkehrfunktionen von $\sin, \cos, \tan, \cot$ heißen: 
+\[\arccos: [-1,1] \to [0,\pi]\]
+\[\arcsin: [-1,1] \to [-\frac{\pi}{2},\frac{\pi}{2}]\]
+\[\arccos: \R \to (-\frac{\pi}{2}, \frac{\pi}{2})\]
+\[\arccos: \R \to (0,\pi)\]
+Diese Funktionen sind wieder stetig und streng monoton.
+\end{defi}
+
+% ENDE STETIGKEIT
+\section{Differential- und Integralrechnung}
+\subsection{Differentialrechnung}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

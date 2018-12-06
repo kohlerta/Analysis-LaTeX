@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.10.8)  5 NOV 2018 09:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.10.8)  6 DEC 2018 08:49
 entering extended mode
 **C:/Users/tanja/Documents/GitHub/Analysis-LaTeX/analysis_skript.tex
 (C:/Users/tanja/Documents/GitHub/Analysis-LaTeX/analysis_skript.tex
@@ -461,55 +461,122 @@ File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.1a (rcs-revision 1.2)
 )))
 ("C:\Program Files\MiKTeX 2.9\tex\latex\setspace\setspace.sty"
 Package: setspace 2011/12/19 v6.7a set line spacing
-
-
-! LaTeX Error: Unknown option `onehalfspace' for package `setspace'.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.311 
-      
-? l311
-Type <return> to proceed, S to scroll future error messages,
-R to run without stopping, Q to run quietly,
-I to insert something, E to edit your file,
-1 or ... or 9 to ignore the next 1 to 9 tokens of input,
-H for help, X to quit.
-? 
 )
-\c@satz=\count124
+("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.sty"
+Package: geometry 2018/04/16 v5.8 Page Geometry
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
+Package: ifpdf 2018/09/07 v3.3 Provides the ifpdf switch
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifvtex.sty"
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count124
+\Gm@cntv=\count125
+\c@Gm@tempcnt=\count126
+\Gm@bindingoffset=\dimen171
+\Gm@wd@mp=\dimen172
+\Gm@odd@mp=\dimen173
+\Gm@even@mp=\dimen174
+\Gm@layoutwidth=\dimen175
+\Gm@layoutheight=\dimen176
+\Gm@layouthoffset=\dimen177
+\Gm@layoutvoffset=\dimen178
+\Gm@dimlist=\toks42
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
+("C:\Program Files\MiKTeX 2.9\tex\latex\wrapfig\wrapfig.sty"
+\wrapoverhang=\dimen179
+\WF@size=\dimen180
+\c@WF@wrappedlines=\count127
+\WF@box=\box40
+\WF@everypar=\toks43
+Package: wrapfig 2003/01/31  v 3.6
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\multicol.sty"
+Package: multicol 2018/04/20 v1.8s multicolumn formatting (FMi)
+\c@tracingmulticols=\count128
+\mult@box=\box41
+\multicol@leftmargin=\dimen181
+\c@unbalance=\count129
+\c@collectmore=\count130
+\doublecol@number=\count131
+\multicoltolerance=\count132
+\multicolpretolerance=\count133
+\full@width=\dimen182
+\page@free=\dimen183
+\premulticols=\dimen184
+\postmulticols=\dimen185
+\multicolsep=\skip54
+\multicolbaselineskip=\skip55
+\partial@page=\box42
+\last@line=\box43
+\maxbalancingoverflow=\dimen186
+\mult@rightbox=\box44
+\mult@grightbox=\box45
+\mult@gfirstbox=\box46
+\mult@firstbox=\box47
+\@tempa=\box48
+\@tempa=\box49
+\@tempa=\box50
+\@tempa=\box51
+\@tempa=\box52
+\@tempa=\box53
+\@tempa=\box54
+\@tempa=\box55
+\@tempa=\box56
+\@tempa=\box57
+\@tempa=\box58
+\@tempa=\box59
+\@tempa=\box60
+\@tempa=\box61
+\@tempa=\box62
+\@tempa=\box63
+\@tempa=\box64
+\c@columnbadness=\count134
+\c@finalcolumnbadness=\count135
+\last@try=\dimen187
+\multicolovershoot=\dimen188
+\multicolundershoot=\dimen189
+\mult@nat@firstbox=\box65
+\colbreak@box=\box66
+\mc@col@check@num=\count136
+)
+\c@satz=\count137
 
 No file analysis_skript.aux.
 \openout1 = `analysis_skript.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 99.
-LaTeX Font Info:    ... okay on input line 99.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 99.
-LaTeX Font Info:    ... okay on input line 99.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 99.
-LaTeX Font Info:    ... okay on input line 99.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 99.
-LaTeX Font Info:    ... okay on input line 99.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 99.
-LaTeX Font Info:    ... okay on input line 99.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 99.
-LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
 ABD: EveryShipout initializing macros
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count125
-\scratchdimen=\dimen171
-\scratchbox=\box40
-\nofMPsegments=\count126
-\nofMParguments=\count127
-\everyMPshowfont=\toks42
-\MPscratchCnt=\count128
-\MPscratchDim=\dimen172
-\MPnumerator=\count129
-\makeMPintoPDFobject=\count130
-\everyMPtoPDFconversion=\toks43
+\scratchcounter=\count138
+\scratchdimen=\dimen190
+\scratchbox=\box67
+\nofMPsegments=\count139
+\nofMParguments=\count140
+\everyMPshowfont=\toks44
+\MPscratchCnt=\count141
+\MPscratchDim=\dimen191
+\MPnumerator=\count142
+\makeMPintoPDFobject=\count143
+\everyMPtoPDFconversion=\toks45
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -546,10 +613,6 @@ Package etexcmds Info: Could not find \expanded.
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\pdftexcmds.sty"
 Package: pdftexcmds 2018/09/10 v0.29 Utility functions of pdfTeX for LuaTeX (HO
 )
-
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
-Package: ifpdf 2018/09/07 v3.3 Provides the ifpdf switch
-)
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
@@ -562,274 +625,141 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 101.
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(71.13188pt, 455.24411pt, 71.13188pt)
+* v-part:(T,H,B)=(71.13188pt, 702.78308pt, 71.13188pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=455.24411pt
+* \textheight=702.78308pt
+* \oddsidemargin=-1.1381pt
+* \evensidemargin=-1.1381pt
+* \topmargin=-38.1381pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=57.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
+LaTeX Font Info:    Try loading font information for U+msa on input line 111.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 101.
+LaTeX Font Info:    Try loading font information for U+msb on input line 111.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 140.
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}] [1]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 217.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 140.
- [1] [2] [3]
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 217.
+ [2] [3]
 
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 266.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 271.
 
-[4] [5]
-Underfull \hbox (badness 10000) in paragraph at lines 333--335
-
- []
-
-[6]
-Overfull \hbox (2.97668pt too wide) in paragraph at lines 428--429
-[]$[][] \OT1/cmr/m/n/10 = (\OML/cmm/m/it/10 z[]z[]\OT1/cmr/m/n/10 )([]) = (\OML
-/cmm/m/it/10 z[][]\OT1/cmr/m/n/10 )(\OML/cmm/m/it/10 z[][]\OT1/cmr/m/n/10 ) = [
-][] [][] \OMS/cmsy/m/n/10 , [] \OT1/cmr/m/n/10 = [] []$ 
- []
-
-[7] [8]
-Overfull \hbox (10.92865pt too wide) in paragraph at lines 487--488
-[]\T1/cmr/m/n/10 Eine Fol-ge $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 a[]\OT1/cmr/m/n
-/10 )$ \T1/cmr/m/n/10 heiÿt (streng) mo-no-ton fal-lend, wenn $\OMS/cmsy/m/n/10
- 8\OML/cmm/m/it/10 a \OMS/cmsy/m/n/10 2 \U/msb/m/n/10 N \OML/cmm/m/it/10 a[] \O
-MS/cmsy/m/n/10  \OML/cmm/m/it/10 a[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 a[] >
- []
-
-
-Overfull \hbox (116.27234pt too wide) in paragraph at lines 498--504
-[]\T1/cmr/m/n/10 Die geo-me-ti-sche Fol-ge, Sei $\OML/cmm/m/it/10 a \OMS/cmsy/m
-/n/10 2 \U/msb/m/n/10 R\OML/cmm/m/it/10 a[] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 
-a[]\OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10  \OT1/cmr/m/n/10 0$ \
-T1/cmr/m/n/10 ist $[]$ 
- []
-
-[9]
-Overfull \hbox (0.90039pt too wide) in paragraph at lines 534--536
-\U/msb/m/n/10 N \OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10  \OML/cm
-m/m/it/10 N [] < []$\T1/cmr/m/n/10 . Da $\OML/cmm/m/it/10 b[] \OMS/cmsy/m/n/10 
-  \OML/cmm/m/it/10 b[] \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 \OT1/cmr/m/n/10 2[]\
-OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10  \OML/cmm/m/it/10 N \OT1/
-cmr/m/n/10 2 = [] =
- []
-
-
-Overfull \hbox (16.51517pt too wide) in paragraph at lines 540--542
-\T1/cmr/m/n/10 Sei $\OML/cmm/m/it/10  < \OT1/cmr/m/n/10 0 [] \OMS/cmsy/m/n/10 
-9\OML/cmm/m/it/10 N \OMS/cmsy/m/n/10 2 \U/msb/m/n/10 N  [][] \OML/cmm/m/it/10 <
-  \OMS/cmsy/m/n/10 ) 8\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10  \OML/cmm/m/it/10 N
-  [] \OT1/cmr/m/n/10 =
- []
-
-
-Overfull \hbox (8.28792pt too wide) in paragraph at lines 571--572
-[]\T1/cmr/m/n/10 Jede mo-no-ton wach-sen-de nach oben
- []
-
-[10]
-Overfull \hbox (11.90996pt too wide) in paragraph at lines 591--596
-[]\OML/cmm/m/it/10  \OT1/cmr/m/n/10 = [] [] \OMS/cmsy/m/n/10 ) 9\OML/cmm/m/it/
-10 N[] \OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10  \OML/cmm/m/it/10
- N[]  [] < [] \OMS/cmsy/m/n/10 ) 9\OML/cmm/m/it/10 N[] \OMS/cmsy/m/n/10 8\OML/
-cmm/m/it/10 n \OMS/cmsy/m/n/10  \OML/cmm/m/it/10 N[]  [] <
- []
-
-
-Overfull \hbox (4.54803pt too wide) in paragraph at lines 591--596
-[] \OML/cmm/m/it/10 < [] [] \OT1/cmr/m/n/10 + [] [] = [] \OMS/cmsy/m/n/10 ) [] 
-\OML/cmm/m/it/10 < [] [] \OMS/cmsy/m/n/10 )
- []
-
-
-Overfull \hbox (19.59178pt too wide) in paragraph at lines 605--606
-[]\T1/cmr/m/n/10 Ist $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 b[]\OT1/cmr/m/n/10 ) \O
-MS/cmsy/m/n/10 6\OT1/cmr/m/n/10 = 0\OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 n \OMS/cm
-sy/m/n/10  \OML/cmm/m/it/10 n[][] [] [] \OMS/cmsy/m/n/10 6\OT1/cmr/m/n/10 = 0[
-][][] [] [] =
- []
-
-
-Overfull \hbox (9.15253pt too wide) in paragraph at lines 619--622
-[]\T1/cmr/m/n/10 Jede kon-ver-gen-te Fol-ge ist be-schränkt $\OMS/cmsy/m/n/10 )
- 9\OML/cmm/m/it/10 K \OMS/cmsy/m/n/10 2 \U/msb/m/n/10 R[] [] \OMS/cmsy/m/n/10 
- \OML/cmm/m/it/10 K[] [] \OMS/cmsy/m/n/10 
- []
-
-
-Overfull \hbox (65.56015pt too wide) in paragraph at lines 619--622
-\OML/cmm/m/it/10 max\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 N[]; N[]\OMS/cmsy/m/n/10
- g[] [] \OT1/cmr/m/n/10 = [] = [] \OMS/cmsy/m/n/10 
- []
-
-[11]
-Overfull \hbox (89.86429pt too wide) in paragraph at lines 622--630
-[] \OMS/cmsy/m/n/10 ) [] \OT1/cmr/m/n/10 = [] = [][] [] []$ 
- []
-
-[12]
-
-LaTeX Warning: Command \" invalid in math mode on input line 711.
-
-Missing character: There is no ä in font cmr10!
-[13]
-Underfull \hbox (badness 10000) in paragraph at lines 719--732
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 341--343
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 737--740
-
- []
-
-
-Overfull \hbox (81.0564pt too wide) in paragraph at lines 757--769
-\T1/cmr/m/n/10 Nach dem Satz von Bolzano-Weierstraÿ exis-tiert ei-ne kon-ver-ge
-n-te Teil-fol-ge $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 a[]\OT1/cmr/m/n/10 )[][] []
- [] =
- []
-
-[14]
-Overfull \hbox (40.83237pt too wide) in paragraph at lines 788--790
-\T1/cmr/m/n/10 denn $\OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10   \OML/cmm/m/it/10 a
- \OT1/cmr/m/n/10 = [] [][] \OMS/cmsy/m/n/10   \OML/cmm/m/it/10 a \OT1/cmr/m/n/1
-0 = \OML/cmm/m/it/10 :::ainklammerreinzieihenundausrechnen::: \OT1/cmr/m/n/10 =
-
- []
-
-
-Overfull \hbox (18.30269pt too wide) in paragraph at lines 790--794
-\OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10   \OML/cmm/m/it/10 x[] \OT1/cmr/m/n/10 = 
-\OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10   [] [] \OT1/cmr/m/n/10 = (\OML/cmm/m/it/
-10 x[]inklammerreinzeihenundausrehcnen\OT1/cmr/m/n/10 ) =
- []
-
-
-Overfull \hbox (41.12294pt too wide) in paragraph at lines 794--796
-[]\T1/cmr/m/n/10 Sei $\OML/cmm/m/it/10 x \OT1/cmr/m/n/10 = [] [] \OMS/cmsy/m/n/
-10 ) \OML/cmm/m/it/10 x \OT1/cmr/m/n/10 = [] [] = [] [] = [] [] =
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 804--805
-
+[5] [6] [7] [8] [9] [10] [11] [12] [13] [14]
+Overfull \hbox (91.25534pt too wide) in paragraph at lines 845--864
+[]$[][]$
  []
 
 [15]
-Overfull \hbox (4.2521pt too wide) in paragraph at lines 814--826
-[]\T1/cmr/m/n/10 Die geo-me-tri-sche Sum-me: $[][] [] \OT1/cmr/m/n/10 = []$ \T1
-/cmr/m/n/10 dann: $\OML/cmm/m/it/10 IA[]\OT1/cmr/m/n/10 1 =
+Underfull \hbox (badness 10000) in paragraph at lines 871--872
+
  []
 
 
-Overfull \hbox (184.32928pt too wide) in paragraph at lines 829--833
+Overfull \hbox (18.82074pt too wide) in paragraph at lines 879--881
+[]\T1/cmr/m/n/10 Die geo-me-tri-sche Rei-he. Sei $[] \OML/cmm/m/it/10 < \OT1/cm
+r/m/n/10 1 \OMS/cmsy/m/n/10 ) [][] [] \OT1/cmr/m/n/10 = [][] [] \OMS/cmsy/m/n/1
+0  \OT1/cmr/m/n/10 1[] [][] []$
+ []
+
+[16]
+Overfull \hbox (74.08517pt too wide) in paragraph at lines 896--900
 []$\OML/cmm/m/it/10 S[] \OT1/cmr/m/n/10 = [][] [] = 1 + [] + [] + [] + [] + [] 
 + [] \OMS/cmsy/m/n/10 
  []
 
-[16]
-Overfull \hbox (25.187pt too wide) in paragraph at lines 875--879
-\OML/cmm/m/it/10 N  [] < [] [] \OMS/cmsy/m/n/10  [] \OML/cmm/m/it/10 <
- []
 
-
-Overfull \hbox (3.15105pt too wide) in paragraph at lines 890--894
-[]$[] [][] [] \OML/cmm/m/it/10 < \OMS/cmsy/m/n/10 1[]\OML/cmm/m/it/10 b[] > \OT
-1/cmr/m/n/10 0[]\OMS/cmsy/m/n/10 8\OML/cmm/m/it/10  > \OT1/cmr/m/n/10 0 \OMS/c
-msy/m/n/10 9\OML/cmm/m/it/10 N \OMS/cmsy/m/n/10 2 \U/msb/m/n/10 N \OMS/cmsy/m/n
-/10 8\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 
- []
-
-
-Overfull \hbox (69.51808pt too wide) in paragraph at lines 890--894
-\OML/cmm/m/it/10 \OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10  \OML/
-cmm/m/it/10 m \OMS/cmsy/m/n/10  \OML/cmm/m/it/10 N[] [][] [][] \OMS/cmsy/m/n/1
-0 ) [][] [][]$
+Overfull \hbox (54.56248pt too wide) in paragraph at lines 942--946
+\OML/cmm/m/it/10 "[] [] \OMS/cmsy/m/n/10  [] \OML/cmm/m/it/10 < "\OMS/cmsy/m/n
+/10 8\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10  \OML/cmm/m/it/10 m \OMS/cmsy/m/n/10 
+ \OML/cmm/m/it/10 N[] [][] [][]$
  []
 
 [17]
-Overfull \hbox (3.25822pt too wide) in paragraph at lines 902--903
-[]\T1/cmr/m/n/10 Wäre $[][] []$ kon-ver-gent, dann wä-re nach dem Majoranten-Kr
-iterium
+Overfull \hbox (14.8173pt too wide) in paragraph at lines 957--961
+[]$[] [][] [] \OML/cmm/m/it/10 < \OMS/cmsy/m/n/10 1[]\OML/cmm/m/it/10 b[] > \OT
+1/cmr/m/n/10 0[]\OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 " > \OT1/cmr/m/n/10 0 \OMS/c
+msy/m/n/10 9\OML/cmm/m/it/10 N \OMS/cmsy/m/n/10 2 \U/msb/m/n/10 N \OMS/cmsy/m/n
+/10 8\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10  \OML/cmm/m/it/10 m \OMS/cmsy/m/n/10 
+ \OML/cmm/m/it/10 N  [] <
  []
 
 
-Overfull \hbox (16.16301pt too wide) in paragraph at lines 911--916
-[][] [] \OT1/cmr/m/n/10 = [] [][] [] = [] [][]0 \OML/cmm/m/it/10 < q < \OT1/cmr
-/m/n/10 1[] \OMS/cmsy/m/n/10 )
+Overfull \hbox (34.17319pt too wide) in paragraph at lines 957--961
+\OML/cmm/m/it/10 "[] [] \OMS/cmsy/m/n/10  [] \OML/cmm/m/it/10 < "\OMS/cmsy/m/n
+/10 8\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10  \OML/cmm/m/it/10 m \OMS/cmsy/m/n/10 
+ \OML/cmm/m/it/10 N[] [][] [][] \OMS/cmsy/m/n/10 )
  []
 
 
-Overfull \hbox (32.1392pt too wide) in paragraph at lines 938--947
-[][] [] \OT1/cmr/m/n/10 = 2 [][] [] = 2 \OMS/cmsy/m/n/10  \OT1/cmr/m/n/10 1 = 
-2[] [][] [] \OML/cmm/m/it/10 <
+Overfull \hbox (2.42868pt too wide) in paragraph at lines 978--983
+\OML/cmm/m/it/10 ::: \OMS/cmsy/m/n/10  \OML/cmm/m/it/10 q[] [] :[] [] \OMS/cms
+y/m/n/10  \OML/cmm/m/it/10 q[] [] ; da [][] [] \OMS/cmsy/m/n/10  [][] [] \OT1
+/cmr/m/n/10 = [] [][] [] = [] [][]0 \OML/cmm/m/it/10 <
  []
 
 
-Overfull \hbox (13.59598pt too wide) in paragraph at lines 954--956
-[]$[] \OT1/cmr/m/n/10 = [] = [] = [][]0 \OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 x \O
-MS/cmsy/m/n/10 2
+Overfull \hbox (17.29071pt too wide) in paragraph at lines 978--983
+\OML/cmm/m/it/10 q < \OT1/cmr/m/n/10 1[] \OMS/cmsy/m/n/10 ) []$[]  [] 
  []
 
-[18]
-Underfull \hbox (badness 10000) in paragraph at lines 963--964
+! TeX capacity exceeded, sorry [input stack size=5000].
+\@firstofone #1->#1
+                   
+l.1012 ...\suminf{\frac{1}{n^2}} = \frac{\pi^2}{6}
+                                                   \text{, } \suminf{\frac{1...
+If you really absolutely need more capacity,
+you can ask a wizard to enlarge me.
 
- []
-
-[19]
-Overfull \hbox (32.58449pt too wide) in paragraph at lines 1041--1042
-[][] 
- []
-
-[20] (analysis_skript.aux) ) 
+ 
 Here is how much of TeX's memory you used:
- 13663 strings out of 492970
- 262659 string characters out of 3135855
- 318132 words of memory out of 3000000
- 17254 multiletter control sequences out of 15000+200000
+ 14329 strings out of 492970
+ 272242 string characters out of 3135855
+ 342380 words of memory out of 3000000
+ 17904 multiletter control sequences out of 15000+200000
  20104 words of font info for 55 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,21n,54p,573b,789s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\tanja\AppData\Local\MiKTeX\2.9\fonts\pk\
-ljfour\jknappen\ec\dpi600\ecrm0500.pk> <C:\Users\tanja\AppData\Local\MiKTeX\2.9
-\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0700.pk> <C:\Users\tanja\AppData\Local\
-MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1000.pk> <C:\Users\tanja\AppD
-ata\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbi1000.pk> <C:\Users\
-tanja\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1000.pk> 
-<C:\Users\tanja\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecr
-m1000.pk> <C:\Users\tanja\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\
-dpi600\ecbx1200.pk> <C:\Users\tanja\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jk
-nappen\ec\dpi600\ecbx1440.pk> <C:\Users\tanja\AppData\Local\MiKTeX\2.9\fonts\pk
-\ljfour\jknappen\ec\dpi600\ecrm1200.pk> <C:\Users\tanja\AppData\Local\MiKTeX\2.
-9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0900.pk> <C:\Users\tanja\AppData\Local
-\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1728.pk><C:/Program Files/Mi
-KTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9
-/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
-/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
-msfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
-m/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pf
-b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Prog
-ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program File
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Program Files/MiKTeX 
-2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts
-/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
-ublic/amsfonts/cm/cmti7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
-fonts/symbols/msam10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
-ts/symbols/msbm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
-symbols/msbm7.pfb>
-Output written on analysis_skript.pdf (21 pages, 327314 bytes).
-PDF statistics:
- 451 PDF objects out of 1000 (max. 8388607)
- 0 named destinations out of 1000 (max. 500000)
- 13 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+ 5000i,28n,54p,545b,870s stack positions out of 5000i,500n,10000p,200000b,50000s
+!  ==> Fatal error occurred, no output PDF file produced!
