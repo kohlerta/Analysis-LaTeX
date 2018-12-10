@@ -870,79 +870,88 @@ Die positive Lösung der Gleichung \(x^2 = a\) heißt die Quadratwurzeln von \(a
 \begin{defi}
 Sei \((a_n)_{n \ge 0}\) eine Folge reeller Zahlen. Sei weiters \(S_N = \sum_{n = 0}^{N}{a_n} \text{ die }N\)-te Partialsumme, dann heißt die Folge \((S_N)_{N \ge 0}\) der Partialsummen eine unendliche Reihe.\\
 \[\text{Schreibweise: }\suminf{a_n}\]
-Konvergiert die Folge \((S_N)\text{ mit }\liminf{S_N} = s \text{, dann heißt } \suminf{a_n} = s\) der Wert der Reihe.Man sagt: Die Reihe \(\suminf{a_n}\) konvergiert.
-\[\text{Schreibweise: } \suminf{a_n} < \infty\].
+Konvergiert die Folge \((S_N)\text{ mit }\liminf{S_N} = s \text{, dann heißt } \suminf{a_n} = s\) der Wert der Reihe. Man sagt: Die Reihe \(\suminf{a_n}\) konvergiert.
+\[\text{Schreibweise: } \suminf{a_n} < \infty\]
 \end{defi}
 
-\begin{bsp}
+\begin{bsp}\
 \begin{enumerate}
 \item Die geometrische Reihe. Sei \(\abs{a} < 1 \Rightarrow \suminf{a^n} = \frac{1}{1-a}\text{. Ist }\abs{a} \ge 1\text{, dann ist }\suminf{a^n}\) divergent.
-\begin{proof}
-Die geometrische Summe: \(\sum_{n = 0}^{N}{a^n} = \frac{1-a^{N+1}}{1-a}\) dann:
-\begin{math}
-IA{N=0} 1 = a^0 = (1-a) / (1- a) = 1\\
-IV \sum_{n = 0}^{N}{a^n} = \frac{1-a^{N+1}}{1-a}\\
-IS{N \mapsto N+1}\\
-\sum_{n = 0}^{N+1}{a^n} = a^{N+1} + \sum_{n = 0}^{N}{a^n} \overset{IV}{=} a^{N+1} + \frac{1-a^{N+1}}{1-a} = .... \text{selber} \\ %todo
-\text{Sei }S_N = \sum_{n=0}^{N}{a^n} = \frac{1 - a^{N+1}}{1- a} \\
-\text{Sei }\abs{a} < 1\text{. Dann folgt }\liminf{a^N} = 0 \\
-\Rightarrow \liminf{S_N} = \liminf{\frac{1-a^{N+1}}{1-a}} = \frac{1}{1-a}\\
-\text{Sei }a \ge 1 \Rightarrow \sum_{n=0}^{N}{a^n} \ge \sum_{n=0}^{N}{1} = N+1 \longrightarrow \inf \\
-\text{Sei }a \le -1 \Rightarrow a = -b \text{ mit }b \ge 1 \Rightarrow \sum_{n=0}^{N}{a^n} \ge \sum_{n=0}^{N}{(-1)^nb^n} \text{ divergent}
-\end{math}
+\begin{proof}$\begin{aligned}[t]
+&\IA {N=0}: \quad a^0 = \frac{(1-a)}{(1- a)} = 1\\
+&\IV \sum_{n = 0}^{N}{a^n} = \frac{1-a^{N+1}}{1-a}\\
+&\IS: {N \mapsto N+1}\\
+&\sum_{n = 0}^{N+1}{a^n} = a^{N+1} + \sum_{n = 0}^{N}{a^n} \overset{IV}{=} a^{N+1} + \frac{1-a^{N+1}}{1-a} = \text{... selber} \\ %TODO
+&\text{Sei }S_N = \sum_{n=0}^{N}{a^n} = \frac{1 - a^{N+1}}{1- a} \\
+&\text{Sei }\abs{a} < 1\text{. Dann folgt }\liminf{a^N} = 0 \\
+&\Rightarrow \liminf{S_N} = \liminf{\frac{1-a^{N+1}}{1-a}} = \frac{1}{1-a}\\
+&\text{Sei }a \ge 1 \Rightarrow \sum_{n=0}^{N}{a^n} \ge \sum_{n=0}^{N}{1} = N+1 \longrightarrow \inf \\
+&\text{Sei }a \le -1 \Rightarrow a = -b \text{ mit }b \ge 1 \Rightarrow \sum_{n=0}^{N}{a^n} \ge \sum_{n=0}^{N}{(-1)^nb^n} \text{ divergent}
+\end{aligned}$\\
 \end{proof}
-\item Die harmonische Reihe: \(\sum{n=1}{\infty}{\frac{1}{n}} = +\infty\)
+
+\item Die harmonische Reihe: \(\sum_{n=1}^{\infty}{\frac{1}{n}} = +\infty\)
 \begin{proof}
-\begin{math}
-S_{2^N} = \sum_{n = 1}^{2^N}{\frac{1}{n}} = 1 +\underbrace{\frac{1}{2}}_{=\frac{1}{2}} + \underbrace{\frac{1}{3} + \frac{1}{4}}_{=\frac{1}{2}} + \underbrace{\frac{1}{5} + \frac{1}{6} + \frac{1}{7} + \frac{1}{8}}_{=\frac{1}{2}} + \underbrace{\frac{1}{9} + ... + \frac{1}{16}}_{=\frac{1}{2}} + \underbrace{\frac{1}{17} + ..... + }_{=\frac{1}{2}} + \underbrace{\frac{1}{2^{N-1}+1}+ .... + \frac{1}{2^N}}_{=\frac{1}{2}} \ge 1 + n \frac{1}{2} > \frac{n}{2} \longrightarrow +\infty
-\end{math}
-Würde \((S_N)_{N\ge1}\) konvergieren, dann auch die Teilfolge \((S_{2^N})_{N \ge 1}\), da diese dievergiert, divergiert auch \((S_N)_N\)
+$\begin{aligned}[t]
+&S_{2^N} = \sum_{n = 1}^{2^N}{\frac{1}{n}} =
+1 +\underbrace{\frac{1}{2}}_{=\frac{1}{2}} + \underbrace{\frac{1}{3} + \frac{1}{4}}_{=\frac{1}{2}} + \underbrace{\frac{1}{5} + \frac{1}{6} + \frac{1}{7} + \frac{1}{8}}_{=\frac{1}{2}} + \underbrace{\frac{1}{9} + ... + \frac{1}{16}}_{=\frac{1}{2}} + ... + \underbrace{\frac{1}{2^{N-1}+1}+ .... + \frac{1}{2^N}}_{=\frac{1}{2}} \\
+&\ge 1 + n \frac{1}{2} > \frac{n}{2} \longrightarrow +\infty
+\end{aligned}$
+\\\\
+Würde \((S_N)_{N\ge1}\) konvergieren, dann auch die Teilfolge \((S_{2^N})_{N \ge 1}\), da diese dievergiert, divergiert auch \((S_N)_N\)\\
 \end{proof}
-\item $ \Suminf{(\frac{1}{n(n+1)}}= 1 $
+
+\item $ \Suminf{\frac{1}{n(n+1)}}= 1 $
 \begin{proof}
-\begin{math}
-S_N = \sum_{n=1}^{N}{\frac{1}{n(n+1)}} = \sum_{n=1}^{N}{\frac{1}{n}} - \frac{1}{n+1} = \sum_{n=1}^{N}{\frac{1}{n}} - \sum_{n=1}^{N}{\frac{1}{n+1}} = 1+ \sum_{n=2}^{N}{\frac{1}{n}} - \sum_{n=2}^{N+1}{\frac{1}{n}} = 1+ \sum_{n=2}^{N}{\frac{1}{n}} - \sum_{n=2}^{N}{\frac{1}{n}} + \frac{1}{N+1} = 1 + \frac{1}{N+1} \longrightarrow 1
-\end{math}
+$\begin{aligned}[t]
+&S_N = \sum_{n=1}^{N}{\frac{1}{n(n+1)}} = \sum_{n=1}^{N}{\frac{1}{n}} - \frac{1}{n+1} = \sum_{n=1}^{N}{\frac{1}{n}} - \sum_{n=1}^{N}{\frac{1}{n+1}}
+= 1 + \sum_{n=2}^{N}{\frac{1}{n}} - \sum_{n=2}^{N+1}{\frac{1}{n}} \\
+&= 1 + \sum_{n=2}^{N}{\frac{1}{n}} - \sum_{n=2}^{N}{\frac{1}{n}} + \frac{1}{N+1}
+= 1 + \frac{1}{N+1} \longrightarrow 1
+\end{aligned}$\\
 \end{proof}
 \end{enumerate}
 \end{bsp}
 
 \begin{satz}
-Seien \suminf{a_n} und \suminf{b_n} zwei konvergente Reihen und \(\lambda \in \R\)
-Dann ist auch \(\suminf{\lambda a_n + b_n}\) konvergent und \( \suminf{\lambda a_n + b_n} = \lambda \suminf{a_n} + \suminf{b_n}\)
-\begin{proof} folgt auf grund der Rechenregeln für konvergente Folgen.\end{proof}
+Seien \suminf{a_n} und \suminf{b_n} zwei konvergente Reihen und \(\lambda \in \R\),
+dann ist auch \(\suminf{\lambda a_n + b_n}\) konvergent und \( \suminf{\lambda a_n + b_n} = \lambda \suminf{a_n} + \suminf{b_n}\)
+\begin{proof}
+folgt auf Grund der Rechenregeln für konvergente Folgen.
+\end{proof}
 \end{satz}
 
 \begin{satz}[Cauchy-Kriterium für Reihen]
 Die Reihe \(\suminf[k]{a_k}\) ist konvergent, genau dann wenn gilt:
 \[\forall \epsilon > 0 \sp \exists N(\epsilon) \in \N \quad \forall n \ge m \ge N \qquad \abs{\sum_{k=m}^{n}{a_k}} < \epsilon \qquad (\star)\]
+\((\star)\) bedeutet die \((S_n)_n\) ist eine Cauchy-Folge \(\Leftrightarrow (S_n)_n\) ist konvergent
 \begin{proof}
-\(S_n - Sm = \sum_{k=0}^{n}{a_k} - \sum{k=0}{m}{a_k} = \sum_{k=m}^{n}{a_k}\). \((\star)\) bedeutet die \((S_n)_n\) ist eine Cauchy-Folge \(\Leftrightarrow (S_n)_n\) ist konvergent
+\(S_n - S_m = \sum_{k=0}^{n}{a_k} - \sum_{k=0}^{m}{a_k} = \sum_{k=m}^{n}{a_k}\).\\
 \end{proof}
 \end{satz}
 
 \begin{korr}
 Ist \suminf[k]{a_k} konvergent \(\Rightarrow \liminf[k]{a_k} = 0\).
 \begin{proof}
-\(a_n = \sum{k = m}{n}{a_k}\text{. Da } \suminf[k]{a_k} < \infty \overset{\Rightarrow}{\text{Cauchy-Kriterium}} \forall \epsilon > 0 \sp \exists N \in \N \quad \forall n \ge N \abs{a_N} = \abs{ \sum{k = m}{n}{a_k}} < \epsilon  \Rightarrow \liminf{a_n} = 0\)
+\(a_n = \sum_{k = m}^{n}{a_k} \text{. Da } \suminf[k]{a_k} < \infty \overset{\text{Cauchy-Kriterium}}{\Rightarrow} \forall \epsilon > 0 \sp \exists N \in \N \quad \forall n \ge N \abs{a_N} = \abs{ \sum_{k = m}^{n}{a_k}} < \epsilon  \Rightarrow \liminf{a_n} = 0\)\\
 \end{proof}
 \end{korr}
 
 \begin{bem}
-Die Umkehrung des Korrolars gilt nicht. z.B. \(\liminf{1/n} = 0\text{ aber }\suminf{1/n} = \infty \) harmonische Reihe.
+Die Umkehrung des Korrolars gilt nicht. z.B. \(\liminf{\frac{1}{n}} = 0 \text{ aber } \suminf{\frac{1}{n}} = \infty \) (harmonische Reihe).
 \end{bem}
 
 \begin{defi}
-Die Reihe \suminf[k]{a_k} heißt absolut konvergent, wenn wenn die Reihe \suminf[k]{\abs{a_k}} konvergiert.
+Die Reihe \suminf[k]{a_k} heißt absolut konvergent, wenn die Reihe \suminf[k]{\abs{a_k}} konvergiert.
 \end{defi}
 
 \begin{satz}
 Jede absolut konvergente Reihe ist auch konvergent.
 \begin{proof}
 \begin{math}
-\text{Sei }\suminf[k]{\abs{a_k}} < \infty  \overset{\Rightarrow}{\text{Cauchy-Kriterium}} \forall \epsilon > 0 \sp \exists N \in \N \quad \forall n \ge m \ge N \quad \abs{\sum{k=m}{n}{\abs{a_k}}} < \epsilon \overset{\Rightarrow}{\text{Dreiecksungleichung}} \abs{\sum{k=m}{n}{a_k}} \le \abs{\sum{k=m}{n}{\abs{a_k}}} < \epsilon \forall n \ge m \ge N
-\overset{\Rightarrow}{\text{Cauchy-Kriterium}} \suminf[k]{a_k}\text{ ist konvergent.}
-\end{math}
+\text{Sei }\suminf[k]{\abs{a_k}} < \infty  \overset{\text{Cauchy-Kriterium}}{\Rightarrow} \forall \epsilon > 0 \sp \exists N \in \N \sp \forall n \ge m \ge N \sp \abs{\sum_{k=m}^{n}{\abs{a_k}}} < \epsilon \overset{\text{Dreiecksungleichung}}{\Rightarrow} \abs{\sum_{k=m}^{n}{a_k}} \le \abs{\sum_{k=m}^{n}{\abs{a_k}}} < \epsilon \sp gilt \sp \forall n \ge m \ge N
+\overset{\text{Cauchy-Kriterium}}{\Rightarrow} \suminf[k]{a_k}\text{ ist konvergent.}
+\end{math}\\
 \end{proof}
 \end{satz}
 
