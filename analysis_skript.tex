@@ -31,6 +31,7 @@
 \def\im{\ensuremath{\mathit{i}} }
 \def\e{\ensuremath{\mathit{e}} }
 \renewcommand{\epsilon}{\ensuremath{\varepsilon} }
+\newcommand{\der}{\operatorname{d\!}{}}
 
 % für Beweise
 \def\WSP{\text{Widerspruch! }}
@@ -62,6 +63,8 @@
 \renewcommand{\liminf}[2][n]{\ensuremath{\lim\limits_{#1 \rightarrow \infty}{#2}}}
 \newcommand{\limInf}[2][n]{\ensuremath{\lim\limits_{#1 \rightarrow -\infty}{#2}}}
 \newcommand{\limnull}[2][n]{\ensuremath{\lim\limits_{#1 \rightarrow 0}{#2}}}
+\newcommand{\limAB}[3][x]{\ensuremath{\lim\limits_{#1 \rightarrow #2}{#3}}}
+\newcommand{\limA}[2][x_0]{\limAB{#1}{#2}}
 
 % limits von + nach 0 bzw von - nach 0
 \newcommand{\limpos}[2][n]{\ensuremath{\lim\limits_{#1 \rightarrow 0^+}{#2}}}
@@ -84,6 +87,7 @@
 \newcommand{\longtonull}[1][n]{\ensuremath{\overset{\scriptscriptstyle{#1 \to 0}}{\longrightarrow}}}
 \newcommand{\toInf}[1]{#1 \rightarrow -\infty}
 \newcommand{\longtoInf}[1][n]{\ensuremath{\overset{\scriptscriptstyle{#1 \to -\infty}}{\longrightarrow}}}
+\newcommand{\longtoA}[2][n]{\ensuremath{\overset{\scriptscriptstyle{#1 \to #2}}{\longrightarrow}}}
 
 % Umgebungsstil, einer für alle
 \newtheoremstyle{thmstyle}{}{0.5cm}{}{}{\bfseries}{}{\newline}{\thmnumber{#2. }\thmname{#1}\quad\thmnote{ #3}}
@@ -1500,7 +1504,7 @@ $\cos x_2 = \cos (x + y) = \cos x \cos y - \sin x \sin y \\
 \cos x_1 = \cos (x - y) = \cos x \cos(-y) + \sin x \sin (-y) \	qquad \cos -x = \frac{\e^{-\im x} + \e^{\im x}}{2} = \cos x\\	
 										\qquad \sin -x = \frac{\e^{-\im x} - \e^{\im x}}{2\im}  = -\frac{\e^{\im x} - \e^{-\im x}}{2\im}= - \sin x\\	
 \Rightarrow \cos(x_2) - \cos(x_1) = - 2\sin x \sin y = - 2 \underbrace{\sin(\frac{x_1 + x_2}{2})}_{> 0}  \underbrace{\sin(\frac{x_2 - x_1}{2})}_{> 0} < 0 \\
-\Rightarrow \cos x_2 < \cos x_1 \Rightarrow \cos $ ist auf $(0,2)$ streng monoton fallen, speziell injektiv.\\
+\Rightarrow \cos x_2 < \cos x_1 \Rightarrow \cos $ ist auf $(0,2)$ streng monoton fallend, speziell injektiv.\\
 $\Rightarrow \cos $ hat genau eine Nullstelle.
 \end{proof}
 \end{satz}
@@ -1552,16 +1556,144 @@ Diese Funktionen sind wieder stetig und streng monoton.
 \end{defi}
 
 % ENDE STETIGKEIT
-\section{Differential- und Integralrechnung}
+\newpage
+\section{Differential- und Integralrechnung} % sollte 5. sein????
 \subsection{Differentialrechnung}
 
+\begin{defi}
+Eien Funktion $f : D \to \R$ heißt differenzierbar in $x_0 \in D$, falls $\limnull[h]{\frac{f(x + h) - f(x_0)}{h}} = f'(x_0)$
+\end{defi}
 
+\begin{bem}
+\begin{enumerate}
+\item $f$ differenzierbar in $x_0$ bedeutet:  Für jede Folge $(h_n)$ mit $h_n \ne 0$ und $\liminf{h_n} = 0$ ist die Folge $\left(\frac{f(x_0 + h_n) - f(x_0)}{h_n}\right)$ konverrgent. Ihren Grenzwert nennen wir $f'(x_0) = \frac{\der f}{\der x}(x_0) = \left.\frac{\der f(x)}{\der x}\right|_{x = x_0}$
+\item $f'(x_0) = \limnull[h]{\frac{f(x + h) - f(x_0)}{h}} = \limnull[x-x_0]{\frac{f(x) - f(x_0)}{x-x_0}} = \limA{\frac{f(x) - f(x_0)}{x-x_0}}$
+\item GRAFIK grenzwert mit annäherungen der Tangenten
+\end{enumerate}
+\end{bem}
 
+\begin{bsp}
+\begin{enumerate}
+\item Die konstante Funktion
+$f: \R \to \R$ mit $ f(x) = c \in \R $ oder $ c \in \C $. $f'(x) = \limnull[h]{\frac{f(x + h) - f(x_0)}{h}} = \limnull[h]{\frac{c-c}{h}} = 0$
+$\Rightarrow c' = 0$
+\item Eine lineare Funktion
+$f: \R \to \R$ mit $ f(x) = ax \quad a \in \R $ oder $ a \in \C $. $f'(x) = \limA{\frac{f(x) - f(x_0)}{x-x_0}} = \limA{\frac{ax - ax_0}{x-x_0}} = \limA{\frac{a(x-x_0)}{x-x_0}} = a$
+$\Rightarrow (ax)' = a$
+\item Eine quadratische Funktion
+$f: \R \to \R$ mit $ f(x) = x^2 $. $f'(x) = \limnull[h]{\frac{f(x + h) - f(x_0)}{h}} = \limnull[h]{\frac{(x + h)^2 - (x_0)^2}{h}} = \limnull[h]{\frac{x^2 + 2xh + h^2 - x_0^2}{h}} =  \limnull[h]{\frac{2xh + h^2}{h}} = \limnull[h]{2x + h}  = 2x$
+$\Rightarrow (x^2)' = 2x$
+\item eine rationale Funktion
+$f: \R \to \R$ mit $ f(x) = \frac{1}{x} $. $f'(x) = \limnull[h]{\frac{f(x + h) - f(x_0)}{h}} = \limnull[h]{\frac{1}{h}\left(\frac{1}{x + h} - \frac{1}{x_0}\right)} = \limnull[h]{\frac{1}{h}\left(\frac{x_0- x +h}{xx_0 + hx_0}\right)} $ und dann gleicher nenner und ausrechnen..
+$\Rightarrow \left(\frac{1}{x}\right)' = -\frac{1}{x^2}$
+\item Die Exponentialfunktion.
+$\exp: \R \to \R$ mit $exp(x) = \e^x = \suminf{\frac{x^n}{n!}}$ \\
+Wir zeigen $\limnull[h]{\frac{e^h - 1}{h}} = 1$\\
+denn Sei $n \ge 0 \Rightarrow (n+2)! \ge 2 \cdot 3^n$
+%Beweis mit Induktion
+$\Rightarrow \abs{\frac{h^n}{(n+2)!}} \le \frac{\abs{h}^n}{2\cdot 3^n} = \frac{1}{2}\left(\frac{\abs{h}}{3}\right)^n$\\
+Für $\displaystyle \abs{h} < \frac{3}{2}$ folgt $ \abs{\e^h - 1 - h} = \abs{\suminf{\frac{h^n}{n!}} - 1- h} = \abs{\sum_{n=2}^{\infty}{\frac{h^n}{n!}}} = \abs{\suminf{\frac{h^{n+2}}{(n+2)!}}} \le \abs{h}^2 \suminf{\abs{\frac{h^n}{(n+2)!}}} \le \abs{h}^2\suminf{\frac{1}{2}\left(\frac{\abs{h}}{3}\right)^h} = \frac{\abs{h}^2}{2}\suminf{\underbrace{\left(\frac{\abs{h}}{3}\right)^h}_{<1}} \overset{\text{geometrische Reihe}}{=} = \frac{\abs{h}^2}{2} \frac{1}{1-\underbrace{\frac{\abs{h}}{3}}_{< \frac{1}{2}}} \le \abs{h^2}$\\
+$\Rightarrow \abs{\frac{e^h - 1}{h} - 1} \le \abs{h} \longtonull 0 \Rightarrow \limnull{\frac{e^h - 1}{h}} = 1$ \\
+$\Rightarrow (\e^x)' = \limnull[h]{\frac{\e^{x+h} - \e^x}{h}} = \limnull[h]{\frac{\e^x\e^h-\e^x}{h}} = \limnull[h]{\frac{\e^x(\e^h-1)}{h}} = \e^x\limnull[h]{\frac{\e^h-1}{h}} = \e^x \cdot 1 = \e^x$\\
+$\Rightarrow (\e^x)' = \e^x $
+\item Die Ableitungsfunktion
+$f: \R \to \R$ mit $ f(x) = \abs{x} $ ist in $ x = 0$ nicht differenzierbar. $\limnull[h]{\frac{f(0 + h) - f(0)}{h}} = \limnull[h]{\frac{\abs{h}}{h}}$\\
+$\limpos[h]{\frac{\abs{h}}{h}} = 1 \ne -1 = \limneg[h]{\frac{\abs{h}}{h}}$
+\end{enumerate}
+\end{bsp}
 
+\begin{prop}Sei $ f : D \to \R$ in $a \in D$ differenzierbar $\Rightarrow f$ ist in $a$ stetig.
+\begin{proof}
+Wir definieren $\phi : D \to \R$ mit $ \phi(x) = \frac{f(x) - f(a)}{x-a} - f'(a) \Rightarrow \limA[a]{\phi(x)} = \limA[a]{\frac{f(x) - f(a)}{x-a} - f'(a)} = f'(a) - f'(a) = 0.$\\
+Also: $\phi(x) = \frac{f(x) - f(a)}{x-a} - f'(a) \Rightarrow 
+\phi(x)(x-a) = f(x) - f(a) - f'(a) (x-a) \Rightarrow f(x) = f(a) + f'(a) (x-a) + \phi(x) (x-a)  \longtoA[a] 
+\Rightarrow \limA[a]{f(x)} = f(a) \Rightarrow f $ ist in $f$ stetig.
+\end{proof}
+\end{prop}
 
+\begin{satz}[Rechenregeln]
+Seien $f,g : D \to \R$ differenzierbar in $a \in D$ und $\lambda \in \R ( \lambda \in \C)$. Dann gilt
+\begin{enumerate}
+\item $f+g : D \to \R$ ist in $a$ differenzierbar und \[(f+g)'(a) = f'(a) + g'(a)\]
+\item $\lambda f : D \to \R$ ist in $a$ differenzierbar und \[(\lambda f)'(a) = \lambda f'(a) \]
+\item $fg : D \to \R$ ist in $a$ differenzierbar und \[(fg)'(a) = f'(a)g(a) + f(a)g'(a) \quad \text{Produktregel}\]
+\item Ist $g(x) \ne 0 \sp \forall x \in D $ so ist $ \frac{f}{g} : D \to \R$ ist in $a$ differenzierbar und \[\left(\frac{f}{g}\right)'(a) = \frac{f'(a)g(a) - f(a)g'(a)}{(g(x))^2} \quad \text{Quotientenregel}\]
+\end{enumerate}
+\begin{proof}
+\begin{enumerate}
+\item Folgt direkt aus den Rechenregeln für Grenzwerte.
+\item Folgt direkt aus den Rechenregeln für Grenzwerte.
+\item $\frac{f(a + h) g(a+h) - f(a)g(a)}{h} = \frac{1}{h}\left(f(a+h)g(a+h) - f(a+h)g(a) + f(a+h)g(a) - f(a)g(a)\right) = f(a + h) \frac{g(a+h) - g(a)}{h} + g(a)\frac{f(a+h) -f(a)}{h} \longtonull[h] f(a)\limnull[h]{ \frac{g(a+h) - g(a)}{h}} + g(a) \limnull[h]{\frac{f(a+h) -f(a)}{h}} = f(a)g'(a) + f'(a)g(a)$
+\item Sei $f(x) = 1 \quad \forall x \in D$
+$\frac{1}{h}\left(\frac{1}{g(a+h)} - \frac{1}{g(a)}\right) = \frac{g(a) - g(a+h)}{h g(a + h) g(a)} = - \frac{g(a+h) - g(a)}{h} \frac{1}{g(a+h)g(a)} \longtonull[h] - g'(a) \frac{1}{(g(a))^2}$\\
+Sei $f$ beliebig. Dann folgt aus der Produktregel:\\
+$\left(\frac{f}{g}\right)'(a)  = \left(f\frac{1}{g}\right)'(a) = f'(a)\frac{1}{g}(a) - \frac{1}{(g(a))^2}f'(a) = \frac{f'(a)g(a) - f(a)g'(a)}{(g(x))^2}$
+\end{enumerate}
+\end{proof}
+\end{satz}
 
+\begin{satz}[Kettenregel]
+Seien $f: D \to \R$ und $g : E \to \R$ zwei Funktionen mit $f(D) \subset E$\\
+Ist $f$ in $a \in D$ differenzierbar und $g$ in $f(a) \in E$ differenzierbar, dann ist $g \circ f : E \to \R $ in $a$ differenzierbar und \[ \left(g \circ f\right)'(a) = g'(f(a)) f'(a)\]
+\begin{proof}[Beweisidee]
+$\frac{g(f(a+h)) - g(f(a))}{h} = \underbrace{\frac{g(f(a+h)) - g(f(a)}{f(a+h)-f(a)}}_{\longtonull[h] g'(f(a))} \underbrace{\frac{f(a+h) - f(a)}{h}}_{\longtonull[h] f'(a)} \longtonull{h} = g'(f(a))f'(a)$
+\end{proof}
+\end{satz}
 
+\begin{bsp} Weitere Beispiele
+\begin{enumerate}
+\item Sei $f(x) = x^n$ mit $n \in \Z$ ist $f'(x) = \left(x^n\right)' = n x^{n-1}$
+\begin{proof} Sei $n \ge 0$ \\
+$\IA[n=0, n=1] $ schon gezeigt.\\
+$\IV \left(x^n\right)' = n x^{n-1}\\
+\IS \\
+\left(x^{n+1}\right)' = \left(x x^n\right)' \overset{\text{Produktregel}}{=} 1 x^n + x (n x^{n-1}) = x^n + n x^n = (n+1) x^n$\\
+Sei $n < 0$ . Setze $n = -m$ mit $m > 0$\\
+$x^n = x^{-m} = \frac{1}{x^m} 
+\overset{\text{Quotientenregel}}{\Rightarrow} \left(x^m\right)' = \left(\frac{1}{x^m}\right)' = \frac{0 x^m - 1 m x^{m-1}}{x^2m} = - \frac{m x^m{m-1}}{x^{m+m}} = - \frac{mx^{m-1}}{x^mx^m} = -m \frac{1}{x^m}\frac{1}{x} = - m \frac{1}{m} x^{-1} = n x^n x^{-1} = n x^{n-1}$
+\end{proof}
+\end{enumerate}
+\item Seit $f(x) = \e^{ax}$ mit $a \in \R , a \in \C$\\
+$\Rightarrow f'(x) = (\e^{ax})' = a \e^{ax}$\\
+Sei $g(x) = ax \overset{\text{Kettenregel}}{\Rightarrow}  (\e^{ax})' =  (\e^{g(x)})' =  \e^{g(x)}g'(x) =  a \e^{ax}$
+\item \[(\sin x)' = \cos x \\ (\cos x)' = - \sin x\]
+%$\displaystyle (\sin x)' = \left( \frac{\e^{\im x} - \e^{-\im x}}{2\im}\right)' = \frac{\e^{\im x}' - \e^{-\im x}'}{2\im} = \frac{\im \e^{\im x} + \im \e^{-\im x}}{2\im} = \frac{\e^{\im x} + \e^{-\im x}}{2} = \cos x $\\
+%$\displaystyle  (\cos x)' = \left( \frac{\e^{\im x} + \e^{-\im x}}{2}\right)' = \frac{\e^{\im x}' + \e^{-\im x}'}{2} = \frac{\im \e^{\im x} - \im \e^{-\im x}}{2} = \im  \frac{\e^{\im x} - \e^{-\im x}}{2} \overset{\frac{-1}{\im}{=} - \frac{\e^{\im x} - \e^{-\im x}}{2\im} = \sin x $
+\item \[ (\tan x)' = \frac{1}{\cos^2  x} = 1 + \tan^2 x\]
+$(\tan x)' = \left( \frac{\sin x}{\cos x} \right)' = \frac{\cos^2 x + \sin^2 x}{\cos^2 x} =\begin{cases} \frac{1}{\cos^2  x} \\ 1 + \tan^2 x \end{cases}$
+\item \[(\sin^2 x)' = \sin (2x)\]
+$g(x) = x^2, f(x) = \sin x$ \\
+$(\sin^2 x)' = (g \circ f)'(x) = g'(f(x))f'(x) = 2 \sin x \cos x = \sin (2x)$
+\end{bsp}
 
+\begin{satz}[Ableitung der Umkehrfunktion]
+Sei $f : [a,b] \to \R $ stetig und streng monoton, mit $f([a,b]) = [A,B]$. Sei $f^{-1} : [A,B] \to \R$ die Umkehrfunktion.
+Ist $f$ in $x \in [a,b]$ differenzierbar und $f'(x) \ne 0$ dann ist $f^{-1}$ in $y = f(x)$ differenzierbvar und \[(f^{-1})' (y) = \frac{1}{f'(f^{-1}(y))}\]
+\begin{proof}
+Wir wissen, schon $f^{-1}$ ist stetig. Sei $(y_n)$ eine Folge in $[A, B] \text{ und } \liminf{y_n} = y$\\
+Da $f^{-1}$ stetig in $y$, folgt $\liminf{f^{-1}(y_n)} = f^{-1}(y)$\\
+Sei $x_n = f^{-1}(y_n), x= f^{-1}(y)$\\
+Da $f$ in $x$ differenzierbar und $f'(x) \ne 0$ folgt $\liminf{\frac{f^{-1}(y_n) - f^{-1}(y)}{x_n - y}} = \liminf{\frac{x_n - x}{f(x_n)-f(x)}} = \frac{1}{\frac{f(x_n) - f(x)}{x_n - x}} = \frac{1}{f'(x)} = \frac{1}{f'(f^{-1}(y))}$
+\end{proof}
+\end{satz}
+
+\begin{bsp}
+$\ln : \R_+ \to \R$ ist die Umkehrfunktion von $\exp: \R \to \R_+$
+\[(\ln x)' = \frac{1}{x}\]
+Sei $f(x) = \exp(x)$, dann ist $f^{-1}(x) = \ln(y)$. Wir wissen $f'(x) = (\exp(x))' = \exp(x) = f(x)$
+$\Rightarrow (\ln(x))' = (f^{-1}(y))' = \frac{1}{f'(f^{-1}(y))} = \frac{1}{\exp(\ln(y))} = \frac{1}{y}$
+\end{bsp}
+
+\begin{bem}[Anwendung]
+\[\e = \suminf{\frac{1}{n!}} = \liminf{\left( 1 + \frac{1}{n}\right)^n}\]
+\begin{proof}
+$(\ln x)' = \frac{1}{x} \\
+(\ln 1)' = 1 \\
+\Rightarrow \liminf{ n \ln\left(1 + \frac{1}{n}\right) = \liminf{\frac{\ln\left(1 + \frac{1}{n}\right)}{\frac{1}{n}} = \liminf{\frac{\ln\left(1  + \frac{1}{n}\right) - \ln 1}{\frac{1}{n} = (\ln 1)' = 1\\
+\left(1  + \frac{1}{n}\right)^n = \e^{n\ln \left(1  + \frac{1}{n}\right)}$\\
+Da $\exp$ setetig ist, folgt $ \liminf{\left(1  + \frac{1}{n}\right)^n} = \liminf{\e^{n\ln \left(1  + \frac{1}{n}\right)}} = \e^{\liminf{n\ln \left(1  + \frac{1}{n}\right)}} = \e^1 = \e
+\end{proof}
+\end{bem}
 
 
 
