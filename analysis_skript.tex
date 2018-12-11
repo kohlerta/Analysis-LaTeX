@@ -61,7 +61,7 @@
 
 % limits bis unendlich -unendlich und 0
 \renewcommand{\liminf}[2][n]{\ensuremath{\lim\limits_{#1 \rightarrow \infty}{#2}}}
-\newcommand{\limInf}[2][n]{\ensuremath{\lim\limits_{#1 \rightarrow -\infty}{#2}}}
+%\newcommand{\limInf}[2][n]{\ensuremath{\lim\limits_{#1 \rightarrow -\infty}{#2}}}
 \newcommand{\limnull}[2][n]{\ensuremath{\lim\limits_{#1 \rightarrow 0}{#2}}}
 \newcommand{\limAB}[3][x]{\ensuremath{\lim\limits_{#1 \rightarrow #2}{#3}}}
 \newcommand{\limA}[2][x_0]{\limAB{#1}{#2}}
@@ -80,7 +80,7 @@
 \newcommand{\funktion}[3]{\ensuremath{#1: #2 \to #3}}
 \newcommand{\Funktion}[5]{\ensuremath{#1: #2 \to #3 \text{ mit } #4 \mapsto #5}}
 
-% konvergiert gegen inf 
+% konvergiert gegen inf
 \newcommand{\toinf}[1]{#1 \rightarrow \infty}
 \newcommand{\longtoinf}[1][n]{\ensuremath{\overset{\scriptscriptstyle{#1 \to \infty}}{\longrightarrow}}}
 \newcommand{\tonull}[1]{#1 \rightarrow 0}
@@ -92,7 +92,7 @@
 % Umgebungsstil, einer für alle
 \newtheoremstyle{thmstyle}{}{0.5cm}{}{}{\bfseries}{}{\newline}{\thmnumber{#2. }\thmname{#1}\quad\thmnote{ #3}}
 
-% umgebungen 
+% umgebungen
 \theoremstyle{thmstyle}
 \newtheorem{satz}{Satz}[subsection]
 \newtheorem{korr}[satz]{Korollar}
@@ -123,7 +123,7 @@ Die reellen Zahlen \R erfüllen eine Reihe von Axiomen, die in drei Gruppen unte
 
 \subsubsection{Algebraische Axiome}
 Die reellen Zahlen bilden mit der Addition \( + : \R \times \R \to \R \text{ mit } (a,b) \mapsto a + b\) und der Multiplikation \( * :  \R \times \R \to \R \text{ mit } (a,b) \mapsto a * b \)
-einen Körper \((\R, +, * )\), der folgende Axiome erfüllt: 
+einen Körper \((\R, +, * )\), der folgende Axiome erfüllt:
 \begin{enumerate}[label=\arabic*)]
 	\item \(\R\) ist bzgl. der Addition eine Abelsche Gruppe. \((\R,+)\)
 	\item \(\R \setminus \{0\}\) ist bzgl der Multiplikation eine Abelsche Gruppe. \((\R,*)\)
@@ -140,7 +140,7 @@ Die Natürlichen Zahlen \(\N = \{1,\dots,\infty \} \) und die Ganzen Zahlen \Z b
 					a * 0 + a * 0 &= a * 0 				&&\text{\R assiozativ} \Rightarrow\\
 					a * 0 + (a * 0 - a * 0) &= (a * 0 - a * 0) 	&& \text{additives Inverses} \Rightarrow\\
 					a * 0 +  0 &= 0	 					&& 0+0 = 0 \Rightarrow\\
-					a * 0 &= 0 \end{aligned}\\ 
+					a * 0 &= 0 \end{aligned}\\
 \end{math}
 \end{proof}
 \end{prop}
@@ -197,7 +197,7 @@ Sei \( a < b \text{ und } b < c \Rightarrow a - b < 0  \text{ und } b - c < 0 \R
 \end{bem}
 
 \begin{defi}
-Für \(a \in \R\) und der Betrag \abs{a} folgendermaßen definiert. 
+Für \(a \in \R\) und der Betrag \abs{a} folgendermaßen definiert.
 $\abs{a} = \begin{cases}
 		 a 	& a > 0\\
 		-a 	& a < 0  \end{cases}$
@@ -214,7 +214,7 @@ $\abs{a} = \begin{cases}
 \begin{enumerate}[label=(\arabic*)]
 	\item Beweis durch Falltunterscheidung.
 	\item \begin{itemize}
-		\item \(\quad a \le \abs{a} \text{ und } \sp \quad b \le \abs{b} \quad \Rightarrow \quad a + \quad b \quad\le\quad \abs{a}+\abs{b} \) 
+		\item \(\quad a \le \abs{a} \text{ und } \sp \quad b \le \abs{b} \quad \Rightarrow \quad a + \quad b \quad\le\quad \abs{a}+\abs{b} \)
 		\item \(\sp-a \le \abs{a} \text{ und } -b \le \abs{b} \quad \Rightarrow \sp -a + \sp -b \quad\le\quad \abs{a} +\abs{b} \)
 		\end{itemize}
 		\(\Rightarrow a + b \le \abs{a} + \abs{b} \text{ und } -(a + b) \le \abs{a} + \abs{b} \Rightarrow \abs{a + b} \le \abs{a} + \abs{b} \)
@@ -242,7 +242,7 @@ Sei \(a > -1\) dann gilt \[\fa n \in \N \sp (1+a)^n \ge 1 + na \]
 \begin{aligned}[t]
 	&\IA{n=0} \sp 1 = (1 + a)^0 \ge 1 + 0*a = 1					&&\\
 	&\IV (1+a)^n \ge 1 + na								&&\\
-	&\IS{n \mapsto n+1} \\ 
+	&\IS{n \mapsto n+1} \\
 	&\begin{aligned}[t]
 		(1+a)^{n+1} 	&= (1+a)(1+a)^n 					&&\\
 					&\overset{IV}{\ge} (1 + a)(1 + na) 		&&\\
@@ -265,7 +265,7 @@ Sei \(a > 0\).
 \begin{enumerate}[label=(\arabic*)]
 	\item \begin{math} \displaystyle
 		\text{Sei } a = x + 1 > 1 \Rightarrow a^n = (x + 1)^n \overset{\text{Bernoulli}}{\ge} 1 + nx \\
-		\forall n \in \N \sp \exists x > 0 \text{ mit } nx > k - 1 \Rightarrow a^n \ge 1 + nx > 1 + k -1 = k 
+		\forall n \in \N \sp \exists x > 0 \text{ mit } nx > k - 1 \Rightarrow a^n \ge 1 + nx > 1 + k -1 = k
 		\end{math}
 	\item \begin{math} \displaystyle
 		\text{Sei } 0 < a < 1 \text{ und } b = \frac{1}{a} > 1 \overset{\tiny{mit (1)}}{\Rightarrow} \exists k \in \R \text{ mit }  \left(\frac{1}{a}\right)^n = b^n > k = \frac{1}{\epsilon}\\
@@ -276,21 +276,21 @@ Sei \(a > 0\).
 \end{korr}
 
 \subsubsection{Vollständigkeitsaxiom}
-Die Zahlengerade \R hat keine Lücken. 
+Die Zahlengerade \R hat keine Lücken.
 
 \begin{defi}
 Sei \(M \subset \R\) eine Teilmenge.
 \begin{enumerate}
-	\item \(k \in \R\) heißt obere Schranke von \(M\) wenn gilt, \(\fa x \in M,\sp x \le k\). \(M\) heißt nach oben beschränkt, 
+	\item \(k \in \R\) heißt obere Schranke von \(M\) wenn gilt, \(\fa x \in M,\sp x \le k\). \(M\) heißt nach oben beschränkt,
 		wenn es eine obere Schranke gibt. zB \N ist nicht nach oben beskchränkt, nach dem Archimedischem Axiom.
-	\item \(k \in \R \) heißt untere Schranke von \(M\) wenn gilt, \(\fa x \in M,\sp x \ge k\). \(M\) heißt nach unten beschränkt, 
+	\item \(k \in \R \) heißt untere Schranke von \(M\) wenn gilt, \(\fa x \in M,\sp x \ge k\). \(M\) heißt nach unten beschränkt,
 		wenn es eine untere Schranke gibt.
-	\item \(M\) heißt beschränkt, wenn eine obere und untere Schranke existiert.  Äquivalente Definition für Beschränktheit: 
+	\item \(M\) heißt beschränkt, wenn eine obere und untere Schranke existiert.  Äquivalente Definition für Beschränktheit:
 		\(\exists k \in \R,\sp \abs{x} \le k \sp \fa x \in M\)
-	\item \(a \in \R\) heißt Infimum von \(M\), falls \(a\) größte untere Schranke von \(M\) ist. Das heißt \(a\) ist untere Schranke 
+	\item \(a \in \R\) heißt Infimum von \(M\), falls \(a\) größte untere Schranke von \(M\) ist. Das heißt \(a\) ist untere Schranke
 		von \(M\) und ist \(k\) eine untere schranke von \(M\), dann folgt \(k \le a\)
 		\[\text{Schreibweise: } a = inf(M)\]
-	\item \(b \in \R\) heißt Supremum von \(M\), falls \(b\) kleinste obere Schranke von \(M\) ist. Das heißt \(b\) ist obere 
+	\item \(b \in \R\) heißt Supremum von \(M\), falls \(b\) kleinste obere Schranke von \(M\) ist. Das heißt \(b\) ist obere
 		Schranke von \(M\) und ist \(k\) eine obere schranke von \(M\), dann folgt \(k \ge a\) \[\text{Schreibweise: } b = sup(M)\]
 \end{enumerate}
 \end{defi}
@@ -436,8 +436,8 @@ Es gilt:
 \item \(\abs{z} = a^2 + b^2 > 0 \)
 \item \(\abs{z} = a^2 + b^2 = 0 \Leftrightarrow a^2 = - b^2 \Leftrightarrow a = b = 0 \)
 \end{itemize}
-\item \(\abs{z_1 z_2}^2 = (z_1 z_2)(\overline{z_1 z_2}) = (z_1\overline{z_1})(z_2\overline{z_2}) = \abs{z_1}^2\abs{z_2}^2 \Leftrightarrow \abs{z_1 z_2} = \abs{z_1}\abs{z_2} \) 
-\item  \begin{math}  
+\item \(\abs{z_1 z_2}^2 = (z_1 z_2)(\overline{z_1 z_2}) = (z_1\overline{z_1})(z_2\overline{z_2}) = \abs{z_1}^2\abs{z_2}^2 \Leftrightarrow \abs{z_1 z_2} = \abs{z_1}\abs{z_2} \)
+\item  \begin{math}
 \text{Sei }a, b \in \R \sp z \in \C \sp z = a + \im b \\
 \begin{aligned}[t]
 Re(z)^2 = a^2 \le a^2 + b^2 = \abs{z}^2 &\Rightarrow Re(z) \le \abs{Re(z)} = \sqrt{Re(z)} \le \abs{z} \\
@@ -451,7 +451,7 @@ Re(z)^2 = a^2 \le a^2 + b^2 = \abs{z}^2 &\Rightarrow Re(z) \le \abs{Re(z)} = \sq
 &\le  \abs{z_1}^2 + 2\abs{z_1}\abs{z_2} + \abs{z_2}^2 = \left(\abs{z_1} + \abs{z_2}\right)^2
 \end{aligned}\\
 \Rightarrow \abs{z_1 + z_2} \le \abs{z_1} + \abs{z_2}
-\end{math}  
+\end{math}
 \end{enumerate}
 \end{proof}
 \end{prop}
@@ -459,8 +459,8 @@ Re(z)^2 = a^2 \le a^2 + b^2 = \abs{z}^2 &\Rightarrow Re(z) \le \abs{Re(z)} = \sq
 \section{Folgen und Reihen}
 \subsection{Folgen}
 
-\begin{bsp} 
-Betrachte 
+\begin{bsp}
+Betrachte
 \begin{center} \begin{tikzpicture}[scale=3]
  \draw (0,0) -- node[above] {$1$} (1,0);
  \draw (1,0) -- node[below left] {$1$} (1,1);
@@ -488,22 +488,22 @@ a_1 &= 1\\
 a_{n+1} &= \frac{1}{2}\left(a_n + \frac{2}{a_n}\right)
 \end{align*}
 \begin{align*}
-a_1 = 1 && a_2 = 1,5 && a_3 \approx 1.41 && a_3 \approx 1,4142 &&\dots 
+a_1 = 1 && a_2 = 1,5 && a_3 \approx 1.41 && a_3 \approx 1,4142 &&\dots
 \end{align*}
 Also \(a_n\) nähert sich mit wachsendem \(n\) immer mehr an \(\sqrt{2}\). Dies führt zu dem Begriff \textbf{Grenzwert einer Folge}.
 \end{bem}
 
 \begin{defi}
-Eine Folge $(a_n)_{k=0}^{\infty}$ reeller Zahlen ist eine Abbildung $\N_0 \rightarrow \R\text{ mit } n \mapsto a_n$ 
+Eine Folge $(a_n)_{k=0}^{\infty}$ reeller Zahlen ist eine Abbildung $\N_0 \rightarrow \R\text{ mit } n \mapsto a_n$
 Bezeichnung: Wir schreiben für Folgen
 \begin{align*}
-&(a_n)_{k=0}^{\infty} && (a_n)_{n\ge0} && (a_n)_{n\in\N} & (a_n) && (a_n)_{n\ge n_0} 
+&(a_n)_{k=0}^{\infty} && (a_n)_{n\ge0} && (a_n)_{n\in\N} & (a_n) && (a_n)_{n\ge n_0}
 \end{align*}
 \end{defi}
 
 \newpage
 \begin{defi}
-Eine Folge \((a_n)\) heißt 
+Eine Folge \((a_n)\) heißt
 \begin{enumerate}
 \item (streng) monoton wachsend, wenn \( \fa a \in \N \sp a_n \le a_{n+1}	\quad (a_n)\nearrow	\quad (a_n < a_{n+1} \quad (a_n)\uparrow)\)
 \item (streng) monoton fallend, wenn \( \fa a \in \N \sp a_n \ge a_{n+1}	\quad (a_n)\searrow	\quad (a_n > a_{n+1} \quad (a_n)\downarrow)\)
@@ -517,7 +517,7 @@ Ein paar Beispiele zu Folgen:
 \item Die konstante Folge \(a_n = k\) ist monoton fallend und steigend.
 \item Die harmonische Folge $ \displaystyle a_n = \frac{1}{n} \sp \fa n \ge 1$ ist streng monoton fallend.
 \item Die alternierende Folge $ \displaystyle a_n = (-1)^n $ ist nicht monoton.
-\item Die geometische Folge $ \displaystyle  a_n = a^n \sp \fa n \ge 0 $ Sei $ \displaystyle a \in \R \sp a^n \text{ ist } 
+\item Die geometische Folge $ \displaystyle  a_n = a^n \sp \fa n \ge 0 $ Sei $ \displaystyle a \in \R \sp a^n \text{ ist }
 				\begin{cases}			\text{streng monoton wachsend} 	& a > 0\\
 									\text{streng monoton fallend} 		& 0 < a < 1\\
 									\text{monoton} 					& a = 1\\
@@ -528,7 +528,7 @@ Ein paar Beispiele zu Folgen:
 \end{bsp}
 
 \begin{defi}[der Konvergenz]
-Eine Folge reeller Zahlen \((a_n)_{n\in\N}\) heißt konvergent gegen \( a\in\R\) wenn 
+Eine Folge reeller Zahlen \((a_n)_{n\in\N}\) heißt konvergent gegen \( a\in\R\) wenn
 \[\forall \epsilon > 0 \quad \exists N \in \N \quad \forall n \ge N \quad \abs{a_n - a} < \epsilon\]
 \(a\) heißt der Grenzwert oder Limes der Folge \((a_n)\). Die Folge \((a_n)\) heißt divergent, wenn sie nicht konvergiert. Schreibweise: \(\lim{a_n} = a \) oder \( \lim\limits_{n \to k}{a_n} = a \). Wobei \( k \in \R\cup\{\infty, -\infty\}\)
 \end{defi}
@@ -550,7 +550,7 @@ Beispiele zur Konvergenz:
 	\item Die alternierende Folge $ \displaystyle b_n = (-1)^n$ ist divergent
 	\begin{proof}
 		Angenommen $ \displaystyle \exists a \in \R \text{ mit } \liminf{b_n} = b \\
-		\text{Wähle } \epsilon = \frac{1}{2} > 0 \Rightarrow \exists N \in \N \sp \forall n \ge N \abs{b_n - b} < \frac{1}{2} \text{. Da } b_{n+1} - b_n = 		\pm 2 \text{ ist } \forall n \ge N \\ 
+		\text{Wähle } \epsilon = \frac{1}{2} > 0 \Rightarrow \exists N \in \N \sp \forall n \ge N \abs{b_n - b} < \frac{1}{2} \text{. Da } b_{n+1} - b_n = 		\pm 2 \text{ ist } \forall n \ge N \\
 		\vphantom{\frac{1}{2}}\ 2 = \abs{b_{n+1} - b_{n}} = \abs{b_{n+1} - b - (b_n - b)} \le \abs{b_{b+1} - b} + \abs{b_n - b} < \frac{1}{2} + \frac{1}{2} = 1 \Rightarrow 2 < 1 \\
 		\WSP \Rightarrow (b_n) $ ist divergent.
 	\end{proof}
@@ -592,17 +592,17 @@ Die Umkehrung gilt nicht. Das heißt eine beschränkte Folge ist nicht konvergen
 \end{bem}
 
 \begin{satz}[Monotoniekriterium]
-Sei $(a_n)$ eine Folge. Dann gilt: 
+Sei $(a_n)$ eine Folge. Dann gilt:
 \begin{itemize}
 \item Ist $(a_n)$ monoton wachsend und nach oben beschränkt, dann ist $(a_n)$ konvergent.
 \item Ist $(a_n)$ monoton fallend  und nach unten beschränkt, dann ist $(a_n)$ konvergent.
 \end{itemize}
 \begin{proof}
 Es reicht die erste Aussage zu zeigen, denn ist $(a_n)$ monoton fallend und nach unten beschränkt \( \Rightarrow (-a_n)\) ist monoton wachsend und nach oben beschränkt $\Rightarrow (a_n) $ ist konvergent.\\
-Sei also \((a_n) \nearrow \) und nach oben beschränkt. Mit dem Vollständigkeitsaxiom \(\Rightarrow \exists a = sup\menge{a_n}{n \in \N}\). Und sei $\epsilon > 0$ 
+Sei also \((a_n) \nearrow \) und nach oben beschränkt. Mit dem Vollständigkeitsaxiom \(\Rightarrow \exists a = sup\menge{a_n}{n \in \N}\). Und sei $\epsilon > 0$
 \begin{math}
 \Rightarrow a - \epsilon \text{ ist keine obere Schranke von } \menge{a_n}{n \in \N} \Rightarrow \exists N \in \N \quad a-\epsilon < a_N \le a.\\
-\text{Da }(a_n) \nearrow \begin{aligned}[t] 
+\text{Da }(a_n) \nearrow \begin{aligned}[t]
 					&\Rightarrow \forall n \ge N 						&& a_N \le a_n \\
 					&\Rightarrow a-\epsilon < a_N \le a_n \le a < a+\epsilon 	&& \forall n \ge N \\
 					&\Rightarrow a-\epsilon < a_n < a+\epsilon 			&& \forall n \ge N \\
@@ -618,12 +618,12 @@ Das Monotonie-Kriterium ist äquivalent zur Vollständigkeit.
 \begin{satz}
 Der Grenzwert einer Folge ist eindeutig bestimmt.
 \begin{proof}
-\begin{math} \displaystyle 
+\begin{math} \displaystyle
 \text{Angenommen } \liminf{a_n} = a\text{ und }\liminf{a_n} = b\text{ und } a \ne b.\\
 \text{Sei }\epsilon = \frac{1}{2}\abs{b-a} \begin{aligned}[t]
 								&\Rightarrow \exists N_1 \sp \forall n \ge N_1 \sp \abs{a_n - a} < \epsilon \\
 								&\Rightarrow \exists N_2 \sp \forall n \ge N_2 \sp \abs{a_n - b} < \epsilon \end{aligned}\\
-\text{Sei } N = max\{N_1, N_2\} \quad \forall n \ge N \quad 
+\text{Sei } N = max\{N_1, N_2\} \quad \forall n \ge N \quad
 \begin{aligned}[t]
 \abs{b-a} 	&= \abs{(b-a_n) + (a_n - a)} \\
 		&\le \abs{b - a_n} + \abs{a_n - a} \\
@@ -649,7 +649,7 @@ Seien \((a_n)\) und \((b_n)\) zwei konvergente Folgen. Dann gilt:
 \begin{proof}
 Sei \(\liminf{a_n} = 0\text{ und } \lim{b_n} = b\).
 \begin{enumerate}
-\item Sei $\epsilon > 0 \Rightarrow \exists N_1, N_2, \in \N \quad 
+\item Sei $\epsilon > 0 \Rightarrow \exists N_1, N_2, \in \N \quad
 \begin{aligned}[t]
 &\abs{a_n - a} < \frac{\epsilon}{2} \quad \forall n \ge N_1 \quad \text{ und } \quad  \abs{b_n - b} < \frac{\epsilon}{2} \quad \forall n \ge N_2\\
 &\Rightarrow \forall n \ge max\{N_1, N_2\}\\
@@ -659,7 +659,7 @@ Sei \(\liminf{a_n} = 0\text{ und } \lim{b_n} = b\).
 \end{aligned}\\
 &\Rightarrow (a_n \pm b_n) \text{ beschränkt und } \liminf{a_n \pm b_n} = a+b.
 \end{aligned}$
-\item Sei $ \displaystyle \epsilon > 0 \Rightarrow \exists N \in \N \begin{aligned}[t] \quad 
+\item Sei $ \displaystyle \epsilon > 0 \Rightarrow \exists N \in \N \begin{aligned}[t] \quad
 		&\abs{a_n - a} < \frac{\epsilon}{\lambda} \quad \forall n \ge N\\
 		& \abs{\lambda a_n - \lambda a} = \abs{\lambda(a_n - a)} = \abs{\lambda}\abs{a_n - a} < \lambda \frac{\epsilon}{\lambda} = \epsilon
 		\end{aligned}$
@@ -670,17 +670,17 @@ Sei \(\liminf{a_n} = 0\text{ und } \lim{b_n} = b\).
 &\le \abs{ a_n (b_n - b)} + \abs{b (a_n - a)} \\
 &= \underbrace{\abs{a_n}}_{\le K} \abs{b_n - b} + \underbrace{\abs{b}}_{\le K}\abs{a_n - a} < K \frac{\epsilon}{2K} + K \frac{\epsilon}{2K} = \epsilon
 \end{aligned}$
-\item 
+\item
 Zeige \begin{math} \displaystyle \liminf{\frac{1}{b_n}} = \frac{1}{\liminf{b_n}} \quad\Rightarrow  \abs{\abs{ b_n } - \abs{b}} \le \abs{ b_n - b} < \frac{\abs{b}}{2} \quad \forall n \ge n_0 \\
 \Rightarrow -\frac{\abs{b}}{2} < \abs{b_n} - \abs{b} < \frac{\abs{b}}{2} \Rightarrow  \frac{\abs{b}}{2} < \abs{b_n} \quad \Rightarrow \frac{1}{\abs{b_n}} < \frac{2}{\abs{b}} \quad \forall n \ge n_0 \\
 \text{Sei } \epsilon > 0 \Rightarrow \exists N \quad \forall n \ge N \quad \abs{b_n - b} < \frac{\epsilon \abs{b} ^2}{2} \Rightarrow \\
 \abs{\frac{1}{b_n} - \frac{1}{b}} = \abs{\frac{b - b_n}{b b_n}} = \frac{1}{\abs{b_n}}\frac{1}{\abs{b}} \abs{b - b_n} < \frac{2}{\abs{b}}\frac{1}{\abs{b}}\abs{b_n - b} < \frac{2}{\abs{b}^2}\frac{\epsilon\abs{b}^2}{2} = \epsilon.
 \end{math}
-\item Sei \(a_n \le b_n \quad \forall n \ge n_0. \) \quad Angenommen \(a > b\). \quad Sei \begin{math} \displaystyle \epsilon =  \frac{a-b}{2} > 0 \\ 
+\item Sei \(a_n \le b_n \quad \forall n \ge n_0. \) \quad Angenommen \(a > b\). \quad Sei \begin{math} \displaystyle \epsilon =  \frac{a-b}{2} > 0 \\
 \Rightarrow \exists N_1, N_2 \in \N \quad \abs{a_n - a} < \epsilon \quad \forall n \ge N_1 \qquad \text{und} \qquad \abs{b_n - b} < \epsilon \quad \forall n \ge N_2 \vphantom{\frac{a-b}{2}} \\
 \begin{aligned}[t]
 b_n < b + \epsilon &= b + \frac{a-b}{2} = \frac{2b + a - b}{2} = \frac{b + a}{2} = \frac{2a - a + b}{2} \\
-&= a - \frac{a-b}{2} = a - \epsilon < a_n && \quad \forall n \ge max\{N_1, N_2\} 
+&= a - \frac{a-b}{2} = a - \epsilon < a_n && \quad \forall n \ge max\{N_1, N_2\}
 \end{aligned} \\
 \Rightarrow  b_n < a_n \quad \forall n \ge max\{N_1, N_2\} \quad \WSP \Rightarrow a \le b
 \end{math}
@@ -690,13 +690,13 @@ b_n < b + \epsilon &= b + \frac{a-b}{2} = \frac{2b + a - b}{2} = \frac{b + a}{2}
 
 \begin{satz}[Sandwich-Theorem]
 Sei \((a_n)\text{ und }(b_n)\) zwei konvergente Folgen mit der Eigenschaft, dass \(\liminf{a_n} = \liminf{b_n} = a\).
-Sei \((c_n)\) eine Folge mit der Eigenschaft, dass \(a_n \le c_n \le b_n \quad \forall n \ge n_0\). 
+Sei \((c_n)\) eine Folge mit der Eigenschaft, dass \(a_n \le c_n \le b_n \quad \forall n \ge n_0\).
 Dann ist \((c_n)\) konvergent und \(\liminf{c_n} = a\).
 \begin{proof}
 \begin{math}
-\begin{aligned}[t] \displaystyle \text{Sei }\epsilon > 0 &\Rightarrow \exists  N_1, N_2 \in \N \quad 
+\begin{aligned}[t] \displaystyle \text{Sei }\epsilon > 0 &\Rightarrow \exists  N_1, N_2 \in \N \quad
 &&\begin{aligned}[t] a - \epsilon < a_n < a + \epsilon & \quad \forall n \ge N_1 \\
-			   a - \epsilon < b_n < a + \epsilon & \quad \forall n \ge N_2 
+			   a - \epsilon < b_n < a + \epsilon & \quad \forall n \ge N_2
 \end{aligned} \\
 &\Rightarrow \forall n \ge max\{N_1, N_2\} \sp \text{gilt: } \quad &&\begin{aligned}[t] &a-\epsilon < a_n \le c_n \le b_n < a + \epsilon \quad  \forall n \ge N \\
 &\Rightarrow \abs{c_n - a} < \epsilon \Rightarrow \liminf{c_n} = a
@@ -729,14 +729,14 @@ Beispiele zu bestimmt divergenten Folgen:
 \item Sei \(\liminf{a_n} = \infty \Leftrightarrow \liminf{-a_n} = - \infty\)
 \item Die Folge \(a_n = (-1)^n\) ist divergent aber nicht bestimmt divergent.
 \item Sei \((a_n)\) bestimmt divergent und $ \displaystyle a_n \ne 0 \quad \forall n \ge n_0\text{, dann folgt }\liminf{\frac{1}{a_n}} = 0$.
-\begin{proof}Sei $ \displaystyle \liminf{a_n} = \infty \quad 
+\begin{proof}Sei $ \displaystyle \liminf{a_n} = \infty \quad
 \begin{aligned}[t] &&\forall \epsilon > 0 \sp \exists N \in \N \sp \forall n \ge N \sp a_n &> \frac{1}{\epsilon} > 0 \\
 &&\Rightarrow \frac{1}{a_n} &< \epsilon \Rightarrow \abs{\frac{1}{a_n} - 0} < \epsilon  \\
 &&\text{da } a_n > 0 \Rightarrow \liminf{\frac{1}{a_n}} = 0.
 \end{aligned}$\\
 \end{proof}
 \end{enumerate}
-\end{bsp} 
+\end{bsp}
 
 \begin{defi}
 Sei \((a_n)\) eine Folge reeller Zahlen und \(n_0 < n_1 < n_2 < \dots < n_k < \dots \) eine Teilmenge von \N.\\
@@ -783,7 +783,7 @@ Jede beschränkte Folge reeller Zahlen besitzt eine konvergente Teilfolge.
 & 2. &&\text{Da }x_k = inf(A_k) = inf\menge{a_m}{m \ge k} \Rightarrow \exists a_{k_m} \text{ mit } \abs{x_k - a_{k_m}} < \frac{\epsilon}{2}.
 \end{aligned} \\ \vphantom{\frac{\epsilon}{2}}
 &\qquad \Rightarrow \abs{a_{k_m} - z} = \abs{a_{k_m} - x_k + x_k - z} \le \abs{a_{k_m} - x_k} + \abs{x_k - z} < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon  \\ \vphantom{\frac{\epsilon}{2}}
-&\qquad \text{Also } \forall \epsilon > 0 \exists N \in \N \quad \forall k \ge N \quad \exists a_{k_m} \in (a_n) \quad \abs{a_{k_m} - z} < \epsilon  \\ 
+&\qquad \text{Also } \forall \epsilon > 0 \exists N \in \N \quad \forall k \ge N \quad \exists a_{k_m} \in (a_n) \quad \abs{a_{k_m} - z} < \epsilon  \\
 &\qquad \text{d.h. die Teilfolge }(a_{k_m})_{m\ge 0}\text{ ist konvergent gegen } z \\
 &\text{Also }(a_{k_m})\text{ ist eine konvergente Teilfloge von der beschränkten Folge }(a_n).
 \end{aligned} \\
@@ -792,7 +792,7 @@ Jede beschränkte Folge reeller Zahlen besitzt eine konvergente Teilfolge.
     \draw(-1,0)--(5.5,0);
     \foreach \x/\xtext in {1/{x_k},2.25/{a_{k_m}},3.5/{x_k + \frac{\epsilon}{2}}}
       \draw(\x,3pt)--(\x,-3pt) node[below] {$\xtext$};
-\end{tikzpicture} \end{center}\end{figure} 
+\end{tikzpicture} \end{center}\end{figure}
 \end{proof}
 \end{satz}
 
@@ -804,7 +804,7 @@ Der Satz von Bolzano-Weierstraß ist äquivalent zum Vollständigkeitsaxiom. And
 \end{itemize}
 \end{bem}
 
-\begin{defi}[Cauchy-Folge] 
+\begin{defi}[Cauchy-Folge]
 Eine Folge \((a_n)_{n \ge 0}\) heißt CAUCHY-Folge, wenn gilt:
 \[\forall \epsilon > 0 \quad \exists N \in \N \quad \forall n, m \ge N \quad \abs{a_n - a_m} < \epsilon\]
 \end{defi}
@@ -816,7 +816,7 @@ Folgende Aussagen sind äquivalent
 \item Die Folge \((a_n)\) ist eine Cauchy-Folge
 \end{enumerate}
 \begin{proof}
-\begin{math} \displaystyle 
+\begin{math} \displaystyle
 \begin{aligned}[t]
 1) \Rightarrow 2) \quad &\text{Sei }\liminf{a_n} = a \Rightarrow \forall \epsilon > 0 \sp \exists N \sp \forall m \ge N \abs{a_n a} < \frac{\epsilon}{2} \Rightarrow \forall n, m \ge N \\
 &\abs{a_n - a_m} = \abs{a_n - a + a - a_m} \le \abs{a_n - a }  + \abs{a_m - a} <  \frac{\epsilon}{2}+ \frac{\epsilon}{2} = \epsilon \\
@@ -852,7 +852,7 @@ Wir zeigen: \((x_n)\) ist konvergent und \(\liminf{x_n} = x \text{ und } x^2 = a
 &x_{n+1}^2 - a \begin{aligned}[t] &= \frac{1}{4}\left(x_n + \frac{a}{x_n}\right)^2  - a = \frac{1}{4}\left(x_n^2 + 2x_n\frac{a}{x_n} + \frac{a^2}{x_n^2} \right) - a \\
 &= \frac{1}{4}\left(x_n^2 + \frac{2ax_n}{x_n} + \frac{a^2}{x_n^2} - 4a \right) = \frac{1}{4} \left(x_n^2 + \frac{2ax_n}{x_n} + \frac{a^2}{x_n^2} -\frac{4ax_n}{x_n} \right)\\
 &= \frac{1}{4} \left(x_n^2 - 2x_n\frac{a}{x_n} + \frac{a^2}{x_n^2} \right) = \frac{1}{4} \left(x_n - \frac{a}{x_n} \right)^2 \ge 0
-\end{aligned} 
+\end{aligned}
 \end{aligned} \\
 &(x_n)\text{ ist monoton fallend} \\ %KORRIGIERE AB HIER
 &x_n - x_{n+1} = x_n - \frac{1}{2} \left(x_n + \frac{a}{x_n}\right) =\frac{1}{2} \left(2x_n - x_n - \frac{a}{x_n}\right) = \frac{1}{(2x_n)(x_n^2 - a)} \ge 0 \\
@@ -870,79 +870,88 @@ Die positive Lösung der Gleichung \(x^2 = a\) heißt die Quadratwurzeln von \(a
 \begin{defi}
 Sei \((a_n)_{n \ge 0}\) eine Folge reeller Zahlen. Sei weiters \(S_N = \sum_{n = 0}^{N}{a_n} \text{ die }N\)-te Partialsumme, dann heißt die Folge \((S_N)_{N \ge 0}\) der Partialsummen eine unendliche Reihe.\\
 \[\text{Schreibweise: }\suminf{a_n}\]
-Konvergiert die Folge \((S_N)\text{ mit }\liminf{S_N} = s \text{, dann heißt } \suminf{a_n} = s\) der Wert der Reihe.Man sagt: Die Reihe \(\suminf{a_n}\) konvergiert.
-\[\text{Schreibweise: } \suminf{a_n} < \infty\].
+Konvergiert die Folge \((S_N)\text{ mit }\liminf{S_N} = s \text{, dann heißt } \suminf{a_n} = s\) der Wert der Reihe. Man sagt: Die Reihe \(\suminf{a_n}\) konvergiert.
+\[\text{Schreibweise: } \suminf{a_n} < \infty\]
 \end{defi}
 
-\begin{bsp}
+\begin{bsp}\
 \begin{enumerate}
 \item Die geometrische Reihe. Sei \(\abs{a} < 1 \Rightarrow \suminf{a^n} = \frac{1}{1-a}\text{. Ist }\abs{a} \ge 1\text{, dann ist }\suminf{a^n}\) divergent.
-\begin{proof}
-Die geometrische Summe: \(\sum_{n = 0}^{N}{a^n} = \frac{1-a^{N+1}}{1-a}\) dann:
-\begin{math}
-IA{N=0} 1 = a^0 = (1-a) / (1- a) = 1\\
-IV \sum_{n = 0}^{N}{a^n} = \frac{1-a^{N+1}}{1-a}\\
-IS{N \mapsto N+1}\\
-\sum_{n = 0}^{N+1}{a^n} = a^{N+1} + \sum_{n = 0}^{N}{a^n} \overset{IV}{=} a^{N+1} + \frac{1-a^{N+1}}{1-a} = .... \text{selber} \\ %todo
-\text{Sei }S_N = \sum_{n=0}^{N}{a^n} = \frac{1 - a^{N+1}}{1- a} \\
-\text{Sei }\abs{a} < 1\text{. Dann folgt }\liminf{a^N} = 0 \\
-\Rightarrow \liminf{S_N} = \liminf{\frac{1-a^{N+1}}{1-a}} = \frac{1}{1-a}\\
-\text{Sei }a \ge 1 \Rightarrow \sum_{n=0}^{N}{a^n} \ge \sum_{n=0}^{N}{1} = N+1 \longrightarrow \inf \\
-\text{Sei }a \le -1 \Rightarrow a = -b \text{ mit }b \ge 1 \Rightarrow \sum_{n=0}^{N}{a^n} \ge \sum_{n=0}^{N}{(-1)^nb^n} \text{ divergent}
-\end{math}
+\begin{proof}$\begin{aligned}[t]
+&\IA {N=0}: \quad a^0 = \frac{(1-a)}{(1- a)} = 1\\
+&\IV \sum_{n = 0}^{N}{a^n} = \frac{1-a^{N+1}}{1-a}\\
+&\IS: {N \mapsto N+1}\\
+&\sum_{n = 0}^{N+1}{a^n} = a^{N+1} + \sum_{n = 0}^{N}{a^n} \overset{IV}{=} a^{N+1} + \frac{1-a^{N+1}}{1-a} = \text{... selber} \\ %TODO
+&\text{Sei }S_N = \sum_{n=0}^{N}{a^n} = \frac{1 - a^{N+1}}{1- a} \\
+&\text{Sei }\abs{a} < 1\text{. Dann folgt }\liminf{a^N} = 0 \\
+&\Rightarrow \liminf{S_N} = \liminf{\frac{1-a^{N+1}}{1-a}} = \frac{1}{1-a}\\
+&\text{Sei }a \ge 1 \Rightarrow \sum_{n=0}^{N}{a^n} \ge \sum_{n=0}^{N}{1} = N+1 \longrightarrow \inf \\
+&\text{Sei }a \le -1 \Rightarrow a = -b \text{ mit }b \ge 1 \Rightarrow \sum_{n=0}^{N}{a^n} \ge \sum_{n=0}^{N}{(-1)^nb^n} \text{ divergent}
+\end{aligned}$\\
 \end{proof}
-\item Die harmonische Reihe: \(\sum{n=1}{\infty}{\frac{1}{n}} = +\infty\)
+
+\item Die harmonische Reihe: \(\sum_{n=1}^{\infty}{\frac{1}{n}} = +\infty\)
 \begin{proof}
-\begin{math}
-S_{2^N} = \sum_{n = 1}^{2^N}{\frac{1}{n}} = 1 +\underbrace{\frac{1}{2}}_{=\frac{1}{2}} + \underbrace{\frac{1}{3} + \frac{1}{4}}_{=\frac{1}{2}} + \underbrace{\frac{1}{5} + \frac{1}{6} + \frac{1}{7} + \frac{1}{8}}_{=\frac{1}{2}} + \underbrace{\frac{1}{9} + ... + \frac{1}{16}}_{=\frac{1}{2}} + \underbrace{\frac{1}{17} + ..... + }_{=\frac{1}{2}} + \underbrace{\frac{1}{2^{N-1}+1}+ .... + \frac{1}{2^N}}_{=\frac{1}{2}} \ge 1 + n \frac{1}{2} > \frac{n}{2} \longrightarrow +\infty
-\end{math}
-Würde \((S_N)_{N\ge1}\) konvergieren, dann auch die Teilfolge \((S_{2^N})_{N \ge 1}\), da diese dievergiert, divergiert auch \((S_N)_N\)
+$\begin{aligned}[t]
+&S_{2^N} = \sum_{n = 1}^{2^N}{\frac{1}{n}} =
+1 +\underbrace{\frac{1}{2}}_{=\frac{1}{2}} + \underbrace{\frac{1}{3} + \frac{1}{4}}_{=\frac{1}{2}} + \underbrace{\frac{1}{5} + \frac{1}{6} + \frac{1}{7} + \frac{1}{8}}_{=\frac{1}{2}} + \underbrace{\frac{1}{9} + ... + \frac{1}{16}}_{=\frac{1}{2}} + ... + \underbrace{\frac{1}{2^{N-1}+1}+ .... + \frac{1}{2^N}}_{=\frac{1}{2}} \\
+&\ge 1 + n \frac{1}{2} > \frac{n}{2} \longrightarrow +\infty
+\end{aligned}$
+\\\\
+Würde \((S_N)_{N\ge1}\) konvergieren, dann auch die Teilfolge \((S_{2^N})_{N \ge 1}\), da diese dievergiert, divergiert auch \((S_N)_N\)\\
 \end{proof}
-\item $ \Suminf{(\frac{1}{n(n+1)}}= 1 $
+
+\item $ \Suminf{\frac{1}{n(n+1)}}= 1 $
 \begin{proof}
-\begin{math}
-S_N = \sum_{n=1}^{N}{\frac{1}{n(n+1)}} = \sum_{n=1}^{N}{\frac{1}{n}} - \frac{1}{n+1} = \sum_{n=1}^{N}{\frac{1}{n}} - \sum_{n=1}^{N}{\frac{1}{n+1}} = 1+ \sum_{n=2}^{N}{\frac{1}{n}} - \sum_{n=2}^{N+1}{\frac{1}{n}} = 1+ \sum_{n=2}^{N}{\frac{1}{n}} - \sum_{n=2}^{N}{\frac{1}{n}} + \frac{1}{N+1} = 1 + \frac{1}{N+1} \longrightarrow 1
-\end{math}
+$\begin{aligned}[t]
+&S_N = \sum_{n=1}^{N}{\frac{1}{n(n+1)}} = \sum_{n=1}^{N}{\frac{1}{n}} - \frac{1}{n+1} = \sum_{n=1}^{N}{\frac{1}{n}} - \sum_{n=1}^{N}{\frac{1}{n+1}}
+= 1 + \sum_{n=2}^{N}{\frac{1}{n}} - \sum_{n=2}^{N+1}{\frac{1}{n}} \\
+&= 1 + \sum_{n=2}^{N}{\frac{1}{n}} - \sum_{n=2}^{N}{\frac{1}{n}} + \frac{1}{N+1}
+= 1 + \frac{1}{N+1} \longrightarrow 1
+\end{aligned}$\\
 \end{proof}
 \end{enumerate}
 \end{bsp}
 
 \begin{satz}
-Seien \suminf{a_n} und \suminf{b_n} zwei konvergente Reihen und \(\lambda \in \R\)
-Dann ist auch \(\suminf{\lambda a_n + b_n}\) konvergent und \( \suminf{\lambda a_n + b_n} = \lambda \suminf{a_n} + \suminf{b_n}\)
-\begin{proof} folgt auf grund der Rechenregeln für konvergente Folgen.\end{proof}
+Seien \suminf{a_n} und \suminf{b_n} zwei konvergente Reihen und \(\lambda \in \R\),
+dann ist auch \(\suminf{\lambda a_n + b_n}\) konvergent und \( \suminf{\lambda a_n + b_n} = \lambda \suminf{a_n} + \suminf{b_n}\)
+\begin{proof}
+folgt auf Grund der Rechenregeln für konvergente Folgen.
+\end{proof}
 \end{satz}
 
 \begin{satz}[Cauchy-Kriterium für Reihen]
 Die Reihe \(\suminf[k]{a_k}\) ist konvergent, genau dann wenn gilt:
 \[\forall \epsilon > 0 \sp \exists N(\epsilon) \in \N \quad \forall n \ge m \ge N \qquad \abs{\sum_{k=m}^{n}{a_k}} < \epsilon \qquad (\star)\]
+\((\star)\) bedeutet die \((S_n)_n\) ist eine Cauchy-Folge \(\Leftrightarrow (S_n)_n\) ist konvergent
 \begin{proof}
-\(S_n - Sm = \sum_{k=0}^{n}{a_k} - \sum{k=0}{m}{a_k} = \sum_{k=m}^{n}{a_k}\). \((\star)\) bedeutet die \((S_n)_n\) ist eine Cauchy-Folge \(\Leftrightarrow (S_n)_n\) ist konvergent
+\(S_n - S_m = \sum_{k=0}^{n}{a_k} - \sum_{k=0}^{m}{a_k} = \sum_{k=m}^{n}{a_k}\).\\
 \end{proof}
 \end{satz}
 
 \begin{korr}
 Ist \suminf[k]{a_k} konvergent \(\Rightarrow \liminf[k]{a_k} = 0\).
 \begin{proof}
-\(a_n = \sum{k = m}{n}{a_k}\text{. Da } \suminf[k]{a_k} < \infty \overset{\Rightarrow}{\text{Cauchy-Kriterium}} \forall \epsilon > 0 \sp \exists N \in \N \quad \forall n \ge N \abs{a_N} = \abs{ \sum{k = m}{n}{a_k}} < \epsilon  \Rightarrow \liminf{a_n} = 0\)
+\(a_n = \sum_{k = m}^{n}{a_k} \text{. Da } \suminf[k]{a_k} < \infty \overset{\text{Cauchy-Kriterium}}{\Rightarrow} \forall \epsilon > 0 \sp \exists N \in \N \quad \forall n \ge N \abs{a_N} = \abs{ \sum_{k = m}^{n}{a_k}} < \epsilon  \Rightarrow \liminf{a_n} = 0\)\\
 \end{proof}
 \end{korr}
 
 \begin{bem}
-Die Umkehrung des Korrolars gilt nicht. z.B. \(\liminf{1/n} = 0\text{ aber }\suminf{1/n} = \infty \) harmonische Reihe.
+Die Umkehrung des Korrolars gilt nicht. z.B. \(\liminf{\frac{1}{n}} = 0 \text{ aber } \suminf{\frac{1}{n}} = \infty \) (harmonische Reihe).
 \end{bem}
 
 \begin{defi}
-Die Reihe \suminf[k]{a_k} heißt absolut konvergent, wenn wenn die Reihe \suminf[k]{\abs{a_k}} konvergiert.
+Die Reihe \suminf[k]{a_k} heißt absolut konvergent, wenn die Reihe \suminf[k]{\abs{a_k}} konvergiert.
 \end{defi}
 
 \begin{satz}
 Jede absolut konvergente Reihe ist auch konvergent.
 \begin{proof}
 \begin{math}
-\text{Sei }\suminf[k]{\abs{a_k}} < \infty  \overset{\Rightarrow}{\text{Cauchy-Kriterium}} \forall \epsilon > 0 \sp \exists N \in \N \quad \forall n \ge m \ge N \quad \abs{\sum{k=m}{n}{\abs{a_k}}} < \epsilon \overset{\Rightarrow}{\text{Dreiecksungleichung}} \abs{\sum{k=m}{n}{a_k}} \le \abs{\sum{k=m}{n}{\abs{a_k}}} < \epsilon \forall n \ge m \ge N
-\overset{\Rightarrow}{\text{Cauchy-Kriterium}} \suminf[k]{a_k}\text{ ist konvergent.}
-\end{math}
+\text{Sei }\suminf[k]{\abs{a_k}} < \infty  \overset{\text{Cauchy-Kriterium}}{\Rightarrow} \forall \epsilon > 0 \sp \exists N \in \N \sp \forall n \ge m \ge N \sp \abs{\sum_{k=m}^{n}{\abs{a_k}}} < \epsilon \overset{\text{Dreiecksungleichung}}{\Rightarrow} \abs{\sum_{k=m}^{n}{a_k}} \le \abs{\sum_{k=m}^{n}{\abs{a_k}}} < \epsilon \sp gilt \sp \forall n \ge m \ge N
+\overset{\text{Cauchy-Kriterium}}{\Rightarrow} \suminf[k]{a_k}\text{ ist konvergent.}
+\end{math}\\
 \end{proof}
 \end{satz}
 
@@ -999,13 +1008,13 @@ Nach dem Quotienten-Kriterium ist \suminf{a_n} absolut konvergent
 
 \begin{bsp}
 \begin{enumerate}
-\item \(\suminf{\frac{1}{n^k}} < \infty \qquad \forall k \ge 2 \) 
+\item \(\suminf{\frac{1}{n^k}} < \infty \qquad \forall k \ge 2 \)
 [Bemerkung: Die Konvergenz gilt auch \(\fa k \in \R, k > 1\) ohne Beweis]
 \begin{proof}
 \begin{math}
 \frac{1}{n^k} \le \frac{1}{n^2} \qquad \forall k \ge 2 \text{ und }\\
-\frac{1}{n^2} \le \frac{2}{n(n+1)} \text{, denn }\Leftrightarrow 2n^2 \ge n(n+1) \Leftrightarrow n^2 \ge n \Leftrightarrow n \ge 1 \\ 
-\Rightarrow \frac{1}{n^k} \le \frac{2}{n(n+1)} \forall k \ge 2 \text{ und } \\ 
+\frac{1}{n^2} \le \frac{2}{n(n+1)} \text{, denn }\Leftrightarrow 2n^2 \ge n(n+1) \Leftrightarrow n^2 \ge n \Leftrightarrow n \ge 1 \\
+\Rightarrow \frac{1}{n^k} \le \frac{2}{n(n+1)} \forall k \ge 2 \text{ und } \\
 \suminf{\frac{2}{n(n+1)}} = 2 \suminf{\frac{1}{n(n+1)}} = 2 * 1 = 2 \overset{\Rightarrow}{Majoranten-Kriterium} \suminf{\text{1}{n^k}} < \infty \forall k \ge 2
 \end{math}
 Frage: Wie sind die Werte der Reihe \(\suminf{1/n^k} \text{ für } k \ge 2 \)
@@ -1048,7 +1057,7 @@ Wir werden später zeigen:
 Seien die Reihen \suminf{a_n} und \suminf{b_n} absolut konvergent. Für $n \in \N$ definieren wir das Cauchy-Produkt folgendermaßen:
 \[c_n = \sum_{k = 0}{n}{a_kb_{n-k}} = a_0b_n + \dots + a_nb_0\]
 Dann gilt: Die Reihe \suminf{c_n} ist absolut konvergent und $\suminf{c_n} = \left( \suminf{a_n} \right)  \left( \suminf{b_n} \right) $
-\proof[Beweisidee] 
+\proof[Beweisidee]
 %Beweisidee_Cauchy_Produkt.JPG
 \end{satz}
 
@@ -1100,15 +1109,15 @@ Sei $ f: D \to \R, g: E \to \R, mit f(D) \subset E (f(D) = \menge{f(x)}{x \in D}
 (g  \circ  f)(x) = g(f(x)) ..$
 %Grafik - D---f--->E----g--->E----g°f--> D
 \end{defi}
- 
+
 \begin{bsp}
 \begin{enumerate}
 \item $f: \R_+ -> \R mit f(x) = \sqrt{x}
  g: \R -> \R
  f \circ g(x) = f(g(x)) = f(x^2) = \sqrt{x^2} = \abs{x}$
 \item $
- p(x) = \sum_{k=0}{n}{a_kx^k}  
- q(x) = \sum_{k=0}{n}{b_kx^k}  
+ p(x) = \sum_{k=0}{n}{a_kx^k}
+ q(x) = \sum_{k=0}{n}{b_kx^k}
  D:= \menge{x\in \R}{q(x) \ne 0}
  r = \frac{p}{q} : D \to \R
  r(x) = \frac{p(x)}{q(x)} heißt rationale Funktion.$
@@ -1119,7 +1128,7 @@ Sei $ f: D \to \R, g: E \to \R, mit f(D) \subset E (f(D) = \menge{f(x)}{x \in D}
 Sei $f : D \to \R$ eine Funktion, $a \in \R$ eine Zahl, sodass es mindestens eine Folge $(a_n)$ gibt mit $a_n \in D$ mit $\liminf{a_n} = a $ gibt. Man definiert \(\lim\limits_{x \to a}{ f(x)} = c\), wenn gilt: Für jede Folge $(x_n)_{n\ge0}$ mit $\liminf{x_n} = a$  gilt $\liminf{f(x_n)} = c$.\\
 $c$ heißt dann Grenzwert
 \end{defi}
- 
+
 \begin{defi}[Stetigkeit]
 Sei $f: D \to \R$ und $a \in D$. $f$ heißt stetig in $a$, wenn \(\lim\limits_{x \to a}{f(x)} = f(a)\). Das heißt für jede Folge $(x_n)$ mit $\liminf{x_n} = a$ ist $\liminf{f(x_n)} = f(a)$.\\
 $f$ heißt stetig in $D$, falls $f$ in jedem Punkt $a \in D$ stetig ist.
@@ -1138,19 +1147,19 @@ $f$ ist in $a \in D$ nicht stetig $\Leftrightarrow \exists$ eine Folge $(x_n)$ m
 \item Seien $f: D \to \R $ und $g:E \to \R$ stetig, mit $f(D) \subset E \Rightarrow g \circ f : D \to \R$ ist stetig.
 \end{enumerate}
 \begin{proof} \begin{math}
-f+g : D \to \R. Sei x_n eine beliebige Folge mit \liminf{(x_n)} = a. 
+f+g : D \to \R. Sei x_n eine beliebige Folge mit \liminf{(x_n)} = a.
 \liminf{(f+g)(x_n)} = nach Definition = \liminf{f(x_n) + g(x_n)} = Rechenregeln f Folgen = \liminf{f(x_n)} +  \liminf{g(x_n)} = f(a) + g(a) = nach Definition = (f+g)(a). \\ analog für mal, und \lambda und division. %TODO
 \\
 g \circ f : D \to \R. Sei x_n eine beliebige Folge mit \liminf{(x_n)} = a, da f stetig ist folgt: \lim{(f(x_n)} = f(a)
 Sei y_n = f(x_n)  und b = f(a) . Da f(D) \subset E folgt \liminf{y_n} = b \in E\\
-Da g stetig in b ist, folgt \liminf(g(x_n)) = g(b) \\
+Da g stetig in b ist, folgt \liminf{g(x_n)} = g(b) \\
 Also: \liminf{(g \circ f)(x)} = \liminf{g(f(x_n))} = \liminf{g(x_n)} = g(b) = g(f(a)) = (g \circ f)(a)
 \end{math}
 \end{proof}
 \end{prop}
 
 \begin{satz}[$\epsilon-\delta$ Kriterium für Stetigkeit]
-Sei $f: D \to \R$ eine Funktion und $a \in D$. Dann gilt 
+Sei $f: D \to \R$ eine Funktion und $a \in D$. Dann gilt
 \[f \text{ ist stetig in }a \Leftrightarrow \forall \epsilon > 0 \exists \delta > 0 :  \forall x : \abs{x-a} < \delta \text{ gilt } \abs{f(x) - f(a)} < \epsilon\]
 %bild: deltaepsilonkrit.png // stetige Funktion
 %bild2: nichtdeltaepsilonkrit.png // Nicht stetige Funktion
@@ -1164,7 +1173,7 @@ Da \lim{x_n} = a \Rightarrow \exists N = N(\delta) : \forall n \ge N(\delta) \qu
 \end{math}
 \item[$\Rightarrow$] Sei $f$ in $a$ stetig. \quad \zz ist das $\epsilon-\delta$-Kriterium.
 \begin{math}
-Angenommen: \epsilon-\delta-Kriterium gilt nicht: 
+Angenommen: \epsilon-\delta-Kriterium gilt nicht:
  \exists \epsilon > 0 \forall \delta > 0 : \exists x \in D : \abs{x-a} < \delta \text{ und } \abs{f(x) - f(a)} \ge \epsilon.
  \Rightarrow \exists \epsilon > 0 \forall n \in \N \exists x_n \in D : \abs{x_n - a} < \frac{1}{n} = \delta \text{und} \abs{f(x_n) - f(a)} \ge \epsilon
  Betrachöte die Folge (x_n), da \abs{x_n - a} < \frac{1}{n} \Rightarrow (x_n) \longtoinf a.
@@ -1200,8 +1209,8 @@ folgt aus den Rechenregeln
 
 \item Sei $f : \R \to \R \text{ mit } x \mapsto f(x) = \begin{cases} 1 & x > 0 \\ -1 & x < 0\end{cases} $ ist in $a = 0$ nicht stetig. % mit bild
 \begin{math}
-denn: Sei (x_n) =  \frac{1}{n} \Rightarrow \liminf{x_n} = \liminf{\frac{1}{n}} = 0  und \liminf{f(x_n)} = \liminf{1} = 1 
-Sei (y_n) = - \frac{1}{n} \Rightarrow \liminf{y_n} = \liminf{-\frac{1}{n}} = 0  und \liminf{f(y_n)} = \liminf{-1} = -1 
+denn: Sei (x_n) =  \frac{1}{n} \Rightarrow \liminf{x_n} = \liminf{\frac{1}{n}} = 0  und \liminf{f(x_n)} = \liminf{1} = 1
+Sei (y_n) = - \frac{1}{n} \Rightarrow \liminf{y_n} = \liminf{-\frac{1}{n}} = 0  und \liminf{f(y_n)} = \liminf{-1} = -1
 \Rightarrow f ist nicht stetig in a = 0
 \end{math}
 
@@ -1210,23 +1219,23 @@ Sei (y_n) = - \frac{1}{n} \Rightarrow \liminf{y_n} = \liminf{-\frac{1}{n}} = 0  
 \begin{enumerate}
 \item $exp$ ist in $a = 0$ stetig.
 \begin{enumerate}[label=\roman*)]
-\item Sei $\abs{x} < 1 \Rightarrow \abs{a^x - 1} \le 2 \abs{x}$. 
+\item Sei $\abs{x} < 1 \Rightarrow \abs{a^x - 1} \le 2 \abs{x}$.
 \begin{math}
 denn: es gilt (n+1)! \ge 2^n, da (n+1)! = \underbrace{(\underbrace{n+1}_{\ge2})\underbrace{n}_{\ge2}\dots\underbrace{2}_{=2}}_{n-mal}1 \ge 2^n \forall n \ge 1 \vphantom{\underbrace{\underbrace{2}_{2}}_{2}}\\
 Sei m \ge 1 \\
-\abs{\sum_{n=1}^{m}{\frac{x^n}{n!}}} \le \sum_{n=1}^{m}{\abs{\frac{x^n}{n!}}} = \sum_{n=1}^{m}{\frac{\abs{x}^n}{n!}} 
-= \sum_{n= 0}^{m-1}{\frac{\abs{x}^{n+1}}{(n+1)!}} \le \sum_{n= 0}^{m}{\frac{\abs{x}^{n+1}}{(n+1)!}} 
-= \abs{x}\sum_{n= 0}^{m}{\frac{\abs{x}^{n}}{(n+1)!}} \le \abs{x}\sum_{n= 0}^{m}{\frac{\abs{x}^{n}}{2^n}} 
+\abs{\sum_{n=1}^{m}{\frac{x^n}{n!}}} \le \sum_{n=1}^{m}{\abs{\frac{x^n}{n!}}} = \sum_{n=1}^{m}{\frac{\abs{x}^n}{n!}}
+= \sum_{n= 0}^{m-1}{\frac{\abs{x}^{n+1}}{(n+1)!}} \le \sum_{n= 0}^{m}{\frac{\abs{x}^{n+1}}{(n+1)!}}
+= \abs{x}\sum_{n= 0}^{m}{\frac{\abs{x}^{n}}{(n+1)!}} \le \abs{x}\sum_{n= 0}^{m}{\frac{\abs{x}^{n}}{2^n}}
 = \abs{x}\sum_{n= 0}^{m}{\left(\frac{\abs{x}}{2}\right)^n}\\
-Daraus folgt \abs{a^x - 1} = \abs{\Suminf{\frac{x^n}{n!}}} = \liminf{\abs{\sum_{n=1}^{m}{\frac{x^n}{n!}}}} 
-\le \liminf{\abs{x}\sum_{n=0}^{m}{\left(\frac{\abs{x}}{2}\right)^n}} = \abs{x}\suminf{\left(\underbrace{\frac{\abs{x}}{2}}_{< 1}\right)^n} 
-= \abs{x}\frac{1}{1-\frac{\abs{x}}{2}} = \frac{2\abs{x}}{2-\abs{x}} \le 2\abs{x} 
+Daraus folgt \abs{a^x - 1} = \abs{\Suminf{\frac{x^n}{n!}}} = \liminf{\abs{\sum_{n=1}^{m}{\frac{x^n}{n!}}}}
+\le \liminf{\abs{x}\sum_{n=0}^{m}{\left(\frac{\abs{x}}{2}\right)^n}} = \abs{x}\suminf{\left(\underbrace{\frac{\abs{x}}{2}}_{< 1}\right)^n}
+= \abs{x}\frac{1}{1-\frac{\abs{x}}{2}} = \frac{2\abs{x}}{2-\abs{x}} \le 2\abs{x}
 \end{math}
 \item Sei $(x_n)$ eine Folge mit $\liminf{x_n} = 0 \Rightarrow \liminf{\abs{exp(x_n) -1}} \overset{i)}{\le} \liminf{2\abs{x_n}} = 0 \Rightarrow \liminf{exp(x_n)} = 1 = exp(0)$
 \end{enumerate}
 \item $exp$ ist in $a \in \R$ stetig.
 \begin{math}
-Sei a \in \R und (x_n) eine Folge mit \liminf{x_n} = a \Rightarrow \liminf{x_n - a} = 0. Da exp stetig in 0, folgt \liminf{exp(x_n -a)} = exp(0) = 1 
+Sei a \in \R und (x_n) eine Folge mit \liminf{x_n} = a \Rightarrow \liminf{x_n - a} = 0. Da exp stetig in 0, folgt \liminf{exp(x_n -a)} = exp(0) = 1
 \Rightarrow \liminf{exp(x_n)} = \liminf{e^{x_n}} = \liminf{e^{(x_n - a)+a}} \overset{Funktionsgleichung}{=} \liminf{e^{x_n-a} e^a} = e^a \underbrace{\liminf{e^{x_n-a}}}_{=1} = e^a 1 = e^a.
 \Rightarrow exp ist in a\in \R stetig.
 \end{math}
@@ -1273,7 +1282,7 @@ Da $f(a_n) < 0 < f(b_n)$ und $f$ stetig ist, folgt $0 \le \liminf{f(b_n)} = f(x)
 \end{satz}
 
 \begin{defi}
-Eine Funktion $f: D \to \R$ heißt beschränkt, wenn die Menge $f(D) = \menge{f(x)}{x \in D}$ beschränkt ist. 
+Eine Funktion $f: D \to \R$ heißt beschränkt, wenn die Menge $f(D) = \menge{f(x)}{x \in D}$ beschränkt ist.
 d.h. $\exists M \in \R$ sodass $\abs{f(x)} \le M \quad \forall x\in D$
 \end{defi}
 
@@ -1287,13 +1296,13 @@ Sei $M = sup(\menge{f(x)}{x\in[a,b]}) \in \R \cup \{\infty\}$.\\
 2. Ist $f$ beschränkt $\Rightarrow M \in \R$ und $\forall n \in \N \quad \exists f(x_n)$ mit $ M-\frac{1}{n} < f(x_n) \le M \Rightarrow \liminf{f(x_n)} = M$
 Also gibt es in beiden Fällen eine Folge $(x_n)$ mit $x_n \in [a,b]$ mit $\liminf{f(x_n)} = M$.\\
 Da $x_n \in [a,b]$ ist die Folge $(x_n)$ beschränkt. Nach dem Satz von Bolzano-Weierstraß besitzt die Folge $(x_n)$ eine konvergente Teilfolge $(x_{n_k})$ mit $\liminf[k]{x_{n_k}} = p \in [a,b]$.
-Da \liminf{f(x_n)} = M und jede Teilfolge eine konvergente Folge den selben Grenzwert hat folgt \liminf[k]{f(x_{n_k})} = M\\
-Wir wissen \liminf[k]{x_{n_k}} = p. Da $f$ stetig ist, folgt $\liminf[k]{f(x_{n_k})} = f(p)$. Aber $\liminf[k]{f(x_{n_k})} = M \Rightarrow M = f(p).$\\
+Da $\liminf{f(x_n)} = M$ und jede Teilfolge eine konvergente Folge den selben Grenzwert hat folgt $\liminf[k]{f(x_{n_k})} = M$\\
+Wir wissen $\liminf[k]{x_{n_k}} = p$. Da $f$ stetig ist, folgt $\liminf[k]{f(x_{n_k})} = f(p)$. Aber $\liminf[k]{f(x_{n_k})} = M \Rightarrow M = f(p).$\\
 $\Rightarrow p$ ist Maximum der Funktion $f$.
 \end{proof}
 \end{satz}
 
-\begin{bem} 
+\begin{bem}
 $f:(0,1] \to \R \text{ mit } f(x) = \frac{1}{x}$ \\ % mit grafik!
 $f$ ist stetig aber nicht nach oben beschränkt.
 \end{bem}
@@ -1360,7 +1369,7 @@ Die Exponentialfunktion $exp: \R \to \R_+ \text{ mit } exp(x) = e^x = \suminf{\f
 	\Rightarrow ln(x) + ln(y) = ln(xy)$
 	\end{proof}
 \item Die allgmeine Potenz und der allgemeine Logarithmus.\\
-Sei $ a < 0, x \in \R$ \[a^x = e^{x ln(a)}\] 
+Sei $ a < 0, x \in \R$ \[a^x = e^{x ln(a)}\]
 \begin{proof}
 Sei $x = n \in N$
 $e^{n ln(a)} = \underbrace{e^{ln(a)} \dots e^{ln(a)}}_{n-\text{mal}} = a\dots a = a ^n$
@@ -1383,16 +1392,16 @@ Es gelten alle Sätze auch für komplexe Folgen. Nur das Monotonie-Kriterium gil
 \end{defi}
 
 \begin{bem}
-Speziell gilt: 
+Speziell gilt:
 Sei $z_n = a_n + \im b_n$. $\liminf{z_n} = z = a+\im b \Leftrightarrow \liminf{a_n} = a und \liminf{b_n} = b$
 \begin{proof}
 Sei $\liminf{z_n} = a + \im b \Rightarrow  \forall \epsilon > 0 \exists N  \forall n \ge N \quad \abs{z_n - (a+\im b)} < \epsilon  \\
-\Rightarrow  
+\Rightarrow
 \abs{a_n - a} = \abs{Re(z_n - z)} \le \abs{z_n - z} < \epsilon \forall n \ge N \\
 \abs{b_n - b} = \abs{Im(z_n - z)} \le \abs{z_n - z} < \epsilon \forall n \ge N\\
 \text{Sei} \abs{z_n - z} = \abs{a_n + \im b_n - (a + \im b)} = \abs{a_n - a + \im (b_n - b)} \le \abs{a_n - a} + \abs{i}\abs{b_n - b} < \epsilon $
 \end{proof}
-Weiters gilt: 
+Weiters gilt:
 $\liminf{\overline{z_n}} = \overline{\liminf{z_n}}$
 \begin{proof}
 $\liminf{\overline{z_n}} = \liminf{\overline{a_n + \im b_n}} = \liminf{a_n - \im b_n} = \liminf{a_n} - \im \liminf{b_n} = \overline{\liminf{a_n} + \im \liminf{b_n}} = \overline{\liminf{z_n}}$
@@ -1501,8 +1510,8 @@ Setze $ x = \frac{x_1 + x_2}{2} \in (0,2) und y = \frac{x_2 - x_1}{2} \in (0,2) 
 \Rightarrow x_2 = x + y  und x_1 = x - y$ \\
 Aus den Additionstheoremen folgt:  \\
 $\cos x_2 = \cos (x + y) = \cos x \cos y - \sin x \sin y \\
-\cos x_1 = \cos (x - y) = \cos x \cos(-y) + \sin x \sin (-y) \	qquad \cos -x = \frac{\e^{-\im x} + \e^{\im x}}{2} = \cos x\\	
-										\qquad \sin -x = \frac{\e^{-\im x} - \e^{\im x}}{2\im}  = -\frac{\e^{\im x} - \e^{-\im x}}{2\im}= - \sin x\\	
+\cos x_1 = \cos (x - y) = \cos x \cos(-y) + \sin x \sin (-y) \	qquad \cos -x = \frac{\e^{-\im x} + \e^{\im x}}{2} = \cos x\\
+										\qquad \sin -x = \frac{\e^{-\im x} - \e^{\im x}}{2\im}  = -\frac{\e^{\im x} - \e^{-\im x}}{2\im}= - \sin x\\
 \Rightarrow \cos(x_2) - \cos(x_1) = - 2\sin x \sin y = - 2 \underbrace{\sin(\frac{x_1 + x_2}{2})}_{> 0}  \underbrace{\sin(\frac{x_2 - x_1}{2})}_{> 0} < 0 \\
 \Rightarrow \cos x_2 < \cos x_1 \Rightarrow \cos $ ist auf $(0,2)$ streng monoton fallend, speziell injektiv.\\
 $\Rightarrow \cos $ hat genau eine Nullstelle.
@@ -1545,9 +1554,9 @@ Nullstellen von $\sin$ und $\cos$:
 Der Tangens und Kotangens sind definiert durch:
 \[\tan: \R\setminus\menge{\frac{\pi}{2} + k \pi}{k \in \Z} \to \R  \text{ mit } \tan x = \frac{\sin x}{\cos x}\]
 \[\cot: \R\setminus\menge{k \pi}{k \in \Z} \to \R  \text{ mit } \cot x = \frac{\cos x}{\sin x}\]
-%grafik mit tangens inkl strichlierten asymptoten bei \pi/2 
-%grafik mit cotengens inkl strichlierten asymptoten bei \pi 
-Die Umkehrfunktionen von $\sin, \cos, \tan, \cot$ heißen: 
+%grafik mit tangens inkl strichlierten asymptoten bei \pi/2
+%grafik mit cotengens inkl strichlierten asymptoten bei \pi
+Die Umkehrfunktionen von $\sin, \cos, \tan, \cot$ heißen:
 \[\arccos: [-1,1] \to [0,\pi]\]
 \[\arcsin: [-1,1] \to [-\frac{\pi}{2},\frac{\pi}{2}]\]
 \[\arccos: \R \to (-\frac{\pi}{2}, \frac{\pi}{2})\]
@@ -1605,8 +1614,8 @@ $\limpos[h]{\frac{\abs{h}}{h}} = 1 \ne -1 = \limneg[h]{\frac{\abs{h}}{h}}$
 \begin{prop}Sei $ f : D \to \R$ in $a \in D$ differenzierbar $\Rightarrow f$ ist in $a$ stetig.
 \begin{proof}
 Wir definieren $\phi : D \to \R$ mit $ \phi(x) = \frac{f(x) - f(a)}{x-a} - f'(a) \Rightarrow \limA[a]{\phi(x)} = \limA[a]{\frac{f(x) - f(a)}{x-a} - f'(a)} = f'(a) - f'(a) = 0.$\\
-Also: $\phi(x) = \frac{f(x) - f(a)}{x-a} - f'(a) \Rightarrow 
-\phi(x)(x-a) = f(x) - f(a) - f'(a) (x-a) \Rightarrow f(x) = f(a) + f'(a) (x-a) + \phi(x) (x-a)  \longtoA[a] 
+Also: $\phi(x) = \frac{f(x) - f(a)}{x-a} - f'(a) \Rightarrow
+\phi(x)(x-a) = f(x) - f(a) - f'(a) (x-a) \Rightarrow f(x) = f(a) + f'(a) (x-a) + \phi(x) (x-a)  \longtoA[a]
 \Rightarrow \limA[a]{f(x)} = f(a) \Rightarrow f $ ist in $f$ stetig.
 \end{proof}
 \end{prop}
@@ -1649,8 +1658,8 @@ $\IV \left(x^n\right)' = n x^{n-1}\\
 \IS \\
 \left(x^{n+1}\right)' = \left(x x^n\right)' \overset{\text{Produktregel}}{=} 1 x^n + x (n x^{n-1}) = x^n + n x^n = (n+1) x^n$\\
 Sei $n < 0$ . Setze $n = -m$ mit $m > 0$\\
-$x^n = x^{-m} = \frac{1}{x^m} 
-\overset{\text{Quotientenregel}}{\Rightarrow} \left(x^m\right)' = \left(\frac{1}{x^m}\right)' = \frac{0 x^m - 1 m x^{m-1}}{x^2m} = - \frac{m x^m{m-1}}{x^{m+m}} = - \frac{mx^{m-1}}{x^mx^m} = -m \frac{1}{x^m}\frac{1}{x} = - m \frac{1}{m} x^{-1} = n x^n x^{-1} = n x^{n-1}$
+$x^n = x^{-m} = \frac{1}{x^m}$
+$\overset{\text{Quotientenregel}}{\Rightarrow} \left(x^m\right)' = \left(\frac{1}{x^m}\right)' = \frac{0 x^m - 1 m x^{m-1}}{x^2m} = - \frac{m x^m{m-1}}{x^{m+m}} = - \frac{mx^{m-1}}{x^mx^m} = -m \frac{1}{x^m}\frac{1}{x} = - m \frac{1}{m} x^{-1} = n x^n x^{-1} = n x^{n-1}$
 \end{proof}
 \end{enumerate}
 \item Seit $f(x) = \e^{ax}$ mit $a \in \R , a \in \C$\\
@@ -1689,9 +1698,9 @@ $\Rightarrow (\ln(x))' = (f^{-1}(y))' = \frac{1}{f'(f^{-1}(y))} = \frac{1}{\exp(
 \begin{proof}
 $(\ln x)' = \frac{1}{x} \\
 (\ln 1)' = 1 \\
-\Rightarrow \liminf{ n \ln\left(1 + \frac{1}{n}\right) = \liminf{\frac{\ln\left(1 + \frac{1}{n}\right)}{\frac{1}{n}} = \liminf{\frac{\ln\left(1  + \frac{1}{n}\right) - \ln 1}{\frac{1}{n} = (\ln 1)' = 1\\
+\Rightarrow \liminf{ n \ln\left(1 + \frac{1}{n}\right)} = \liminf{\frac{\ln\left(1 + \frac{1}{n}\right)}{\frac{1}{n}}} = \liminf{\frac{\ln\left(1  + \frac{1}{n}\right) - \ln 1}{\frac{1}{n}}} = (\ln 1)' = 1\\
 \left(1  + \frac{1}{n}\right)^n = \e^{n\ln \left(1  + \frac{1}{n}\right)}$\\
-Da $\exp$ setetig ist, folgt $ \liminf{\left(1  + \frac{1}{n}\right)^n} = \liminf{\e^{n\ln \left(1  + \frac{1}{n}\right)}} = \e^{\liminf{n\ln \left(1  + \frac{1}{n}\right)}} = \e^1 = \e
+Da $\exp$ setetig ist, folgt $ \liminf{\left(1  + \frac{1}{n}\right)^n} = \liminf{\e^{n\ln \left(1  + \frac{1}{n}\right)}} = \e^{\liminf{n\ln \left(1  + \frac{1}{n}\right)}} = \e^1 = \e$
 \end{proof}
 \end{bem}
 
