@@ -213,6 +213,15 @@ $]
  \foreach \y/\ytext in {-1, -0.5/-\frac{1}{2}, 0.5/\frac{1}{2}, 1} 
    \draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east,fill=white] {$\ytext$};
  \end{tikzpicture}
+ 
+ $\displaystyle 
+ (\sin x)' 
+ = \left( \frac{\e^{\im x} - \e^{-\im x}}{2\im}\right)' 
+ = \frac{(\e^{\im x})' - (\e^{-\im x})'}{2\im} 
+ = \frac{\im \e^{\im x} + \im \e^{-\im x}}{2\im} 
+ = \frac{\e^{\im x} + \e^{-\im x}}{2} 
+ = \cos x 
+ $\\
 
 \end{document}
 

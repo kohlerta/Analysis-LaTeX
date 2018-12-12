@@ -14,9 +14,9 @@
 \usepackage{geometry}
 \usepackage{wrapfig}
 \usepackage{multicol}
+\usepackage{xparse}
 
 
-\author{Tanja Kohler}
 \title{Analysis für Informatik\small{ \\ - \\ Ass.Prof. Clemens Amstler}}
 \geometry{verbose,a4paper,tmargin=25mm,bmargin=25mm,lmargin=25mm,rmargin=25mm}
 \graphicspath{ {./images/} }
@@ -94,12 +94,102 @@
 
 % umgebungen
 \theoremstyle{thmstyle}
-\newtheorem{satz}{Satz}[subsection]
-\newtheorem{korr}[satz]{Korollar}
-\newtheorem{prop}[satz]{Proposition}
-\newtheorem{defi}[satz]{Definition}
-\newtheorem{bsp}[satz]{Beispiel}
-\newtheorem{bem}[satz]{Bemerkung}
+\newtheorem{satzaux}{Satz}[section]
+\newtheorem{korraux}[satzaux]{Korollar}
+\newtheorem{propaux}[satzaux]{Proposition}
+\newtheorem{defiaux}[satzaux]{Definition}
+\newtheorem{bspaux}[satzaux]{Beispiel}
+\newtheorem{bemaux}[satzaux]{Bemerkung}
+\newtheorem{subsatzaux}{Satz}[subsection]
+\newtheorem{subkorraux}[subsatzaux]{Korollar}
+\newtheorem{subpropaux}[subsatzaux]{Proposition}
+\newtheorem{subdefiaux}[subsatzaux]{Definition}
+\newtheorem{subbspaux}[subsatzaux]{Beispiel}
+\newtheorem{subbemaux}[subsatzaux]{Bemerkung}
+
+\NewDocumentEnvironment{satz}{o}
+ {\IfNoValueTF{#1}
+   {\satzaux\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection}Satz}}
+   {\satzaux[#1]\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection}Satz (#1)}}%
+   \ignorespaces}
+ {\endsatzaux}
+ 
+ \NewDocumentEnvironment{korr}{o}
+ {\IfNoValueTF{#1}
+   {\korraux\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection}Korollar}}
+   {\korraux[#1]\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection}Korollar (#1)}}%
+   \ignorespaces}
+ {\endkorraux}
+ 
+ \NewDocumentEnvironment{prop}{o}
+ {\IfNoValueTF{#1}
+   {\propaux\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection}Proposition}}
+   {\propaux[#1]\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection}Proposition (#1)}}%
+   \ignorespaces}
+ {\endpropaux}
+ 
+ \NewDocumentEnvironment{defi}{o}
+ {\IfNoValueTF{#1}
+   {\defiaux\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection}Definition}}
+   {\defiaux[#1]\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection}Definition (#1)}}%
+   \ignorespaces}
+ {\enddefiaux}
+ 
+ \NewDocumentEnvironment{bsp}{o}
+ {\IfNoValueTF{#1}
+   {\bspaux\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection}Beispiel}}
+   {\bspaux[#1]\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection}Beispiel (#1)}}%
+   \ignorespaces}
+ {\endbspaux}
+ 
+ \NewDocumentEnvironment{bem}{o}
+ {\IfNoValueTF{#1}
+   {\bemaux\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection}Bemerkung}}
+   {\bemaux[#1]\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection}Bemerkung (#1)}}%
+   \ignorespaces}
+ {\endbemaux}
+
+\NewDocumentEnvironment{subsatz}{o}
+ {\IfNoValueTF{#1}
+   {\subsatzaux\addcontentsline{toc}{subsubsection}{\protect\numberline{\thesubsubsection}Satz}}
+   {\subsatzaux[#1]\addcontentsline{toc}{subsubsection}{\protect\numberline{\thesubsubsection}Satz (#1)}}%
+   \ignorespaces}
+ {\endsubsatzaux}
+ 
+ \NewDocumentEnvironment{subkorr}{o}
+ {\IfNoValueTF{#1}
+   {\subkorraux\addcontentsline{toc}{subsubsection}{\protect\numberline{\thesubsubsection}Korollar}}
+   {\subkorraux[#1]\addcontentsline{toc}{subsubsection}{\protect\numberline{\thesubsubsection}Korollar (#1)}}%
+   \ignorespaces}
+ {\endsubkorraux}
+ 
+ \NewDocumentEnvironment{subprop}{o}
+ {\IfNoValueTF{#1}
+   {\subpropaux\addcontentsline{toc}{subsubsection}{\protect\numberline{\thesubsubsection}Proposition}}
+   {\subpropaux[#1]\addcontentsline{toc}{subsubsection}{\protect\numberline{\thesubsubsection}Proposition (#1)}}%
+   \ignorespaces}
+ {\endsubpropaux}
+ 
+ \NewDocumentEnvironment{subdefi}{o}
+ {\IfNoValueTF{#1}
+   {\subdefiaux\addcontentsline{toc}{subsubsection}{\protect\numberline{\thesubsubsection}Definition}}
+   {\subdefiaux[#1]\addcontentsline{toc}{subsubsection}{\protect\numberline{\thesubsubsection}Definition (#1)}}%
+   \ignorespaces}
+ {\endsubdefiaux}
+ 
+ \NewDocumentEnvironment{subbsp}{o}
+ {\IfNoValueTF{#1}
+   {\subbspaux\addcontentsline{toc}{subsubsection}{\protect\numberline{\thesubsubsection}Beispiel}}
+   {\subbspaux[#1]\addcontentsline{toc}{subsubsection}{\protect\numberline{\thesubsubsection}Beispiel (#1)}}%
+   \ignorespaces}
+ {\endsubbspaux}
+ 
+ \NewDocumentEnvironment{subbem}{o}
+ {\IfNoValueTF{#1}
+   {\subbemaux\addcontentsline{toc}{subsubsection}{\protect\numberline{\thesubsubsection}Bemerkung}}
+   {\subbemaux[#1]\addcontentsline{toc}{subsubsection}{\protect\numberline{\thesubsubsection}Bemerkung (#1)}}%
+   \ignorespaces}
+ {\endsubbemaux}
 
 % beweis umgebung anpassen: anfang und ende
 \renewcommand{\proofname}{\textbf{Beweis:}}
@@ -107,12 +197,14 @@
 
 %Documentstart
 \begin{document}
+\onehalfspace
 
 \maketitle
 
-\onehalfspace
-\section{Reelle und Komplexe Zahlen}
-\subsection{Reelle Zahlen}
+\tableofcontents 
+\newpage
+
+\section{Reelle Zahlen}
 Die reellen Zahlen \R erfüllen eine Reihe von Axiomen, die in drei Gruppen unterteilt werden können.
 
 \begin{enumerate}[label=\Roman*.]
@@ -121,7 +213,7 @@ Die reellen Zahlen \R erfüllen eine Reihe von Axiomen, die in drei Gruppen unte
 	\item Vollständigkeitsaxiome
 \end{enumerate}
 
-\subsubsection{Algebraische Axiome}
+\subsection{Algebraische Axiome}
 Die reellen Zahlen bilden mit der Addition \( + : \R \times \R \to \R \text{ mit } (a,b) \mapsto a + b\) und der Multiplikation \( * :  \R \times \R \to \R \text{ mit } (a,b) \mapsto a * b \)
 einen Körper \((\R, +, * )\), der folgende Axiome erfüllt:
 \begin{enumerate}[label=\arabic*)]
@@ -132,7 +224,7 @@ einen Körper \((\R, +, * )\), der folgende Axiome erfüllt:
 Andere Beispiele von Körpern: \C, \Q, \(\Z_p \text{ für }p\) prim.
 Die Natürlichen Zahlen \(\N = \{1,\dots,\infty \} \) und die Ganzen Zahlen \Z bilden keinen Körper.
 
-\begin{prop}
+\begin{subprop}
 \(\fa x \in \R \text{ gilt } 0 * a = 0\).
 \begin{proof}
 \begin{math}
@@ -143,16 +235,16 @@ Die Natürlichen Zahlen \(\N = \{1,\dots,\infty \} \) und die Ganzen Zahlen \Z b
 					a * 0 &= 0 \end{aligned}\\
 \end{math}
 \end{proof}
-\end{prop}
+\end{subprop}
 
-\begin{defi}[Potenzschreibweise]
+\begin{subdefi}[Potenzschreibweise]
 Für \(a \in \R \text{ und }n \in \Z \text{ wird }a^n\) folgendermaßen induktiv definiert:
 $a^n = \begin{cases} 1 			& n = 0\\
 				a(a^{n-1}) 	& n > 0\\
 				(a^{-1})^n 	& n < 0 \sp \forall a \ne 0 \end{cases}$
-\end{defi}
+\end{subdefi}
 
-\begin{bem}
+\begin{subbem}
 \(\fa a, b \in \R \setminus \{0\} \) und \( \fa n, m \in \Z\) gilt:
 \begin{multicols}{3}
 \begin{enumerate}[label=(\arabic*)]
@@ -168,9 +260,9 @@ $a^n = \begin{cases} 1 			& n = 0\\
 	\item $\displaystyle a^n * b^n = \overbrace{a \dots a}^{n\text{-mal}}*\overbrace{b \dots b}^{n\text{-mal}} = \overbrace{a \dots a b \dots b}^{n\text{-mal}} = (a*b)^{n}$
 \end{enumerate}
 \end{proof}
-\end{bem}
+\end{subbem}
 
-\subsubsection{Anordnungsaxiome}
+\subsection{Anordnungsaxiome}
 Die reellen Zahlen werden in positive Zahlen, negative Zahlen und 0 unterteilt. Dabei ist \(x < 0 \Leftrightarrow -x > 0\) Und es gelten folgende Axiome:
 \begin{enumerate}[label=(\arabic*)]
 	\item \(\fa x \in \R \) gilt genau eine der folgenden Bedingungen: \(x > 0\text{, } x = 0\text{, } x < 0 \)
@@ -178,14 +270,14 @@ Die reellen Zahlen werden in positive Zahlen, negative Zahlen und 0 unterteilt. 
 \end{enumerate}
 Wir schreiben für \(a, b \in \R \sp a > b \Leftrightarrow a - b > 0\text{ und }a \ge b \Leftrightarrow a > b \lor a = b \)
 
-\begin{prop}
+\begin{subprop}
 \(\fa a, b \in \R \) gilt: \(a < b \text{ und } b < c \Rightarrow a < c\)
 \begin{proof}
 Sei \( a < b \text{ und } b < c \Rightarrow a - b < 0  \text{ und } b - c < 0 \Rightarrow a - b + b - c < 0 \Rightarrow a - c < 0 \Rightarrow a < c\)
 \end{proof}
-\end{prop}
+\end{subprop}
 
-\begin{bem}
+\begin{subbem}
 \(\fa a, b, c \in \R\) gilt:
 \begin{enumerate}[label=\alph*)]
 	\item \(a < b \Rightarrow a + c < b + c\)
@@ -194,16 +286,16 @@ Sei \( a < b \text{ und } b < c \Rightarrow a - b < 0  \text{ und } b - c < 0 \R
 	\item \(a \ne 0 \Rightarrow a^2 > 0 \text{ speziell } 1 > 0\)
 	\item \(0 < a < b \text{ und } a < b < 1 \Rightarrow b^{-1} < a^{-1}\)
 \end{enumerate}
-\end{bem}
+\end{subbem}
 
-\begin{defi}
+\begin{subdefi}
 Für \(a \in \R\) und der Betrag \abs{a} folgendermaßen definiert.
 $\abs{a} = \begin{cases}
 		 a 	& a > 0\\
 		-a 	& a < 0  \end{cases}$
-\end{defi}
+\end{subdefi}
 
-\begin{satz}
+\begin{subsatz}
 \(\fa b \in \R\) gilt:
 \begin{enumerate}[label=(\arabic*)]
 	\item \(\abs{a * b} = \abs{a} * \abs{b}\)
@@ -226,16 +318,16 @@ $\abs{a} = \begin{cases}
 	\Rightarrow \abs{\abs{a} - \abs{b}} \le \abs{a-b}\)
 \end{enumerate}
 \end{proof}
-\end{satz}
+\end{subsatz}
 
-\begin{bem}[Archimedisches Axiom]
+\begin{subbem}[Archimedisches Axiom]
 Für zwei positive Zahlen, \(a, b\) gibt es immer eine natürliche Zahl $n$, sodass folgendes gilt: \(n * b > a\) Also:
 \[\fa a,b > 0 \sp \ex n \in \N \quad n * b > a\]
 Als Folgerung erhalten wir: Setze \(b = 1\)
 \[\fa a > 0 \sp \ex n \in \N \quad n > a\]
-\end{bem}
+\end{subbem}
 
-\begin{satz}[Bernoullische Ungleichung]
+\begin{subsatz}[Bernoullische Ungleichung]
 Sei \(a > -1\) dann gilt \[\fa n \in \N \sp (1+a)^n \ge 1 + na \]
 \begin{proof}
 \begin{math}
@@ -248,14 +340,13 @@ Sei \(a > -1\) dann gilt \[\fa n \in \N \sp (1+a)^n \ge 1 + na \]
 					&\overset{IV}{\ge} (1 + a)(1 + na) 		&&\\
 					&= 1 + na + a + \underbrace{na^2}_{> 0} 	&&\\
 					&\ge 1 + (n+1)a \end{aligned}
-\end{aligned}
+\end{aligned}\\
 \end{math}
-\newline
 \end{proof}
-\end{satz}
+\end{subsatz}
 \newpage
 
-\begin{korr}
+\begin{subkorr}
 Sei \(a > 0\).
 \begin{enumerate}[label=(\arabic*)]
 	\item Ist \sp \(a > 1 \sp \forall k > 0 \sp \exists n \in \N \text{, sodass }a^n > k.\)
@@ -273,12 +364,12 @@ Sei \(a > 0\).
 		\end{math}
 \end{enumerate}
 \end{proof}
-\end{korr}
+\end{subkorr}
 
-\subsubsection{Vollständigkeitsaxiom}
+\subsection{Vollständigkeitsaxiom}
 Die Zahlengerade \R hat keine Lücken.
 
-\begin{defi}
+\begin{subdefi}
 Sei \(M \subset \R\) eine Teilmenge.
 \begin{enumerate}
 	\item \(k \in \R\) heißt obere Schranke von \(M\) wenn gilt, \(\fa x \in M,\sp x \le k\). \(M\) heißt nach oben beschränkt,
@@ -293,31 +384,31 @@ Sei \(M \subset \R\) eine Teilmenge.
 	\item \(b \in \R\) heißt Supremum von \(M\), falls \(b\) kleinste obere Schranke von \(M\) ist. Das heißt \(b\) ist obere
 		Schranke von \(M\) und ist \(k\) eine obere schranke von \(M\), dann folgt \(k \ge a\) \[\text{Schreibweise: } b = sup(M)\]
 \end{enumerate}
-\end{defi}
+\end{subdefi}
 
-\begin{bsp}
+\begin{subbsp}
 Sei \(a < b\) dann ist \(inf[a,b] = a = inf(a,b) \text{ und } sup[a,b] = b = sup(a,b)\).
 \begin{align*}
 [a, b] = &\sp \menge{a \in \R}{a \le x \le b} \sp \text{ heißt abgeschlossenes Intervall}\\
 (a, b) = &\sp \menge{a \in \R}{a < x < b} \sp \text{ heißt offenes Intervall}
 \end{align*}
-\end{bsp}
+\end{subbsp}
 
-\begin{bem}[zur Erinnerung]
+\begin{subbem}[zur Erinnerung]
 Definition der natürlichen Zahlen (Axiom des kleinsten Element (Pianoaxiome)) \\
 Jede Teilmenge der natürlichen Zahlen hat ein kleinstes Element.
-\end{bem}
+\end{subbem}
 
-\begin{satz}[Vollständigkeitsaxiom]
+\begin{subsatz}[Vollständigkeitsaxiom]
 Jede nicht leere, nach unten beschränkte Teilmenge \(M \subset \R\)  besitzt ein Infimum \(inf(M) \in \R\).
 \proof[ohne Beweis]
-\end{satz}
+\end{subsatz}
 
-\begin{bem}
+\begin{subbem}
 \(inf(M)\) muss kein Element von \(M\) sein.
-\end{bem}
+\end{subbem}
 
-\begin{prop}
+\begin{subprop}
 Jede nicht leere nach oben bescrhänkte Teilmenge \(M \subset \R\) besitzt ein Supremum \(sup(M) \in \R\).
 \begin{proof}
 Seien \(M\) nach oben beschränkt und \(a\) eine obere Schranke von \(M\).\\
@@ -326,17 +417,17 @@ Seien \(M\) nach oben beschränkt und \(a\) eine obere Schranke von \(M\).\\
 Sei \(b= inf(-M) \Rightarrow -a \le b \Rightarrow -b \le a \text{ und } b \le -x \Rightarrow x \le -b \quad \forall x \in M\).\\
 Also \(-b\) ist obere Schranke und kleinste obere Schanke. \(\Rightarrow -b = sup(M)\)
 \end{proof}
-\end{prop}
+\end{subprop}
 
-\begin{prop}
+\begin{subprop}
 \(sup(M) \text{ und } inf(M)\) sind eindeutig bestimmt.
 \begin{proof}
 Seien \(m\) und \(m'\) Suprema von \(M \Rightarrow m \le m' \text{ und } m' \le m \Rightarrow m = m'\).\\
 analog für Infimum.
 \end{proof}
-\end{prop}
+\end{subprop}
 
-\subsection{Komplexe Zahlen}
+\section{Komplexe Zahlen}
 Die Menge der komplexen Zahlen \C sind die Punkte der Ebene \(\R^2 = \{(a,b) : a,b \in \R\}\)
 \[(a,b) = (a, 0) + (0, b) = a (1,0) + b (0, 1)\]
 Wir setzen \(1 = (1,0), \im = (0,1) \Rightarrow z = (a, b) = a + \im b\)\\
@@ -459,7 +550,7 @@ Re(z)^2 = a^2 \le a^2 + b^2 = \abs{z}^2 &\Rightarrow Re(z) \le \abs{Re(z)} = \sq
 \section{Folgen und Reihen}
 \subsection{Folgen}
 
-\begin{bsp}
+\begin{subbsp}
 Betrachte
 \begin{center} \begin{tikzpicture}[scale=3]
  \draw (0,0) -- node[above] {$1$} (1,0);
@@ -467,7 +558,7 @@ Betrachte
  \draw (0,0) -- node[below] {$\sqrt{2}$}  (1,1);
  \end{tikzpicture} \end{center}
 Annahme: \( \sqrt{2} \in \R\), aber \(\sqrt{2} \not\in \Q\)
-\end{bsp}
+\end{subbsp}
 \begin{proof} Angenommen $\displaystyle \sqrt{2} \in \Q$ \\
 $ \displaystyle \sqrt{2} \in \Q \Rightarrow \frac{p}{q} \text{ mit }p \in \Z, q \in \N $ und p und q nicht beide durch 2 teilbar, sonst kürzen wir.
 \begin{align*}
@@ -479,7 +570,7 @@ q^2 &= 2m^2 & &&\text{ d.h. } 2 | q^2 \Rightarrow 2 | q \text{ Also p und q sind
  \WSP p und q sind nicht beide durch 2 teilbar. $\displaystyle \Rightarrow \sqrt{2} \not\in \Q \Rightarrow \sqrt{2} \in \R\setminus\Q$
 \end{proof}
 
-\begin{bem}
+\begin{subbem}
 \( \sqrt{2} \) ist die positive Lösung von $ \displaystyle a^2 = 2 \Leftrightarrow a = \frac{2}{a} \Leftrightarrow  2a = a + \frac{2}{a} \Leftrightarrow a= \frac{1}{2}\left(a + \frac{2}{a}\right)$ \\
 Betrachte die rechte Seite dieser Gleichung und berechne diese induktiv\\
 Setze zB
@@ -491,27 +582,27 @@ a_{n+1} &= \frac{1}{2}\left(a_n + \frac{2}{a_n}\right)
 a_1 = 1 && a_2 = 1,5 && a_3 \approx 1.41 && a_3 \approx 1,4142 &&\dots
 \end{align*}
 Also \(a_n\) nähert sich mit wachsendem \(n\) immer mehr an \(\sqrt{2}\). Dies führt zu dem Begriff \textbf{Grenzwert einer Folge}.
-\end{bem}
+\end{subbem}
 
-\begin{defi}
+\begin{subdefi}
 Eine Folge $(a_n)_{k=0}^{\infty}$ reeller Zahlen ist eine Abbildung $\N_0 \rightarrow \R\text{ mit } n \mapsto a_n$
 Bezeichnung: Wir schreiben für Folgen
 \begin{align*}
 &(a_n)_{k=0}^{\infty} && (a_n)_{n\ge0} && (a_n)_{n\in\N} & (a_n) && (a_n)_{n\ge n_0}
 \end{align*}
-\end{defi}
+\end{subdefi}
 
 \newpage
-\begin{defi}
+\begin{subdefi}
 Eine Folge \((a_n)\) heißt
 \begin{enumerate}
 \item (streng) monoton wachsend, wenn \( \fa a \in \N \sp a_n \le a_{n+1}	\quad (a_n)\nearrow	\quad (a_n < a_{n+1} \quad (a_n)\uparrow)\)
 \item (streng) monoton fallend, wenn \( \fa a \in \N \sp a_n \ge a_{n+1}	\quad (a_n)\searrow	\quad (a_n > a_{n+1} \quad (a_n)\downarrow)\)
 \item (streng) monoton, sie (streng) monoton wachsend oder (streng) monoton fallend ist.
 \end{enumerate}
-\end{defi}
+\end{subdefi}
 
-\begin{bsp}
+\begin{subbsp}
 Ein paar Beispiele zu Folgen:
 \begin{enumerate}[label=(\arabic*)]
 \item Die konstante Folge \(a_n = k\) ist monoton fallend und steigend.
@@ -525,22 +616,22 @@ Ein paar Beispiele zu Folgen:
 \item Die Fibonacci Folge ist monoton wachsend. $ \displaystyle f_n = \begin{cases}	1				& \text{wenn } n = 0, n = 1\\
 																f_{n-1} + f_{n-2}	& \text{sonst} \end{cases} $
 \end{enumerate}
-\end{bsp}
+\end{subbsp}
 
-\begin{defi}[der Konvergenz]
+\begin{subdefi}[der Konvergenz]
 Eine Folge reeller Zahlen \((a_n)_{n\in\N}\) heißt konvergent gegen \( a\in\R\) wenn
 \[\forall \epsilon > 0 \quad \exists N \in \N \quad \forall n \ge N \quad \abs{a_n - a} < \epsilon\]
 \(a\) heißt der Grenzwert oder Limes der Folge \((a_n)\). Die Folge \((a_n)\) heißt divergent, wenn sie nicht konvergiert. Schreibweise: \(\lim{a_n} = a \) oder \( \lim\limits_{n \to k}{a_n} = a \). Wobei \( k \in \R\cup\{\infty, -\infty\}\)
-\end{defi}
+\end{subdefi}
 
-\begin{bem}
+\begin{subbem}
 Sei \(a \in \R, \epsilon > 0\). \(U_\epsilon(a) = (a-\epsilon, a+\epsilon) = \menge{x \in \R}{a - \epsilon < x < a + \epsilon} \text{ heißt } \epsilon\text{-Umgebung von }a\).
 \[ a_n \in U_\epsilon(a) \Leftrightarrow a-\epsilon < a_n < a + \epsilon \Leftrightarrow -\epsilon < a_n - a < \epsilon \Leftrightarrow \abs{a_n - a} < \epsilon\]
 Also: Die Folge \((a_n)\) konvergiert gegen \(a \Leftrightarrow \) Die Folgenglieder \(a_n\) liegen ab einer Schwelle \(N\) alle in der \(\epsilon\)-Umgebung von \(a\). \((a_n)\) konvergiert nicht gegen \(a \Leftrightarrow \exists \epsilon > 0 \forall N\in\N \sp \exists n \ge N \abs{a_n - a} \ge \epsilon\).
-\end{bem}
+\end{subbem}
 
 \newpage
-\begin{bsp}
+\begin{subbsp}
 Beispiele zur Konvergenz:
 \begin{enumerate}[label=(\arabic*)]
 	\item Die harmonische Folge konvergiert: $ \displaystyle a_n = \frac{1}{n} \Rightarrow \liminf{\frac{1}{n}} = 0$
@@ -565,14 +656,14 @@ Beispiele zur Konvergenz:
 		\end{enumerate}
 	\end{proof}
 \end{enumerate}
-\end{bsp}
+\end{subbsp}
 
-\begin{defi}
+\begin{subdefi}
 Eine Folge \((a_n)\) heißt nach oben (unten) beschränkt, wenn es ein \(A \in \R\) gibt mit \[\forall n \in \N \quad a_n \le A \qquad (a_n \ge A)\]
 \((a_n)\) heißt beschränkt, wenn \((a_n)\) nach oben oder unten beschränkt ist. d.h. \[\exists K \in \R \quad \abs{a_n} \le K \lor \abs{a_n} \ge K \quad \forall n \in \N \]
-\end{defi}
+\end{subdefi}
 
-\begin{satz}
+\begin{subsatz}
 Jede konvergente Folge \((a_n)\) ist beschränkt.
 \begin{proof}
 \begin{math} \displaystyle
@@ -584,14 +675,14 @@ Jede konvergente Folge \((a_n)\) ist beschränkt.
 \end{aligned}
 \end{math}
 \end{proof}
-\end{satz}
+\end{subsatz}
 
-\begin{bem}
+\begin{subbem}
 Die Umkehrung gilt nicht. Das heißt eine beschränkte Folge ist nicht konvergent.\\
 \textit{Gegenbeispiel}: die alternierende Folge $(-1)^n$.
-\end{bem}
+\end{subbem}
 
-\begin{satz}[Monotoniekriterium]
+\begin{subsatz}[Monotoniekriterium]
 Sei $(a_n)$ eine Folge. Dann gilt:
 \begin{itemize}
 \item Ist $(a_n)$ monoton wachsend und nach oben beschränkt, dann ist $(a_n)$ konvergent.
@@ -609,13 +700,13 @@ Sei also \((a_n) \nearrow \) und nach oben beschränkt. Mit dem Vollständigkeit
 					&\Rightarrow \abs{a_n - a} < \epsilon					&& \forall n \ge N \\
 					&\Rightarrow \liminf{a_n} = a \end{aligned}\end{math}
 \end{proof}
-\end{satz}
+\end{subsatz}
 
-\begin{bem}
+\begin{subbem}
 Das Monotonie-Kriterium ist äquivalent zur Vollständigkeit.
-\end{bem}
+\end{subbem}
 
-\begin{satz}
+\begin{subsatz}
 Der Grenzwert einer Folge ist eindeutig bestimmt.
 \begin{proof}
 \begin{math} \displaystyle
@@ -634,10 +725,10 @@ Der Grenzwert einer Folge ist eindeutig bestimmt.
 \Rightarrow \abs{b-a}  < \abs{b-a} \WSP \Rightarrow a = b
 \end{math}
 \end{proof}
-\end{satz}
+\end{subsatz}
 
 \newpage
-\begin{satz}[Rechenregeln für konvergente Folgen]
+\begin{subsatz}[Rechenregeln für konvergente Folgen]
 Seien \((a_n)\) und \((b_n)\) zwei konvergente Folgen. Dann gilt:
 \begin{enumerate}
 \item \((a_n \pm b_n)\text{ ist konvergent und }\liminf{a_n  \pm  b_n} = \liminf{a_n}  \pm \liminf{b_n}\).
@@ -686,9 +777,9 @@ b_n < b + \epsilon &= b + \frac{a-b}{2} = \frac{2b + a - b}{2} = \frac{b + a}{2}
 \end{math}
 \end{enumerate}
 \end{proof}
-\end{satz}
+\end{subsatz}
 
-\begin{satz}[Sandwich-Theorem]
+\begin{subsatz}[Sandwich-Theorem]
 Sei \((a_n)\text{ und }(b_n)\) zwei konvergente Folgen mit der Eigenschaft, dass \(\liminf{a_n} = \liminf{b_n} = a\).
 Sei \((c_n)\) eine Folge mit der Eigenschaft, dass \(a_n \le c_n \le b_n \quad \forall n \ge n_0\).
 Dann ist \((c_n)\) konvergent und \(\liminf{c_n} = a\).
@@ -704,24 +795,24 @@ Dann ist \((c_n)\) konvergent und \(\liminf{c_n} = a\).
 \end{aligned}\\
 \end{math}
 \end{proof}
-\end{satz}
+\end{subsatz}
 
-\begin{bsp}
+\begin{subbsp}
 Zwei Beispiele zum Sandwich-Theorem:
 \begin{enumerate}
 \item Sei \((a_n)\) eine Folge mit \(0 \le a_n \le \frac{1}{n} \Rightarrow \liminf{a_n} = 0\)
 \item \(a_n = \sqrt{2n} - \sqrt{n}\) ist divergent, denn \\
 $ \displaystyle a_n = \frac{\left(\sqrt{2n} - \sqrt{n}\right)\left(\sqrt{2n} + \sqrt{n}\right)}{\left(\sqrt{2n} + \sqrt{n}\right)} = \frac{2n - n}{\sqrt{n} \underbrace{\left(\sqrt{2} - 1\right)}_{\le3}} \ge \frac{n}{3\sqrt{n}} = \frac{\sqrt{n}}{3} \ge \sqrt{n} \longtoinf \infty $.
 \end{enumerate}
-\end{bsp}
+\end{subbsp}
 
-\begin{defi}
+\begin{subdefi}
 Eine Folge \((a_n)\) heißt bestimmt divergent gegen \(\pm \infty \) wenn gilt:
 \[\forall K \in \R \quad \exists N \in \N \quad \forall n \ge N \quad  a_n \lessgtr K \]
 Für jedes $K$ aus \R  gibt es ein $N$ aus \N ab dem $a_n$ größer/kleiner als $K$ wird. Schreibweise: \(\liminf{a_n} = \pm \infty \)
-\end{defi}
+\end{subdefi}
 
-\begin{bsp}
+\begin{subbsp}
 Beispiele zu bestimmt divergenten Folgen:
 \begin{enumerate}
 \item Die Fibonacci Folge ist bestimmt divergent gegen \(+ \infty = \infty \)
@@ -736,24 +827,24 @@ Beispiele zu bestimmt divergenten Folgen:
 \end{aligned}$\\
 \end{proof}
 \end{enumerate}
-\end{bsp}
+\end{subbsp}
 
-\begin{defi}
+\begin{subdefi}
 Sei \((a_n)\) eine Folge reeller Zahlen und \(n_0 < n_1 < n_2 < \dots < n_k < \dots \) eine Teilmenge von \N.\\
 Dann heißt die Folge \((a_{n_k})_{k \in \N }\) eine Teilfolge von \((a_n)_{n \in \N}\).
-\end{defi}
+\end{subdefi}
 
-\begin{bem}
+\begin{subbem}
 Ist die Folge \((a_n)\) konvergent, dann ist auch jede Teilfolge von \((a_n)\) konvergent.
 \begin{proof} Sei $(a_n)$ konvergent gegen $a$. Also $ \forall \epsilon > 0  \sp \exists N \in \N \quad \abs{a_n - a} < \epsilon \quad \forall n \ge N$. Da $(a_{n_k})$ eine Teilfolge von $(a_n)$ mit $n_0 < n_1 < n_2 < \dots < n_k < \dots$ und da $n_k$ monoton steigend ist, ist $k \le n_k$ und $n_k \ge N \quad \forall k \ge N $ daraus folgt $\abs{a_{n_k} - a} < \epsilon \quad \forall n \ge N$.
 \end{proof}
-\end{bem}
+\end{subbem}
 
-\begin{defi}
+\begin{subdefi}
 Sei \((a_n)\) eine Folge. Eine Zahl \(a \in \R\) heißt Häufungspunkt (Häufungswert) der Folge \((a_n)\), wenn es eine Teilfolge von \((a_n)\) gibt, die gegen \(a\) konvergiert.
-\end{defi}
+\end{subdefi}
 
-\begin{bem}
+\begin{subbem}
 Beispiele zu Häufungspunkten:
 \begin{enumerate}
 \item Sei \(\liminf{a_n} = a\), dann ist \(a\) der einzige Häufungspunkt der Folge \((a_n)\).
@@ -764,9 +855,9 @@ Beispiele zu Häufungspunkten:
 \end{aligned}$
 \item Jede konvergente Folge ist beschränkt, aber jede beschränkte Folge muss nicht konvergent sein.
 \end{enumerate}
-\end{bem}
+\end{subbem}
 
-\begin{satz}[von Bolzano-Weierstraß]
+\begin{subsatz}[von Bolzano-Weierstraß]
 Jede beschränkte Folge reeller Zahlen besitzt eine konvergente Teilfolge.
 \begin{proof}
 \begin{math} \displaystyle
@@ -794,22 +885,22 @@ Jede beschränkte Folge reeller Zahlen besitzt eine konvergente Teilfolge.
       \draw(\x,3pt)--(\x,-3pt) node[below] {$\xtext$};
 \end{tikzpicture} \end{center}\end{figure}
 \end{proof}
-\end{satz}
+\end{subsatz}
 
-\begin{bem}
+\begin{subbem}
 Der Satz von Bolzano-Weierstraß ist äquivalent zum Vollständigkeitsaxiom. Andere äquivalente Formulierungen zu Bolzano-Weierstraß:
 \begin{itemize}
 \item Jede beschränkte Folge reeller Zahlen hat mindestens einen Häufungspunkt.
 \item Jede beschränkte Folge reeller Zahlen hat einen größten und einen kleinsten Häufungspunkt.
 \end{itemize}
-\end{bem}
+\end{subbem}
 
-\begin{defi}[Cauchy-Folge]
+\begin{subdefi}[Cauchy-Folge]
 Eine Folge \((a_n)_{n \ge 0}\) heißt CAUCHY-Folge, wenn gilt:
 \[\forall \epsilon > 0 \quad \exists N \in \N \quad \forall n, m \ge N \quad \abs{a_n - a_m} < \epsilon\]
-\end{defi}
+\end{subdefi}
 
-\begin{satz}
+\begin{subsatz}
 Folgende Aussagen sind äquivalent
 \begin{enumerate}
 \item Die Folge \((a_n)\) ist konvergent
@@ -833,9 +924,9 @@ Folgende Aussagen sind äquivalent
 \end{aligned}\\
 \end{math}
 \end{proof}
-\end{satz}
+\end{subsatz}
 
-\begin{bsp}[Verfahren zur Berechnung der Quadratwurzel]
+\begin{subbsp}[Verfahren zur Berechnung der Quadratwurzel]
 Seien \(a = 0\), \(a_0 > 0\) reelle Zahlen. Wir definieren die Folge \((x_n)\) rekursiv.
 \begin{align*}
 x_0 &= x_0 \\
@@ -854,27 +945,29 @@ Wir zeigen: \((x_n)\) ist konvergent und \(\liminf{x_n} = x \text{ und } x^2 = a
 &= \frac{1}{4} \left(x_n^2 - 2x_n\frac{a}{x_n} + \frac{a^2}{x_n^2} \right) = \frac{1}{4} \left(x_n - \frac{a}{x_n} \right)^2 \ge 0
 \end{aligned}
 \end{aligned} \\
-&(x_n)\text{ ist monoton fallend} \\ %KORRIGIERE AB HIER
-&x_n - x_{n+1} = x_n - \frac{1}{2} \left(x_n + \frac{a}{x_n}\right) =\frac{1}{2} \left(2x_n - x_n - \frac{a}{x_n}\right) = \frac{1}{(2x_n)(x_n^2 - a)} \ge 0 \\
-&\text{ weil beides } \ge 0 (x_n > 0) \Rightarrow x_>n >= x_{n+1} \\
+&(x_n)\text{ ist monoton fallend} \\ 
+&x_n - x_{n+1} = x_n - \frac{1}{2} \left(x_n + \frac{a}{x_n}\right) =\frac{1}{2} \left(2x_n - x_n - \frac{a}{x_n}\right) = \frac{1}{2x_n\underbrace{(x_n^2 - a)}_{x_n^2 > a}} \ge 0 \\
+&\Rightarrow x_n \ge x_{n+1} \\
 &\text{Nach dem Monotonie-Kriterium ist $(x_n)$ konvergent.} \\
-&\text{Sei } x= \liminf{x_n} \Rightarrow x = \liminf{x_{n+1}} = \liminf{\frac{1}{2}\left(x_n + \frac{a}{x_n}\right)} = \frac{1}{2}\left(\liminf{x_n} + \frac{a}{\liminf{x_n}}\right) =  \frac{1}{2}\left(x + \frac{a}{x}\right) \Rightarrow 2x = x + \frac{a}{x} \Rightarrow  \\
-&x = \frac{a}{x} \Rightarrow x^2 = a
-\end{aligned}$
+&\text{Sei } x= \liminf{x_n} \quad \begin{aligned}[t] x &= \liminf{x_{n+1}} = \liminf{\frac{1}{2}\left(x_n + \frac{a}{x_n}\right)} \\
+&= \frac{1}{2}\left(\liminf{x_n} + \frac{a}{\liminf{x_n}}\right) =  \frac{1}{2}\left(x + \frac{a}{x}\right) 
+ \end{aligned} \\
+&\Rightarrow 2x = x + \frac{a}{x} \quad \Rightarrow x = \frac{a}{x} \quad \Rightarrow x^2 = a
+\end{aligned}\\$
 \end{proof}
-\end{bsp}
-Die positive Lösung der Gleichung \(x^2 = a\) heißt die Quadratwurzeln von \(a\). Wir Schreiben \(x = \sqrt{a}\).
+Die positive Lösung der Gleichung \(x^2 = a\) heißt die Quadratwurzeln von \(a\). Wir schreiben \(x = \sqrt{a}\).
+\end{subbsp}
 
 \subsection{Reihen}
 
-\begin{defi}
-Sei \((a_n)_{n \ge 0}\) eine Folge reeller Zahlen. Sei weiters \(S_N = \sum_{n = 0}^{N}{a_n} \text{ die }N\)-te Partialsumme, dann heißt die Folge \((S_N)_{N \ge 0}\) der Partialsummen eine unendliche Reihe.\\
+\begin{subdefi}
+Sei \((a_n)_{n \ge 0}\) eine Folge reeller Zahlen. Sei weiters $ \displaystyle S_N = \sum_{n = 0}^{N}{a_n} $ die $N$-te Partialsumme, dann heißt die Folge \((S_N)_{N \ge 0}\) der Partialsummen eine unendliche Reihe.\\
 \[\text{Schreibweise: }\suminf{a_n}\]
 Konvergiert die Folge \((S_N)\text{ mit }\liminf{S_N} = s \text{, dann heißt } \suminf{a_n} = s\) der Wert der Reihe. Man sagt: Die Reihe \(\suminf{a_n}\) konvergiert.
 \[\text{Schreibweise: } \suminf{a_n} < \infty\]
-\end{defi}
+\end{subdefi}
 
-\begin{bsp}\
+\begin{subbsp}\
 \begin{enumerate}
 \item Die geometrische Reihe. Sei \(\abs{a} < 1 \Rightarrow \suminf{a^n} = \frac{1}{1-a}\text{. Ist }\abs{a} \ge 1\text{, dann ist }\suminf{a^n}\) divergent.
 \begin{proof}$\begin{aligned}[t]
@@ -911,41 +1004,41 @@ $\begin{aligned}[t]
 \end{aligned}$\\
 \end{proof}
 \end{enumerate}
-\end{bsp}
+\end{subbsp}
 
-\begin{satz}
+\begin{subsatz}
 Seien \suminf{a_n} und \suminf{b_n} zwei konvergente Reihen und \(\lambda \in \R\),
 dann ist auch \(\suminf{\lambda a_n + b_n}\) konvergent und \( \suminf{\lambda a_n + b_n} = \lambda \suminf{a_n} + \suminf{b_n}\)
 \begin{proof}
 folgt auf Grund der Rechenregeln für konvergente Folgen.
 \end{proof}
-\end{satz}
+\end{subsatz}
 
-\begin{satz}[Cauchy-Kriterium für Reihen]
+\begin{subsatz}[Cauchy-Kriterium für Reihen]
 Die Reihe \(\suminf[k]{a_k}\) ist konvergent, genau dann wenn gilt:
 \[\forall \epsilon > 0 \sp \exists N(\epsilon) \in \N \quad \forall n \ge m \ge N \qquad \abs{\sum_{k=m}^{n}{a_k}} < \epsilon \qquad (\star)\]
 \((\star)\) bedeutet die \((S_n)_n\) ist eine Cauchy-Folge \(\Leftrightarrow (S_n)_n\) ist konvergent
 \begin{proof}
 \(S_n - S_m = \sum_{k=0}^{n}{a_k} - \sum_{k=0}^{m}{a_k} = \sum_{k=m}^{n}{a_k}\).\\
 \end{proof}
-\end{satz}
+\end{subsatz}
 
-\begin{korr}
+\begin{subkorr}
 Ist \suminf[k]{a_k} konvergent \(\Rightarrow \liminf[k]{a_k} = 0\).
 \begin{proof}
 \(a_n = \sum_{k = m}^{n}{a_k} \text{. Da } \suminf[k]{a_k} < \infty \overset{\text{Cauchy-Kriterium}}{\Rightarrow} \forall \epsilon > 0 \sp \exists N \in \N \quad \forall n \ge N \abs{a_N} = \abs{ \sum_{k = m}^{n}{a_k}} < \epsilon  \Rightarrow \liminf{a_n} = 0\)\\
 \end{proof}
-\end{korr}
+\end{subkorr}
 
-\begin{bem}
+\begin{subbem}
 Die Umkehrung des Korrolars gilt nicht. z.B. \(\liminf{\frac{1}{n}} = 0 \text{ aber } \suminf{\frac{1}{n}} = \infty \) (harmonische Reihe).
-\end{bem}
+\end{subbem}
 
-\begin{defi}
+\begin{subdefi}
 Die Reihe \suminf[k]{a_k} heißt absolut konvergent, wenn die Reihe \suminf[k]{\abs{a_k}} konvergiert.
-\end{defi}
+\end{subdefi}
 
-\begin{satz}
+\begin{subsatz}
 Jede absolut konvergente Reihe ist auch konvergent.
 \begin{proof}
 \begin{math}
@@ -953,13 +1046,13 @@ Jede absolut konvergente Reihe ist auch konvergent.
 \overset{\text{Cauchy-Kriterium}}{\Rightarrow} \suminf[k]{a_k}\text{ ist konvergent.}
 \end{math}\\
 \end{proof}
-\end{satz}
+\end{subsatz}
 
-\begin{bem}
+\begin{subbem}
 Die Umkehrung des Satzes gilt nicht. zB kann man zeigen, dass die Reihe \(\suminf[k]{(-1)^k\frac{1}{k}}\) konvergiert. Aber die Reihe \(\suminf[k]{\abs{(-1)^k\frac{1}{k}}} = \suminf[k]{\frac{1}{k}} = \infty\)
-\end{bem}
+\end{subbem}
 
-\begin{satz}[Majoranten-Kriterium]
+\begin{subsatz}[Majoranten-Kriterium]
 Sei \suminf[k]{b_k} konvergent mit \(b_k \ge 0 \forall k \ge N_0\).
 Sei \((a_k)_{k=0}^{\infty}\) eine Folge mit \(\abs{a_k} \le b_k  \forall k \ge N_0 \Rightarrow \suminf[k]{a_k}\) ist absolut konvergent.
 \begin{proof}
@@ -968,18 +1061,18 @@ Sei \((a_k)_{k=0}^{\infty}\) eine Folge mit \(\abs{a_k} \le b_k  \forall k \ge N
 \overset{\Rightarrow}{\text{Cauchy-Kriterium}} \suminf[k]{\abs{a_k}} \text{ ist konvergent. }\Rightarrow \suminf[k]{a_k}\text{ ist absolut konvergent.}
 \end{math}
 \end{proof}
-\end{satz}
+\end{subsatz}
 
-\begin{korr}[Minoranten-Kriterium]
+\begin{subkorr}[Minoranten-Kriterium]
 Sei \suminf[k]{b_k} divergent mit $b_k \ge 0 \forall k \ge N_0$.
 und $(a_k)_{k=0}^{\infty}$ eine Folge mit $\abs{a_k} \ge b_k  \forall k \ge N_0
 \Rightarrow \suminf[k]{a_k}$ ist auch divergent.
 \begin{proof}
 Wäre \(\suminf[k]{a_k}\) konvergent, dann wäre nach dem Majoranten-Kriterium \(\suminf[k]{b_k}\) konvergent, da \(\abs{b_k} \le a_k\). \WSP
 \end{proof}
-\end{korr}
+\end{subkorr}
 
-\begin{satz}[Quotienten-Kriterium]
+\begin{subsatz}[Quotienten-Kriterium]
 Sei \suminf{a_n} eine Reihe mit \(a_n \ne 0 \forall n \ge n_0\)
 Existiert eine reelle Zahl \(q \text{ mit } 0 < q < 1 \text{ sodass }\abs{\frac{a_{n+1}}{a_n}} \le q < 1 \forall n \ge n_0
 \Rightarrow \suminf{a_n}\) ist absolut konvergent.
@@ -990,9 +1083,9 @@ Existiert eine reelle Zahl \(q \text{ mit } 0 < q < 1 \text{ sodass }\abs{\frac{
 \Rightarrow \text{ aus dem Majoranten-Kriterium folgt \suminf{a_n} ist absolut konvergent.}
 \end{math}
 \end{proof}
-\end{satz}
+\end{subsatz}
 
-\begin{korr}[einfaches Quotienten-Kriterium]
+\begin{subkorr}[einfaches Quotienten-Kriterium]
 Sei \(a_n \ne 0 \sp \fa n > n_0\) und existiert \(\liminf{\abs{\frac{a_n+1}{a_n}}}\text{ und ist }\liminf{\abs{\frac{a_n+1}{a_n}}} < 1
 \Rightarrow \suminf{a_n}\) ist absolut konvergent.
 \begin{proof}
@@ -1004,9 +1097,9 @@ Sei \(a_n \ne 0 \sp \fa n > n_0\) und existiert \(\liminf{\abs{\frac{a_n+1}{a_n}
 \end{math}
 Nach dem Quotienten-Kriterium ist \suminf{a_n} absolut konvergent
 \end{proof}
-\end{korr}
+\end{subkorr}
 
-\begin{bsp}
+\begin{subbsp}
 \begin{enumerate}
 \item \(\suminf{\frac{1}{n^k}} < \infty \qquad \forall k \ge 2 \)
 [Bemerkung: Die Konvergenz gilt auch \(\fa k \in \R, k > 1\) ohne Beweis]
@@ -1031,37 +1124,37 @@ Aber: \(\suminf{\frac{1}{n^3}} \in \R \setminus \Q \text{, } \suminf{\frac{1}{n^
 \Rightarrow \suminf[k]{\frac{x^k}{k!}}\) ist absolut konvergent.
 \end{proof}
 \end{enumerate}
-\end{bsp}
+\end{subbsp}
 
-\begin{bem}
+\begin{subbem}
 \begin{enumerate}
 \item Für \(k = 1\) ist die harmonische Reihe \suminf{\frac{1}{n}} divergent.
 \item Das Quotienten-Kriterium ist hier nicht anwendbar, denn \\
 \[\suminf{\frac{1}{n}} \qquad \frac{a_{n+1}}{a_n} = \frac{1}{1 + \frac{1}{n}} \longtoinf{n} 1 \not < 1\]
 \[\suminf{\frac{1}{n^2}} \qquad \frac{a_{n+1}}{a_n} = \left(\frac{1}{1 + \frac{1}{n}}\right)^2 \longrightarrow 1 \not < 1\]
 \end{enumerate}
-\end{bem}
+\end{subbem}
 
-\begin{defi}
+\begin{subdefi}
 Die Funktion \(exp: \R \to \R \text{ mit } exp(x) \mapsto \e^x = \suminf{\frac{x^n}{n!}}\) heißt Exponentialfunktion.\\
 Die Zahl \(\e = exp(1) = \suminf{\frac{1^n}{n!}} \) heißt Euler'sche Zahl.
-\end{defi}
+\end{subdefi}
 
-\begin{bem}
+\begin{subbem}
 Wir werden später zeigen:
 \[\e = \frac{1^n}{n!} = \liminf{\left(1 + \frac{1}{n}\right)^n} \approx 2,71828...\]
-\end{bem}
+\end{subbem}
 
 % fehlerbeheben
-\begin{satz}[Cauchy-Produkt von Reihe]
+\begin{subsatz}[Cauchy-Produkt von Reihe]
 Seien die Reihen \suminf{a_n} und \suminf{b_n} absolut konvergent. Für $n \in \N$ definieren wir das Cauchy-Produkt folgendermaßen:
 \[c_n = \sum_{k = 0}{n}{a_kb_{n-k}} = a_0b_n + \dots + a_nb_0\]
 Dann gilt: Die Reihe \suminf{c_n} ist absolut konvergent und $\suminf{c_n} = \left( \suminf{a_n} \right)  \left( \suminf{b_n} \right) $
 \proof[Beweisidee]
 %Beweisidee_Cauchy_Produkt.JPG
-\end{satz}
+\end{subsatz}
 
-\begin{korr}[Funktionalgleichung der Exponentialfunktion]
+\begin{subkorr}[Funktionalgleichung der Exponentialfunktion]
 Sei $exp(x) = \e^x = \suminf{\frac{x^n}{n!}}$ die Exponentialfunktion. Dann gilt:
 \[exp(x+y) = exp(x) exp(y)\]
 \[e^{x+y} = e^x e^y\]
@@ -1075,11 +1168,11 @@ e^x e^y &= \left(\suminf{\frac{x^n}{n!}}\right)\left(\suminf{\frac{y^n}{n!}}\rig
 \end{aligned}
 \end{math}
 \end{proof}
-\end{korr}
+\end{subkorr}
+
 
 \newpage
 \section{Stetigkeit}
-\subsection{Stetigkeit}
 \begin{defi}
 Sei $ D \subset \R$. Eine Funktion $f : D \to \R \text{ mit } x \mapsto f(x) $. ist eine Vorschrift, die jedes $ x \in D$ genau einem WErt $f(x)$ zuordnent.
 \end{defi}
@@ -1564,10 +1657,8 @@ Die Umkehrfunktionen von $\sin, \cos, \tan, \cot$ heißen:
 Diese Funktionen sind wieder stetig und streng monoton.
 \end{defi}
 
-% ENDE STETIGKEIT
 \newpage
-\section{Differential- und Integralrechnung} % sollte 5. sein????
-\subsection{Differentialrechnung}
+\section{Differential- und Integralrechnung} 
 
 \begin{defi}
 Eien Funktion $f : D \to \R$ heißt differenzierbar in $x_0 \in D$, falls $\limnull[h]{\frac{f(x + h) - f(x_0)}{h}} = f'(x_0)$
@@ -1666,8 +1757,8 @@ $\overset{\text{Quotientenregel}}{\Rightarrow} \left(x^m\right)' = \left(\frac{1
 $\Rightarrow f'(x) = (\e^{ax})' = a \e^{ax}$\\
 Sei $g(x) = ax \overset{\text{Kettenregel}}{\Rightarrow}  (\e^{ax})' =  (\e^{g(x)})' =  \e^{g(x)}g'(x) =  a \e^{ax}$
 \item \[(\sin x)' = \cos x \\ (\cos x)' = - \sin x\]
-%$\displaystyle (\sin x)' = \left( \frac{\e^{\im x} - \e^{-\im x}}{2\im}\right)' = \frac{\e^{\im x}' - \e^{-\im x}'}{2\im} = \frac{\im \e^{\im x} + \im \e^{-\im x}}{2\im} = \frac{\e^{\im x} + \e^{-\im x}}{2} = \cos x $\\
-%$\displaystyle  (\cos x)' = \left( \frac{\e^{\im x} + \e^{-\im x}}{2}\right)' = \frac{\e^{\im x}' + \e^{-\im x}'}{2} = \frac{\im \e^{\im x} - \im \e^{-\im x}}{2} = \im  \frac{\e^{\im x} - \e^{-\im x}}{2} \overset{\frac{-1}{\im}{=} - \frac{\e^{\im x} - \e^{-\im x}}{2\im} = \sin x $
+$\displaystyle (\sin x)' = \left( \frac{\e^{\im x} - \e^{-\im x}}{2\im}\right)' = \frac{(\e^{\im x})' - (\e^{-\im x})'}{2\im} = \frac{\im \e^{\im x} + \im \e^{-\im x}}{2\im} = \frac{\e^{\im x} + \e^{-\im x}}{2} = \cos x $\\
+$\displaystyle  (\cos x)' = \left( \frac{\e^{\im x} + \e^{-\im x}}{2}\right)' = \frac{(\e^{\im x})' + (\e^{-\im x})'}{2} = \frac{\im \e^{\im x} - \im \e^{-\im x}}{2} = \im \frac{\e^{\im x} - \e^{-\im x}}{2} =  \frac{-1}{\im} \frac{\e^{\im x} - \e^{-\im x}}{2} = \sin x $
 \item \[ (\tan x)' = \frac{1}{\cos^2  x} = 1 + \tan^2 x\]
 $(\tan x)' = \left( \frac{\sin x}{\cos x} \right)' = \frac{\cos^2 x + \sin^2 x}{\cos^2 x} =\begin{cases} \frac{1}{\cos^2  x} \\ 1 + \tan^2 x \end{cases}$
 \item \[(\sin^2 x)' = \sin (2x)\]
