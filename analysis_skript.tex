@@ -67,8 +67,8 @@
 \newcommand{\limA}[2][x_0]{\limAB{#1}{#2}}
 
 % limits von + nach 0 bzw von - nach 0
-\newcommand{\limpos}[2][n]{\ensuremath{\lim\limits_{#1 \rightarrow 0^+}{#2}}}
-\newcommand{\limneg}[2][n]{\ensuremath{\lim\limits_{#1 \rightarrow 0^-}{#2}}}
+\newcommand{\limpos}[3][n]{\ensuremath{\lim\limits_{#1 \rightarrow #2^+}{#3}}}
+\newcommand{\limneg}[3][n]{\ensuremath{\lim\limits_{#1 \rightarrow #2^-}{#3}}}
 
 % absolutbetrag mit abständen zwischen | und inhalt.
 \newcommand{\abs}[1]{\ensuremath{\left|\:#1\:\right|}}
@@ -90,7 +90,7 @@
 \newcommand{\longtoA}[2][n]{\ensuremath{\overset{\scriptscriptstyle{#1 \to #2}}{\longrightarrow}}}
 
 % Umgebungsstil, einer für alle
-\newtheoremstyle{thmstyle}{}{0.5cm}{}{}{\bfseries}{}{\newline}{\thmnumber{#2. }\thmname{#1}\quad\thmnote{ #3}}
+\newtheoremstyle{thmstyle}{}{0.5cm}{}{}{\bfseries}{}{\newline}{\thmnumber{#2. }\thmname{#1}\quad\thmnote{(#3)}}
 
 % umgebungen
 \theoremstyle{thmstyle}
@@ -1698,7 +1698,7 @@ $\Rightarrow (\e^x)' = \limnull[h]{\frac{\e^{x+h} - \e^x}{h}} = \limnull[h]{\fra
 $\Rightarrow (\e^x)' = \e^x $
 \item Die Ableitungsfunktion
 $f: \R \to \R$ mit $ f(x) = \abs{x} $ ist in $ x = 0$ nicht differenzierbar. $\limnull[h]{\frac{f(0 + h) - f(0)}{h}} = \limnull[h]{\frac{\abs{h}}{h}}$\\
-$\limpos[h]{\frac{\abs{h}}{h}} = 1 \ne -1 = \limneg[h]{\frac{\abs{h}}{h}}$
+$\limpos[h]{0}{\frac{\abs{h}}{h}} = 1 \ne -1 = \limneg[h]{0}{\frac{\abs{h}}{h}}$
 \end{enumerate}
 \end{bsp}
 
@@ -1795,20 +1795,125 @@ Da $\exp$ setetig ist, folgt $ \liminf{\left(1  + \frac{1}{n}\right)^n} = \limin
 \end{proof}
 \end{bem}
 
+\begin{defi}
+Sei $f : D \to \R$ differenzierbar, und die Ableitung $f': D \to \R$ in $x_0$ differenzierbar, dann heißt die Ableitung von $f'$ die zweite Ableitung von $f$. Man schreibt $(f')' (x_0) = f''(x_0) = \frac{\der^2 f}{\der x^2 } (x_0)$
+Allgemeint definiert man induktiv für $n \ge 1$ \[(f^{(n-1)})' (x_0) = f^{(n)}(x_0) = \frac{\der^n f}{\der x^n } (x_0)\]
+$f$ heißt stetig differenzierbar, wenn $f$ differenzierbar ist und die Ableitung $f'$ stetig ist.
+\end{defi}
 
+\begin{satz}[Der Satz von Rolle]
+Sei $f : [a,b] \to \R $ stetig und auf $(a,b)$ differenzierbar. Weiters sei $f(a) = f(b) = 0$. Dann folgt es gibt ein $x_0 \in (a,b)$ mit $f'(x) = 0$
+%grafik: satz von Rolle 
+\begin{proof}
+Ist $f(x) = 0 \sp \forall x \in (a,b) \sp \Rightarrow \sp f'(x) = 0 \sp \forall x \in (a,b)$. \\
+Wir können also annehmen: Es gibt ein $ x \in (a,b)$ mit $f(x) > 0$. (Wenn $f(x) < 0$ betrachte die Funktion $-f$). Da $f$ auf $[a,b]$ stetig ist, folgt aus dem Satz vom Maximum, dass $f$ an einer Stelle $x_0 \in (a,b) $ ihr Maximum annimmt.\\
+$ \Rightarrow f(x_0) > 0 \text{ und } x_0 \in (a,b)\text{ und } \forall x \in (a,b) :\sp f(x) \le f(x_0)\\
+\Rightarrow \text{Ist } x > x_0 :\sp \frac{f_x) - f(x_0)}{x-x_0} \le 0 \text{ und ist } x < x_0 :\sp \frac{f_x) - f(x_0)}{x-x_0} \ge 0 \\
+\Rightarrow \forall \text{ Folge $(x_n)$ mit } x_n > x_0 \text{ und } \liminf{x_n} = x_0 \text{ gilt } f'(x_0) = \limA[x_n]{\frac{f(x_n) - f(x_0)}{x_n - x_0}} \le 0 \text{ und } \forall \text{ Folge $(x_n)$ mit } x_n < x_0 \text{ und } \liminf{x_n} = x_0 \text{ gilt } f'(x_0) = \limA[x_n]{\frac{f(x_n) - f(x_0)}{x_n - x_0}} \ge 0 \\
+\Rightarrow f'(x_0) \le 0 \text{ und } f'(x_0) \ge 0 \Rightarrow f'(x_0) = 0$
+\end{proof}
+\end{satz}
 
+\begin{satz}[Mittelwertsatz der Differenzialrechnung, MWS]
+Sei $f : [a,b] \to \R $ stetig und auf $(a,b)$ differenzierbar. Dann existiert ein $x_0 \in (a,b)$ mit \[f'(x_0) = \frac{f(b) - f(a)}{b-a}\]
+% grafik MWS
+\begin{proof}
+Sei $g: [a,b]\to \R$ definiert als $g(x) = f(x) - rx - s$, mit $r,s \in \R$. Da $f$ differenzierbar ist ist auch $g$ differenzierbar. Um den Satz von Rolle anwenden zu können, muss $g(a) = g(b) = 0 \Rightarrow f(a) - r a - s = f(b) - r b - s = 0 $\\
+D.h.$  f(a) = r a - s $ und $ f(b) = r b - s \quad \Rightarrow f(a) - f(b) = rb - ra \Rightarrow r = \frac{f(a) - f(b)}{b - a}$ \\
+$\Rightarrow s = f(a) - ra = f(a) -  \frac{f(a) - f(b)}{b - a} a = \frac{f(a) b - f(a) a - f(b) a + f(a) a}{b-a} = \frac{f(a)b - f(b)a}{b - a}$\\
+Nach dem Satz von Rolle gibt es ein $x_0 \in (a,b)$ mit $g'(x_0) = 0$\\
+$\Rightarrow f'(x_0) -  \frac{f(a) - f(b)}{b - a} = 0 \Rightarrow f'(x_0) =  \frac{f(a) - f(b)}{b - a}$
+\end{proof}
+\end{satz}
 
+\begin{bem}[Spezialfall]
+Ist $f(a) = f(b)$, dann ist $f'(x_0) = 0$
+\end{bem}
 
+\begin{korr}[Verallgemeinerte Mittelwertsatz]
+Seien $f,g:[a,b] \to \R$ stetig und auf $(a,b)$ differenzierbar. Sei weiters $g'(x) \ne 0 \sp \forall x \in (a,b)$. Dann gilt:
+\[g(b) \ne g(a) \text{ und es gibt ein } x_0 \in (a,b) \text{ mit } \frac{f'(x_0)}{g'(x_0)} = \frac{f(b) - f(a)}{g(b) - g(a)}\]
+\begin{proof}
+Wäre $g(b) = g(a)$, dann gäbe es nach dem Mittelwertsatz ein $\xi \in (a,b)$ mit $g'(\xi) = 0 \sp \WSP \\
+\text{Denn $g'(x) \ne 0$} \Rightarrow g(a) \ne g(b)$\\
+Definiere $h(x)  = f(x) - \frac{f(b) - f(a)}{g(b) - g(a)}(g(x) - g(a))$, dann ist $h(a) = f(a)$ und $h(b) = f(b) - \frac{f(b) - f(a)}{g(b) - g(a)}(g(b) - g(a)) = f(b) - f(b) + f(a) = f(a)$. Aus dem Mittelwertsatz folgt es gibt ein $x_0 \in (a,b) $, sodass $h'(x_0) = 0 $  \\
+$\Rightarrow  f'(x_0) - \frac{f(b) - f(a)}{g(b - g(a)}g'(x_0) = 0 \Rightarrow \frac{f'(x_0)}{g'(x_0)} = \frac{f(b) - f(a)}{g(b - g(a)}$
+\end{proof}
+\end{korr}
 
+\begin{korr}
+Sei $f : [a,b] \to \R $ stetig und auf $(a,b)$ differenzierbar. Ist $f'(x) = 0 \sp \forall x \in (a,b)$, dann ist $f$ konstant.
+\begin{proof}
+Angenommen $f$ ist nicht konstant, dann gibt es $a \le a_1 < b_1 \le b$ mit $f(a_1) \ne f(b_1) \overset{MWS}{\Rightarrow} \exists x_0 \in (a_1, b_1) \text{ mit } f'(x_0) = \frac{f(b_1) - f(a_1)}{b_1 - a_1} \ne 0 \sp \WSP f'(x) = 0 \sp \forall x \in (a,b) \Rightarrow f$ ist konstant.
+\end{proof}
+\end{korr}
 
+\begin{satz}
+Sei $f : [a,b] \to \R $ stetig und auf $(a,b)$ differenzierbar.
+\begin{align*}\text{Ist } f'(x) > 0 \sp \forall x \in (a,b) &\Rightarrow f \text{ ist in } [a,b] \text{ streng monoton steigend.}\\
+\text{Ist } f'(x) < 0 \sp \forall x \in (a,b) &\Rightarrow f \text{ ist in } [a,b] \text{ streng monoton fallend.}\\
+\text{Ist } f'(x) \ge 0 \sp \forall x \in (a,b) &\Rightarrow f \text{ ist in } [a,b] \text{ monoton steigend.}\\
+\text{Ist } f'(x) \le 0 \sp \forall x \in (a,b) &\Rightarrow f \text{ ist in } [a,b] \text{ monoton fallend.}
+\end{align*}
+\begin{proof}
+Wir zeigen nur eine streng monoton steigende Funktion an, der Beweis für anderes Monotonieverhalten ist analog durchführbar.\\
+Angenommen $f$ wäre nicht streng monoton wachsend. $\Rightarrow \text{es gibt } a \le a_1 < b_1 \le b \text{ mit } f(a_1) \ge f(b_1) \overset{MWS}{\Rightarrow} \exists x_0 \in (a_1, b_1) \text{ mit } f'(x) = \frac{f(b_1) - f(a_1)}{b_1 - a_1} \le 0 \sp \WSP f'(x) > 0 \sp \forall x \in (a,b) \Rightarrow f$ ist streng monoton steigend.
+\end{proof}
+\end{satz}
 
+\begin{defi}
+Eine Funktion $f : D \to \R$ hat an einer Stelle $x_0 \in D$ ein lokales Maximum (Minimum) wenn es ein $\epsilon > 0 $ gibt mit $f(x) \le (\ge) f(x_0) \sp \forall x : \sp \abs{x - a} < \epsilon$
+$x_0$ heißt lokales Extremum, wenn $x_0$ lokales Maximum oder Minimum ist.
+%grafik mit zwei Maxima und zwei Minima
+\end{defi}
 
+\begin{satz}
+Sei $f : [a,b] \to \R $ stetig und auf $(a,b)$ differenzierbar.
+\begin{enumerate}
+\item Hat $f$ in $x_0 \in (a,b) $ ein lokales Extemum $ \Rightarrow f'(x_0) = 0$
+\item Ist $f$ in $x_0 \in (a,b) $ zweimal differenzierbar und es gibt ein $x_0 \in (a,b)$ mit $f'(x_0) = 0$ und $f''(x_0) <(>) 0$ dann ist $x_0$ ein lokales Maximum (Minimum)
+\end{enumerate}
+\begin{proof}
+\begin{enumerate}
+\item Haben wir im Beweis von Satz von Rolle gezeigt.
+\item Wir zeigen nur für Maximum, fürs Minimum betrachte $-f$\\
+Sei $f'(x_0) = 0$ und $f''(x_0) < 0$. Da $f''(x_0) = \limA{\frac{f'(x) - f'(x_0)}{x - x_0}} < 0 \Rightarrow \sp \exists \epsilon < 0 \sp \forall x \sp \abs{x_0 - x} < \epsilon \text{ für } x_0 \ne x \text{ mit } \frac{f'(x) - f'(x_0)}{x - x_0} < 0$ 
+\begin{enumerate}
+\item[Fall 1] $x < x_0 \Rightarrow f'(x) > f'(x_0) = 0 \Rightarrow $ streng monoton wachsend auf $(x_0 - \epsilon, x_0)$
+\item[Fall 2] $x > x_0 \Rightarrow f'(x) < f'(x_0) = 0  \Rightarrow $ streng monoton fallend auf $(x_0, x_0 + \epsilon)$
+\end{enumerate}
+$\Rightarrow f$ hat in $x_0$ ein lokales Maximum.
+\end{enumerate}
+\end{proof}
+\end{satz}
 
+\begin{bem}
+Die Umkehrung des Satzes gilt nicht. 
+zB: $f(x) = x^4$ hat in $x = 0$ ein Minimum. Aber $f'(0) = f''(0) = 0$. Für $f(x) = x^3$ ist $f'(0) = 0$ aber $ x = 0$ ist kein Extremum.\\
+\end{bem}
 
+\begin{satz}[Regel von de l'Hospital]
+Sei $-\infty \le a < b \le \infty$. Sei $f : (a,b) \to \R $ differenzierbar und es existiert $\limpos[x]{a}{\frac{f'(x)}{g'(x)}} = c \in \R$.
+Dann gilt: 
+\begin{enumerate}
+\item Ist $\limpos[x]{a}{f'(x)} = \limpos[x]{a}{g'(x)} = 0 \Rightarrow g(x) \ne 0 \text{ und } \limpos[x]{a}{\frac{f(x)}{g(x)}} = c$
+\item Ist $\limpos[x]{a}{f'(x)} = \limpos[x]{a}{g'(x)} = \pm \infty \Rightarrow g(x) \ne 0 \text{ und } \limpos[x]{a}{\frac{f(x)}{g(x)}} = c$
+\end{enumerate}
+Ebenso für $\limneg[x]{b}{\frac{f'(x)}{g'(x)}} = c$
+\begin{proof}
+1. Aus dem verallgemeinerten Mittelwertsatz folgt zu jedem $x \in (a,b)$ gibt es ein $t_x \in (a,x)$ mit $\frac{f'(t_x)}{g'(t_x)} = \frac{f(x) - f(a)}{g(x) - g(a)} = \frac{f(x)}{g(x)}$\\
+Konvergiert $x \to a \Rightarrow  t_x \to a$
+$\Rightarrow \limpos[x]{a}{\frac{f(x)}{g(x)}} = \limpos[t_x]{a}{\frac{f'(t_x)}{g'(t_x)}}$
+2. analog zu 1. 
+\end{proof}
+\end{satz}
 
-
-
-
+\begin{bsp}
+\begin{enumerate}
+\item $ \limnull[x]{\frac{\sin(x)}{x}} = \limnull[x]{\frac{\cos(x)}{1}} = 1$
+\item $ \limnull[x]{x \ln(x)} = \limnull[x]{\frac{\ln x}{\frac{1}{x}}} = \limnull[x]{\frac{\frac{1}{x}}{-\frac{1}{x^2}}} = \limnull[x]{-x} = 0$
+\end{enumerate}
+\end{bsp}
 
 
 
