@@ -32,6 +32,7 @@
 \def\e{\ensuremath{\mathit{e}} }
 \renewcommand{\epsilon}{\ensuremath{\varepsilon} }
 \newcommand{\der}{\operatorname{d\!}{}}
+\newcommand{\dx}{\der x}
 
 % für Beweise
 \def\WSP{\text{Widerspruch! }}
@@ -76,7 +77,7 @@
 \newcommand{\ceil}[1]{\ensuremath{\left\lceil\:#1\:\right\rceil}}
 
 % mathematische definitionen, menge, funktion
-\newcommand{\menge}[2]{\ensuremath{\{#1\sp : \sp #2\}}}
+\newcommand{\menge}[2]{\ensuremath{\left\{#1\sp : \sp #2\right\}}}
 \newcommand{\funktion}[3]{\ensuremath{#1: #2 \to #3}}
 \newcommand{\Funktion}[5]{\ensuremath{#1: #2 \to #3 \text{ mit } #4 \mapsto #5}}
 
@@ -88,6 +89,15 @@
 \newcommand{\toInf}[1]{#1 \rightarrow -\infty}
 \newcommand{\longtoInf}[1][n]{\ensuremath{\overset{\scriptscriptstyle{#1 \to -\infty}}{\longrightarrow}}}
 \newcommand{\longtoA}[2][n]{\ensuremath{\overset{\scriptscriptstyle{#1 \to #2}}{\longrightarrow}}}
+
+%integralrechnung
+\newcommand{\integral}[4][x]{\ensuremath{\int_{#2}^{#3}{#4\der #1}}}
+\newcommand{\intAB}[2][x]{\integral[#1]{a}{b}{#2}}
+\newcommand{\OS}[1]{\ensuremath{\Sigma_+\left(#1\right)}}
+\newcommand{\US}[1]{\ensuremath{\Sigma_-\left(#1\right)}}
+\newcommand{\OI}[1]{\ensuremath{\mathcal{I}_+\left(#1\right)}}
+\newcommand{\UI}[1]{\ensuremath{\mathcal{I}_-\left(#1\right)}}
+\newcommand{\stamm}[3]{\ensuremath{\left.\vphantom{\frac{1}{n}}#3\right|_{#1}^{#2}}}
 
 % Umgebungsstil, einer für alle
 \newtheoremstyle{thmstyle}{}{0.5cm}{}{}{\bfseries}{}{\newline}{\thmnumber{#2. }\thmname{#1}\quad\thmnote{(#3)}}
@@ -427,6 +437,7 @@ analog für Infimum.
 \end{proof}
 \end{subprop}
 
+\newpage
 \section{Komplexe Zahlen}
 Die Menge der komplexen Zahlen \C sind die Punkte der Ebene \(\R^2 = \{(a,b) : a,b \in \R\}\)
 \[(a,b) = (a, 0) + (0, b) = a (1,0) + b (0, 1)\]
@@ -547,6 +558,7 @@ Re(z)^2 = a^2 \le a^2 + b^2 = \abs{z}^2 &\Rightarrow Re(z) \le \abs{Re(z)} = \sq
 \end{proof}
 \end{prop}
 
+\newpage
 \section{Folgen und Reihen}
 \subsection{Folgen}
 
@@ -958,6 +970,7 @@ Wir zeigen: \((x_n)\) ist konvergent und \(\liminf{x_n} = x \text{ und } x^2 = a
 Die positive Lösung der Gleichung \(x^2 = a\) heißt die Quadratwurzeln von \(a\). Wir schreiben \(x = \sqrt{a}\).
 \end{subbsp}
 
+\newpage
 \subsection{Reihen}
 
 \begin{subdefi}
@@ -1658,7 +1671,7 @@ Diese Funktionen sind wieder stetig und streng monoton.
 \end{defi}
 
 \newpage
-\section{Differential- und Integralrechnung} 
+\section{Differentialrechnung} 
 
 \begin{defi}
 Eien Funktion $f : D \to \R$ heißt differenzierbar in $x_0 \in D$, falls $\limnull[h]{\frac{f(x + h) - f(x_0)}{h}} = f'(x_0)$
@@ -1914,6 +1927,275 @@ $\Rightarrow \limpos[x]{a}{\frac{f(x)}{g(x)}} = \limpos[t_x]{a}{\frac{f'(t_x)}{g
 \item $ \limnull[x]{x \ln(x)} = \limnull[x]{\frac{\ln x}{\frac{1}{x}}} = \limnull[x]{\frac{\frac{1}{x}}{-\frac{1}{x^2}}} = \limnull[x]{-x} = 0$
 \end{enumerate}
 \end{bsp}
+
+\newpage
+\section{Integralrechnung}
+% GRAFIK Fläche von Integral funktion f zw a und b
+
+Folgende Eigenschaften gelten
+\begin{enumerate}
+\item Rechtecksfläche \[  \intAB{1} = b - a\]
+%Grafik der Funktion 1 mit rechteck zw a und b
+\item Zerschneiden \[  \intAB{f(x)} = \integral{a}{c}{f(x)} + \integral{c}{b}{f(x)} \quad \text{ für } a \le c \le b \]
+\item Positivität \[ f(x) \ge 0 \quad \fa x \in [a,b] \Rightarrow \quad \intAB{f(x)} \ge 0\]
+\item Liniarität \[\intAB{\lambda (f(x) + g(x))} = \lambda \intAB{f(x)} + \lambda \intAB{g(x)} \quad \text{ für } \lambda \in \R\]
+\end{enumerate}
+
+\begin{bem}
+Aus 3. und 4. folgt: Ist $ f(x) \le 0 \sp \fa x \in [a,b] \sp \Rightarrow \sp \intAB{f(x)} \le 0$. Denn $-f(x) \ge 0 \Rightarrow \intAB{-f(x)} \ge 0 \Rightarrow -\intAB{f(x)} \ge 0 \Rightarrow \intAB{f(x)} \le 0$
+\end{bem}
+
+\begin{defi}
+Eine Treppenfunktion $\phi : [a,b] \to \R$ ist folgende Funktion: \\
+Es gibt eine Unterteilung des Intervalls $[a,b]$, mit $a = t_0 < \dots < t_n = b$ und Konstanten $ z_1, \dots z_n \in \R$, sodass $\phi(x) = c_k \sp \fa x\in (t_{k-1},t_k) $ für $k = 1,\dots, n$. Die Werte $\phi(t_k) $ für $k = 0,\dots, n$ sind beliebig.
+%Grafik beliebigeTrepenfunktion 
+\end{defi}
+
+\begin{defi}[Integral für Treppenfunktion]
+Sei $\phi : [a,b] \to \R$ eine Treppenfunktion, bzgl der Unterteilung $a = x_0 < \dots < x_n = b$ und $\phi(x) = c_k $für $x \in (x_{k-1}, x_k) $ für $k = 1,\dots, n$. Dann definiert man \[ \intAB{f(x)} = \sum_{k=1}^{n}{c_k(x_k - x_{k-1})} \]
+\end{defi}
+
+\begin{bem}
+Man kann sich leicht überlegen dass diese Definition unabhöngig von der Zerlegung ist.
+%Grafik zwei Treppenfunktionen mit unterschiedlicher Zerlegung
+\end{bem}
+
+\begin{prop}
+Das Integral für Treppenfunktion erfüllt die Eigenschaften eines Integrals. (Rechtecksfläche, Zerschneiden, Positivität und Liniarität)
+\begin{proof} Folgt direkt aus der Definition des Integrals für Treppenfunktionen.
+\end{proof}
+\end{prop}
+
+\begin{bem}[Ziel]
+Erweiterung des Integrals auf stetige und stückweise stetige Funktionen.
+\end{bem}
+
+\begin{satz}[Gleichmäßige Stetigkeit]
+Sei $[a,b]$ ein abgeschlossenenes Intervall und $ f: [a,b] \to \R $ eine stetige Funktion. Dann gilt: 
+\[\forall \epsilon > 0 \exists \delta > 0 \sp: \sp \forall x, x' \in [a,b] \text{ mit } \abs{x- x'} < \delta \text{ folgt } \abs{f(x) - f(x')} < \epsilon\]
+\begin{proof}
+Angenommen $f$ ist nicht gleichmäßig stetig. $\Rightarrow \exists \epsilon > 0 \sp \forall \delta > 0 \sp \exists x,x' \in [a,b] \text{ mit } \abs{x- x'} < \delta \text{ aber } \abs{f(x) - f(x')} \ge \epsilon$. Speziell gibt es ein $\epsilon > 0$ derart, dass so zu jedem $n \ge 1 \sp x_n, x_n' \in [a,b] $ gibt mit $\abs{x_n - x_n'} < \frac{1}{n}$, aber $\abs{f(x_n) - f(x_n')} \ge \epsilon$.\\
+Betrachte die Folge $(x_n)$.\\
+$(x_n)$ ist durch $a$ und $b$ beschränkt. Nach dem Satz von Bolzano-Weierstraß gibt es eine konvergente Teilfolge $(x_{n_k})$ von $(x_n)$.\\
+Da $a \le x_{n_k} \le b$ folgt: $\liminf[k]{x_{n_k}} = \xi \in [a,b]$.\\
+Nach der Voraussetzung gilt:
+$\abs{x_{n_k} - {x'}_{n_k}} < \frac{1}{n_k} \longtoinf[k] 0\\
+\Rightarrow \liminf[k]{x_{n_k}'} = \liminf[k]{x_{n_k}' - x_{n_k} + x_{n_k}} =  \liminf[k]{x_{n_k}' - x_{n_k}} + \liminf[k]{x_{n_k}} = 0 + \xi = \xi$\\
+Also  $\liminf[k]{x_{n_k}'} = \xi$.\\
+Da $f$ stetig ist, folgt $\liminf[k]{f(x_{n_k}) - f(x_{n_k}')} = \liminf[k]{f(x_{n_k})} - \liminf[k]{f(x_{n_k}')} = f(\xi) - f(\xi) = 0. $\\
+\WSP zu $\abs{f(x_{n_k}) - f(x_{n_k}')} \ge \epsilon > 0 \sp \forall k \in \N$
+\end{proof}
+\end{satz}
+
+\begin{defi}
+eine Funktion $f: [a,b] \to \R$ heißt stückweise stetig, wenn es eine Unterteilung $a = x_0 < \dots < x_n = b$ gibt, sodass $f$ auf jedem offenen Intervall $(x_{k-1}, x_k)  \sp \fa k \in {1, \dots, n} $ stetig ist und zu einer stetigen Funktion auf $[x_{k-1}, x_k]$ fortgesetzt werden kann. (d.h. der rechts-/linksseitige Grenzwert existiert für $x_{k-1}$ und $x_k$.
+\end{defi}
+
+\begin{bsp}
+\begin{enumerate}
+\item Jede Treppenfunktion ist stückweise stetig.
+\item $f:[0,1] \to \R$ mit $f(x) = \begin{cases} \frac{1}{x} & x \in(0,1]\\ 0 & x = 0\end{cases}$ ist nicht stückweise stetig, denn $\limnull[x]{f(x)} = \infty$
+%Grafik der funktion 1/x
+\end{enumerate}
+\end{bsp}
+
+\begin{prop}[wichtig]
+Sei $f : [a,b] \to \R$ stückweise stetig und $\epsilon > 0$. Dann gibt es Treppenfunktionen $\phi, \psi : [a,b] \to \R$ mit 
+\begin{enumerate}
+\item $\phi(x) \le f(x) \le \psi(x) \quad \forall x \in [a,b]$
+\item $\abs{\phi(x) - \psi(x)} < \epsilon \quad \forall x \in [a,b]$
+\end{enumerate}
+\begin{proof}
+Es genügt die Aussage für stetige Funktionen zu zeigen, sonst die Teilstücke zusammensetzen, wichtig dabei ist, dass $f$ auf $[x_{k-1},x_k]$ stetig fortgesetzt werden kann.\\
+Sei also $f: [a,b] \to \R$ stetig $\Rightarrow f$ ist gleichmäßig stetig , d.h. $\forall \epsilon > 0 \exists \delta > 0 \sp: \sp \forall x, x' \in [a,b] \text{ mit } \abs{x- x'} < \delta \text{ folgt } \abs{f(x) - f(x')} < \epsilon$\\
+Wähle $n\in \N$ so groß, dass $\displaystyle \frac{b-a}{n} < \delta$ (Archimedisches Axiom)\\
+Definiere $\displaystyle t_k = a+ k\frac{b-a}{n}$ für $ k = 0,\dots n$. Wir erhalten dann eine äquivalente Unterteilung $a = t_0 < \dots < t_n = b$.\\
+Für $k=1n\dots,n$ setze $\displaystyle c_k = f(t_k) + \frac{\epsilon}{2} \quad c_k' = f(t_k) - \frac{\epsilon}{2}$ und definieren die Treppenfunktion $\phi, \psi : [a,b] \to \R \\
+ \phi(a)= \psi(a) = f(a) \\
+  \phi(x) = c_k', \quad \psi(x) = c_k, $ für $t_{k-1} < x \le t_k$ \\ % GRAFIK obersumme, untersumme mit funktion f
+Nach Deifinition folgt $\forall x \in (a,b]$\\
+$\displaystyle \abs{\psi(x) - \phi(x)} = \abs{f(t_k) + \frac{\epsilon}{2} - (f(t_k) -\frac{\epsilon}{2})} > \abs{\frac{\epsilon}{2} + \frac{\epsilon}{2}} = \epsilon \Rightarrow $ Eigenschaft 2.\\
+Für 1: $ \phi(a) = f(a) = \psi(a) $\\
+Sei $x \in (t_{k-1}, t_k]$ für $k = 1,\dots, n$\\
+$\displaystyle \abs{x-t_k} \le \abs{t_{k-1} - t_k} = \abs{a+ (k-1)\frac{b-a}{n} - (a+ k\frac{b-a}{n})} = \abs{-\frac{b-a}{n}} = \frac{b-a}{n} \le \delta$ \\
+Mit gleichmäßiger Stetigkeit folgt $\abs{f(x) - f(t_k)} < \frac{\epsilon}{2} \\
+\Rightarrow - \frac{\epsilon}{2} < f(x) - f(t_k) < \frac{\epsilon}{2} \\
+\Rightarrow f(t_k) - \frac{\epsilon}{2} < f(x) < f(t_k) + \frac{\epsilon}{2}\\
+\Rightarrow c_k' < f(x) < c_k\\
+\Rightarrow \phi(x) < f(x) < \psi(x) \quad \forall x \in (t_{k-1}, t_k], \quad k  = 1,\dots,n\\
+\Rightarrow \phi(x) < f(x) < \psi(x) \quad \forall x \in [a,b]\\
+\Rightarrow $ Eigenschaft 1.
+\end{proof}
+\end{prop}
+
+\begin{defi}[Ober- und Untersumme]
+Für $f :[a,b] \to \R$ stückweise stetig heißt $ \OS{f} = \menge{\intAB{\psi(x)}}{\psi : [a,b] \to \R \text{ ist Treppenfunktion mit } f(x) \le \psi(x)}$ die Obersumme von $f$ und $ \US{f} = \menge{\intAB{\phi(x)}}{\phi : [a,b] \to \R \text{ ist Treppenfunktion mit } \phi(x) \le f(x)}$ die Untersumme von $f$.
+\end{defi}
+
+\begin{satz}
+\begin{enumerate}
+\item Für $A_+ \in \OS{f}$ und $A_- \in \US{f}$ gilt $A_- \le A_+$.
+\item Es existieren $\OI{f} = \inf(\OS{f})$ (Oberintegral) und  $\UI{f} = \sup(\US{f})$ (Unterintegral)
+\item Es gilt: $\OI{f} = \UI{f}$
+\end{enumerate}
+\begin{proof}
+\begin{enumerate}
+\item Seien $\phi, \psi$ Teppenfunktionen mit $ \phi(x) \le f(x) \le \psi(x) \Rightarrow \phi(x) \le \psi(x) \Rightarrow 0 \le \psi(x) - \phi(x) \Rightarrow 0 \le \intAB{\psi(x) - \phi(x)} = \intAB{\psi(x)} - \intAB{\phi(x)}$ d.h. $A_- \le A_+$.
+\item Nach Proposition gibt es Treppenfunktionen $\phi, \psi$ mit $\phi(x) \le f(x) \le \psi(x)$ Also: Es gibt Zahlen $B_+, B_-$ mit $B_- \le B_+$\\
+$\Rightarrow \forall A_- \in \US{f}$ gilt $ A_- \le B_+$ und $\forall A_+ \in \OS{f}$ gilt $ A_+ \ge B_-$\\
+d.h. $\US{f}$ ist durch $B_+$ nach oben beschänkt und $\US{f}$ ist durch $B_-$ nach unten beschränkt.\\
+Nach dem Vollständigkeitsaxiom für reelle Zahlen existieren $\OI{f}  = \inf(\OS{f})$ und $\UI{f} = \sup(\US{f})$ und es gilt $\UI{f} \le \OI{f}$.
+\item Nach Proposition gibt es Treppenfunktionen $\phi, \psi$ mit $ 0 \le \psi(x) - \phi(x) \le \epsilon \quad \forall \epsilon > 0$\\
+$\Rightarrow 0 \le \intAB{\psi(x)} - \intAB{\phi(x)} \le \intAB{\epsilon} = \epsilon(b-a)$\\
+Wähle $\displaystyle \epsilon = \frac{1}{n(b-a)} > 0$\\
+$\Rightarrow 0 \le \intAB{\psi(x)} - \intAB{\phi(x)} \le \frac{1}{n} \quad \forall n \ge 1$ \\
+$\Rightarrow 0 \le \OI{f} - \UI{f} \le \frac{1}{n} \quad \forall n \ge 1 \Rightarrow \OI{f} - \UI{f} = 0 \Rightarrow \OI{f} = \UI{f}$
+\end{enumerate}
+\end{proof}
+\end{satz}
+ 
+\begin{defi}
+Sei $f: [a,b] \to \R$ stückweise stetig. Dann heißt \[\int_{a}^{b}{f} = \intAB{f(x)} = \OI{f} = \UI{f}\] das bestimmte Integral von $f$.
+\end{defi}
+
+\begin{bem}
+Das Integral \intAB{f(x)} ist für alle beschränkten Funkktionen mit \OI{f} = \UI{f} definiert.
+\end{bem}
+
+\begin{satz}[Rechenregeln]
+Seien $f,g : [a,b] \to \R$ stückweise stetig. Dann gilt:
+\begin{enumerate}
+\item $\intAB{k} = k (b-a) \quad k \in \R$
+\item $\intAB{f(x)} = \integral{a}{c}{f(x)} = \integral{c}{b}{f(x)} \quad a \le c \le b$
+\item $\intAB{\lambda(f+g)(x)} = \lambda \intAB{f(x)} + \lambda \intAB{g(x)} \quad \lambda \in \R$
+\item Ist $f(x) \ge 0 \sp \forall x \in [a,b] \Rightarrow \intAB{f(x)} \ge 0$
+\end{enumerate}
+\begin{proof}
+nicht in VO. %ev. SELBER
+\end{proof}
+\end{satz}
+
+\begin{bem}
+In Übereinstimmung mit den Rechenregeln setzen wir: \[\integral{a}{a}{f(x)} = 0 \quad \intAB{-f(x)} = -\intAB{f(x)}\]
+\end{bem}
+
+\begin{satz}[Mittelwertsatz der Integralrechnung]
+Sei $f [a,b] \to \R$ stetig. Dann gibt es ein $\xi \in [a,b]$ mit \[\intAB{f(x)} = f(\xi)(b-a)\]
+%Grafik  mittelwertsatz der Integralrechnung
+\begin{proof}
+$f: [a,b] \to \R$ stetig. Nach dem Satz vom Maximum, existieren $m = min\menge{f(x)}{x \in [a,b]}$ und $M = max\menge{f(x)}{x \in [a,b]}$.\\
+$\Rightarrow m \le f(x) \le M \sp \forall x \in [a,b]$\\
+$\displaystyle  \overset{\text{Rechenregel}}{\Rightarrow } \intAB{m} \le \intAB{f(x)} \le \intAB{M}$\\
+$\displaystyle  \Rightarrow m(b-a) \le \intAB{f(x)} \le M(b-a) \Rightarrow m \le \underbrace{\frac{1}{b-a}\intAB{f(x)}}_{= c} \le M$\\
+$\Rightarrow $Sei $ x_0 \in [a,b] \sp f(x_0) = m$ und $x_1 \in [a,b] \sp f(x_1) = M \Rightarrow f(x_0) \le c \le f(x_1)$\\
+Definiere (Annahme $x_0 < x_1$ sonst umdrehen): $g: [x_0,x_1] \to \R$ mit $g(x) = f(x) - c$. $g$ ist wieder stetig.\\
+$g(x_0) = f(x_0) -c  \le 0$ und $g(x_1) = f(x_1) - c \ge 0$\\
+Nach dem Zwischenwertsatz für stetige Funktionen gibt es ein $\xi \in  [x_0,x_1] \subset [a,b]$, mit $g(\xi) = 0$\\
+$\displaystyle \Rightarrow f(\xi) = c = \frac{1}{b-a}\intAB{f(x)}$
+$\displaystyle \Rightarrow f(\xi)(b-a) = \intAB{f(x)}$
+\end{proof}
+\end{satz}
+
+\begin{defi}[Stammfunktion, unbestimmtes Integral]
+Sei $f$ eine Funktion. Eine Funktion $F$ heißt Stammfunktion von $f$, falls $F$ differenzierbar ist und $F' = f$.
+Wir schreiben: $\displaystyle F = \int{f(x)\dx}$
+$\int{f(x)\dx}$ heißt, das unbestimmte Integral von $f$.
+\end{defi}
+
+\begin{bem}
+Seien $F,G$ Stammfunktionen von $f$. Dann ist $(F-G)' = F' - G' = f - f = 0$. Somit ist $F-G = c \Rightarrow F = G + c$. Das heißt die Stammfunktion von $f$ nur bis auf eine additive Konstante $c$ eindeutig bestimmt.\\
+Man schreibt oft. $F(x) = \int{f(t)\der t} + c$
+\end{bem}
+
+\begin{prop}[Hauptsatz der Differential- und Integralrechnung - Teil I]
+Sei $f: [a,b] \to \R$ stetig. Definiere $F: [a,b] \to \R$ folgendermaßen 
+\[F(x) = \int_{a}^{x}{f(t)\der t}\]
+Dann ist $F$ eine Stammfunktion von $f$.
+\begin{proof}
+zu zeigen ist: $F$ ist differenzierbar und $F' = f$.\\
+wir zeigen: $\limnull[h]{\frac{F(x+h) - F(x)}{h}} = f(x)$\\
+Sei $(h_n)$ eine Folge mit $h_n \ne 0$ und $\liminf{h_n} = 0.$\\
+zz: $ \liminf{\frac{F(x+h_n) - F(x)}{h_n}} = f(x)$\\
+o.B.d.A. Sei $h_n > 0$.\\
+$F(x+h_n) - F(x) = \int_{a}^{x+h_n}{f(t)\der t} - \int_{a}^{x}{f(t)\der t} = \int_{x}^{x+h_n}{f(t)\der t}$\\
+Nach dem Mittelwertsatz der Integralrechnung exisitiert ein $x_n \in [x, x+ h_n]$ mit $\int_{x}^{x+h_n}{f(t)\der t} = h_n f(x_n)$.
+d.h. $\frac{F(x+h_n) - F(x)}{h_n} = f(x_n)$.\\
+Da $ \liminf{h_n} = 0 \Rightarrow \liminf{x_n} = x.$ Da $f$ stetig ist, folgt $\liminf{f(x_n)} = f(x)$. d.h. $\liminf{\frac{F(x+h_n) - F(x)}{h_n}} = \liminf{f(x_n)} = f(x).$\\
+Also ist $F$ differenzierbar und $F'(x) = f(x) \sp \forall x \in [a,b]$ 
+\end{proof}
+\end{prop}
+
+\begin{satz}[Hauptsatz der Differential- und Integralrechnung - Teil II]
+Sei $f: [a,b] \to \R$ stetig und $F$ eine Stammfunktion von $f$. Dann gilt: \[ \intAB{f(x)} = F(b) - F(a)\]
+Man schreibt: $F|_a^b = F(b) - F(a)$
+\begin{proof}
+Sei $x \in [a,b]$. Dann folgt aus Teil I $F(x) = \int_{a}^{x}{f_t \der t}$ ist Stammfunktion von $f$.\\
+$\Rightarrow F(x) = \int_{a}^{x}{f_t \der t} + c \quad $mit $c$ Konstante\\
+$\Rightarrow F(b) - F(a) = \int_{a}^{b}{f_t \der t} + c - \underbrace{\int_{a}^{a}{f_t \der t}}_{= 0} - c = \int_{a}^{b}{f_t \der t}$.
+\end{proof}
+\end{satz}
+
+\begin{bsp}[zu Stammfunktionen]
+\begin{enumerate}
+\item $\displaystyle \int{x^a \der x} = \frac{x^{a+1}}{a+1} $ für $ a \ne -1$
+\item $\displaystyle \int{\frac{1}{x} \der x} = ln(\abs{x})$
+\item $\displaystyle \int{\sin x \der x} = - \cos x$
+\item $\displaystyle \int{\cos x \der x} = \sin x$
+\item $\displaystyle \int{\e^x \der x} =  \e^x$
+\item $\displaystyle \int{\frac{1}{\cos^2x} \der x} =  \tan x$
+\end{enumerate}
+\begin{proof}
+Differenzieren der rechten Seite.
+\end{proof}
+zB $\int_{0}^{\pi}{\sin x \der x} = - \cos x  |_0^{\pi} = \cos(0) - \cos(\pi) = 1 +1 = 2$\\
+$\int_{0}^{2\pi}{\sin x \der x} = - \cos x  |_0^{2\pi} = \cos(0) - \cos(2\pi) = -1 +1 = 0$
+\end{bsp}
+
+\begin{satz}[Partielle Integration]
+Seien $f,g : [a,b] \to \R$ stetig differenzierbar. Dann ist \[\intAB{f(x)g'(x)} = \stamm{a}{b}{(f(x) g(x))} - \intAB{f'(x)g(x)}\]
+\begin{proof}
+Sei $F(x) = f(x)g(x)$\\
+Aus der Produktregel folgt $F'(x) = f'(x) g(x) + f(x) g'(x)$\\
+$\overset{\text{Hauptsatz}}{\Rightarrow} \intAB{f(x)g'(x)} + \intAB{f'(x)g(x)} = \intAB{f(x)g'(x) + f'(x)g(x)} = \intAB{F'(x)} = \stamm{a}{b}{F(x)} = \stamm{a}{b}{f(x)g(x)} $\\
+$\Rightarrow \intAB{f(x)g'(x)} = \stamm{a}{b}{f(x)g(x)} - \intAB{f'(x)g(x)} $
+\end{proof}
+\end{satz}
+
+\begin{satz}[Substitutionsregel]
+Sei $f : D \to \R$ stetig und $\phi: [a,b] \to \R$ stetig differenzierbar mit $\phi([a,b]) \subset D$. Dann ist \[ \int_{a}^{b}{f(\phi(t))\phi'(t) \der t} = \integral{\phi(a)}{\phi(b)}{f(x)}\]
+\begin{proof}
+Sei $F: D \to \R$ eine Stammfunktion von $f$. Nach der kettenregel folgt für $t \in [a,b]$ \\
+$\displaystyle (F \circ \phi)'(t) = F'(\phi(t))\phi'(t) ) f(\phi(t))\phi'(t)$\\
+$\overset{\text{Hauptsatz}}{\Rightarrow} \intAB[t]{f(\phi(t))\phi'(t)} = \intAB[t]{(F\circ\phi)'(t)} = \stamm{a}{b}{(F\circ\phi)(t)} = (F\circ\phi)(b) - (F\circ\phi)(a) = F(\phi(b)) - F(\phi(a)) = \integral[t]{\phi(a)}{\phi(b)}{f(t)}$
+\end{proof}
+\end{satz}
+
+\begin{bem}
+Schreibt man symbolisch $\der \phi(t) = \phi'(t)\der t \Rightarrow \int_{a}^{b}{f(\phi(t))\phi'(t) \der t} = \integral{\phi(a)}{\phi(b)}{f(x)}$ 
+\end{bem}
+
+\begin{bsp}
+\begin{enumerate}
+\item $f: [a,b] \to \R \sp (0 < a < b) $ mit $ f(x) = lnx$\\
+$\intAB{ln(x)} = \intAB{\underbrace{ln(x)}_{f}\underbrace{1}_{g'}} \overset{\text{Partielle Integration}}{=} \stamm{a}{b}{ln(x)x} - \intAB{\frac{1}{x}x} = \stamm{a}{b}{ln(x)x} - (b-a) = ln(b)b - ln(a)(a) - (b - a) = \stamm{a}{b}{x(ln(x)-1)}$\\
+Also $F(x) = xln(x)-x$ ist Stammfunktion von $ln(x)$.
+\item Fläche des Einheitskreises\\
+%GRAFIK Einheitskreis  und fläche markiert von einem viertel f(x) = \sqrt{1-x^2}
+$x^2 + y^2 = 1 \Rightarrow y^2 = 1 - x^2 \Rightarrow y =  = \sqrt{1-x^2}$
+Sei $f: [0,1] \to \R$ mit $f(x) =  \sqrt{1-x^2}$\\
+Frage: Was ist $\integral{0}{1}{ \sqrt{1-x^2}} $?\\
+Substitution $x = \phi(t) = \sin(t)$, dann ist $\phi'(t) = \cos(t)$. $\phi(0) = \sin(0) = 0$ und $ \phi(\frac{\pi}{2}) = \sin(\frac{\pi}{2}) = 1$\\
+$\Rightarrow \integral{0}{1}{\sqrt{1-x^2}} = \integral{\phi(0)}{\phi(\frac{\pi}{2})}{f(x)} \overset{\text{Substitutionsregel}}{=} \integral[t]{0}{\frac{\phi}{2}}{f(\phi(t))\phi'(t)} = \integral[t]{0}{\frac{\phi}{2}}{\underbrace{\sqrt{1-\sin(t)^2}}_{\cos(t)}\cos(t)} = \integral[t]{0}{\frac{\phi}{2}}{\cos^2(t)}$\\
+$\cos(2 t) =  \cos(t + t) = \cos(t)\cos(t) - \sin(t)\sin(t) = \cos^2(t) - \sin^2(t) = \cos^2(t) - (1 - \cos^2(t)) = 2\cos^2(t) - 1$\\
+$\Rightarrow \cos^2(t) = \frac{1}{2} (\cos(2t) +1)$\\
+$\Rightarrow \integral{0}{1}{\sqrt{1-x^2}} = \integral[t]{0}{\frac{\pi}{2}}{\cos^2(t)} =  \frac{1}{2} \integral[t]{0}{\frac{\pi}{2}}{\cos(2t) +1} =  \frac{1}{2} (\integral[t]{0}{\frac{\pi}{2}}{\cos(2t)} + \integral[t]{0}{\frac{\pi}{2}}{ +1} ) = \frac{1}{2} \stamm{0}{\frac{\pi}{2}}{\frac{\sin(2t)}{2}} + \frac{1}{2} \stamm{0}{\frac{\pi}{2}}{x} = \frac{\sin(\pi)}{4} - \frac{\sin(0)}{4} + \frac{\pi}{4} - \frac{0}{4} = \frac{\pi}{4}$\\
+$\Rightarrow$ Fläche des Einheitskreises $= 4 \integral{0}{1}{\sqrt{1 - x^2}} = 4 \frac{\pi}{4} = \pi$
+\end{enumerate}
+\end{bsp}
+
+
+
+
 
 
 
