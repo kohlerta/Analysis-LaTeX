@@ -1438,65 +1438,78 @@ Für jede Folge $(x_n)$ mit $\liminf{x_n} = x_0$ ist die Folge $(f(x_n))$ konver
 \end{bem}
 
 \begin{satz}[Zwischenwertsatz]
-Sei $f:[a,b] \to \R$ stetig mit $f(a) < 0$ und $f(b) > 0$. Dann gibt es ein $ x \in (a,b)$ mit f(x) = 0.
-% zwischenwertsatz.png
+Sei $f:[a,b] \to \R$ stetig mit $f(a) < 0$ und $f(b) > 0$. Dann gibt es ein $ x \in (a,b)$ mit $f(x) = 0$.
+%TODO zwischenwertsatz.png
 \begin{proof}
-Wir konstruieren durch Intervallhalbierung eine Folge, deren Grenzwert eine Nullstelle von $f$ ist.\\
+Wir konstruieren durch Intervallhalbierung eine Folge, deren Grenzwert eine Nullstelle von $f$ ist. \\
 Wir definieren induktiv zwei Folgen $(a_n)$ und $(b_n)$ mit folgenden Eigenschaften:
 \begin{itemize}
 \item $0 \le b_n - a_n \le \frac{b-a}{2^n}$
 \item $f(a_n) < 0 < f(b_n)$
 \end{itemize}
-\begin{math}
-\IA \quad a_0 = a, \quad b_n = b\\
-\IV{\text{Seien $a_n$ und $b_n$ schon konstruiert}} \\
-	\text{Definiere den Mittelpunkt }M = \frac{a_n + b_n}{2}. \text{ Ist } f(M) = 0, \text{ dann setze } x = M \\
-\IS\\
-\text{Fall 1: Ist } f(M) < 0 : a_{n+1} = M, b_{n+1} = b_n.\\
-\text{Fall 2: Ist } f(M) > 0 : a_{n+1} = b_n, b_{n+1} = M. \\
-% ev mit grafik erklären
-\text{ Nach Definition ist } f(a_{n+1}) < 0 und f(b_{n+1}) > 0.\\
-0 \le b_{n+1} - a_{n+1} \le \frac{b_n - a_n}{2}\\
-\text{Denn Fall 1: }b_{n+1} - a_{n+1} = b_n - \frac{a_n+b_n}{2} = \frac{2b_n + a_n - b_n}{2} = \frac{b_n - a_n}{2}
-\text{und Fall 2: } b_{n+1} - a_{n+1} = \frac{a_n+b_n}{2} - a_n = \frac{b_n + a_n - 2a_n}{2} = \frac{b_n - a_n}{2}
-\le \frac{b_{n-1} - a_{n-1}}{2^2} \le \dots \le \frac{b-a}{2^n+1}\\
-\end{math}
-Nach Konstruktion ist die Folge $(a_n)$ monoton wachsend und durch $b$ nach oben beschränkt. Die Folge $(b_n)$ ist monoton fallend und durch $a$ nach unten beschränkt.
-Nach dem Monotoniekriterium konvergieren die beiden Folgen $(a_n)$ und $(b_n)$. Sei $\liminf{b_n} = b_0$ und $\liminf{a_n}  = a_0$\\
-Aus $0 \le b_n - a_n \le \frac{b-a}{2}$ folgt $0 \le b_0 - a_0 \le \liminf{\frac{b-a}{2^n}} = 0$
-Dann folgt: $\liminf{a_n} = lim{b_n} = x \in (a,b)$
-Da $f(a_n) < 0 < f(b_n)$ und $f$ stetig ist, folgt $0 \le \liminf{f(b_n)} = f(x) = \liminf{f(a_n)} \le 0 \Rightarrow f(x) = 0$.
+\[\begin{aligned}[t]
+&\IA \quad a_0 = a, \quad b_n = b \\
+&\IV{\text{Seien $a_n$ und $b_n$ schon konstruiert}} \\
+&\text{Definiere den Mittelpunkt }M = \frac{a_n + b_n}{2}. \text{ Ist } f(M) = 0, \text{ dann setze } x = M .\\
+&\IS \\
+&\text{Fall 1: Ist } f(M) < 0 : a_{n+1} = M \text{ , } b_{n+1} = b_n. \\
+&\text{Fall 2: Ist } f(M) > 0 : a_{n+1} = b_n \text{ , } b_{n+1} = M.  \\
+% TODO ev mit grafik erklären
+&\text{Nach Definition ist } f(a_{n+1}) < 0 \text{ und } f(b_{n+1}) > 0. \\
+&\text{Es gilt: } 0 \le b_{n+1} - a_{n+1} \le \frac{b_n - a_n}{2} \text{ , denn} \\
+&\text{Fall 1: } b_{n+1} - a_{n+1} = b_n - \frac{a_n+b_n}{2} = \frac{2b_n + a_n - b_n}{2} = \frac{b_n - a_n}{2} \\
+&\text{Fall 2: } b_{n+1} - a_{n+1} = \frac{a_n+b_n}{2} - a_n = \frac{b_n + a_n - 2a_n}{2} = \frac{b_n - a_n}{2}
+\le \frac{b_{n-1} - a_{n-1}}{2^2} \le \dots \le \frac{b-a}{2^n+1} \\
+&\text{Nach Konstruktion ist die Folge $(a_n)$ monoton wachsend und durch $b$ nach oben beschränkt.} \\
+&\text{Die Folge $(b_n)$ ist monoton fallend und durch $a$ nach unten beschränkt.} \\
+&\text{Nach dem Monotoniekriterium konvergieren die beiden Folgen $(a_n)$ und $(b_n)$.} \\
+&\text{ Sei } \liminf{b_n} = b_0 \text{ und } \liminf{a_n}  = a_0 \\
+&0 \le b_n - a_n \le \frac{b-a}{2} \Rightarrow 0 \le b_0 - a_0 \le \liminf{\frac{b-a}{2^n}} = 0 \\
+&\Rightarrow \liminf{a_n} = \liminf{b_n} = x \in (a,b) \\
+&\text{Da } f(a_n) < 0 < f(b_n) \text{ und } f \text{ stetig ist, folgt } 0 \le \liminf{f(b_n)} = f(x) = \liminf{f(a_n)} \le 0 \Rightarrow f(x) = 0
+\end{aligned}\]
 \end{proof}
 \end{satz}
 
 \begin{defi}
-Eine Funktion $f: D \to \R$ heißt beschränkt, wenn die Menge $f(D) = \menge{f(x)}{x \in D}$ beschränkt ist.
-d.h. $\exists M \in \R$ sodass $\abs{f(x)} \le M \quad \forall x\in D$
+Eine Funktion $f: D \to \R$ heißt beschränkt, wenn die Menge $f(D) = \menge{f(x)}{x \in D}$ beschränkt ist, d.h.
+\[\forall x\in D \spdot \exists M \in \R \spcolon \abs{f(x)} \le M \quad\]
 \end{defi}
 
-\begin{satz}[vom Maximum u nd Minimum]
-Sei $[a,b]$ ein abgeschlossenes Intervall. Dann ist jede stetige Funktion $f: [a,b] \to \R$ beschränkt und nimmt ihr Maximum und Minimum an.\\
-d.h. $\exists p,q \in [a,b] \text{ mit } f(p) = sup(\menge{f(x)}{x\in[a,b]}) = sup_f und f(q) = inf(\menge{f(x)}{x\in[a,b]}) = inf_f$
+\begin{satz}[vom Maximum und Minimum]
+Sei $[a,b]$ ein abgeschlossenes Intervall. Dann ist jede stetige Funktion $f: [a,b] \to \R$ beschränkt und nimmt ihr Maximum und Minimum an, d.h.
+\[\exists p,q \in [a,b] \text{ mit } f(p) = sup(\menge{f(x)}{x\in[a,b]}) = sup_f \text{ und } f(q) = inf(\menge{f(x)}{x\in[a,b]}) = inf_f\]
+
 \begin{proof}
-Wir zeigen nur das Maximum. Denn das Minimum ist das Maximum von $-f$. \\
-Sei $M = sup(\menge{f(x)}{x\in[a,b]}) \in \R \cup \{\infty\}$.\\
-1. Ist $f$ nicht nach oben beschränkt, dann gibt es $\forall n \in \N$ ein $f(x_n)$ mit $f(x_n) \ge n \Rightarrow \liminf{f(x_n)} = \infty = M$\\
-2. Ist $f$ beschränkt $\Rightarrow M \in \R$ und $\forall n \in \N \quad \exists f(x_n)$ mit $ M-\frac{1}{n} < f(x_n) \le M \Rightarrow \liminf{f(x_n)} = M$
-Also gibt es in beiden Fällen eine Folge $(x_n)$ mit $x_n \in [a,b]$ mit $\liminf{f(x_n)} = M$.\\
-Da $x_n \in [a,b]$ ist die Folge $(x_n)$ beschränkt. Nach dem Satz von Bolzano-Weierstraß besitzt die Folge $(x_n)$ eine konvergente Teilfolge $(x_{n_k})$ mit $\liminf[k]{x_{n_k}} = p \in [a,b]$.
-Da $\liminf{f(x_n)} = M$ und jede Teilfolge eine konvergente Folge den selben Grenzwert hat folgt $\liminf[k]{f(x_{n_k})} = M$\\
-Wir wissen $\liminf[k]{x_{n_k}} = p$. Da $f$ stetig ist, folgt $\liminf[k]{f(x_{n_k})} = f(p)$. Aber $\liminf[k]{f(x_{n_k})} = M \Rightarrow M = f(p).$\\
-$\Rightarrow p$ ist Maximum der Funktion $f$.
+Wir zeigen nur das Maximum, denn das Minimum ist das Maximum von $-f$.
+\[\begin{aligned}[t]
+&\text{Sei } M = sup(\menge{f(x)}{x\in[a,b]}) \in \R \cup \{\infty\} \\
+&\text{Fall 1: Ist $f$ nicht nach oben beschränkt} \Rightarrow \forall n \in \N \spdot \exists f(x_n) \spcolon f(x_n) \ge n \Rightarrow \liminf{f(x_n)} = \infty = M \\
+&\text{Fall 2: Ist $f$ beschränkt } \Rightarrow M \in \R \text{ und } \forall n \in \N \spdot \exists f(x_n) \spcolon M-\frac{1}{n} < f(x_n) \le M \Rightarrow \liminf{f(x_n)} = M \\
+&\text{Also gibt es in beiden Fällen eine Folge $(x_n)$ mit $x_n \in [a,b]$ mit $\liminf{f(x_n)} = M$.} \\
+&\text{Da $x_n \in [a,b]$ ist die Folge $(x_n)$ beschränkt.} \\
+&\text{Nach dem Satz von Bolzano-Weierstraß besitzt die Folge $(x_n)$ eine konvergente Teilfolge $(x_{n_k})$ mit} \\
+&\liminf[k]{x_{n_k}} = p \in [a,b] \\
+&\text{Da $\liminf{f(x_n)} = M$ und jede Teilfolge eine konvergente Folge den selben Grenzwert hat, folgt} \\ &\liminf[k]{f(x_{n_k})} = M \\
+&\text{Da $f$ stetig ist, folgt} \liminf[k]{f(x_{n_k})} = f(p) \\
+&\text{Aber } \liminf[k]{f(x_{n_k})} = M \Rightarrow M = f(p) \\
+&\Rightarrow p \text{ ist Maximum der Funktion } f
+\end{aligned}\]
 \end{proof}
 \end{satz}
 
 \begin{bem}
-$f:(0,1] \to \R \text{ mit } f(x) = \frac{1}{x}$ \\ % mit grafik!
+$f:(0,1] \to \R \text{ mit } f(x) = \frac{1}{x}$ \\ % TODO mit grafik!
 $f$ ist stetig aber nicht nach oben beschränkt.
 \end{bem}
 
 \begin{defi}
-Eine Funktion $f: D \to \R$ heißt (streng) monoton wachsen wenn gilt: $\forall a,b \in D \quad a \le b \quad (a < b) \Rightarrow f(a) \le f(b) \quad (f(a) < f(b))$. Entsprechend für (streng) monoton fallend.
+Eine Funktion $f: D \to \R$ heißt (streng) monoton wachsend, wenn gilt:
+\[\begin{aligned}[t]
+&\forall a,b \in D \spcolon a \le b \Rightarrow f(a) \le f(b) \\
+&\forall a,b \in D \spcolon a < b \Rightarrow f(a) < f(b) \quad \text{(streng)}
+\end{aligned}\]
+Entsprechend für (streng) monoton fallend.
 \end{defi}
 
 \begin{satz}[von der stetigen Umkehrfunktion]
