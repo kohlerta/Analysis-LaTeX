@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.10.8)  6 DEC 2018 11:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.10.24)  18 FEB 2019 18:29
 entering extended mode
-**C:/Users/tanja/Documents/GitHub/Analysis-LaTeX/analysis_skript.tex
-(C:/Users/tanja/Documents/GitHub/Analysis-LaTeX/analysis_skript.tex
+**C:/Users/tanja/Documents/Uni/Analysis/Analysis-LaTeX/analysis_skript.tex
+(C:/Users/tanja/Documents/Uni/Analysis/Analysis-LaTeX/analysis_skript.tex
 LaTeX2e <2018-04-01> patch level 5
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls"
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
@@ -546,36 +546,202 @@ Package: multicol 2018/04/20 v1.8s multicolumn formatting (FMi)
 \colbreak@box=\box66
 \mc@col@check@num=\count136
 )
-\c@satz=\count137
+("C:\Program Files\MiKTeX 2.9\tex\latex\l3packages\xparse\xparse.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\expl3.sty"
+Package: expl3 2019-02-15 L3 programming layer (loader) 
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\expl3-code.tex"
+Package: expl3 2019-02-15 L3 programming layer (code)
+\c_max_int=\count137
+\l_tmpa_int=\count138
+\l_tmpb_int=\count139
+\g_tmpa_int=\count140
+\g_tmpb_int=\count141
+\g__kernel_prg_map_int=\count142
+\c_log_iow=\count143
+\l_iow_line_count_int=\count144
+\l__iow_line_target_int=\count145
+\l__iow_one_indent_int=\count146
+\l__iow_indent_int=\count147
+\c_zero_dim=\dimen190
+\c_max_dim=\dimen191
+\l_tmpa_dim=\dimen192
+\l_tmpb_dim=\dimen193
+\g_tmpa_dim=\dimen194
+\g_tmpb_dim=\dimen195
+\c_zero_skip=\skip56
+\c_max_skip=\skip57
+\l_tmpa_skip=\skip58
+\l_tmpb_skip=\skip59
+\g_tmpa_skip=\skip60
+\g_tmpb_skip=\skip61
+\c_zero_muskip=\muskip11
+\c_max_muskip=\muskip12
+\l_tmpa_muskip=\muskip13
+\l_tmpb_muskip=\muskip14
+\g_tmpa_muskip=\muskip15
+\g_tmpb_muskip=\muskip16
+\l_keys_choice_int=\count148
+\l__intarray_loop_int=\count149
+\c__intarray_sp_dim=\dimen196
+\g__intarray_font_int=\count150
+\c__fp_leading_shift_int=\count151
+\c__fp_middle_shift_int=\count152
+\c__fp_trailing_shift_int=\count153
+\c__fp_big_leading_shift_int=\count154
+\c__fp_big_middle_shift_int=\count155
+\c__fp_big_trailing_shift_int=\count156
+\c__fp_Bigg_leading_shift_int=\count157
+\c__fp_Bigg_middle_shift_int=\count158
+\c__fp_Bigg_trailing_shift_int=\count159
+\c__kernel_randint_max_int=\count160
+\g__fp_array_int=\count161
+\l__fp_array_loop_int=\count162
+\l__sort_length_int=\count163
+\l__sort_min_int=\count164
+\l__sort_top_int=\count165
+\l__sort_max_int=\count166
+\l__sort_true_max_int=\count167
+\l__sort_block_int=\count168
+\l__sort_begin_int=\count169
+\l__sort_end_int=\count170
+\l__sort_A_int=\count171
+\l__sort_B_int=\count172
+\l__sort_C_int=\count173
+\l__tl_analysis_normal_int=\count174
+\l__tl_analysis_index_int=\count175
+\l__tl_analysis_nesting_int=\count176
+\l__tl_analysis_type_int=\count177
+\l__regex_internal_a_int=\count178
+\l__regex_internal_b_int=\count179
+\l__regex_internal_c_int=\count180
+\l__regex_balance_int=\count181
+\l__regex_group_level_int=\count182
+\l__regex_mode_int=\count183
+\c__regex_cs_in_class_mode_int=\count184
+\c__regex_cs_mode_int=\count185
+\l__regex_catcodes_int=\count186
+\l__regex_default_catcodes_int=\count187
+\c__regex_catcode_D_int=\count188
+\c__regex_catcode_S_int=\count189
+\c__regex_catcode_L_int=\count190
+\c__regex_catcode_O_int=\count191
+\c__regex_catcode_A_int=\count192
+\c__regex_all_catcodes_int=\count193
+\l__regex_show_lines_int=\count194
+\l__regex_min_state_int=\count195
+\l__regex_max_state_int=\count196
+\l__regex_left_state_int=\count197
+\l__regex_right_state_int=\count198
+\l__regex_capturing_group_int=\count199
+\l__regex_min_pos_int=\count266
+\l__regex_max_pos_int=\count267
+\l__regex_curr_pos_int=\count268
+\l__regex_start_pos_int=\count269
+\l__regex_success_pos_int=\count270
+\l__regex_curr_char_int=\count271
+\l__regex_curr_catcode_int=\count272
+\l__regex_last_char_int=\count273
+\l__regex_case_changed_char_int=\count274
+\l__regex_curr_state_int=\count275
+\l__regex_step_int=\count276
+\l__regex_min_active_int=\count277
+\l__regex_max_active_int=\count278
+\l__regex_replacement_csnames_int=\count279
+\l__regex_match_count_int=\count280
+\l__regex_min_submatch_int=\count281
+\l__regex_submatch_int=\count282
+\l__regex_zeroth_submatch_int=\count283
+\g__regex_trace_regex_int=\count284
+\c_empty_box=\box67
+\l_tmpa_box=\box68
+\l_tmpb_box=\box69
+\g_tmpa_box=\box70
+\g_tmpb_box=\box71
+\l__box_top_dim=\dimen197
+\l__box_bottom_dim=\dimen198
+\l__box_left_dim=\dimen199
+\l__box_right_dim=\dimen256
+\l__box_top_new_dim=\dimen257
+\l__box_bottom_new_dim=\dimen258
+\l__box_left_new_dim=\dimen259
+\l__box_right_new_dim=\dimen260
+\l__box_internal_box=\box72
+\l__coffin_internal_box=\box73
+\l__coffin_internal_dim=\dimen261
+\l__coffin_offset_x_dim=\dimen262
+\l__coffin_offset_y_dim=\dimen263
+\l__coffin_x_dim=\dimen264
+\l__coffin_y_dim=\dimen265
+\l__coffin_x_prime_dim=\dimen266
+\l__coffin_y_prime_dim=\dimen267
+\c_empty_coffin=\box74
+\l__coffin_aligned_coffin=\box75
+\l__coffin_aligned_internal_coffin=\box76
+\l_tmpa_coffin=\box77
+\l_tmpb_coffin=\box78
+\g_tmpa_coffin=\box79
+\g_tmpb_coffin=\box80
+\c__coffin_empty_coffin=\box81
+\l__coffin_display_coffin=\box82
+\l__coffin_display_coord_coffin=\box83
+\l__coffin_display_pole_coffin=\box84
+\l__coffin_display_offset_dim=\dimen268
+\l__coffin_display_x_dim=\dimen269
+\l__coffin_display_y_dim=\dimen270
+\g__file_internal_ior=\read2
+\l__coffin_bounding_shift_dim=\dimen271
+\l__coffin_left_corner_dim=\dimen272
+\l__coffin_right_corner_dim=\dimen273
+\l__coffin_bottom_corner_dim=\dimen274
+\l__coffin_top_corner_dim=\dimen275
+\l__coffin_scaled_total_height_dim=\dimen276
+\l__coffin_scaled_width_dim=\dimen277
+\l__seq_internal_a_int=\count285
+\l__seq_internal_b_int=\count286
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3pdfmode.def"
+File: l3pdfmode.def 2019-02-15 v L3 Experimental driver: PDF mode
+\l__driver_color_stack_int=\count287
+))
+Package: xparse 2018-10-17 L3 Experimental document command parser
+\l__xparse_current_arg_int=\count288
+\g__xparse_grabber_int=\count289
+\l__xparse_m_args_int=\count290
+\l__xparse_mandatory_args_int=\count291
+\l__xparse_v_nesting_int=\count292
+)
+\c@satzaux=\count293
+\c@subsatzaux=\count294
 
 No file analysis_skript.aux.
 \openout1 = `analysis_skript.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 108.
-LaTeX Font Info:    ... okay on input line 108.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 108.
-LaTeX Font Info:    ... okay on input line 108.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 108.
-LaTeX Font Info:    ... okay on input line 108.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 108.
-LaTeX Font Info:    ... okay on input line 108.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 108.
-LaTeX Font Info:    ... okay on input line 108.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 108.
-LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 169.
+LaTeX Font Info:    ... okay on input line 169.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 169.
+LaTeX Font Info:    ... okay on input line 169.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 169.
+LaTeX Font Info:    ... okay on input line 169.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 169.
+LaTeX Font Info:    ... okay on input line 169.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 169.
+LaTeX Font Info:    ... okay on input line 169.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 169.
+LaTeX Font Info:    ... okay on input line 169.
 ABD: EveryShipout initializing macros
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count138
-\scratchdimen=\dimen190
-\scratchbox=\box67
-\nofMPsegments=\count139
-\nofMParguments=\count140
+\scratchcounter=\count295
+\scratchdimen=\dimen278
+\scratchbox=\box85
+\nofMPsegments=\count296
+\nofMParguments=\count297
 \everyMPshowfont=\toks44
-\MPscratchCnt=\count141
-\MPscratchDim=\dimen191
-\MPnumerator=\count142
-\makeMPintoPDFobject=\count143
+\MPscratchCnt=\count298
+\MPscratchDim=\dimen279
+\MPnumerator=\count299
+\makeMPintoPDFobject=\count300
 \everyMPtoPDFconversion=\toks45
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -659,204 +825,579 @@ G,.JBIG2,.JB2,.eps]
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 110.
+LaTeX Font Info:    Try loading font information for U+msa on input line 172.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 110.
+LaTeX Font Info:    Try loading font information for U+msb on input line 172.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
-
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}] [1]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 216.
-
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
-File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 216.
- [2] [3]
 
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 270.
+LaTeX Warning: No \author given.
 
-[4]
-Underfull \hbox (badness 10000) in paragraph at lines 340--342
+[1
 
- []
+{C:/Users/tanja/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+No file analysis_skript.toc.
+\tf@toc=\write4
+\openout4 = `analysis_skript.toc'.
 
-[5] [6] [7] [8] [9] [10] [11] [12] [13] [14]
-Overfull \hbox (91.25534pt too wide) in paragraph at lines 844--863
-[]$[][]$
- []
+[1]
 
-[15]
-Underfull \hbox (badness 10000) in paragraph at lines 870--871
-
- []
-
-
-Overfull \hbox (18.82074pt too wide) in paragraph at lines 878--880
-[]\T1/cmr/m/n/10 Die geo-me-tri-sche Rei-he. Sei $[] \OML/cmm/m/it/10 < \OT1/cm
-r/m/n/10 1 \OMS/cmsy/m/n/10 ) [][] [] \OT1/cmr/m/n/10 = [][] [] \OMS/cmsy/m/n/1
-0  \OT1/cmr/m/n/10 1[] [][] []$
- []
-
-[16]
-Overfull \hbox (74.08517pt too wide) in paragraph at lines 895--899
-[]$\OML/cmm/m/it/10 S[] \OT1/cmr/m/n/10 = [][] [] = 1 + [] + [] + [] + [] + [] 
-+ [] \OMS/cmsy/m/n/10 
- []
-
-
-Overfull \hbox (54.56248pt too wide) in paragraph at lines 941--945
-\OML/cmm/m/it/10 "[] [] \OMS/cmsy/m/n/10  [] \OML/cmm/m/it/10 < "\OMS/cmsy/m/n
-/10 8\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10  \OML/cmm/m/it/10 m \OMS/cmsy/m/n/10 
- \OML/cmm/m/it/10 N[] [][] [][]$
- []
-
-[17]
-Overfull \hbox (14.8173pt too wide) in paragraph at lines 956--960
-[]$[] [][] [] \OML/cmm/m/it/10 < \OMS/cmsy/m/n/10 1[]\OML/cmm/m/it/10 b[] > \OT
-1/cmr/m/n/10 0[]\OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 " > \OT1/cmr/m/n/10 0 \OMS/c
-msy/m/n/10 9\OML/cmm/m/it/10 N \OMS/cmsy/m/n/10 2 \U/msb/m/n/10 N \OMS/cmsy/m/n
-/10 8\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10  \OML/cmm/m/it/10 m \OMS/cmsy/m/n/10 
- \OML/cmm/m/it/10 N  [] <
- []
-
-
-Overfull \hbox (34.17319pt too wide) in paragraph at lines 956--960
-\OML/cmm/m/it/10 "[] [] \OMS/cmsy/m/n/10  [] \OML/cmm/m/it/10 < "\OMS/cmsy/m/n
-/10 8\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10  \OML/cmm/m/it/10 m \OMS/cmsy/m/n/10 
- \OML/cmm/m/it/10 N[] [][] [][] \OMS/cmsy/m/n/10 )
- []
-
-
-Overfull \hbox (2.42868pt too wide) in paragraph at lines 977--982
-\OML/cmm/m/it/10 ::: \OMS/cmsy/m/n/10  \OML/cmm/m/it/10 q[] [] :[] [] \OMS/cms
-y/m/n/10  \OML/cmm/m/it/10 q[] [] ; da [][] [] \OMS/cmsy/m/n/10  [][] [] \OT1
-/cmr/m/n/10 = [] [][] [] = [] [][]0 \OML/cmm/m/it/10 <
- []
-
-
-Overfull \hbox (17.29071pt too wide) in paragraph at lines 977--982
-\OML/cmm/m/it/10 q < \OT1/cmr/m/n/10 1[] \OMS/cmsy/m/n/10 ) []$[]  [] 
- []
-
-[18]
-Underfull \hbox (badness 10000) in paragraph at lines 1029--1030
-
- []
-
-[19] [20]
-
-LaTeX Warning: Command \ss invalid in math mode on input line 1113.
-
-Missing character: There is no ÿ in font cmr10!
-[21]
-
-LaTeX Warning: Command \" invalid in math mode on input line 1141.
-
-Missing character: There is no ü in font cmr10!
-
-Overfull \hbox (7.55064pt too wide) in paragraph at lines 1139--1148
-[]$\OML/cmm/m/it/10 f \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 g \OT1/cmr/m/n/10 : \O
-ML/cmm/m/it/10 D \OMS/cmsy/m/n/10 ! \U/msb/m/n/10 R\OML/cmm/m/it/10 :Seix[]eine
-beliebigeFolgemit [] [] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 a: [] [] \OT1/cmr/m/
-n/10 = \OML/cmm/m/it/10 nachDefinition \OT1/cmr/m/n/10 =
- []
-
-
-Overfull \hbox (9.71585pt too wide) in paragraph at lines 1139--1148
-[] [] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 RechenregelnfFolgen \OT1/cmr/m/n/10 = 
-[] [] + [] [] = \OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 a\OT1/cmr/m
-/n/10 ) + \OML/cmm/m/it/10 g\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 a\OT1/cmr/m/n/10 
-) = \OML/cmm/m/it/10 nachDefinition \OT1/cmr/m/n/10 =
- []
-
-
-LaTeX Warning: Command \" invalid in math mode on input line 1169.
-
-Missing character: There is no ö in font cmr10!
-
-Overfull \hbox (190.32141pt too wide) in paragraph at lines 1190--1196
-[]\T1/cmr/m/n/10 Die Be-trags-unk-ti-on $\OML/cmm/m/it/10 f \OT1/cmr/m/n/10 : \
-U/msb/m/n/10 R \OMS/cmsy/m/n/10 ! \U/msb/m/n/10 R[]\OML/cmm/m/it/10 x \OMS/cmsy
-/m/n/10 7! \OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10
- ) = []$ \T1/cmr/m/n/10 ist ste-tig auf $\U/msb/m/n/10 R$ \T1/cmr/m/n/10 Denn $
-\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) = []$ 
- []
-
-[22]
-Overfull \hbox (19.83507pt too wide) in paragraph at lines 1212--1224
-[]\T1/cmr/m/n/10 Sei $[] \OML/cmm/m/it/10 < \OT1/cmr/m/n/10 1 \OMS/cmsy/m/n/10 
-) []  \OT1/cmr/m/n/10 2 []$\T1/cmr/m/n/10 . $\OML/cmm/m/it/10 denn \OT1/cmr/m/
-n/10 : \OML/cmm/m/it/10 esgilt\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n \OT1/cmr/m/n/
-10 + 1)! \OMS/cmsy/m/n/10  \OT1/cmr/m/n/10 2[]\OML/cmm/m/it/10 ; da\OT1/cmr/m/
-n/10 (\OML/cmm/m/it/10 n \OT1/cmr/m/n/10 + 1)! = [] 1 \OMS/cmsy/m/n/10 
- []
-
-
-Overfull \hbox (23.7241pt too wide) in paragraph at lines 1212--1224
-[] \OMS/cmsy/m/n/10  [][] [] \OT1/cmr/m/n/10 = [][] [] = [][] [] \OMS/cmsy/m/n
-/10  [][] [] \OT1/cmr/m/n/10 = [] [][] [] \OMS/cmsy/m/n/10 
- []
-
-
-Overfull \hbox (109.15129pt too wide) in paragraph at lines 1226--1232
-\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :Daexpstetigin\OT1/cmr/m/n/10 0\OML/cmm/m/it/
-10 ; folgt [] [] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 exp\OT1/cmr/m/n/10 (0) = 1 
-\OMS/cmsy/m/n/10 ) [] [] \OT1/cmr/m/n/10 = [] [] = [] [] []
- []
-
-[23] [24] [25] [26] [27]
-Overfull \hbox (5.52818pt too wide) in paragraph at lines 1475--1478
-[] \OML/cmm/m/it/10 x \OT1/cmr/m/n/10 + \OT1/cmr/m/it/10 i [] \OML/cmm/m/it/10 
-x \OT1/cmr/m/n/10 = \OT1/cmr/m/it/10 e[] \OT1/cmr/m/n/10 = [][] [] = [][] [] = 
-[][] [] + [][] [] [] [][] [] +
- []
-
-[28] [29] [30]
-
-! LaTeX Error: Command \end{enumerate} invalid in math mode.
+! LaTeX Error: Environment subprop undefined.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1578 \end{enumerate}
-                      
+l.197 \begin{subprop}
+                     
 ? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.1578 \end{enumerate}
-                      
-? 
-[31] (analysis_skript.aux) )
-(\end occurred inside a group at level 1)
+! Undefined control sequence.
+l.207 \ensubbemaux
+                  [#1]\addcontentsline{toc}{subsubsection}{\protect\numberli...
 
-### semi simple group (level 1) entered at line 112 (\begingroup)
+? 
+! You can't use `macro parameter character #' in horizontal mode.
+l.207 \ensubbemaux[#
+                    1]\addcontentsline{toc}{subsubsection}{\protect\numberli...
+
+? 
+! Illegal parameter number in definition of \reserved@a.
+<to be read again> 
+                   1
+l.207 ...berline{\thesubsubsection}Bemerkung (#1)}
+                                                  }%
+? 
+! Extra }, or forgotten \endgroup.
+l.207 ...erline{\thesubsubsection}Bemerkung (#1)}}
+                                                  %
+? 
+! Extra }, or forgotten \endgroup.
+l.208    \ignorespaces}
+                       
+? 
+
+! LaTeX Error: Can be used only in preamble.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.216 \begin{document}
+                      
+? 
+(analysis_skript.toc)
+\tf@toc=\write5
+\openout5 = `analysis_skript.toc'.
+
+ [2]
+
+! LaTeX Error: Environment subprop undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.244 \begin{subprop}
+                     
+? 
+
+! LaTeX Error: \begin{document} on input line 216 ended by \end{subprop}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.255 \end{subprop}
+                   
+? 
+
+! LaTeX Error: Environment subdefi undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.257 \begin{subdefi}
+                     [Potenzschreibweise]
+? 
+
+! LaTeX Error: \begin{document} on input line 216 ended by \end{subdefi}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.262 \end{subdefi}
+                   
+? 
+
+Overfull \hbox (65.09544pt too wide) in paragraph at lines 257--263
+[]\T1/cmr/m/n/10 [Potenzschreibweise] Für $\OML/cmm/m/it/10 a \OMS/cmsy/m/n/10 
+2 \U/msb/m/n/10 R[]\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 2 \U/msb/m/n/10 Z[]\OML/
+cmm/m/it/10 a[]$ \T1/cmr/m/n/10 fol-gen-der-ma-ÿen in-duk-tiv de-fi-niert: $\OM
+L/cmm/m/it/10 a[] \OT1/cmr/m/n/10 = []$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 257--263
+
+ []
+
+
+! LaTeX Error: Environment subbem undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.264 \begin{subbem}
+                    
+? 
+
+! LaTeX Error: \begin{document} on input line 216 ended by \end{subbem}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.280 \end{subbem}
+                  
+? 
+[3]
+
+! LaTeX Error: Environment subprop undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.290 \begin{subprop}
+                     
+? 
+
+! LaTeX Error: \begin{document} on input line 216 ended by \end{subprop}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.295 \end{subprop}
+                   
+? 
+
+! LaTeX Error: Environment subbem undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.297 \begin{subbem}
+                    
+? 
+
+! LaTeX Error: \begin{document} on input line 216 ended by \end{subbem}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.306 \end{subbem}
+                  
+? 
+
+! LaTeX Error: Environment subdefi undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.308 \begin{subdefi}
+                     
+? 
+
+! LaTeX Error: \begin{document} on input line 216 ended by \end{subdefi}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.313 \end{subdefi}
+                   
+? 
+
+! LaTeX Error: Environment subsatz undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.315 \begin{subsatz}
+                     
+? 
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 326.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 326.
+
+
+! LaTeX Error: \begin{document} on input line 216 ended by \end{subsatz}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.338 \end{subsatz}
+                   
+? 
+
+! LaTeX Error: Environment subbem undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.340 \begin{subbem}
+                    [Archimedisches Axiom]
+? 
+
+! LaTeX Error: \begin{document} on input line 216 ended by \end{subbem}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.345 \end{subbem}
+                  
+? 
+
+! LaTeX Error: Environment subsatz undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.347 \begin{subsatz}
+                     [Bernoullische Ungleichung]
+? 
+[4]
+
+! LaTeX Error: \begin{document} on input line 216 ended by \end{subsatz}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.363 \end{subsatz}
+                   
+? 
+[5]
+
+! LaTeX Error: Environment subkorr undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.366 \begin{subkorr}
+                     
+? 
+
+! LaTeX Error: \begin{document} on input line 216 ended by \end{subkorr}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.384 \end{subkorr}
+                   
+? 
+
+! LaTeX Error: Environment subdefi undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.389 \begin{subdefi}
+                     
+? 
+
+! LaTeX Error: \begin{document} on input line 216 ended by \end{subdefi}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.404 \end{subdefi}
+                   
+? 
+
+! LaTeX Error: Environment subbsp undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.406 \begin{subbsp}
+                    
+? 
+
+! LaTeX Error: \begin{document} on input line 216 ended by \end{subbsp}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.412 \end{subbsp}
+                  
+? 
+
+! LaTeX Error: Environment subbem undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.414 \begin{subbem}
+                    [zur Erinnerung]
+? 
+
+! LaTeX Error: \begin{document} on input line 216 ended by \end{subbem}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.417 \end{subbem}
+                  
+? 
+
+! LaTeX Error: Environment subsatz undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.419 \begin{subsatz}
+                     [VollstÃ¤ndigkeitsaxiom]
+? 
+
+! LaTeX Error: \begin{document} on input line 216 ended by \end{subsatz}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.422 \end{subsatz}
+                   
+? 
+
+! LaTeX Error: Environment subbem undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.424 \begin{subbem}
+                    
+? 
+
+! LaTeX Error: \begin{document} on input line 216 ended by \end{subbem}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.426 \end{subbem}
+                  
+? 
+
+! LaTeX Error: Environment subprop undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.428 \begin{subprop}
+                     
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.431 S
+       eien \(M\) nach oben beschrÃ¤nkt und \(a\) eine obere Schranke von \(...
+
+? 
+[6]
+
+! LaTeX Error: \begin{document} on input line 216 ended by \end{subprop}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.437 \end{subprop}
+                   
+? 
+
+! LaTeX Error: Environment subprop undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.439 \begin{subprop}
+                     
+? 
+
+! LaTeX Error: \begin{document} on input line 216 ended by \end{subprop}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.445 \end{subprop}
+                   
+? 
+[7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17]
+Overfull \hbox (10.91696pt too wide) in paragraph at lines 928--944
+[]$[][][] 
+ []
+
+[18] [19] [20] [21] [22]
+Overfull \hbox (46.36462pt too wide) detected at line 1133
+[][]
+ []
+
+[23] [24]
+Underfull \hbox (badness 10000) in paragraph at lines 1198--1199
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1218--1220
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1231--1232
+
+ []
+
+[25] [26] [27]
+Overfull \hbox (42.19687pt too wide) detected at line 1325
+[][]
+ []
+
+[28]
+Overfull \hbox (20.04518pt too wide) detected at line 1363
+[][]
+ []
+
+[29] [30] [31] [32] [33] [34] [35]
+Overfull \hbox (5.52818pt too wide) in paragraph at lines 1690--1693
+[] \OML/cmm/m/it/10 x \OT1/cmr/m/n/10 + \OT1/cmr/m/it/10 i [] \OML/cmm/m/it/10 
+x \OT1/cmr/m/n/10 = \OT1/cmr/m/it/10 e[] \OT1/cmr/m/n/10 = [][] [] = [][] [] = 
+[][] [] + [][] [] [] [][] [] +
+ []
+
+[36] [37]
+Overfull \hbox (5.282pt too wide) in paragraph at lines 1795--1798
+[]\T1/cmr/m/n/10 Eine qua-dra-ti-sche Funk-ti-on $\OML/cmm/m/it/10 f \OT1/cmr/m
+/n/10 : \U/msb/m/n/10 R \OMS/cmsy/m/n/10 ! \U/msb/m/n/10 R$ \T1/cmr/m/n/10 mit 
+$\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) = \OML/
+cmm/m/it/10 x[]$\T1/cmr/m/n/10 . $\OML/cmm/m/it/10 f[]\OT1/cmr/m/n/10 (\OML/cmm
+/m/it/10 x\OT1/cmr/m/n/10 ) = [] [] = [] [] =
+ []
+
+
+Overfull \hbox (58.03004pt too wide) in paragraph at lines 1801--1811
+\T1/cmr/m/n/10 Für $[] \OML/cmm/m/it/10 < []$ \T1/cmr/m/n/10 folgt $[] \OT1/cmr
+/m/n/10 = [] = [] = [] \OMS/cmsy/m/n/10  [][] [][] [] 
+ []
+
+
+Overfull \hbox (6.46678pt too wide) in paragraph at lines 1811--1814
+[]\T1/cmr/m/n/10 Die Ab-lei-tungs-funk-ti-on $\OML/cmm/m/it/10 f \OT1/cmr/m/n/1
+0 : \U/msb/m/n/10 R \OMS/cmsy/m/n/10 ! \U/msb/m/n/10 R$ \T1/cmr/m/n/10 mit $\OM
+L/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) = []$ \T1/c
+mr/m/n/10 ist in $\OML/cmm/m/it/10 x \OT1/cmr/m/n/10 = 0$ \T1/cmr/m/n/10 nicht 
+dif-fe-ren-zier-bar. $[] [] \OT1/cmr/m/n/10 =
+ []
+
+[38] [39] [40]
+Overfull \hbox (22.5057pt too wide) in paragraph at lines 1920--1926
+\OMS/cmsy/m/n/10 ) 8[]\OML/cmm/m/it/10 x[] > x[][] [] [] \OT1/cmr/m/n/10 = \OML
+/cmm/m/it/10 x[][]f[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]\OT1/cmr/m/n/10 ) = [
+] [] \OMS/cmsy/m/n/10  \OT1/cmr/m/n/10 0[]\OMS/cmsy/m/n/10 8[]\OML/cmm/m/it/10
+ x[] <
+ []
+
+[41]
+Overfull \hbox (10.22916pt too wide) in paragraph at lines 1949--1953
+[]\T1/cmr/m/n/10 Wäre $\OML/cmm/m/it/10 g\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 b\OT
+1/cmr/m/n/10 ) = \OML/cmm/m/it/10 g\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 a\OT1/cmr/
+m/n/10 )$\T1/cmr/m/n/10 , dann gä-be es nach dem Mit-tel-wert-satz ein $\OML/cm
+m/m/it/10  \OMS/cmsy/m/n/10 2 \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 a; b\OT1/cmr/m
+/n/10 )$ \T1/cmr/m/n/10 mit $\OML/cmm/m/it/10 g[]\OT1/cmr/m/n/10 (\OML/cmm/m/it
+/10 \OT1/cmr/m/n/10 ) = 0 [][] 
+ []
+
+[42]
+Underfull \hbox (badness 10000) in paragraph at lines 2003--2005
+
+ []
+
+[43] [44] [45]
+Overfull \hbox (57.56868pt too wide) in paragraph at lines 2131--2132
+[]\T1/cmr/m/n/10 Für $\OML/cmm/m/it/10 f \OT1/cmr/m/n/10 : [\OML/cmm/m/it/10 a;
+ b\OT1/cmr/m/n/10 ] \OMS/cmsy/m/n/10 ! \U/msb/m/n/10 R$ \T1/cmr/m/n/10 stück-we
+i-se ste-tig heiÿt $\OT1/cmr/m/n/10 [] [] = []$
+ []
+
+[46] [47] [48]
+Overfull \hbox (4.90591pt too wide) in paragraph at lines 2281--2292
+\OMS/cmsy/m/n/10 ) [][] [] \OT1/cmr/m/n/10 = [][] [] = [] [][] [] = []([][] [] 
++ [][] []) = [] [][] +
+ []
+
+[49] (analysis_skript.aux) )
+(\end occurred inside a group at level 5)
+
+### semi simple group (level 5) entered at line 217 (\begingroup)
+### semi simple group (level 4) entered at line 216 (\begingroup)
+### semi simple group (level 3) entered at line 199 (\begingroup)
+### semi simple group (level 2) entered at line 197 (\begingroup)
+### semi simple group (level 1) entered at line 170 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 14338 strings out of 492970
- 272414 string characters out of 3135855
- 342431 words of memory out of 3000000
- 17910 multiletter control sequences out of 15000+200000
- 20104 words of font info for 55 fonts, out of 3000000 for 9000
+ 23852 strings out of 492970
+ 460117 string characters out of 3135854
+ 498795 words of memory out of 3000000
+ 27403 multiletter control sequences out of 15000+200000
+ 548802 words of font info for 65 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,28n,54p,545b,870s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 55i,28n,63p,613b,1033s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\tanja\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknap
-pen\ec\dpi600\ecrm0500.pk> <C:\Users\tanja\AppData\Local\MiKTeX\2.9\fonts\pk\lj
-four\jknappen\ec\dpi600\ecrm0700.pk> <C:\Users\tanja\AppData\Local\MiKTeX\2.9\f
-onts\pk\ljfour\jknappen\ec\dpi600\ecti1000.pk> <C:\Users\tanja\AppData\Local\Mi
-KTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbi1000.pk> <C:\Users\tanja\AppDat
-a\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1000.pk> <C:\Users\ta
-nja\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1000.pk> <C
-:\Users\tanja\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1
-200.pk> <C:\Users\tanja\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dp
+pen\ec\dpi600\ecbx1000.pk> <C:\Users\tanja\AppData\Local\MiKTeX\2.9\fonts\pk\lj
+four\jknappen\ec\dpi600\ecrm0500.pk> <C:\Users\tanja\AppData\Local\MiKTeX\2.9\f
+onts\pk\ljfour\jknappen\ec\dpi600\ecrm0700.pk> <C:\Users\tanja\AppData\Local\Mi
+KTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1000.pk> <C:\Users\tanja\AppDat
+a\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbi1000.pk> <C:\Users\ta
+nja\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1200.pk> <C
+:\Users\tanja\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1
+000.pk> <C:\Users\tanja\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dp
 i600\ecbx1440.pk> <C:\Users\tanja\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jkna
 ppen\ec\dpi600\ecrm1200.pk> <C:\Users\tanja\AppData\Local\MiKTeX\2.9\fonts\pk\l
 jfour\jknappen\ec\dpi600\ecrm0900.pk> <C:\Users\tanja\AppData\Local\MiKTeX\2.9\
@@ -875,9 +1416,9 @@ sfonts/cm/cmti7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/sy
 mbols/msam10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbo
 ls/msbm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/
 msbm7.pfb>
-Output written on analysis_skript.pdf (32 pages, 380617 bytes).
+Output written on analysis_skript.pdf (50 pages, 452947 bytes).
 PDF statistics:
- 516 PDF objects out of 1000 (max. 8388607)
+ 595 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
