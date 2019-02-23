@@ -15,6 +15,7 @@
 \usepackage{wrapfig}
 \usepackage{multicol}
 \usepackage{xparse}
+\usepackage{graphics}
 
 
 \title{Analysis für Informatik\small{ \\ - \\ Ass.Prof. Clemens Amstler}}
@@ -140,7 +141,7 @@
 \maketitle
 
 \tableofcontents
-\newpage
+
 
 \section{Reelle Zahlen}
 Die reellen Zahlen \R erfüllen eine Reihe von Axiomen, die in drei Gruppen unterteilt werden können.
@@ -302,7 +303,7 @@ Sei \(a > 0\).
 \end{enumerate}
 \end{proof}
 \end{subkorr}
-\newpage
+
 
 \subsection{Vollständigkeitsaxiom}
 Die Zahlengerade \R hat keine Lücken.
@@ -365,30 +366,19 @@ analog für Infimum.
 \end{proof}
 \end{subprop}
 
-\newpage
+
 \section{Komplexe Zahlen}
 Die Menge der komplexen Zahlen \C sind die Punkte der Ebene \(\R^2 = \{(a,b) : a,b \in \R\}\)
 \[(a,b) = (a, 0) + (0, b) = a (1,0) + b (0, 1)\]
 Wir setzen \(1 = (1,0), \im = (0,1) \Rightarrow z = (a, b) = a + \im b\)
-\begin{center}
-\begin{tikzpicture}
-        \draw[step=1,help lines,black!0] (-1,-1) grid (4,4);
-        \draw[->] (-0.5,0) -- (3.5,0)  node[below right] {$Re(z)$};
-        \draw[->] (0,-0.5) -- (0,3.5)  node[above left]{$Im(z)$};
-        \draw[-] (2.21,1.75) -- (2.21,0) ;
-        \draw[-] (2.21,1.75) -- (0,1.75) ;
-        \foreach \Point/\PointLabel in {(0,1)/{\im}, (1,0)/1, (2.21,1.75)/{z=(a,b)}}
-        \draw[fill=black] \Point circle (0.05) node[above right] {$\PointLabel$};
-        \foreach \Point/\PointLabel in {(2.21,0)/a, (0,1.75)/b}
-        \draw \Point circle (0.05) node[above right] {$\PointLabel$};
-\end{tikzpicture}
-\end{center}
+\begin{figure}[ht]
+ \includegraphics[width=0.33\textwidth]{images/Gaußsche_Zahlenebene.png}
+\end{figure}
 zusätzlkich verlangen wir \(\im^2 = -1\) Also: \(\C = \menge{z = a + \im b }{ a, b \in \R, \im^2 = -1 }\)
 
-\newpage
 \begin{satz}
 Es gilt:  \C ist ein Körper.
-\begin{proof} Sei \( x,y,z \in \C \text{ und } x = a + \im b, y = c + \im d, z = e + \im f \)
+\begin{proof} Sei \( x,y,z \in \C \text{ und } x = a + \im b,\, y = c + \im d,\, z = e + \im f \)
 \begin{enumerate}[label=\Roman*)]
 \item \C ist eine abelsche Gruppe bezüglich der Addition:
 \begin{enumerate}[label=\roman*)]
@@ -401,7 +391,7 @@ Es gilt:  \C ist ein Körper.
 \begin{enumerate}[label=\roman*)]
 \item \( xy = (a + \im b)(c + \im d) = (ac - bd) + \im (ad - bc) \in \C\)
 \item \( 1x = (1+\im 0)(a + \im b ) = a + \im b = x \)
-\item \( \exists x^{-1} \in \C \text{ mit } xx^{-1} = (a + \im b)\frac{a + \im b}{a^2 - b^2} = \frac{a^2 - b^2}{a^2 - b^2} = 1\)
+\item $\displaystyle \exists x^{-1} \in \C \text{ mit } xx^{-1} = (a + \im b)\frac{a + \im b}{a^2 - b^2} = \frac{a^2 - b^2}{a^2 - b^2} = 1$
 \item \( xy = (ac - bd) + \im (ad - bc) = (ca - bd) + \im (da - cb) = yx\)
 \end{enumerate}
 \item Das Distributivgesetz gilt:\\
@@ -417,57 +407,45 @@ Es gilt:  \C ist ein Körper.
 Sei \( z = a + \im b \in \C \)
 \begin{itemize}
 \item \(\overline{z} = a - \im b \) heißt die konjungiert komplexe Zahl von $z$.
-\item \(\abs{z} = \sqrt{z \overline{z}} = \sqrt{a^2 + b^2}\) heißt Betrag von \(z\).
+\item $\displaystyle\abs{z} = \sqrt{z \overline{z}} = \sqrt{a^2 + b^2}$ heißt Betrag von \(z\).
 \item $a = Re(z)$ heißt Realteil von $z$.
 \item $b = Im(z)$ heißt Imaginärteil von $z$.
 \end{itemize}
 \end{defi}
 
-\newpage
 \begin{satz}
-Es gilt: \[Re(z) = \frac{z + \overline{z}}{2} \text{ und } Im(z) = \frac{z - \overline{z}}{2\im}\]
+Es gilt: $ \displaystyle Re(z) = \frac{z + \overline{z}}{2} \text{ und } Im(z) = \frac{z - \overline{z}}{2\im}$
 \begin{proof} \sp
-\begin{center}
-\begin{tikzpicture}
-        \draw[step=1,help lines,black!0] (-1,-1) grid (4,3);
-        \draw[<->] (-0.5,0) -- (3.5,0)  node[below right] {$Re$};
-        \draw[<->] (0,-1.5) -- (0,2.5)  node[above left]{$Im$};
-        \draw[-] (1.5,1) -- (1.5,0) ;
-        \draw[-] (1.5,1) -- (0,1) ;
-        \draw[fill=black] (1.5,1) circle (0.05) node[above] {$\scriptstyle z$};
-        \foreach \Point/\PointLabel in {(1.5,-1)/\overline{z}, (3, 0)/{z+\overline{z}}, (1.5,0)/{\frac{z+\overline{z}}{2} = Re(z)}}
-        \draw[fill=black] \Point circle (0.05) node[below] {$\scriptstyle \PointLabel$};
-         \foreach \Point/\PointLabel in {(0,2)/{z-\overline{z}}, (0,1)/{Im(z) = \frac{z-\overline{z}}{2\im}}}
-        \draw[fill=black] \Point circle (0.05) node[left] {$\scriptstyle \PointLabel$};
-\end{tikzpicture}
-\end{center}
+\begin{figure}[ht]\centering
+ \includegraphics[width=0.33\textwidth]{images/gaussebene_mit_konj.png}
+\end{figure}
 \end{proof}
 \end{satz}
 
 \begin{prop}
 Es gilt:
 \begin{enumerate}[label=(\roman*)]
-\item \( \overline{\overline{z}} = z, \quad \overline{z_1} + \overline{z_2} = \overline{z_1 + z_2}, \quad \overline{z_1} \cdot \overline{z_2} = \overline{z_1  z_2}, \quad \abs{\overline{z}} = \abs{z} \)
-\item \( \abs{z} \ge 0, \quad \abs{z} = 0 \Leftrightarrow z = 0\)
-\item \(\abs{z_1 z_2} = \abs{z_1} \abs{z_2}\)
-\item \(\abs{z_1 + z_2} \le \abs{z_1} + \abs{z_2}\)
+\item $\displaystyle \overline{\overline{z}} = z, \quad \overline{z_1} + \overline{z_2} = \overline{z_1 + z_2}, \quad \overline{z_1} \cdot \overline{z_2} = \overline{z_1  z_2}, \quad \abs{\overline{z}} = \abs{z} $
+\item $\displaystyle \abs{z} \ge 0, \quad \abs{z} = 0 \Leftrightarrow z = 0$
+\item $\displaystyle\abs{z_1 z_2} = \abs{z_1} \abs{z_2}$
+\item $\displaystyle \abs{z_1 + z_2} \le \abs{z_1} + \abs{z_2}$
 \end{enumerate}
 \begin{proof} \sp
 \begin{enumerate}[label=(\roman*)]
 \item
 \begin{itemize}
-\item \(\overline{\overline{z}} = \overline{\overline{a + \im b}} = \overline{a - \im b} = a + \im b = z \)
-\item \(\overline{z_1} + \overline{z_2} = a - \im b + c - \im d = (a + c) - \im (b + d) = \overline{z_1 + z_2} \)
-\item \(\overline{z_1} \cdot \overline{z_2} = (a - \im b) (c - \im d) = (ac + bd) - \im (ac + bc) = \overline{z_1  z_2} \)
-\item \( \abs{\overline{z}} = \sqrt{a^2 + b^2} = \abs{z}\)
+\item $\displaystyle\overline{\overline{z}} = \overline{\overline{a + \im b}} = \overline{a - \im b} = a + \im b = z $
+\item $\displaystyle\overline{z_1} + \overline{z_2} = a - \im b + c - \im d = (a + c) - \im (b + d) = \overline{z_1 + z_2} $
+\item $\displaystyle\overline{z_1} \cdot \overline{z_2} = (a - \im b) (c - \im d) = (ac + bd) - \im (ac + bc) = \overline{z_1  z_2} $
+\item $\displaystyle \abs{\overline{z}} = \sqrt{a^2 + b^2} = \abs{z}$
 \end{itemize}
 \item
 \begin{itemize}
 \item \(\abs{z} = a^2 + b^2 > 0 \)
 \item \(\abs{z} = a^2 + b^2 = 0 \Leftrightarrow a^2 = - b^2 \Leftrightarrow a = b = 0 \)
 \end{itemize}
-\item \(\abs{z_1 z_2}^2 = (z_1 z_2)(\overline{z_1 z_2}) = (z_1\overline{z_1})(z_2\overline{z_2}) = \abs{z_1}^2\abs{z_2}^2 \Leftrightarrow \abs{z_1 z_2} = \abs{z_1}\abs{z_2} \)
-\item  \begin{math}
+\item $ \displaystyle \abs{z_1 z_2}^2 = (z_1 z_2)(\overline{z_1 z_2}) = (z_1\overline{z_1})(z_2\overline{z_2}) = \abs{z_1}^2\abs{z_2}^2 \Leftrightarrow \abs{z_1 z_2} = \abs{z_1}\abs{z_2} $
+\item  \begin{math} \displaystyle 
 \text{Sei }a, b \in \R \sp z \in \C \sp z = a + \im b \\
 \begin{aligned}[t]
 Re(z)^2 = a^2 \le a^2 + b^2 = \abs{z}^2 &\Rightarrow Re(z) \le \abs{Re(z)} = \sqrt{Re(z)} \le \abs{z} \\
@@ -476,8 +454,8 @@ Re(z)^2 = a^2 \le a^2 + b^2 = \abs{z}^2 &\Rightarrow Re(z) \le \abs{Re(z)} = \sq
 \begin{aligned}[t]
 \abs{z_1 + z_2}^2 &= (z_1 + z_2)\overline{(z_1 + z_2)} = (z_1 + z_2)(\overline{z_1} + \overline{z_2}) \\
 &= z_1\overline{z_1} + z_2\overline{z_1} + z_1\overline{z_2} + z_2\overline{z_2} &&\text{denn } z_2\overline{z_1} = \overline{z_1\overline{z_2}} \\
-&= \abs{z_1}^2 + z_1\overline{z_2} + \overline{z_1\overline{z_2}} + \abs{z_2}^2 &&\text{denn } z_1\overline{z_2} + \overline{z_1\overline{z_2}} = 2Re(z_1z_2) \\
-&= \abs{z_1}^2 + 2 Re(z1 \overline{z2}) + \abs{z_2}^2 &&\text{denn } Re(z_1z_2) \le \abs{z_1}\abs{z_2}\\
+&= \abs{z_1}^2 + z_1\overline{z_2} + \overline{z_1\overline{z_2}} + \abs{z_2}^2 &&\text{denn } z_1\overline{z_2} + \overline{z_1\overline{z_2}} = 2Re\left(z_1z_2\right) \\
+&= \abs{z_1}^2 + 2 Re\left(z1 \overline{z2}\right) + \abs{z_2}^2 &&\text{denn } Re\left(z_1z_2\right) \le \abs{z_1}\abs{z_2}\\
 &\le  \abs{z_1}^2 + 2\abs{z_1}\abs{z_2} + \abs{z_2}^2 = \left(\abs{z_1} + \abs{z_2}\right)^2
 \end{aligned}\\
 \Rightarrow \abs{z_1 + z_2} \le \abs{z_1} + \abs{z_2}
@@ -486,28 +464,27 @@ Re(z)^2 = a^2 \le a^2 + b^2 = \abs{z}^2 &\Rightarrow Re(z) \le \abs{Re(z)} = \sq
 \end{proof}
 \end{prop}
 
-\newpage
+
 \section{Folgen}
 
 \begin{bsp}
 Betrachte
-\begin{center} \begin{tikzpicture}[scale=3]
- \draw (0,0) -- node[above] {$1$} (1,0);
- \draw (1,0) -- node[below left] {$1$} (1,1);
- \draw (0,0) -- node[below] {$\sqrt{2}$}  (1,1);
- \end{tikzpicture} \end{center}
+\begin{figure}[ht]\centering
+ \includegraphics[width=0.33\textwidth]{images/dreieck_wurzel2.png}
+\end{figure}
+% GRAFIK  
 Annahme: \( \sqrt{2} \in \R\), aber \(\sqrt{2} \not\in \Q\)
-\end{bsp}
 \begin{proof} Angenommen $\displaystyle \sqrt{2} \in \Q$ \\
 $ \displaystyle \sqrt{2} \in \Q \Rightarrow \frac{p}{q} \text{ mit }p \in \Z, q \in \N $ und p und q nicht beide durch 2 teilbar, sonst kürzen wir.
 \begin{align*}
 2 &= \frac{p^2}{q^2} &\Rightarrow\\
-2q^2 &= p^2 &\Rightarrow &&\text{Also } 2 | p^2 \Rightarrow 2 | p \Rightarrow \exists m \text{ mit } p = 2 m. \\
+2q^2 &= p^2 &\Rightarrow &\text{\quad Also } 2 | p^2 \Rightarrow 2 | p \Rightarrow \exists m \text{ mit } p = 2 m. \\
 2q^2 &= (2m)^2 = 4m^2 &\Rightarrow \\
-q^2 &= 2m^2 & &&\text{ d.h. } 2 | q^2 \Rightarrow 2 | q \text{ Also p und q sind beide durch 2 teilbar.}
+q^2 &= 2m^2 && \text{\quad d.h. } 2 | q^2 \Rightarrow 2 | q \text{ Also p und q sind beide durch 2 teilbar.}
 \end{align*}
  \WSP p und q sind nicht beide durch 2 teilbar. $\displaystyle \Rightarrow \sqrt{2} \not\in \Q \Rightarrow \sqrt{2} \in \R\setminus\Q$
 \end{proof}
+\end{bsp}
 
 \begin{bem}
 \( \sqrt{2} \) ist die positive Lösung von $ \displaystyle a^2 = 2 \Leftrightarrow a = \frac{2}{a} \Leftrightarrow  2a = a + \frac{2}{a} \Leftrightarrow a= \frac{1}{2}\left(a + \frac{2}{a}\right)$ \\
@@ -531,7 +508,7 @@ Bezeichnung: Wir schreiben für Folgen
 \end{align*}
 \end{defi}
 
-\newpage
+
 \begin{defi}
 Eine Folge \((a_n)\) heißt
 \begin{enumerate}
@@ -569,31 +546,31 @@ Sei \(a \in \R, \epsilon > 0\). \(U_\epsilon(a) = (a-\epsilon, a+\epsilon) = \me
 Also: Die Folge \((a_n)\) konvergiert gegen \(a \Leftrightarrow \) Die Folgenglieder \(a_n\) liegen ab einer Schwelle \(N\) alle in der \(\epsilon\)-Umgebung von \(a\). \((a_n)\) konvergiert nicht gegen \(a \Leftrightarrow \exists \epsilon > 0 \spdot \forall N\in\N \spdot \exists n \ge N \spcolon \abs{a_n - a} \ge \epsilon\).
 \end{bem}
 
-\newpage
+
 \begin{bsp}
 Beispiele zur Konvergenz:
 \begin{enumerate}[label=(\arabic*)]
-	\item Die harmonische Folge konvergiert: $ \displaystyle a_n = \frac{1}{n} \Rightarrow \liminf{\frac{1}{n}} = 0$
-	\begin{proof}
-		Sei $ \displaystyle \epsilon > 0 \text{ und } N > \frac{1}{\epsilon} \qquad \abs{a_n - 0} = \abs{\frac{1}{n} - 0} = \frac{1}{n} \le \frac{1}{N} < \epsilon $
-	\end{proof}
-	\item Die alternierende Folge $ \displaystyle b_n = (-1)^n$ ist divergent
-	\begin{proof}
-		Angenommen $ \displaystyle \exists a \in \R \text{ mit } \liminf{b_n} = b \\
-		\text{Wähle } \epsilon = \frac{1}{2} > 0 \Rightarrow \exists N \in \N \spdot \forall n \ge N \spcolon \abs{b_n - b} < \frac{1}{2} \text{. Da } b_{n+1} - b_n = 		\pm 2 \text{ ist } \forall n \ge N \\
-		\vphantom{\frac{1}{2}}\ 2 = \abs{b_{n+1} - b_{n}} = \abs{b_{n+1} - b - (b_n - b)} \le \abs{b_{b+1} - b} + \abs{b_n - b} < \frac{1}{2} + \frac{1}{2} = 1 \Rightarrow 2 < 1 \\
-		\WSP \Rightarrow (b_n) $ ist divergent.
-	\end{proof}
-	\item Ob die geometsiche Folge \((a^n)_{n\ge1}\) hängt davon ab, welchen Wert $a$ hat.
-	\begin{proof} Durch Fallunterscheidung
-		\begin{enumerate}
-			\item[Fall 1:] \(\abs{a} < 1 \Rightarrow \liminf{a^n} = 0\) \\
-				Sei \(\epsilon > 0 \overset{\text{Archimedisches Axiom}}{\Rightarrow} \sp \exists N \in \N \spcolon \abs{a}^N < \epsilon \Rightarrow \forall n \ge N \spcolon \abs{a^n - 0} = \abs{a}^n \le \abs{a}^N < \epsilon\)
-			\item[Fall 2:] \(a =  1 \Rightarrow a^n = 1 \Rightarrow \lim{a^n} = 1\)
-			\item[Fall 3:] \(a = -1 \Rightarrow \) divergent weil alternierend.
-			\item[Fall 4:] \(\abs{a} > 1 \Rightarrow \forall K > 0 \spdot \exists n \in \N \spcolon \abs{a}^n > K \text{ , d.h. } (a^n)\) ist unbeschränkt.
-		\end{enumerate}
-	\end{proof}
+\item Die harmonische Folge konvergiert: $ \displaystyle a_n = \frac{1}{n} \Rightarrow \liminf{\frac{1}{n}} = 0$
+\begin{proof}
+Sei $ \displaystyle \epsilon > 0 \text{ und } N > \frac{1}{\epsilon} \qquad \abs{a_n - 0} = \abs{\frac{1}{n} - 0} = \frac{1}{n} \le \frac{1}{N} < \epsilon $
+\end{proof}
+\item Die alternierende Folge $ \displaystyle b_n = (-1)^n$ ist divergent
+\begin{proof}
+Angenommen $ \displaystyle \exists a \in \R \text{ mit } \liminf{b_n} = b \\
+\text{Wähle } \epsilon = \frac{1}{2} > 0 \Rightarrow \exists N \in \N \spdot \forall n \ge N \spcolon \abs{b_n - b} < \frac{1}{2} \text{. Da } b_{n+1} - b_n = \pm 2 \text{ ist } \forall n \ge N \\
+\vphantom{\frac{1}{2}}2 = \abs{b_{n+1} - b_{n}} = \abs{b_{n+1} - b - (b_n - b)} \le \abs{b_{b+1} - b} + \abs{b_n - b} < \frac{1}{2} + \frac{1}{2} = 1 \Rightarrow 2 < 1 \\
+\vphantom{\frac{1}{2}}\WSP \Rightarrow (b_n) $ ist divergent.
+\end{proof}
+\item Ob die geometsiche Folge \((a^n)_{n\ge1}\) hängt davon ab, welchen Wert $a$ hat.
+\begin{proof} Durch Fallunterscheidung
+\begin{enumerate}
+\item[Fall 1:] \(\abs{a} < 1 \Rightarrow \liminf{a^n} = 0\) \\
+Sei \(\epsilon > 0 \overset{\text{Archim.Ax.}}{\Rightarrow} \sp \exists N \in \N \spcolon \abs{a}^N < \epsilon \Rightarrow \forall n \ge N \spcolon \abs{a^n - 0} = \abs{a}^n \le \abs{a}^N < \epsilon\)
+\item[Fall 2:] \(a =  1 \Rightarrow a^n = 1 \Rightarrow \liminf{a^n} = 1\)
+\item[Fall 3:] \(a = -1 \Rightarrow \) divergent weil alternierend.
+\item[Fall 4:] \(\abs{a} > 1 \Rightarrow \forall K > 0 \spdot \exists n \in \N \spcolon \abs{a}^n > K \text{ , d.h. } (a^n)\) ist unbeschränkt.
+\end{enumerate}
+\end{proof}
 \end{enumerate}
 \end{bsp}
 
@@ -607,18 +584,18 @@ Jede konvergente Folge \((a_n)\) ist beschränkt.
 \begin{proof}
 \begin{math} \displaystyle
 \begin{aligned}[t]
-	&\liminf{a_n} = a. \quad \text{Wähle } \epsilon = 1 > 0 \Rightarrow \exists N \in \N \spdot \forall n \ge N \spcolon \abs{a_n - a} < 1 \\
-	&\abs{a_n} = \abs{a + (a_n - a)} \le \abs{a} + \abs{a_n- a} < \abs{a} + 1 \quad \forall n \ge N \\
-	&\text{Sei } K = max\{\abs{a_1}, \abs{a_2}, \dots, \abs{a_{n-1}}, \abs{a}+1\} \\
-	&\abs{a_n} < K \quad \forall n \ge 1 \\
+&\liminf{a_n} = a. \quad \text{Wähle } \epsilon = 1 > 0 \Rightarrow \exists N \in \N \spdot \forall n \ge N \spcolon \abs{a_n - a} < 1 \\
+&\abs{a_n} = \abs{a + (a_n - a)} \le \abs{a} + \abs{a_n- a} < \abs{a} + 1 \quad \forall n \ge N \\
+&\text{Sei } K = max\{\abs{a_1}, \abs{a_2}, \dots, \abs{a_{n-1}}, \abs{a}+1\} \\
+&\abs{a_n} < K \quad \forall n \ge 1 \\
 \end{aligned}
-\end{math}
+\end{math}\\
 \end{proof}
 \end{satz}
 
 \begin{bem}
-Die Umkehrung gilt nicht. Das heißt eine beschränkte Folge ist nicht konvergent.\\
-\textit{Gegenbeispiel}: die alternierende Folge $(-1)^n$.
+Die Umkehrung gilt nicht. Das heißt eine beschränkte Folge ist nicht konvergent.
+\begin{proof}[Gegenbeispiel] die alternierende Folge $(-1)^n$.\end{proof}
 \end{bem}
 
 \begin{satz}[Monotoniekriterium]
@@ -637,7 +614,7 @@ Sei also \((a_n) \nearrow \) und nach oben beschränkt. Mit dem Vollständigkeit
 					&\Rightarrow a-\epsilon < a_N \le a_n \le a < a+\epsilon 	&& \forall n \ge N \\
 					&\Rightarrow a-\epsilon < a_n < a+\epsilon 			&& \forall n \ge N \\
 					&\Rightarrow \abs{a_n - a} < \epsilon					&& \forall n \ge N \\
-					&\Rightarrow \liminf{a_n} = a \end{aligned}\end{math}
+					&\Rightarrow \liminf{a_n} = a \end{aligned}\end{math}\\
 \end{proof}
 \end{satz}
 
@@ -661,12 +638,12 @@ Der Grenzwert einer Folge ist eindeutig bestimmt.
 		&< \frac{1}{2}\abs{b-a} + \frac{1}{2}\abs{b-a} \\
 		&= \abs{b-a}\\
 \end{aligned}\\
-\Rightarrow \abs{b-a}  < \abs{b-a} \WSP \Rightarrow a = b
+\Rightarrow \abs{b-a}  < \abs{b-a} \sp \WSP \Rightarrow a = b
 \end{math}
 \end{proof}
 \end{satz}
 
-\newpage
+
 \begin{satz}[Rechenregeln für konvergente Folgen (RRF)]
 Seien \((a_n)\) und \((b_n)\) zwei konvergente Folgen. Dann gilt:
 \begin{enumerate}
@@ -694,7 +671,7 @@ Sei \(\liminf{a_n} = 0\text{ und } \lim{b_n} = b\).
 		& \abs{\lambda a_n - \lambda a} = \abs{\lambda(a_n - a)} = \abs{\lambda}\abs{a_n - a} < \lambda \frac{\epsilon}{\lambda} = \epsilon
 		\end{aligned}$
 \item Jede konvergente Folge ist beschränkt $ \displaystyle \Rightarrow \exists K \in \R \text{ mit } \abs{a_K} \le K \text{ und } \abs{b} \le K\vphantom{\frac{\epsilon}{2K}}\\
-\text{Sei } \epsilon > 0 \Rightarrow \exists N_1, N_2 \in \N \spcolon \abs{a_n - a} < \frac{\epsilon}{2K} \text{ und } \abs{b_n - b} < \frac{\epsilon}{2K}. \Rightarrow \vphantom{\frac{\epsilon}{2K}} \\
+\text{Sei } \epsilon > 0 \Rightarrow \exists N_1, N_2 \in \N \spcolon \abs{a_n - a} < \frac{\epsilon}{2K} \text{ und } \abs{b_n - b} < \frac{\epsilon}{2K} \Rightarrow \vphantom{\frac{\epsilon}{2K}} \\
 \begin{aligned}[t]
 \vphantom{\frac{\epsilon}{2K}} \forall n \ge max\{N_1, N_2\} \spcolon \abs{a_n b_n - a b} &= \abs{a_n b_n - a_n b + a_n b + a b} = \abs{ a_n (b_n - b) + b (a_n - a)} \\
 &\le \abs{ a_n (b_n - b)} + \abs{b (a_n - a)} \\
@@ -704,7 +681,7 @@ Sei \(\liminf{a_n} = 0\text{ und } \lim{b_n} = b\).
 Zeige \begin{math} \displaystyle \liminf{\frac{1}{b_n}} = \frac{1}{\liminf{b_n}} \quad\Rightarrow  \abs{\abs{ b_n } - \abs{b}} \le \abs{ b_n - b} < \frac{\abs{b}}{2} \quad \forall n \ge n_0 \\
 \Rightarrow -\frac{\abs{b}}{2} < \abs{b_n} - \abs{b} < \frac{\abs{b}}{2} \Rightarrow  \frac{\abs{b}}{2} < \abs{b_n} \quad \Rightarrow \frac{1}{\abs{b_n}} < \frac{2}{\abs{b}} \quad \forall n \ge n_0 \\
 \text{Sei } \epsilon > 0 \Rightarrow \exists N \quad \forall n \ge N \quad \abs{b_n - b} < \frac{\epsilon \abs{b} ^2}{2} \Rightarrow \\
-\abs{\frac{1}{b_n} - \frac{1}{b}} = \abs{\frac{b - b_n}{b b_n}} = \frac{1}{\abs{b_n}}\frac{1}{\abs{b}} \abs{b - b_n} < \frac{2}{\abs{b}}\frac{1}{\abs{b}}\abs{b_n - b} < \frac{2}{\abs{b}^2}\frac{\epsilon\abs{b}^2}{2} = \epsilon.
+\abs{\frac{1}{b_n} - \frac{1}{b}} = \abs{\frac{b - b_n}{b b_n}} = \frac{1}{\abs{b_n}}\frac{1}{\abs{b}} \abs{b - b_n} < \frac{2}{\abs{b}}\frac{1}{\abs{b}}\abs{b_n - b} < \frac{2}{\abs{b}^2}\frac{\epsilon\abs{b}^2}{\vphantom{\abs{b}^2}2} = \epsilon.
 \end{math}
 \item Sei \(a_n \le b_n \quad \forall n \ge n_0. \) \quad Angenommen \(a > b\). \quad Sei \begin{math} \displaystyle \epsilon =  \frac{a-b}{2} > 0 \\
 \Rightarrow \exists N_1, N_2 \in \N \spcolon \abs{a_n - a} < \epsilon \quad \forall n \ge N_1 \qquad \text{und} \qquad \abs{b_n - b} < \epsilon \quad \forall n \ge N_2 \vphantom{\frac{a-b}{2}} \\
@@ -712,19 +689,17 @@ Zeige \begin{math} \displaystyle \liminf{\frac{1}{b_n}} = \frac{1}{\liminf{b_n}}
 b_n < b + \epsilon &= b + \frac{a-b}{2} = \frac{2b + a - b}{2} = \frac{b + a}{2} = \frac{2a - a + b}{2} \\
 &= a - \frac{a-b}{2} = a - \epsilon < a_n && \quad \forall n \ge max\{N_1, N_2\}
 \end{aligned} \\
-\Rightarrow  b_n < a_n \quad \forall n \ge max\{N_1, N_2\} \quad \WSP \Rightarrow a \le b
+\vphantom{\frac{1}{2}}\Rightarrow  b_n < a_n \quad \forall n \ge max\{N_1, N_2\} \quad \WSP \Rightarrow a \le b
 \end{math}
 \end{enumerate}
 \end{proof}
 \end{satz}
 
 \begin{satz}[Sandwich-Theorem]
-Sei \((a_n)\text{ und }(b_n)\) zwei konvergente Folgen mit der Eigenschaft, dass \(\liminf{a_n} = \liminf{b_n} = a\).
-Sei \((c_n)\) eine Folge mit der Eigenschaft, dass \(a_n \le c_n \le b_n \quad \forall n \ge n_0\).
-Dann ist \((c_n)\) konvergent und \(\liminf{c_n} = a\).
+Sei \((a_n)\text{ und }(b_n)\) zwei konvergente Folgen mit der Eigenschaft, dass \(\liminf{a_n} = \liminf{b_n} = a\). Und sei \((c_n)\) eine Folge mit der Eigenschaft, dass \(a_n \le c_n \le b_n \quad \forall n \ge n_0\).\vphantom{$\frac{1}{2}$} Dann ist \((c_n)\) konvergent und \(\liminf{c_n} = a\).
 \begin{proof}
 \begin{math}
-\begin{aligned}[t] \displaystyle \text{Sei }\epsilon > 0 &\Rightarrow \exists  N_1, N_2 \in \N \quad
+\begin{aligned}[t] \displaystyle \text{Sei }\epsilon > 0 &\Rightarrow \exists  N_1, N_2 \in \N 
 &&\begin{aligned}[t] a - \epsilon < a_n < a + \epsilon & \quad \forall n \ge N_1 \\
 			   a - \epsilon < b_n < a + \epsilon & \quad \forall n \ge N_2
 \end{aligned} \\
@@ -818,11 +793,10 @@ Jede beschränkte Folge reeller Zahlen besitzt eine konvergente Teilfolge.
 &\text{Also }(a_{k_m})\text{ ist eine konvergente Teilfloge von der beschränkten Folge }(a_n).
 \end{aligned} \\
 \end{math}
-\begin{figure}[h!] \begin{center} \begin{tikzpicture}
-    \draw(-1,0)--(5.5,0);
-    \foreach \x/\xtext in {1/{x_k},2.25/{a_{k_m}},3.5/{x_k + \frac{\epsilon}{2}}}
-      \draw(\x,3pt)--(\x,-3pt) node[below] {$\xtext$};
-\end{tikzpicture} \end{center}\end{figure}
+\begin{figure}[ht]\centering
+ \includegraphics[width=0.33\textwidth]{images/zahlenstrahl_bolzanoWS.png}
+\end{figure}
+%GRAFIK  
 \end{proof}
 \end{satz}
 
@@ -897,7 +871,7 @@ Wir zeigen: \((x_n)\) ist konvergent und \(\liminf{x_n} = x \text{ und } x^2 = a
 Die positive Lösung der Gleichung \(x^2 = a\) heißt die Quadratwurzeln von \(a\). Wir schreiben \(x = \sqrt{a}\).
 \end{bsp}
 
-\newpage
+
 \section{Reihen}
 
 \begin{defi}
@@ -920,7 +894,7 @@ Konvergiert die Folge \((S_N)\text{ mit }\liminf{S_N} = s \text{, dann heißt } 
 &\IA[N=0] \quad a^0 = \frac{(1-a)}{(1- a)} = 1 \\
 &\IV \sum_{n = 0}^{N}{a^n} = \frac{1-a^{N+1}}{1-a} \\
 &\IS[N \mapsto N+1] \\
-&\sum_{n = 0}^{N+1}{a^n} = a^{N+1} + \sum_{n = 0}^{N}{a^n} \overset{IV}{=} a^{N+1} + \frac{1-a^{N+1}}{1-a} = \text{... selber} \\ %TODO
+&\sum_{n = 0}^{N+1}{a^n} = a^{N+1} + \sum_{n = 0}^{N}{a^n} \overset{IV}{=} a^{N+1} + \frac{1-a^{N+1}}{1-a} = \frac{a^{N+1} - a^{N+2} + 1 - a^{N+1}}{1-a} = \frac{1 - a^{N+2}}{1-a}\\
 &\text{Sei }S_N = \sum_{n=0}^{N}{a^n} = \frac{1 - a^{N+1}}{1- a} \\
 &\text{Sei }\abs{a} < 1\text{. Dann folgt }\liminf{a^N} = 0 \\
 &\Rightarrow \liminf{S_N} = \liminf{\frac{1-a^{N+1}}{1-a}} = \frac{1}{1-a} \\
@@ -929,21 +903,19 @@ Konvergiert die Folge \((S_N)\text{ mit }\liminf{S_N} = s \text{, dann heißt } 
 \end{aligned}\end{math} 
 \end{proof}
 
-\item Die harmonische Reihe:
-\[\sum_{n=1}^{\infty}{\frac{1}{n}} = +\infty\]
+\item Die harmonische Reihe: $ \displaystyle \sum_{n=1}^{\infty}{\frac{1}{n}} = +\infty$
 
 \begin{proof}
 \begin{math}\displaystyle \begin{aligned}[t]
 &S_{2^N} = \sum_{n = 1}^{2^N}{\frac{1}{n}} =
 1 +\underbrace{\frac{1}{2}}_{=\frac{1}{2}} + \underbrace{\frac{1}{3} + \frac{1}{4}}_{=\frac{1}{2}} + \underbrace{\frac{1}{5} + \frac{1}{6} + \frac{1}{7} + \frac{1}{8}}_{=\frac{1}{2}} +  ... + \underbrace{\frac{1}{2^{N-1}+1}+ .... + \frac{1}{2^N}}_{=\frac{1}{2}} \\
-&\ge 1 + n \frac{1}{2} > \frac{n}{2} \longrightarrow +\infty
+&\ge 1 + N \frac{1}{2} > \frac{N}{2} \longrightarrow +\infty
 \end{aligned}\end{math} 
 
-Würde \((S_N)_{N\ge1}\) konvergieren, dann auch die Teilfolge \((S_{2^N})_{N \ge 1}\), da diese dievergiert, divergiert auch \((S_N)_N\)\\
+Würde \((S_N)\) konvergieren, dann auch die Teilfolge \((S_{2^N})\), da diese divergiert, divergiert auch \((S_N)\)\\
 \end{proof}
 
-\item
-\[ \Suminf{\frac{1}{n(n+1)}}= 1 \]
+\item $ \displaystyle \Suminf{\frac{1}{n(n+1)}}= 1 $
 
 \begin{proof}
 \begin{math}\displaystyle \begin{aligned}[t]
@@ -951,122 +923,103 @@ Würde \((S_N)_{N\ge1}\) konvergieren, dann auch die Teilfolge \((S_{2^N})_{N \g
 = 1 + \sum_{n=2}^{N}{\frac{1}{n}} - \sum_{n=2}^{N+1}{\frac{1}{n}} \\
 &= 1 + \sum_{n=2}^{N}{\frac{1}{n}} - \sum_{n=2}^{N}{\frac{1}{n}} + \frac{1}{N+1}
 = 1 + \frac{1}{N+1} \longrightarrow 1
-\end{aligned}\end{math} 
+\end{aligned}\end{math}\\ 
 \end{proof}
 
 \end{enumerate}
 \end{bsp}
 
 \begin{satz}
-Seien \suminf{a_n} und \suminf{b_n} zwei konvergente Reihen und \(\lambda \in \R\),
-dann ist auch \(\suminf{\lambda a_n + b_n}\) konvergent und \(\suminf{\lambda a_n + b_n} = \lambda \suminf{a_n} + \suminf{b_n}\)
+Seien $ \displaystyle \suminf{a_n} \text{ und } \suminf{b_n}$ zwei konvergente Reihen und \(\lambda \in \R\),
+dann ist auch $ \displaystyle \suminf{\lambda a_n + b_n}$ konvergent und $ \displaystyle \suminf{\lambda a_n + b_n} = \lambda \suminf{a_n} + \suminf{b_n}$
 \begin{proof}
 folgt auf Grund der Rechenregeln für konvergente Folgen.
 \end{proof}
 \end{satz}
 
 \begin{satz}[Cauchy-Kriterium für Reihen]
-Die Reihe \(\suminf[k]{a_k}\) ist konvergent, genau dann wenn gilt:
-% TODO Florian
+Die Reihe $ \displaystyle \suminf[k]{a_k}$ ist konvergent, genau dann wenn gilt:
 \[\forall \epsilon > 0 \spdot \exists N(\epsilon) \in \N \spdot \forall n \ge m \ge N \spcolon \abs{\sum_{k=m}^{n}{a_k}} < \epsilon \qquad (\star)\]
 \((\star)\) bedeutet die \((S_n)_n\) ist eine Cauchy-Folge \(\Leftrightarrow (S_n)_n\) ist konvergent
 \begin{proof}
-\(S_n - S_m = \sum_{k=0}^{n}{a_k} - \sum_{k=0}^{m}{a_k} = \sum_{k=m}^{n}{a_k}\).\\
+$ \displaystyle S_n - S_m = \sum_{k=0}^{n}{a_k} - \sum_{k=0}^{m}{a_k} = \sum_{k=m}^{n}{a_k}$.\\
 \end{proof}
 \end{satz}
 
 \begin{korr}
-Ist \suminf[k]{a_k} konvergent \(\Rightarrow \liminf[k]{a_k} = 0\).
+Ist $ \displaystyle \suminf[k]{a_k}$ konvergent $ \displaystyle \Rightarrow \liminf[k]{a_k} = 0$.
 \begin{proof}
 \begin{math}\displaystyle \begin{aligned}[t]
 &\text{Sei } a_n = \sum_{k = m}^{n}{a_k}, \text{ da } \suminf[k]{a_k} < \infty \text{ folgt mit dem Cauchy-Kriterium }\\
 &\forall \epsilon > 0 \spdot \exists N \in \N \spdot \forall n \ge N \spcolon \abs{a_N} = \abs{ \sum_{k = m}^{n}{a_k}} < \epsilon \Rightarrow \liminf{a_n} = 0\\
-\end{aligned}\end{math} 
+\end{aligned}\\\end{math} 
 \end{proof}
 \end{korr}
 
 \begin{bem}
-Die Umkehrung des Korrolars gilt nicht. z.B. \(\liminf{\frac{1}{n}} = 0 \text{ aber } \suminf{\frac{1}{n}} = \infty \) (harmonische Reihe).
+Die Umkehrung des Korrolars gilt nicht. z.B. $ \displaystyle \liminf{\frac{1}{n}} = 0 \text{ aber } \suminf{\frac{1}{n}} = \infty $ (harmonische Reihe).
 \end{bem}
 
 \begin{defi}
-Die Reihe \suminf[k]{a_k} heißt absolut konvergent, wenn die Reihe \suminf[k]{\abs{a_k}} konvergiert.
+Die Reihe $ \displaystyle \suminf[k]{a_k} $ heißt absolut konvergent, wenn die Reihe$ \displaystyle  \suminf[k]{\abs{a_k}}$ konvergiert.
 \end{defi}
 
 \begin{satz}
 Jede absolut konvergente Reihe ist auch konvergent.
 \begin{proof}
 \begin{math}\displaystyle \begin{aligned}[t]
-&\text{Sei }\suminf[k]{\abs{a_k}} < \infty  \overset{\text{Cauchy-Kriterium}}{\Rightarrow} \forall \epsilon > 0 \spdot \exists N \in \N \spdot \forall n \ge m \ge N \spcolon \abs{\sum_{k=m}^{n}{\abs{a_k}}} < \epsilon \\
-&\overset{\text{Dreiecksungleichung}}{\Rightarrow} \abs{\sum_{k=m}^{n}{a_k}} \le \abs{\sum_{k=m}^{n}{\abs{a_k}}} < \epsilon \text{ gilt } \forall n \ge m \ge N \\
+&\text{Sei }\suminf[k]{\abs{a_k}} < \infty  \overset{\text{Cauchy}}{\Rightarrow} \forall \epsilon > 0 \spdot \exists N \in \N \spdot \forall n \ge m \ge N \spcolon \abs{\sum_{k=m}^{n}{\abs{a_k}}} < \epsilon \\
+&\text{mit der Dreiecksungleichung folgt } \abs{\sum_{k=m}^{n}{a_k}} \le \abs{\sum_{k=m}^{n}{\abs{a_k}}} < \epsilon \text{ gilt } \forall n \ge m \ge N \\
 &\text{mit dem Cauchy-Kriterium folgt } \suminf[k]{a_k}\text{ ist konvergent.}
-\end{aligned}\end{math} 
+\end{aligned}\\\end{math}
 \end{proof}
 \end{satz}
 
 \begin{bem}
-Die Umkehrung des Satzes gilt nicht. zB kann man zeigen, dass die Reihe \(\suminf[k]{(-1)^k\frac{1}{k}}\) konvergiert. Aber die Reihe \(\suminf[k]{\abs{(-1)^k\frac{1}{k}}} = \suminf[k]{\frac{1}{k}} = \infty\)
+Die Umkehrung des Satzes gilt nicht. zB kann man zeigen, dass die Reihe $  \displaystyle \suminf[k]{(-1)^k\frac{1}{k}}$ konvergiert. Aber die Reihe $ \displaystyle \suminf[k]{\abs{(-1)^k\frac{1}{k}}} = \suminf[k]{\frac{1}{k}} = \infty$
 \end{bem}
 
 \begin{satz}[Majoranten-Kriterium]
-\begin{math}\displaystyle \begin{aligned}[t]
-&\text{Sei } \suminf[k]{b_k} \text{ konvergent mit } b_k \ge 0 , \forall k \ge N_0 \\
-&\text{Sei } (a_k)_{k=0}^{\infty} \text{ eine Folge mit } \abs{a_k} \le b_k , \forall k \ge N_0 \\
-&\Rightarrow \suminf[k]{a_k} \text{ ist absolut konvergent.}
-\end{aligned}\end{math}
-
+Sei $ \displaystyle \suminf[k]{b_k}$ konvergent mit $ b_k \ge 0,\, \forall k \ge N_0.$ Und sei $ \displaystyle (a_k)_{k=0}^{\infty} $ eine Folge mit $ \abs{a_k} \le b_k ,\, \forall k \ge N_0$.\\
+Dann ist $ \displaystyle \suminf[k]{a_k} $ ist absolut konvergent.
 \begin{proof}
 \begin{math}\displaystyle \begin{aligned}[t]
-&\text{Sei } \suminf[k]{b_k} < \infty \text{ und } b_k > 0 \\
-&\overset{\text{Cauchy-Kriterium}}{\Rightarrow} \forall \epsilon > 0 \spdot \exists N \in \N \spdot \forall n \ge m \ge N \spcolon \abs{\sum{k=m}{n}{b_k}} < \epsilon \\
-&\overset{\abs{a_k} \le b_k}{\Rightarrow} \abs{\sum{k=m}{n}{\abs{a_k}}} \le \abs{\sum{k=m}{n}{b_k}} < \epsilon \text{ gilt } \forall n \ge m \ge N \\
-&\overset{\text{Cauchy-Kriterium}}{\Rightarrow} \suminf[k]{\abs{a_k}} \text{ ist konvergent} \\
+&\text{Sei } \suminf[k]{b_k} < \infty \text{ und } b_k > 0 \overset{\text{Cauchy}}{\Rightarrow} \forall \epsilon > 0 \spdot \exists N \in \N \spdot \forall n \ge m \ge N \spcolon \abs{\sum_{k=m}^{n}{b_k}} < \epsilon \\
+&\text{ da } \abs{a_k} \le b_k \text{ folgt } \abs{\sum_{k=m}^{n}{\abs{a_k}}} \le \abs{\sum_{k=m}^{n}{b_k}} < \epsilon \text{ gilt für alle } n \ge m \ge N \\
+&\text{mit dem Cauchy-Kriterium folgt wiederum } \suminf[k]{\abs{a_k}} \text{ ist konvergent} \\
 &\Rightarrow \suminf[k]{a_k}\text{ ist absolut konvergent.}
 \end{aligned}\\\end{math} 
 \end{proof}
 \end{satz}
 
 \begin{korr}[Minoranten-Kriterium]
-\begin{math}\displaystyle \begin{aligned}[t]
-\hphantom{mmmm}\\
-&\text{Sei } \suminf[k]{b_k} \text{ divergent mit } b_k \ge 0 , \forall k \ge N_0 \\
-&\text{Sei } (a_k)_{k=0}^{\infty} \text{eine Folge mit } \abs{a_k} \ge b_k , \forall k \ge N_0 \\
-&\Rightarrow \suminf[k]{a_k} \text{ ist auch divergent.}
-\end{aligned}\end{math}
-
+Sei $ \displaystyle \suminf[k]{b_k} $ divergent mit $b_k \ge 0 ,\, \forall k \ge N_0 $. Und sei $ \displaystyle  (a_k)_{k=0}^{\infty} $ eine Folge mit $ \abs{a_k} \ge b_k , \forall k \ge N_0.$\\
+Dann ist $ \displaystyle \suminf[k]{a_k} $ ist auch divergent.
 \begin{proof}
-Wäre $\displaystyle\suminf[k]{a_k}$ konvergent, dann wäre nach dem Majoranten-Kriterium $\displaystyle \suminf[k]{b_k}$ konvergent, da $\displaystyle \abs{b_k} \le a_k$. \WSP
+Angenommen $\displaystyle \suminf[k]{a_k}$ ist konvergent, dann ist nach dem Majoranten-Kriterium $\displaystyle \suminf[k]{b_k}$ konvergent, da $\displaystyle \abs{b_k} \le a_k$. Widerspruch zur Annahme. Also ist $\displaystyle \suminf[k]{a_k}$  divergent.
 \end{proof}
 \end{korr}
 
 \begin{satz}[Quotienten-Kriterium]
-\begin{math}\displaystyle \begin{aligned}[t]
-&\text{Sei } \suminf{a_n} \text{ eine Reihe mit } a_n \ne 0 , \forall n \ge n_0 \\
-&\exists q\in \R \text{ mit } 0 < q < 1 \text{, sodass } \abs{\frac{a_{n+1}}{a_n}} \le q < 1, \forall n \ge n_0 \Rightarrow \suminf{a_n} \text{ ist absolut konvergent.}
-\end{aligned}\end{math}
-
+Sei $\displaystyle \suminf{a_n}$ eine Reihe mit $ a_n \ne 0,\, \forall n \ge n_0.$ Und gibt es ein $ q\in \R $ mit $  0 < q < 1, $ sodass \\
+$ \displaystyle \abs{\frac{a_{n+1}}{a_n}} \le q < 1,\, \forall n \ge n_0 $. Dann ist $ \displaystyle \suminf{a_n} $ absolut konvergent.
 \begin{proof}
 \begin{math}\displaystyle \begin{aligned}[t]
 &\text{Sei } \abs{\frac{a_{n+1}}{a_n}} \le q < 1 \quad \forall n \ge 0 \text{ (o.B.d.A.)} \Rightarrow \abs{a_{n+1}} \le q \abs{a_n} \\
-&\Rightarrow \abs{a_n} \le q\abs{a_{n-1}} \le q^2 \abs{a_{n-2}} \le ... \le q^n \abs{a_0} \text{Also } \abs{a_n} \le q^n \abs{a_0}\\
-&\text{Da } \suminf{\abs{a_n}} \le \suminf{q^n \abs{a_0}} = \abs{a_0} \suminf{q^n} = \abs{a_0} \frac{1}{1-q} \text{, da } 0 < q < 1 \text{ (geometrische Reihe)} \\
+&\text{durch Induktion } \abs{a_n} \le q\abs{a_{n-1}} \le q^2 \abs{a_{n-2}} \le ... \le q^n \abs{a_0} \text{ somit ist } \abs{a_n} \le q^n \abs{a_0}\\
+&\text{Damit ist } \suminf{\abs{a_n}} \le \suminf{q^n \abs{a_0}} = \abs{a_0} \suminf{q^n} = \abs{a_0} \frac{1}{1-q} \text{, da } 0 < q < 1 \text{ (geometrische Reihe)} \\
 &\text{mit dem Majoranten-Kriterium folgt } \suminf{a_n} \text{ ist absolut konvergent.}
 \end{aligned}\\\end{math}
 \end{proof}
 \end{satz}
 
 \begin{korr}[einfaches Quotienten-Kriterium]
-\begin{math}\displaystyle \begin{aligned}[t]
-&\text{Sei } a_n \ne 0 \sp \fa n > n_0 \text{ und existiert } \liminf{\abs{\frac{a_n+1}{a_n}}} \text{ und ist } \liminf{\abs{\frac{a_n+1}{a_n}}} < 1 \\
-&\Rightarrow \suminf{a_n} \text{ ist absolut konvergent.}
-\end{aligned}\end{math} 
-
+Sei $  a_n \ne 0 \sp \fa n > n_0 $ und existiert $ \displaystyle  \liminf{\abs{\frac{a_n+1}{a_n}}} $ und ist $ \displaystyle  \liminf{\abs{\frac{a_n+1}{a_n}}} < 1. $ Dann ist $  \displaystyle \suminf{a_n} $ absolut konvergent.
 \begin{proof}
 \begin{math}\displaystyle \begin{aligned}[t]
-&\text{Sei } \liminf{\abs{\frac{a_n+1}{a_n}}} = \alpha < 1 \\
-&\text{Sei } \epsilon = \frac{1 - \alpha}{2} > 0 \\
-&\Rightarrow \exists N \spdot \forall n \ge N \spcolon \abs{\abs{\frac{a_{n+1}}{a_n}} - \alpha} < \epsilon  = \frac{1-\alpha}{2} \\
-&\Rightarrow \abs{\frac{a_{n+1}}{a_n}} < \frac{1-\alpha}{2} + \alpha = \frac{1+\alpha}{2} \overset{\text{da } \alpha < 1}{<} \frac{1+1}{2} = 1 \\
+&\text{Sei } \liminf{\abs{\frac{a_n+1}{a_n}}} = \alpha < 1 \text{ und sei } \epsilon = \frac{1 - \alpha}{2} > 0 \\
+&\text{Dann } \exists N \spdot \forall n \ge N \spcolon \abs{\abs{\frac{a_{n+1}}{a_n}} - \alpha} < \epsilon  = \frac{1-\alpha}{2} \\
+&\text{Also ist } \abs{\frac{a_{n+1}}{a_n}} < \frac{1-\alpha}{2} + \alpha = \frac{1+\alpha}{2} \overset{\alpha < 1}{<} \frac{1+1}{2} = 1 \\
 &\text{Setze } q = \frac{1 + \alpha}{2} < 1 \text{ und } \abs{\frac{a_{n+1}}{a_n}} < q < 1 \\
 &\text{mit dem Quotienten-Kriterium folgt }\suminf{a_n} \text{ ist absolut konvergent.}
 \end{aligned}\\\end{math} 
@@ -1076,19 +1029,14 @@ Wäre $\displaystyle\suminf[k]{a_k}$ konvergent, dann wäre nach dem Majoranten-
 \begin{bsp}
 Einige Beispiele zur Konvergenz von Reihen.
 \begin{enumerate}
-\item % TODO 1. is not properly aligned
-\begin{math}\displaystyle \begin{aligned}[t]
-&\suminf{\frac{1}{n^k}} < \infty \qquad \forall k \ge 2 \\
-&\text{[Bemerkung: Die Konvergenz gilt auch \(\fa k \in \R, k > 1\) ohne Beweis]}
-\end{aligned}\end{math} 
-
+\item $ \displaystyle \suminf{\frac{1}{n^k}} < \infty \qquad \forall k \ge 2 $\\
+$[$Bemerkung: Die Konvergenz gilt auch $\fa k \in \R, k > 1 $ (ohne Beweis)$]$
 \begin{proof}
 \begin{math}\displaystyle \begin{aligned}[t]
-&\frac{1}{n^k} \le \frac{1}{n^2} \quad \forall k \ge 2 \\
-&\text{ und } \frac{1}{n^2} \le \frac{2}{n(n+1)} \text{ , denn } 2n^2 \ge n(n+1) \Leftrightarrow n^2 \ge n \Leftrightarrow n \ge 1 \\
-&\Rightarrow \frac{1}{n^k} \le \frac{2}{n(n+1)} \quad \forall k \ge 2 \\
-&\text{ und } \suminf{\frac{2}{n(n+1)}} = 2 \suminf{\frac{1}{n(n+1)}} = 2 \cdot 1 = 2 \\
-&\overset{Majoranten-Kriterium}{\Rightarrow} \suminf{\frac{1}{n^k}} < \infty \quad \forall k \ge 2
+&\text{Für alle }k \ge 2 \text{ gilt } \frac{1}{n^k} \le \frac{1}{n^2} \\
+&\text{und } \frac{1}{n^2} \le \frac{2}{n(n+1)} \text{ , denn } 2n^2 \ge n(n+1) \Leftrightarrow n^2 \ge n \Leftrightarrow n \ge 1 \\
+&\text{Damit ist } \frac{1}{n^k} \le \frac{2}{n(n+1)} \quad \forall k \ge 2 \text{ und } \suminf{\frac{2}{n(n+1)}} = 2 \suminf{\frac{1}{n(n+1)}} = 2 \cdot 1 = 2 \\
+&\text{mit dem Majoranten-Kriterium folgt } \suminf{\frac{1}{n^k}} < \infty \quad \forall k \ge 2
 \end{aligned}\\\end{math} 
 \end{proof}
 Frage: Wie sind die Werte der Reihe $\displaystyle \suminf{\frac{1}{n^k}} \text{ für } k \ge 2 $ ? \\
@@ -1117,55 +1065,57 @@ $\displaystyle\text{Die Exponentialfunktion } \suminf[k]{\frac{x^k}{k!}} \text{ 
 \end{bsp}
 
 \begin{bem}
-\begin{enumerate}
 Eine Bemerkung zur Divergenz.
-\item Für \(k = 1\) ist die harmonische Reihe \suminf{\frac{1}{n}} divergent.
+\begin{enumerate}
+\item Für \(k = 1\) ist die harmonische Reihe $\displaystyle \suminf{\frac{1}{n}} $ divergent.
 \item Das Quotienten-Kriterium ist hier nicht anwendbar, denn \\
 \begin{math}\displaystyle \begin{aligned}[t]
-&\suminf{\frac{1}{n}} : \quad \frac{a_{n+1}}{a_n} = \frac{1}{1 + \frac{1}{n}} \longtoinf 1 \not < 1 \\
-&\suminf{\frac{1}{n^2}} : \quad \frac{a_{n+1}}{a_n} = \left(\frac{1}{1 + \frac{1}{n}}\right)^2 \longtoinf 1 \not < 1
+&\suminf{\frac{1}{n}} : \quad \frac{a_{n+1}}{a_n} &&= \frac{1}{1 + \frac{1}{n}} \longtoinf 1 \not < 1 \\
+&\suminf{\frac{1}{n^2}} : \quad \frac{a_{n+1}}{a_n} &&= \left(\frac{1}{1 + \frac{1}{n}}\right)^2 \longtoinf 1 \not < 1
 \end{aligned}\end{math} 
 \end{enumerate}
 \end{bem}
 
 \begin{defi}
-Die Funktion \(exp: \R \to \R \text{ mit } exp(x) \mapsto \e^x = \suminf{\frac{x^n}{n!}}\) heißt Exponentialfunktion.\\
-Die Zahl \(\e = exp(1) = \suminf{\frac{1^n}{n!}} \) heißt Euler'sche Zahl.
+Die Funktion $ \displaystyle \exp: \R \to \R \text{ mit } \exp(x) \mapsto \e^x = \suminf{\frac{x^n}{n!}}$ heißt Exponentialfunktion.\\
+Die Zahl $ \displaystyle \e = \exp(1) = \suminf{\frac{1^n}{n!}} $ heißt Euler'sche Zahl.
 \end{defi}
 
 \begin{bem}
 Wir werden später zeigen:
-\[\e = \frac{1^n}{n!} = \liminf{\left(1 + \frac{1}{n}\right)^n} \approx 2,71828...\]
+$  \displaystyle \e = \suminf{\frac{1^n}{n!}} = \liminf{\left(1 + \frac{1}{n}\right)^n} \approx 2,71828...$
 \end{bem}
 
 \begin{satz}[Cauchy-Produkt von Reihe]
-Seien die Reihen \suminf{a_n} und \suminf{b_n} absolut konvergent. Für $n \in \N$ definieren wir das Cauchy-Produkt folgendermaßen:
+Seien die Reihen $ \displaystyle \suminf{a_n}$ und $ \displaystyle \suminf{b_n}$ absolut konvergent. Für $n \in \N$ definieren wir das Cauchy-Produkt folgendermaßen:
 \[c_n = \sum_{k = 0}^{n}{a_k b_{n-k}} = a_0 b_n + a_1b_{n-1} + \dots + a_n b_0\]
-Dann gilt: Die Reihe \suminf{c_n} ist absolut konvergent und \\
-\[\suminf{c_n} = \left( \suminf{a_n} \right)  \left( \suminf{b_n} \right)\]
+Dann gilt: Die Reihe $ \displaystyle \suminf{c_n}$ ist absolut konvergent und \\
+\[\suminf{c_n} = \left( \suminf{a_n} \right) \cdot \left( \suminf{b_n} \right)\]
 \proof[Beweisidee:]
-% TODO Beweisidee_Cauchy_Produkt.JPG
+\begin{center}
+ \includegraphics[width=0.33\textwidth]{images/Beweisidee_Cauchy_Produkt.JPG}
+\end{center}
+% Grafik 
 \end{satz}
 
 \begin{korr}[Funktionalgleichung der Exponentialfunktion]
-Sei \(exp(x) = \e^x = \suminf{\frac{x^n}{n!}}\) die Exponentialfunktion. Dann gilt:
-\[exp(x+y) = exp(x) \cdot exp(y)\]
-\[e^{x+y} = e^x e^y\]
+Sei $ \displaystyle \exp(x) = \e^x = \suminf{\frac{x^n}{n!}}$ die Exponentialfunktion. Dann gilt:
+\begin{align*}
+\exp(x+y) &= \exp(x) \cdot \exp(y) \\
+\e^{x+y} &= \e^x \cdot \e^y
+\end{align*}
 \begin{proof}
-Wir bilden das Cauchy-Produkt, der absolut konvergenten Reihen $e^x$ und $ e^y$. Dafür verwenden wir den Binomischen Lehrsatz:
-\[(a+n)^n = \sum_{k_0}^{n}{\binom{n}{k}a^kb^{n-k}} = \sum_{k_0}^{n}{\frac{n!}{k!(n-k)!}a^kb^{n-k}}\] \\
+Wir bilden das Cauchy-Produkt, der absolut konvergenten Reihen $\e^x$ und $\e^y$. Dafür verwenden wir den Binomischen Lehrsatz:
+\[(a+n)^n = \sum_{k=0}^{n}{\binom{n}{k}a^kb^{n-k}} = \sum_{k = 0}^{n}{\frac{n!}{k!(n-k)!}a^kb^{n-k}}\] \\
 \begin{math}\displaystyle \begin{aligned}[t]
-e^x e^y &= \left(\suminf{\frac{x^n}{n!}}\right)\left(\suminf{\frac{y^n}{n!}}\right)
-= \suminf{\sum_{k = 0}^{n}{\frac{x^k}{k!}\frac{y^{n-k}}{(n-k)!}}}
-= \suminf{\frac{1}{n!}\left(\sum_{k = 0}^{n}{\frac{n!}{k!(n-k)!}x^ky^{n-k}}\right)} \\
-&= \suminf{\frac{1}{n!}\left(\sum_{k = 0}^{n}{\binom{n}{k}x^ky^{n-k}}\right)}
-\overset{Binom.LS}{=} \suminf{\frac{1}{n!}(x+y)^n} = e^{x+y}
-\end{aligned}\end{math} 
+\e^x \cdot \e^y &= \left(\suminf{\frac{x^n}{n!}}\right) \cdot \left(\suminf{\frac{y^n}{n!}}\right) = \suminf{\sum_{k = 0}^{n}{\frac{x^k}{k!}\frac{y^{n-k}}{(n-k)!}}} = \suminf{\frac{1}{n!}\left(\sum_{k = 0}^{n}{\frac{n!}{k!(n-k)!}x^ky^{n-k}}\right)} \\
+&= \suminf{\frac{1}{n!}\left(\sum_{k = 0}^{n}{\binom{n}{k}x^ky^{n-k}}\right)} \overset{Binom.LS}{=} \suminf{\frac{1}{n!}(x+y)^n} \\
+&= \e^{x+y}
+\end{aligned}\\
+\end{math} 
 \end{proof}
 \end{korr}
 
-
-\newpage
 \section{Stetigkeit}
 \begin{defi}
 Sei $ D \subset \R$. Eine Funktion $f : D \to \R \text{ mit } x \mapsto f(x) $ ist eine Vorschrift, die jedes $ x \in D$ genau einem Wert $f(x)$ zuordnent.
@@ -1174,13 +1124,41 @@ Sei $ D \subset \R$. Eine Funktion $f : D \to \R \text{ mit } x \mapsto f(x) $ i
 \begin{bsp}
 Einige Funktionen
 \begin{enumerate}
-\item Für $ c \in \R \quad f : \R \to \R \text{ mit } x \mapsto f(x) = c $ heißt die konstante Funktion. %+ BILD
-\item $f : \R \to \R \text{ mit } x \mapsto f(x) = x $ heißt identische Funktion. % + BILD
-\item $f : \R \to \R \text{ mit } x \mapsto f(x) = \abs{x} $ heißt Betragsunktion. % + BILD
-\item $f : \R \to \R \text{ mit } x \mapsto f(x) = \floor{x} $ % + BILD
-\item $f : \R_+ \to \R \text{ mit } x \mapsto f(x) = \sqrt{x} $ heißt Wurzelfunktion. % + BILD
-\item $f : \R \to \R \text{ mit } x \mapsto f(x) = e^x $ heißt Exponentialfunktion. % + BILD
-\item $p : \R \to \R \text{ mit } x \mapsto p(x) = \sum_{k=0}{n}{a_kx^k} \text{ mit } a_k \in \R $ heißt Polynomfunktion. % ev BILD
+\item Für $ c \in \R \quad f : \R \to \R \text{ mit } x \mapsto f(x) = c $ heißt die konstante Funktion.
+\begin{center}
+ \includegraphics[width=0.33\textwidth]{images/konstante_funktion.png}
+\end{center}
+%Grafik 
+\item $f : \R \to \R \text{ mit } x \mapsto f(x) = x $ heißt identische Funktion. 
+\begin{center}
+ \includegraphics[width=0.33\textwidth]{images/identische_funktion.png}
+\end{center}
+%Grafik
+\item $f : \R \to \R \text{ mit } x \mapsto f(x) = \abs{x} $ heißt Betragsunktion.
+\begin{center}
+ \includegraphics[width=0.33\textwidth]{images/betrags_funktion.png}
+\end{center}
+%Grafik 
+\item $f : \R \to \R \text{ mit } x \mapsto f(x) = \floor{x} $ 
+\begin{center}
+ \includegraphics[width=0.33\textwidth]{images/floor_funktion.png}
+\end{center}
+%Grafik 
+\item $f : \R_+ \to \R \text{ mit } x \mapsto f(x) = \sqrt{x} $ heißt Wurzelfunktion. 
+\begin{center}
+ \includegraphics[width=0.33\textwidth]{images/wurzel_funktion.png}
+\end{center}
+%Grafik 
+\item $f : \R \to \R \text{ mit } x \mapsto f(x) = e^x $ heißt Exponentialfunktion. 
+\begin{center}
+ \includegraphics[width=0.33\textwidth]{images/exponential_funktion.png}
+\end{center}
+%Grafik
+\item $p : \R \to \R \text{ mit } x \mapsto p(x) = \sum_{k=0}{n}{a_kx^k} \text{ mit } a_k \in \R $ heißt Polynomfunktion. 
+\begin{center}
+ \includegraphics[width=0.33\textwidth]{images/polynom_funktion.png}
+\end{center}
+%Grafik 
 \end{enumerate}
 \end{bsp}
 
@@ -1197,7 +1175,10 @@ Sei weiters $\displaystyle g(x) \ne 0 \quad \forall x \in D \spcolon \frac{f}{g}
 
 Sei \( f: D \to \R\), \(g: E \to \R\), mit \(f(D) \subset E (f(D)) = \menge{f(x)}{x \in D}\) , \((g  \circ  f)  :  D \to \R\) mit
 \[(g \circ f)(x) = g(f(x))\]
-%TODO Grafik - D---f--->E----g--->E----g°f--> D
+\begin{figure}[ht]\centering
+ \includegraphics[width=0.33\textwidth]{images/DEF.png}
+\end{figure}
+%Grafik 
 \end{defi}
 
 \begin{bsp}
@@ -1223,8 +1204,16 @@ Sei $f: D \to \R$ und $a \in D$. $f$ heißt stetig in $a$, wenn
 \[\lim\limits_{x \to a}{f(x)} = f(a)\]
 Das heißt für jede Folge $(x_n)$ mit $\liminf{x_n} = a$ ist $\liminf{f(x_n)} = f(a)$.\\
 $f$ heißt stetig in $D$, falls $f$ in jedem Punkt $a \in D$ stetig ist.
-%TODO grafik stetigefunktionbsp.gif
-%TODO grafik nichtstetigefunktionbsp.gif
+\begin{figure}[ht]\centering
+ \includegraphics[width=0.33\textwidth]{images/stetigefunktionbsp.gif}
+\caption{stetig}
+\end{figure}
+%grafik 
+\begin{figure}[ht]\centering
+ \includegraphics[width=0.33\textwidth]{images/nichtstetigefunktionbsp.gif}
+\caption{nicht stetig}
+\end{figure}
+%grafik 
 \end{defi}
 
 \begin{bem}
@@ -1262,8 +1251,16 @@ Rechenregeln für stetige Funktionen:
 \begin{satz}[$\epsilon-\delta$ Kriterium für Stetigkeit]
 Sei $f: D \to \R$ eine Funktion und $a \in D$. Dann gilt $f$ ist stetig in $a \Leftrightarrow$
 \[\forall \epsilon > 0 \spdot \exists \delta > 0 \spdot \forall x \spcolon \abs{x-a} < \delta \Rightarrow \abs{f(x) - f(a)} < \epsilon\]
-%TODO bild: deltaepsilonkrit.png // stetige Funktion
-%TODO bild2: nichtdeltaepsilonkrit.png // Nicht stetige Funktion
+\begin{figure}[ht]\centering
+ \includegraphics[width=0.33\textwidth]{images/deltaepsilonkrit.png}
+\caption{$\epsilon-\delta$}
+\end{figure}
+\begin{figure}[ht]\centering
+ \includegraphics[width=0.33\textwidth]{images/nichtdeltaepsilonkrit.png}
+\caption{nicht $\epsilon-\delta$}
+\end{figure}
+%Grafik 
+%Grafik 
 
 \begin{proof}\sp
 \begin{enumerate}
@@ -1308,48 +1305,51 @@ x & x > 0 \qquad \text{ die identische Funktion ist stetig} \\
 \item Die Funktion $\abs{f} : \R \to \R $  ist stetig, wenn $ f: D \to \R $ stetig ist. \\
 Folgt aus den Rechenregeln.
 
-\item Sei $f : \R \to \R \text{ mit } x \mapsto f(x) = \begin{cases} 1 & x > 0 \\ -1 & x < 0\end{cases}$ ist in $a = 0$ nicht stetig.\\ % TODO mit bild
+\item Sei $f : \R \to \R \text{ mit } x \mapsto f(x) = \begin{cases} 1 & x \ge 0 \\
+ -1 & x < 0\end{cases}$ ist in $a = 0$ nicht stetig.\\
+\begin{figure}[ht]\centering
+ \includegraphics[width=0.33\textwidth]{images/nichtstetig_1-1.png}
+\end{figure}
+%Grafik 
 \begin{math}\displaystyle \vphantom{\frac{1}{n}}\begin{aligned}[t]
 \text{Sei } (x_n) = \frac{1}{n} &\Rightarrow \liminf{x_n} = \liminf{\frac{1}{n}} = 0 \text{ und } \liminf{f(x_n)} = \liminf{1} = 1 \\
 \text{ Sei } (y_n) = -\frac{1}{n} &\Rightarrow \liminf{y_n} = \liminf{-\frac{1}{n}} = 0 \text{ und } \liminf{f(y_n)} = \liminf{-1} = -1 \\
 &\Rightarrow f \text{ ist nicht stetig in } a = 0
 \end{aligned}\end{math} 
 
-\item Die Exponentialfunktion $exp : \R \to \R \text{ mit } exp(x) = e^x = \suminf{\frac{x^n}{n!}} $ ist auf \R stetig.
+\item Die Exponentialfunktion $\exp : \R \to \R \text{ mit } \exp(x) = e^x = \suminf{\frac{x^n}{n!}} $ ist auf \R stetig.
 \begin{proof}
 \begin{enumerate}
-\item $exp$ ist in $a = 0$ stetig.
+\item $\exp$ ist in $a = 0$ stetig.
 \begin{enumerate}[label=\roman*)]
   \item Sei $\abs{x} < 1 \Rightarrow \abs{a^x - 1} \le 2 \abs{x}$\\
-  \begin{math}\displaystyle \begin{aligned}[t]
-  &\text{Denn: es gilt } (n+1)! \ge 2^n \text{ , da } (n+1)! = \underbrace{(\underbrace{n+1}_{\ge2})\underbrace{n}_{\ge2}\dots\underbrace{2}_{=2}}_{n-mal}1 \ge 2^n \forall n \ge 1 \vphantom{\underbrace{\underbrace{2}_{2}}_{2}} \\
-  &\text{Sei } m \ge 1 \text{ : } \\
-  &\abs{\sum_{n=1}^{m}{\frac{x^n}{n!}}} \le \sum_{n=1}^{m}{\abs{\frac{x^n}{n!}}} = \sum_{n=1}^{m}{\frac{\abs{x}^n}{n!}}
-  = \sum_{n= 0}^{m-1}{\frac{\abs{x}^{n+1}}{(n+1)!}} \le \sum_{n= 0}^{m}{\frac{\abs{x}^{n+1}}{(n+1)!}} \\
-  &= \abs{x}\sum_{n= 0}^{m}{\frac{\abs{x}^{n}}{(n+1)!}} \le \abs{x}\sum_{n= 0}^{m}{\frac{\abs{x}^{n}}{2^n}}
-  = \abs{x}\sum_{n= 0}^{m}{\left(\frac{\abs{x}}{2}\right)^n} \\
-  &\text{Daraus folgt: } \\
-  &\abs{a^x - 1} = \abs{\Suminf{\frac{x^n}{n!}}} = \liminf{\abs{\sum_{n=1}^{m}{\frac{x^n}{n!}}}}
-  \le \liminf{\abs{x}\sum_{n=0}^{m}{\left(\frac{\abs{x}}{2}\right)^n}} = \abs{x}\suminf{\left(\underbrace{\frac{\abs{x}}{2}}_{< 1}\right)^n} \\
-  &= \abs{x}\frac{1}{1-\frac{\abs{x}}{2}} = \frac{2\abs{x}}{2-\abs{x}} \le 2\abs{x}
-  \end{aligned}\end{math} 
+\begin{math}\displaystyle 
+ \text{Denn: es gilt } (n+1)! \ge 2^n \text{ , da } (n+1)! = \underbrace{(\underbrace{n+1}_{\ge2})\underbrace{n}_{\ge2}\dots\underbrace{2}_{=2}}_{n-mal}1 \ge 2^n \forall n \ge 1 \vphantom{\underbrace{\underbrace{2}_{2}}_{2}} \\
+  \text{Sei } m \ge 1 \text{ : } \begin{aligned}[t] 
+  \abs{\sum_{n=1}^{m}{\frac{x^n}{n!}}} &\le \sum_{n=1}^{m}{\abs{\frac{x^n}{n!}}} = \sum_{n=1}^{m}{\frac{\abs{x}^n}{n!}} = \sum_{n= 0}^{m-1}{\frac{\abs{x}^{n+1}}{(n+1)!}} \\
+ &\le \sum_{n= 0}^{m}{\frac{\abs{x}^{n+1}}{(n+1)!}}  = \abs{x}\sum_{n= 0}^{m}{\frac{\abs{x}^{n}}{(n+1)!}} \\
+ &\le \abs{x}\sum_{n= 0}^{m}{\frac{\abs{x}^{n}}{2^n}} = \abs{x}\sum_{n= 0}^{m}{\left(\frac{\abs{x}}{2}\right)^n}
+   \end{aligned}\\
+\text{Daraus folgt: } \begin{aligned}[t] 
+  \abs{a^x - 1} &= \abs{\Suminf{\frac{x^n}{n!}}} = \liminf{\abs{\sum_{n=1}^{m}{\frac{x^n}{n!}}}} \le \liminf{\abs{x}\sum_{n=0}^{m}{\left(\frac{\abs{x}}{2}\right)^n}} \\
+ &= \abs{x}\suminf{\left(\frac{\abs{x}}{2}\right)^n} \overset{\text{geom R}}{=} \abs{x}\frac{1}{1-\frac{\abs{x}}{2}} = \frac{2\abs{x}}{2-\abs{x}} \\
+ &\le 2\abs{x}
+\end{aligned}\end{math} 
 
   \item Sei $(x_n)$ eine Folge mit $\liminf{x_n} = 0$
   \begin{math}\displaystyle \begin{aligned}[t]
-  &\Rightarrow \liminf{\abs{exp(x_n) -1}} \overset{i)}{\le} \liminf{2\abs{x_n}} = 0 \\
-  &\Rightarrow \liminf{exp(x_n)} = 1 = exp(0)
+  &\Rightarrow \liminf{\abs{\exp(x_n) -1}} \overset{i)}{\le} \liminf{2\abs{x_n}} = 0 \\
+  &\Rightarrow \liminf{\exp(x_n)} = 1 = \exp(0)
   \end{aligned}\end{math} 
   \end{enumerate}
 
-\item $exp$ ist in $a \in \R$ stetig.
-\begin{math}\displaystyle \begin{aligned}[t]
-&\text{Sei } a \in \R \text{ und } (x_n) \text{ eine Folge mit } \liminf{x_n} = a
-\Rightarrow \liminf{x_n - a} = 0 \\
-&\overset{\text{$exp$ stetig in $0$}}{\Rightarrow} \liminf{exp(x_n -a)} = exp(0) = 1 \\
-&\Rightarrow \liminf{exp(x_n)} = \liminf{e^{x_n}} = \liminf{e^{(x_n - a)+a}} \\
-&\overset{Funktionsgleichung}{=} \liminf{e^{x_n-a} e^a} = e^a \underbrace{\liminf{e^{x_n-a}}}_{=1} = e^a 1 = e^a \\
-&\Rightarrow exp \text{ ist in } a \in \R \text{ stetig.}
-\end{aligned}\end{math} 
+\item $\exp$ ist in $a \in \R$ stetig. Sei $ a \in \R $ und $ (x_n) $ eine Folge mit $ \liminf{x_n} = a$.\\
+\begin{math}\displaystyle 
+\text{Also ist } \liminf{x_n - a} = 0, \text{ da $\exp$ stetig in $0$ folgt } \liminf{\exp(x_n -a)} = \exp(0) = 1 \\
+\begin{aligned}[t]\text{Also ist }\liminf{\exp(x_n)} &= \liminf{\e^{x_n}} = \liminf{\e^{(x_n - a)+a}} = \liminf{\e^{x_n-a} \e^a} \\
+&= \e^a \underbrace{\liminf{\e^{x_n-a}}}_{=1} = \e^a 1 = \e^a \end{aligned}\\
+\Rightarrow \exp \text{ ist in } a \in \R \text{ stetig.}
+\end{math} 
 \end{enumerate}
 \end{proof}
 \end{enumerate}
@@ -1362,35 +1362,35 @@ Für jede Folge $(x_n)$ mit $\liminf{x_n} = x_0$ ist die Folge $(f(x_n))$ konver
 
 \begin{satz}[Zwischenwertsatz]
 Sei $f:[a,b] \to \R$ stetig mit $f(a) < 0$ und $f(b) > 0$. Dann gibt es ein $ x \in (a,b)$ mit $f(x) = 0$.
-%TODO zwischenwertsatz.png
+%Grafik 
+\begin{figure}[ht]\centering
+ \includegraphics[width=0.33\textwidth]{images/zwischenwertsatz.png}
+\caption{Der Zwischenwertsatz}
+\end{figure}
 \begin{proof}
-Wir konstruieren durch Intervallhalbierung eine Folge, deren Grenzwert eine Nullstelle von $f$ ist. \\
+Wir konstruieren durch Intervallhalbierung eine Folge, deren Grenzwert eine Nullstelle von $f$ ist. 
 Wir definieren induktiv zwei Folgen $(a_n)$ und $(b_n)$ mit folgenden Eigenschaften:
 \begin{itemize}
-\item $0 \le b_n - a_n \le \frac{b-a}{2^n}$
-\item $f(a_n) < 0 < f(b_n)$
+\item $ \displaystyle 0 \le b_n - a_n \le \frac{b-a}{2^n}$
+\item $ \displaystyle f(a_n) < 0 < f(b_n)$
 \end{itemize}
 \begin{math}\displaystyle \begin{aligned}[t]
 &\IA \quad a_0 = a, \quad b_n = b \\
 &\IV{\text{Seien $a_n$ und $b_n$ schon konstruiert}} \\
 &\text{Definiere den Mittelpunkt }M = \frac{a_n + b_n}{2}. \text{ Ist } f(M) = 0, \text{ dann setze } x = M .\\
-&\IS \\
-&\text{Fall 1: Ist } f(M) < 0 : a_{n+1} = M \text{ , } b_{n+1} = b_n. \\
+&\IS \begin{aligned}[t] &\text{Fall 1: Ist } f(M) < 0 : a_{n+1} = M \text{ , } b_{n+1} = b_n. \\
 &\text{Fall 2: Ist } f(M) > 0 : a_{n+1} = b_n \text{ , } b_{n+1} = M.  \\
-% TODO ev mit grafik erklären
 &\text{Nach Definition ist } f(a_{n+1}) < 0 \text{ und } f(b_{n+1}) > 0. \\
 &\text{Es gilt: } 0 \le b_{n+1} - a_{n+1} \le \frac{b_n - a_n}{2} \text{ , denn} \\
 &\text{Fall 1: } b_{n+1} - a_{n+1} = b_n - \frac{a_n+b_n}{2} = \frac{2b_n + a_n - b_n}{2} = \frac{b_n - a_n}{2} \\
-&\text{Fall 2: } b_{n+1} - a_{n+1} = \frac{a_n+b_n}{2} - a_n = \frac{b_n + a_n - 2a_n}{2} = \frac{b_n - a_n}{2}
-\le \frac{b_{n-1} - a_{n-1}}{2^2} \le \dots \le \frac{b-a}{2^n+1} \\
-&\text{Nach Konstruktion ist die Folge $(a_n)$ monoton wachsend und durch $b$ nach oben beschränkt.} \\
-&\text{Die Folge $(b_n)$ ist monoton fallend und durch $a$ nach unten beschränkt.} \\
-&\text{Nach dem Monotoniekriterium konvergieren die beiden Folgen $(a_n)$ und $(b_n)$.} \\
-&\text{ Sei } \liminf{b_n} = b_0 \text{ und } \liminf{a_n}  = a_0 \\
-&0 \le b_n - a_n \le \frac{b-a}{2} \Rightarrow 0 \le b_0 - a_0 \le \liminf{\frac{b-a}{2^n}} = 0 \\
-&\Rightarrow \liminf{a_n} = \liminf{b_n} = x \in (a,b) \\
-&\text{Da } f(a_n) < 0 < f(b_n) \text{ und } f \text{ stetig ist, folgt } 0 \le \liminf{f(b_n)} = f(x) = \liminf{f(a_n)} \le 0 \Rightarrow f(x) = 0
-\end{aligned}\end{math} 
+&\text{Fall 2: } b_{n+1} - a_{n+1} = \frac{a_n+b_n}{2} - a_n = \frac{b_n - a_n}{2} \le \frac{b_{n-1} - a_{n-1}}{2^2} \le \dots \le \frac{b-a}{2^{n+1}} \\
+\end{aligned}\end{aligned}\\
+\vphantom{\frac{1}{2}}\end{math}
+Nach Konstruktion ist die Folge $(a_n)$ monoton wachsend und durch $b$ nach oben beschränkt. Die Folge $(b_n)$ ist monoton fallend und durch $a$ nach unten beschränkt. 
+Nach dem Monotoniekriterium konvergieren die beiden Folgen $(a_n)$ und $(b_n)$. \\
+Sei $\displaystyle \liminf{b_n} = b_0 \text{ und } \liminf{a_n}  = a_0 \text{ und } 0 \le b_n - a_n \le \frac{b-a}{2} \Rightarrow 0 \le b_0 - a_0 \le \liminf{\frac{b-a}{2^n}} = 0 $\\
+$\vphantom{\frac{1}{2}}\displaystyle \Rightarrow \liminf{a_n} = \liminf{b_n} = x \in (a,b) $\\
+$\vphantom{\frac{1}{2}}$Da $ f(a_n) < 0 < f(b_n) $ und $ f $ stetig ist, folgt $ 0 \le \liminf{f(b_n)} = f(x) = \liminf{f(a_n)} \le 0 \Rightarrow f(x) = 0$
 \end{proof}
 \end{satz}
 
@@ -1405,33 +1405,31 @@ Sei $[a,b]$ ein abgeschlossenes Intervall. Dann ist jede stetige Funktion $f: [a
 
 \begin{proof}
 Wir zeigen nur das Maximum, denn das Minimum ist das Maximum von $-f$.\\
-\begin{math}\displaystyle \begin{aligned}[t] 
-&\text{Sei } M = sup(\menge{f(x)}{x\in[a,b]}) \in \R \cup \{\infty\} \\
-&\text{Fall 1: Ist $f$ nicht nach oben beschränkt} \Rightarrow \forall n \in \N \spdot \exists f(x_n) \spcolon f(x_n) \ge n \Rightarrow \liminf{f(x_n)} = \infty = M \\
-&\text{Fall 2: Ist $f$ beschränkt } \Rightarrow M \in \R \text{ und } \forall n \in \N \spdot \exists f(x_n) \spcolon M-\frac{1}{n} < f(x_n) \le M \Rightarrow \liminf{f(x_n)} = M \\
-&\text{Also gibt es in beiden Fällen eine Folge $(x_n)$ mit $x_n \in [a,b]$ mit $\liminf{f(x_n)} = M$.} \\
-&\text{Da $x_n \in [a,b]$ ist die Folge $(x_n)$ beschränkt.} \\
-&\text{Nach dem Satz von Bolzano-Weierstraß besitzt die Folge $(x_n)$ eine konvergente Teilfolge $(x_{n_k})$ mit} \\
-&\liminf[k]{x_{n_k}} = p \in [a,b] \\
-&\text{Da $\liminf{f(x_n)} = M$ und jede Teilfolge eine konvergente Folge den selben Grenzwert hat, folgt} \\ &\liminf[k]{f(x_{n_k})} = M \\
-&\text{Da $f$ stetig ist, folgt} \liminf[k]{f(x_{n_k})} = f(p) \\
-&\text{Aber } \liminf[k]{f(x_{n_k})} = M \Rightarrow M = f(p) \\
-&\Rightarrow p \text{ ist Maximum der Funktion } f
-\end{aligned}\end{math} 
+\begin{math}\displaystyle 
+\text{Sei } M = sup(\menge{f(x)}{x\in[a,b]}) \in \R \cup \{\infty\} \\
+ \begin{aligned}[t] \text{Fall 1:}&\text{ Ist $f$ nicht nach oben beschränkt} \Rightarrow \forall n \in \N \spdot \exists f(x_n) \spcolon f(x_n) \ge n \Rightarrow \liminf{f(x_n)} = \infty = M \\
+\text{Fall 2:}&\text{ Ist $f$ beschränkt } \Rightarrow M \in \R \text{ und } \forall n \in \N \spdot \exists f(x_n) \spcolon M-\frac{1}{n} < f(x_n) \le M \Rightarrow \liminf{f(x_n)} = M 
+\end{aligned}\\  \vphantom{\frac{1}{2}} \end{math}
+Also gibt es in beiden Fällen eine Folge $(x_n)$ mit $x_n \in [a,b]$ mit $\liminf{f(x_n)} = M$. Da $x_n \in [a,b]$ ist die Folge $(x_n)$ beschränkt. Nach dem Satz von Bolzano-Weierstraß besitzt die Folge $(x_n)$ eine konvergente Teilfolge $(x_{n_k})$ mit $ \displaystyle \liminf[k]{x_{n_k}} = p \in [a,b] $. Da $\liminf{f(x_n)} = M$ und jede Teilfolge eine konvergente Folge den selben Grenzwert hat, folgt $ \displaystyle \liminf[k]{f(x_{n_k})} = M $ Da $f$ stetig ist, folgt $ \displaystyle \liminf[k]{f(x_{n_k})} = f(p) $. Aber $ \displaystyle \liminf[k]{f(x_{n_k})} = M \Rightarrow M = f(p) \Rightarrow p $ ist Maximum der Funktion $f$.
 \end{proof}
 \end{satz}
 
 \begin{bem}
-$f:(0,1] \to \R \text{ mit } f(x) = \frac{1}{x}$ \\ % TODO mit grafik!
+$f:(0,1] \to \R \text{ mit } f(x) = \frac{1}{x}$ \\
+\begin{figure}[ht]\centering
+ \includegraphics[width=0.33\textwidth]{images/funktion_1durchx.png}
+\caption{Die Funktion $f(x) = \frac{1}{x}$}
+\end{figure}
+%grafik
 $f$ ist stetig aber nicht nach oben beschränkt.
 \end{bem}
 
 \begin{defi}
 Eine Funktion $f: D \to \R$ heißt (streng) monoton wachsend, wenn gilt:
-\begin{math}\displaystyle \begin{aligned}[t]
+\begin{align*}
 &\forall a,b \in D \spcolon a \le b \Rightarrow f(a) \le f(b) \\
 &\forall a,b \in D \spcolon a < b \Rightarrow f(a) < f(b) \quad \text{(streng)}
-\end{aligned}\end{math} 
+\end{align*}
 Entsprechend für (streng) monoton fallend.
 \end{defi}
 
@@ -1458,77 +1456,84 @@ Dann gibt es ein $\epsilon > 0$, sodass $\abs{f^{-1}(y_n) - f^{-1}(y)} \ge \epsi
 Wir können also annehmen. Es gibt eine konvergente Teilfolge $(f^{-1}(y_{n_{k_l}}))_{l \ge 0}$ von $(f^{-1}(y_n))_{n \ge 0}$ mit $(f^{-1}(y_{n_{k_l}}) = c$  und $\abs{f^{-1}(y_{n_{k_l}}) - f^{-1}(y)} \ge \epsilon \Rightarrow \abs{c - f^{-1}(x)} \ge \epsilon$. \\
  Nach der Definition der Umkehrabbildung ist $f(f^{-1}(y_{n_k})) = y_{n_k}$. Aus der Stetigkeit von $f$ folgt daher $y = \liminf[k]{y_{n_k}} = \liminf[k]{f(f^{-1}(y_{n_k}))}  \overset{f \text{ stetig}}{=} f(c)\\
  \Rightarrow f^{-1}(y) = f^{-1}(f(c)) = c
-\Rightarrow \abs{f^{-1}(y) - f^{-1}(y)} \ge \epsilon > 0 \WSP \Rightarrow f^{-1}:[A,B] \to [a,b] $ ist stetig.
+ \vphantom{\frac{1}{2}} \Rightarrow \abs{f^{-1}(y) - f^{-1}(y)} \ge \epsilon > 0 \sp \WSP \Rightarrow f^{-1}:[A,B] \to [a,b] $ ist stetig.
 \end{proof}
 \end{satz}
 
 \begin{bsp}
-Beispiele zur...
+Beispiele zur stetigen Umkehrfunktion.
 \begin{enumerate}
-\item Die Wurzelfunktion $\sqrt[k]{x}$\\
+\item Die Wurzelfunktion $ \displaystyle \sqrt[k]{x}$\\
 Sei $f: \R_+ \to \R_+ \text{ mit } f(x) = x^k $ und $ k \ge 2$.
-Für $x \in \R_+$ ist $f$ stetig, streng monoton wachsend und $f(x) \in \R_+ \Rightarrow $ Es gibt eine streng monoton wachsende und stetige Umkehrfunktion $f^{-1}: \R_+ \to \R_+ \text{ mit } = \sqrt[k]{x}$\\
+Für $x \in \R_+$ ist $f$ stetig, streng monoton wachsend und $f(x) \in \R_+ \Rightarrow $ Es gibt eine streng monoton wachsende und stetige Umkehrfunktion $ \displaystyle f^{-1}: \R_+ \to \R_+ \text{ mit } = \sqrt[k]{x}$\\
 Für $k$ ungerade sind $f$ und $f^{-1}$ auf $\R \to \R$ definiert.
-\item Der natürliche Logarithmus $ln(x)$\\
-Die Exponentialfunktion $exp: \R \to \R_+ \text{ mit } exp(x) = e^x = \suminf{\frac{x^n}{n!}}$ ist streng monoton wachsend und bijektiv von \R nach $\R_+$
+\item Der natürliche Logarithmus $\ln(x)$\\
+Die Exponentialfunktion $ \displaystyle \exp: \R \to \R_+ \text{ mit } \exp(x) = e^x = \suminf{\frac{x^n}{n!}}$ ist streng monoton wachsend und bijektiv von \R nach $\R_+$
 \begin{proof}
-	$e^x = e^{\frac{x}{2} + \frac{x}{2}} = e^{\frac{x}{2}} e^{\frac{x}{2}} = (e^{\frac{x}{2}})^2 \ge 0$\\
-	Für $x > 0$ folgt: $e^x = 1 + \frac{x}{1} + \frac{x^2}{2} + \dots + \frac{x^n}{n!} > 1$, also $e^x > 1$\\
-	Sei $x < x' \Rightarrow y = x' - x > 0 \Rightarrow e^y > 1 \Rightarrow e^{x'} = e^{x+(x'-x)} = e^{x+y} = e^x \underbrace{e^y}_{> 1} > e^x \Rightarrow exp$ ist streng monoton.
-	d.h. $exp$ ist auf jedem abgeschlossenen Intervall $[a,b]$ stetig und bijektiv.\\
-	$\forall n\in\N \quad 	exp(n)\ge 1 + n \longtoinf \infty \\
-					exp(-n) = \frac{1}{exp(n)} \le \frac{1}{1+n} \longtoinf 0.$\\
-	Also $\liminf{exp(x)} = \infty$ und $\liminf{exp(x)} = 0$
-	%grafik der exponentialfunktion.
-	Es gibt daher eine stetige Umkehrfunktion $ ln : \R_+ \to  \R \text{ mit } x \mapsto ln(x)$ der natürliche Logarithmus.
-	$ln$ ist wieder stetig und streng monoton wachsend.
+	$ \displaystyle \vphantom{\frac{1}{2}} e^x = e^{\frac{x}{2} + \frac{x}{2}} = e^{\frac{x}{2}} e^{\frac{x}{2}} = (e^{\frac{x}{2}})^2 \ge 0$\\
+	Für $x > 0$ folgt: $ \displaystyle e^x = 1 + \frac{x}{1} + \frac{x^2}{2} + \dots + \frac{x^n}{n!} > 1$, also $e^x > 1$\\
+	Sei $\vphantom{\frac{1}{2}}x < x' \Rightarrow y = x' - x > 0 \Rightarrow e^y > 1 \Rightarrow e^{x'} = e^{x+(x'-x)} = e^{x+y} = e^x \underbrace{e^y}_{> 1} > e^x \Rightarrow \exp$ ist streng monoton.
+	d.h. $\exp$ ist auf jedem abgeschlossenen Intervall $[a,b]$ stetig und bijektiv.\\
+	$ \displaystyle  \vphantom{\frac{1}{2}} \forall n\in\N \quad \begin{aligned}[t]	&\exp(n) &\ge 1 + n \longtoinf \infty \\
+					&\exp(-n) &= \frac{1}{\exp(n)} \le \frac{1}{1+n} \longtoinf 0.\end{aligned}$\\
+	Also $\liminf{\exp(x)} = \infty$ und $\liminf{\exp(x)} = 0$\\
+\begin{figure}[ht]\centering
+ \includegraphics[width=0.33\textwidth]{images/exponential_funktion.png}
+\caption{die Exponentialfunktion}
+\end{figure}
+	%grafik 
+	Es gibt daher eine stetige Umkehrfunktion $ \ln : \R_+ \to  \R \text{ mit } x \mapsto \ln(x)$ der natürliche Logarithmus.
+	$\ln$ ist wieder stetig und streng monoton wachsend.
 \end{proof}
-\[\text{Es gilt: } ln(x y) = ln(x) + ln(y)\]
-	\begin{proof}
-	$ ln(x) = \xi$ und $ ln(y) = \eta$\\
-	d.h. $ e^{\xi} = x $ und $ e^{\eta} = y$\\
-	$\Rightarrow e^{\xi + \eta} = e^{\xi} e^{\eta} = x y \qquad | ln \\
-	\Rightarrow ln(e^{\xi + \eta}) = ln(xy) \\
-	\Rightarrow \xi + \eta = ln(xy) \\
-	\Rightarrow ln(x) + ln(y) = ln(xy)$
+\[\text{Es gilt: } \ln(x y) = \ln(x) + \ln(y)\]
+	\begin{proof}Sei \begin{math} \ln(x) = \xi\text{ und } \ln(y) = \eta \text{ d.h. } \e^{\xi} = x \text{ und } \e^{\eta} = y\\
+	\begin{aligned}[t]\e^{\xi + \eta} &= \e^{\xi} \e^{\eta} = x y &&\text{wende $\ln$ an } \Rightarrow\\
+	\ln(\e^{\xi + \eta}) &= \ln(xy) &&\text{da $\ln$ die Umkehrfunktion von $\e$ ist } \Rightarrow\\
+	\xi + \eta &= \ln(xy) &&\text{aus Definition } \Rightarrow\\
+	\ln(x) + \ln(y) &= \ln(xy)
+	\end{aligned} \end{math}\\
 	\end{proof}
 \item Die allgmeine Potenz und der allgemeine Logarithmus.\\
-Sei $ a < 0, x \in \R$ \[a^x = e^{x ln(a)}\]
+Sei $ a < 0, x \in \R$ \[a^x = e^{x \ln(a)}\]
 \begin{proof}
 Sei $x = n \in N$
-$e^{n ln(a)} = \underbrace{e^{ln(a)} \dots e^{ln(a)}}_{n-\text{mal}} = a\dots a = a ^n$
+$e^{n \ln(a)} = \underbrace{e^{\ln(a)} \dots e^{\ln(a)}}_{n-\text{mal}} = a\dots a = a ^n$
 \end{proof}
-Diese Funtkion $\R \to \R_+$ ist stetig, bijektiv und stereng monoton wachsend.
-Es gilt: $a^{x+y} = a^x a^y \quad (a^x)^y = a^{xy} \quad a^x b^x = (ab)^x \quad (\frac{1}{a})^x = \frac{1}{a^x} = a^{-x}$
+Diese Funtkion $\R \to \R_+$ ist stetig, bijektiv und stereng monoton wachsend.\\
+$ \displaystyle \begin{aligned}[t]\text{Es gilt:} &\qquad a^{x+y} = a^x a^y &\qquad (a^x)^y = a^{xy} &\qquad a^x b^x = (ab)^x &\qquad (\frac{1}{a})^x = \frac{1}{a^x} = a^{-x}\end{aligned}$
 \proof[Beweis: Übung]
-Die Umkehrfunktion $log_a : \R_+ \to \R \text{ mit } x \mapsto log_a(x)$ heißt der logarithmus zur Basis $a$.\\
-Also $log_a(a^x) = x \quad _alog(x) = x.$
-\[\text{Es gilt: } log_a(x) = \frac{ln(x)}{ln(a)}\]
+Die Umkehrfunktion $\log_a : \R_+ \to \R \text{ mit } x \mapsto \log_a(x)$ heißt der Logarithmus zur Basis $a$. Also $ \displaystyle \log_a(a^x) = x \text{ oder } _a\log(x) = x.$
+\[\text{Es gilt: } \log_a(x) = \frac{\ln(x)}{\ln(a)}\]
 \proof[Beweis: Übung]
 \end{enumerate}
 \end{bsp}
 
 \begin{defi}
-Sei $(z_n)$ mit $z_n = a_n + \im b_n$ eine Folge komplexer Zahlen. \\
-$\liminf{z_n} = z = a+\im b \Leftrightarrow \forall \epsilon > 0 \exists N  \forall n \ge N \quad \abs{z_n - z} < \epsilon $\\
-% \epsilon umgebung ist ein Kreis.
+Sei $(z_n)$ mit $z_n = a_n + \im b_n$ eine Folge komplexer Zahlen. 
+\[\liminf{z_n} = z = a+\im b \Leftrightarrow \forall \epsilon > 0 \spdot \exists N  \sp \forall n \ge N \spcolon \abs{z_n - z} < \epsilon \]
+\begin{figure}[ht]\centering
+ \includegraphics[width=0.33\textwidth]{images/epsilon_umgebung.png}
+\caption{Eine Epsilonumgebung}
+\end{figure}
+%Grafik 
 Es gelten alle Sätze auch für komplexe Folgen. Nur das Monotonie-Kriterium gilt nicht, da \C nicht angeordnet ist.
 \end{defi}
 
 \begin{bem}
 Speziell gilt:
-Sei $z_n = a_n + \im b_n$. $\liminf{z_n} = z = a+\im b \Leftrightarrow \liminf{a_n} = a und \liminf{b_n} = b$
+Sei $z_n = a_n + \im b_n$. $\liminf{z_n} = z = a+\im b \sp \Leftrightarrow \liminf{a_n} = a und \liminf{b_n} = b$
 \begin{proof}
-Sei $\liminf{z_n} = a + \im b \Rightarrow  \forall \epsilon > 0 \exists N  \forall n \ge N \quad \abs{z_n - (a+\im b)} < \epsilon  \\
-\Rightarrow
-\abs{a_n - a} = \abs{Re(z_n - z)} \le \abs{z_n - z} < \epsilon \forall n \ge N \\
-\abs{b_n - b} = \abs{Im(z_n - z)} \le \abs{z_n - z} < \epsilon \forall n \ge N\\
+Sei $\liminf{z_n} = a + \im b \Rightarrow \sp \forall \epsilon > 0 \sp \exists N \sp \forall n \ge N \quad \abs{z_n - (a+\im b)} < \epsilon  \\
+\begin{aligned}[t]\Rightarrow
+\abs{a_n - a} = \abs{Re(z_n - z)} \le \abs{z_n - z} < \epsilon \quad \forall n \ge N \\
+\abs{b_n - b} = \abs{Im(z_n - z)} \le \abs{z_n - z} < \epsilon \quad \forall n \ge N\end{aligned}\\
 \text{Sei} \abs{z_n - z} = \abs{a_n + \im b_n - (a + \im b)} = \abs{a_n - a + \im (b_n - b)} \le \abs{a_n - a} + \abs{i}\abs{b_n - b} < \epsilon $
 \end{proof}
 Weiters gilt:
 $\liminf{\overline{z_n}} = \overline{\liminf{z_n}}$
 \begin{proof}
-$\liminf{\overline{z_n}} = \liminf{\overline{a_n + \im b_n}} = \liminf{a_n - \im b_n} = \liminf{a_n} - \im \liminf{b_n} = \overline{\liminf{a_n} + \im \liminf{b_n}} = \overline{\liminf{z_n}}$
+$\begin{aligned}[t]\liminf{\overline{z_n}} &= \liminf{\overline{a_n + \im b_n}} = \liminf{a_n - \im b_n} = \liminf{a_n} - \im \liminf{b_n} \\
+&= \overline{\liminf{a_n} + \im \liminf{b_n}} = \overline{\liminf{z_n}}\end{aligned}$
 \end{proof}
 \end{bem}
 
@@ -1539,16 +1544,16 @@ $\liminf{f(z_n)} = f(z_n)$
 
 
 \begin{bsp}[Die komplexe Exponentialfunktion]
-$exp: \C \to \C\setminus\{0\} \text{ mit } exp(z) = \suminf{\frac{z^n}{n!}}$ ist definiert $\forall z\in \C$ und stetig $\forall z\in \C$
+$ \displaystyle \exp: \C \to \C\setminus\{0\} \text{ mit } \exp(z) = \suminf{\frac{z^n}{n!}}$ ist definiert $\forall z\in \C$ und stetig $\forall z\in \C$
 \begin{proof} Analog zu dem Beweis der Exponentialfunktion im Reellen.
 \end{proof}
-Achtung: Die komplexe Exponentialfunktion $exp: \C \to \C\setminus{0}$ ist nicht bijektiv $\Rightarrow$ Schwierigkeiten beim Logarithmus im Komplexen.
+Achtung: Die komplexe Exponentialfunktion $\exp: \C \to \C\setminus{0}$ ist nicht bijektiv $\Rightarrow$ Schwierigkeiten beim Logarithmus im Komplexen.
 \end{bsp}
 
 \begin{bem}
 Es gilt: $ \overline{\e^z} = \e^{\overline{z}} \qquad \forall z\in \C$
 \begin{proof}
-$\overline{\e^z} = \overline{\suminf{\frac{z^n}{n!}}} = \overline{\liminf[N]{\sum_{n=0}^{n=N}{\frac{z^n}{n!}}}} =  \suminf{\frac{\overline{z}^n}{n!}} = \e^{\overline{z}}$
+$ \displaystyle \overline{\e^z} = \overline{\suminf{\frac{z^n}{n!}}} = \overline{\liminf[N]{\sum_{n=0}^{n=N}{\frac{z^n}{n!}}}} =  \suminf{\frac{\overline{z}^n}{n!}} = \e^{\overline{z}}$
 \end{proof}
 \end{bem}
 
@@ -1565,24 +1570,33 @@ Es gilt die Eulersche Formel: $\e^{\im x} = \cos x + \im \sin x$
 Da $\overline{\im x} = - \im x \quad \forall x \in \R$
 folgt $1 = \e^0 = \e^{\im x - \im x}= \e^{\im x}\e^{-\im x} = \e^{\im x} \e^{\overline{\im x}} = \e^{\im x} \overline{\e^{\im x}} = \abs{\e^{\im x}}^2\\
 \Rightarrow 1 = \abs{\e^{\im x}}$ \\
-D.h. $ \e^{\im x}$ liegt auf dem Einheitskreis $ \abs{z} = 1$ %zusätzlich einheitskreis mit einzeichnen von cos und sinus als a und b von \e^{\im x}
+D.h. $ \e^{\im x}$ liegt auf dem Einheitskreis $ \abs{z} = 1$\\
+\begin{figure}[ht]\centering
+ \includegraphics[width=0.33\textwidth]{images/einheitskreis_sincosexp.png}
+\caption{Zusammenhänge im Einheitskreis}
+\end{figure}
+%grafik
 \end{bem}
 
 \begin{prop}
+Für $x \in \C$ gilt
 \begin{enumerate}
-\item $\cos x  = \frac{\e^{\im x} + \e^{-\im x}}{2}$
-\item $\sin x = \frac{\e^{\im x} - \e^{-\im x}}{2\im}$
-\item $\cos^2x + \sin^2 x = 1$
+\item $ \displaystyle \cos x  = \frac{\e^{\im x} + \e^{-\im x}}{2}$
+\item $ \displaystyle \sin x = \frac{\e^{\im x} - \e^{-\im x}}{2\im}$
+\item $ \displaystyle \cos^2x + \sin^2 x = 1$
 \end{enumerate}
 \begin{proof}
 Von a und b: \\
 $\e^{\im x} = Re(\e^{\im x}) + \im Im(\e^{\im x}) = \cos x + \im \sin x \\
 \e^{-\im x} = \e^{\overline{\im x}} = \overline{\e^{\im x}} = Re(\e^{\im x}) - \im Im(\e^{\im x}) = \cos x - \im \sin x $\\
-Also $\e^{\im x} = \cos x + \im \sin x\\ % klammer herum mit \pm
-	\e^{-\im x} = \cos - \im \sin x\\  % die zwei
-	\Rightarrow  \e^{\im x} + \e^{-\im x} = 2\cos x  \text{ und } \e^{\im x} - \e^{-\im x} = 2\im \sin x \\
-\text{von c:}\\
-\cos^2 x + \sin^2 x = \left(\frac{\e^{\im x} + \e^{-\im x}}{2}\right)^2 + \left( \frac{\e^{\im x} - \e^{-\im x}}{2\im}\right)^2 = \frac{1}{4}\left(\e^{2 \im x} + 2 \e^{\im x - \im x} + \e^{-2\im x} - \e^{2\im x} + 2 \e^{\im x -\im x} - \e^{-2\im x}\right) = \frac{1}{4}(2+2) = 1$
+\begin{math}
+\displaystyle \left.\text{Also } \begin{aligned} \e^{\im x} &= \cos x + \im \sin x\\ 
+\e^{-\im x} &= \cos x - \im \sin x \end{aligned}\sp \right\} \Rightarrow \begin{aligned} \e^{\im x} + \e^{-\im x} &= 2\cos x \\ \e^{\im x} - \e^{-\im x} &= 2\im \sin x \end{aligned} \\
+\vphantom{\frac{1}{2}}\text{von c:}\quad \begin{aligned}[t] 
+\cos^2 x + \sin^2 x &= \left(\frac{\e^{\im x} + \e^{-\im x}}{2}\right)^2 + \left( \frac{\e^{\im x} - \e^{-\im x}}{2\im}\right)^2 \\
+&= \frac{1}{4}\left(\e^{2 \im x} + 2 \e^{\im x - \im x} + \e^{-2\im x} - \e^{2\im x} + 2 \e^{\im x -\im x} - \e^{-2\im x}\right) \\
+&= \frac{1}{4}(2+2) = 1\end{aligned}
+\end{math}\\
 \end{proof}
 \end{prop}
 
@@ -1592,81 +1606,89 @@ Folgt aus den Rechenregeln für stetige Funktionen auf \R
 \end{bem}
 
 \begin{prop}[Additionstheoreme]
-$\forall x,y \in \R$
-\[ \cos (x + y) = \cos x \cos y - \sin x \sin y\]
-\[ \sin (x + y) = \cos x \sin y + \sin x \cos y \]
-\begin{proof}
-$\cos (x + y) + \im \sin (x + y) = \e^{\im(x+y)} = \e^{\im x + \im y} = \e^{\im x} + \e^{\im y} = (\cos x + \im \sin x) (\cos y + \im \sin y) = \cos x \cos y - \sin x \sin y + \im(\cos x \sin y + \sin x \cos y) $ Vergleich von Real- und Imaginärteil, folgt die Behauptung.
+$\forall x,y \in \R$ gilt:
+\begin{align*} \cos (x + y) &= \cos x \cos y - \sin x \sin y\\
+\sin (x + y) &= \cos x \sin y + \sin x \cos y \end{align*}
+\begin{proof}\begin{math}\begin{aligned}[t]\cos (x + y) + \im \sin (x + y) &= \e^{\im(x+y)} = \e^{\im x + \im y} = \e^{\im x} + \e^{\im y} = (\cos x + \im \sin x) (\cos y + \im \sin y) \\
+&= \cos x \cos y - \sin x \sin y + \im(\cos x \sin y + \sin x \cos y) \end{aligned}\end{math} \\Mit dem Vergleich von Real- und Imaginärteil, folgt die Behauptung.
 \end{proof}
 \end{prop}
 
 \begin{prop}[Reihendarstellung]
-$\forall x \in \R $ gilt
-\[\cos x = \suminf{(-1)^n \frac{x^{2n}}{(2n)!}}\]
-\[\sin x = \suminf{(-1)^n \frac{x^{2n+1}}{(2n+1)!}}\]
+$\forall x \in \R $ gilt:
+\begin{align*} \cos x &= \suminf{(-1)^n \frac{x^{2n}}{(2n)!}}\\
+\sin x &= \suminf{(-1)^n \frac{x^{2n+1}}{(2n+1)!}}\end{align*} 
 Beide Reihen konvergieren absolut für alle $ x \in \R$
 \begin{proof}
-Absolute Konvergenz folgt aus der absoluten Konvergenz der Exponentialreihe. (oder aus dem Quotientenkriterium)\\
-$\cos x + \im \sin x = \e^{\im x} = \suminf[k]{\frac{(\im x)^k}{k!}} = \suminf[k]{\im^k\frac{x^k}{k!}} = \suminf{\im^{2n} \frac{x^{2n}}{(2n)!}} + \suminf{\im^{2n+1} \frac{x^{2n+1}}{(2n+1)!}}  \overset{\im^2 = -1}{=} \suminf{\im^{n} \frac{x^{2n}}{(2n)!}} + \im \suminf{\im^{n} \frac{x^{2n+1}}{(2n+1)!}}$\\
+Absolute Konvergenz folgt aus der absoluten Konvergenz der Exponentialreihe (oder aus dem Quotientenkriterium.)\\
+$\displaystyle \begin{aligned}[t]\cos x + \im \sin x &= \e^{\im x} = \suminf[k]{\frac{(\im x)^k}{k!}} = \suminf[k]{\im^k\frac{x^k}{k!}} = \suminf{\im^{2n} \frac{x^{2n}}{(2n)!}} + \suminf{\im^{2n+1} \frac{x^{2n+1}}{(2n+1)!}} \\
+&\overset{\im^2 = -1}{=} \suminf{(-1)^{n} \frac{x^{2n}}{(2n)!}} + \im \suminf{(-1)^{n} \frac{x^{2n+1}}{(2n+1)!}}\end{aligned}$\\
 Die Formeln folgen durch Vergleich von Real- und Imaginärteil.
 \end{proof}
 \end{prop}
 
-% Ziel: Definition von \PI
+
 \begin{satz}
 Die Funktion $\cos : \R \to \R $ hat im Intervall von $[0,2]$ genau eine Nullstelle $x_0$.
 \begin{proof}
-1.) Existenz:
-$\cos$ ist stetig, $\cos 0 = 1 > 0$ und $\cos 2 < 0 $\\
-$\zz. \cos 2 < 0\\
-a) \forall x \in [0,2], \forall n \ge 1 \text{ g ilt } -\frac{x^{2n}}{(2n)! }+ \frac{x^{2n+2}}{(2n+2)!} < 0 \\
-\text{denn } \forall n \ge 1 \quad (2n + 1)(2n + 2) > 2 \cdot 2 \ge x ^2\\
-\Rightarrow 1 > \frac{x^2}{(2n + 1)(2n + 2)} \Rightarrow 0 > (\frac{x^2}{(2n + 1)(2n + 2)} - 1) \cdot \frac{x^2_n}{(2n)!}  = \frac{x^{2n+2}}{(2n+2)!} -\frac{x^{2n}}{(2n)! }
-b) \cos x = \suminf{(-1)^n \frac{x^{2n}}{(2n)!}} = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} + \sum_{n \ge 3, n \text{ungerade}}{\frac{x^{2n}}{(2n)! }+ \frac{x^{2n+2}}{(2n+2)!}} < 1 - \frac{x^2}{2!} + \frac{x^4}{4!}\\
-\Rightarrow \cos 2 < 1 - \frac{2^2}{2!} + \frac{2^4}{4!} = 1 - \frac{4}{2} + \frac{16}{24} = 1 - 2 + \frac{2}{3} = -\frac{1}{3} < 0\\
-\overset{Zwischenwertsatz}{\Rightarrow} \exists x_0 \in [0,2] \text{ mit } \cos{x_0} = 0$.
-2.) Eindeutigkeit:\\
-a) $\sin x > 0 \forall x \in (0,2)$\\
-$\sin x = \suminf{(-1)^n \frac{x^{2n+1}}{(2n+1)!}} = x - \frac{x^3}{3!} + \underbrace{\frac{x^5}{5!} + \frac{x^7}{7!}}_{>0}  + \underbrace{\frac{x^9}{9!} + \frac{x^{11}}{11!}}_{>0} + \dots > x - \frac{x^3}{3!} = \frac{1}{6}(6x - x^3) = \frac{x}{6}\underbrace{(6-x^2)}_{0 < x < 2} > 0$\\
-b) $\cos : (0,2) \to \R$ ist streng monoton fallend.\\
-Seien $ 0 < x_1 < x_2 < 2$ \\
-Setze $ x = \frac{x_1 + x_2}{2} \in (0,2) und y = \frac{x_2 - x_1}{2} \in (0,2) \\
-\Rightarrow x_2 = x + y  und x_1 = x - y$ \\
-Aus den Additionstheoremen folgt:  \\
-$\cos x_2 = \cos (x + y) = \cos x \cos y - \sin x \sin y \\
-\cos x_1 = \cos (x - y) = \cos x \cos(-y) + \sin x \sin (-y) \	qquad \cos -x = \frac{\e^{-\im x} + \e^{\im x}}{2} = \cos x\\
-										\qquad \sin -x = \frac{\e^{-\im x} - \e^{\im x}}{2\im}  = -\frac{\e^{\im x} - \e^{-\im x}}{2\im}= - \sin x\\
-\Rightarrow \cos(x_2) - \cos(x_1) = - 2\sin x \sin y = - 2 \underbrace{\sin(\frac{x_1 + x_2}{2})}_{> 0}  \underbrace{\sin(\frac{x_2 - x_1}{2})}_{> 0} < 0 \\
-\Rightarrow \cos x_2 < \cos x_1 \Rightarrow \cos $ ist auf $(0,2)$ streng monoton fallend, speziell injektiv.\\
-$\Rightarrow \cos $ hat genau eine Nullstelle.
+\begin{math}\begin{aligned}[t]
+\text{1.)}&\text{ Existenz:}\cos\text{ ist stetig, }\cos 0 = 1 > 0\text{ und }\cos 2 < 0 \\
+&\zz \cos 2 < 0\\
+&\begin{aligned}[t]\text{a) }&\forall x \in [0,2], \,\forall n \ge 1 \text{ g ilt } -\frac{x^{2n}}{(2n)! }+ \frac{x^{2n+2}}{(2n+2)!} < 0 \\
+&\text{denn } \forall n \ge 1 \quad (2n + 1)(2n + 2) > 2 \cdot 2 \ge x ^2\\
+&\Rightarrow 1 > \frac{x^2}{(2n + 1)(2n + 2)} \Rightarrow 0 > (\frac{x^2}{(2n + 1)(2n + 2)} - 1) \cdot \frac{x^2_n}{(2n)!}  = \frac{x^{2n+2}}{(2n+2)!} -\frac{x^{2n}}{(2n)! }
+\end{aligned}\\
+&\begin{aligned}[t]\text{b)}&\cos x = \suminf{(-1)^n \frac{x^{2n}}{(2n)!}} = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} + \sum_{n \ge 3, n \text{ ungr}}{\frac{x^{2n}}{(2n)! }+ \frac{x^{2n+2}}{(2n+2)!}} < 1 - \frac{x^2}{2!} + \frac{x^4}{4!}\\
+&\Rightarrow \cos 2 < 1 - \frac{2^2}{2!} + \frac{2^4}{4!} = 1 - \frac{4}{2} + \frac{16}{24} = 1 - 2 + \frac{2}{3} = -\frac{1}{3} < 0\\
+&\overset{\text{ZWS}}{\Rightarrow} \exists x_0 \in [0,2] \text{ mit } \cos{x_0} = 0.\end{aligned}\\
+\text{2.)}&\text{ Eindeutigkeit:}\\
+&\begin{aligned}[t]\text{a)}&\sin x &&> 0 \sp \forall x \in (0,2)\\
+&\sin x &&= \suminf{(-1)^n \frac{x^{2n+1}}{(2n+1)!}} = x - \frac{x^3}{3!} + \underbrace{\frac{x^5}{5!} + \frac{x^7}{7!}}_{>0}  + \underbrace{\frac{x^9}{9!} + \frac{x^{11}}{11!}}_{>0} + \dots > x - \frac{x^3}{3!}\\
+& &&= \frac{1}{6}(6x - x^3) = \frac{x}{6}\underbrace{(6-x^2)}_{0 < x < 2} > 0
+\end{aligned}\\
+&\begin{aligned}[t]\text{b)}&\cos : (0,2) \to \R\text{ ist streng monoton fallend.}\\
+&\text{Seien } 0 < x_1 < x_2 < 2 \\
+&\text{Setze } x = \frac{x_1 + x_2}{2} \in (0,2)\text{ und }y = \frac{x_2 - x_1}{2} \in (0,2) \\
+&\Rightarrow x_2 = x + y\text{ und }x_1 = x - y \\
+&\text{Aus den Additionstheoremen folgt: }\\
+&\begin{aligned}[t]\cos x_2 &= \cos (x + y) = \cos x \cos y - \sin x \sin y \\ 
+\cos x_1 &= \cos (x - y) = \cos x \cos(-y) + \sin x \sin (-y) \\
+ \cos(-x) &= \frac{\e^{-\im x} + \e^{\im x}}{2} = \cos x \\
+ \sin(-x) &= \frac{\e^{-\im x} - \e^{\im x}}{2\im}  = -\frac{\e^{\im x} - \e^{-\im x}}{2\im}= - \sin x\end{aligned}\\
+&\Rightarrow \cos(x_2) - \cos(x_1) = - 2\sin x \sin y = - 2 \underbrace{\sin(\frac{x_1 + x_2}{2})}_{> 0}  \underbrace{\sin(\frac{x_2 - x_1}{2})}_{> 0} < 0 \\
+&\Rightarrow \cos x_2 < \cos x_1 \Rightarrow \cos \text{ ist auf $(0,2)$ streng monoton fallend, speziell injektiv.}\end{aligned}\\
+\vphantom{\frac{1}{2}}\Rightarrow \cos \text{ hat genau eine Nullstelle.}\end{aligned}\\
+\end{math}
 \end{proof}
 \end{satz}
 
 \begin{defi}
-Sei$x_0 \in (0,2)$ die eindeutig bestimmte Nullstelle von $\cos : (0,2) \to \R$. Dann definieren wir die Kreiszahl \[ \pi = 2 x_0 \].
-Also $\cos (\frac{\pi}{2}) = 0$
+Sei$x_0 \in (0,2)$ die eindeutig bestimmte Nullstelle von $\cos : (0,2) \to \R$. Dann definieren wir die Kreiszahl \[ \pi = 2 x_0 \]
+Also $\displaystyle \cos (\frac{\pi}{2}) = 0$
 \end{defi}
 
 \begin{bem}
 $\pi \approx 3,1415\dots $\\
-$\pi$ und \e sind irrational und transzendent, sind also keine Lösung einer algebraischen Gleichung.
-Wir werden später (Integralrechnung zeigen, dass $\pi$ die Fläche des Einheitskreises ist.
+$\pi$ und \e sind irrational und transzendent, sind also keine Lösung einer algebraischen Gleichung. Wir werden später (Integralrechnung zeigen, dass $\pi$ die Fläche des Einheitskreises ist.
 \end{bem}
 
 \begin{bem}[Eigenschaften von $\pi$]
-$
+$ \displaystyle 
 \cos \frac{\pi}{2} = 0\\
-\text{Da} \cos^2 \frac{\pi}{2}  + \sin^2 \frac{\pi}{2} = 1 \Rightarrow \sin \frac{\pi}{2} = 1, \text{ da } \sin \frac{\pi}{2}  > 0
-$\\
+\text{Da} \cos^2 \frac{\pi}{2}  + \sin^2 \frac{\pi}{2} = 1 \Rightarrow \sin \frac{\pi}{2} = 1, \text{ da } \sin \frac{\pi}{2}  > 0$\\
 Weiter gilt: \\
-$\e^{\im \frac{\pi}{2}} = \cos \frac{\pi}{2} + \im \sin \frac{\pi}{2}= \im \\
+$ \displaystyle \begin{aligned}[t]\e^{\im \frac{\pi}{2}} &= \cos \frac{\pi}{2} + \im \sin \frac{\pi}{2}= \im \\
 \Rightarrow -1 = \im^2 = \e^{\im \frac{\pi}{2}} \e^{\im \frac{\pi}{2}}  = \e^{\pi \im} \\
 \Rightarrow -\im = \im^2 = \e^{\frac{3\pi \im}{2}}  \\
 \Rightarrow 1 = \im^2 = \e^{2\pi \im} \\
 \Rightarrow \e^{\im (x + 2\pi)} = \e^{\im x + \im 2\pi)} = \e^{\im x} +  \e^{\im 2\pi)} = \e^{\im x} \\
-\Rightarrow \cos (x + 2\pi) + \im \sin (x + 2\pi) = \e^{\im (x + 2\pi)} =  \e^{\im x}  = \cos x + \im \sin x $\\
+\Rightarrow \cos (x + 2\pi) + \im \sin (x + 2\pi) = \e^{\im (x + 2\pi)} =  \e^{\im x}  = \cos x + \im \sin x \end{aligned}$\\
 Also $\cos$ und $\sin$ sind $2\pi$-periodische Funktionen.
-%grafik mit sin und cos in versch farben mit nullstellen und 1 und -1 auf y achse
+\begin{figure}[ht]\centering
+ \includegraphics[width=0.33\textwidth]{images/sin_cos.png}
+\caption{Sinus und Cosinus}
+\end{figure}
+%grafik 
 Nullstellen von $\sin$ und $\cos$:
 \[\sin x = 0 \Leftrightarrow x = k\pi \quad (k \in \Z\]
 \[\cos x = 0 \Leftrightarrow x = \frac{pi}{2} + k\pi \quad (k \in \Z\]
@@ -1678,17 +1700,25 @@ Nullstellen von $\sin$ und $\cos$:
 Der Tangens und Kotangens sind definiert durch:
 \[\tan: \R\setminus\menge{\frac{\pi}{2} + k \pi}{k \in \Z} \to \R  \text{ mit } \tan x = \frac{\sin x}{\cos x}\]
 \[\cot: \R\setminus\menge{k \pi}{k \in \Z} \to \R  \text{ mit } \cot x = \frac{\cos x}{\sin x}\]
-%grafik mit tangens inkl strichlierten asymptoten bei \pi/2
-%grafik mit cotengens inkl strichlierten asymptoten bei \pi
+\begin{figure}[ht]\centering
+ \includegraphics[width=0.33\textwidth]{images/tangens.png}
+\caption{Der Tangens}
+\end{figure}
+%grafik 
+\begin{figure}[ht]\centering
+ \includegraphics[width=0.33\textwidth]{images/cotangens.png}
+\caption{Der Cotangens}
+\end{figure}
+%grafik 
 Die Umkehrfunktionen von $\sin, \cos, \tan, \cot$ heißen:
-\[\arccos: [-1,1] \to [0,\pi]\]
-\[\arcsin: [-1,1] \to [-\frac{\pi}{2},\frac{\pi}{2}]\]
-\[\arccos: \R \to (-\frac{\pi}{2}, \frac{\pi}{2})\]
-\[\arccos: \R \to (0,\pi)\]
+\begin{align*}\arccos: [-1,1] &\to [0,\pi]\\
+\arcsin: [-1,1] &\to [-\frac{\pi}{2},\frac{\pi}{2}]\\
+\arccos: \R &\to (-\frac{\pi}{2}, \frac{\pi}{2})\\
+\arccos: \R &\to (0,\pi)\end{align*}
 Diese Funktionen sind wieder stetig und streng monoton.
 \end{defi}
 
-\newpage
+
 \section{Differentialrechnung}
 
 \begin{defi}
@@ -1718,7 +1748,7 @@ $\Rightarrow (x^2)' = 2x$
 $f: \R \to \R$ mit $ f(x) = \frac{1}{x} $. $f'(x) = \limnull[h]{\frac{f(x + h) - f(x_0)}{h}} = \limnull[h]{\frac{1}{h}\left(\frac{1}{x + h} - \frac{1}{x_0}\right)} = \limnull[h]{\frac{1}{h}\left(\frac{x_0- x +h}{xx_0 + hx_0}\right)} $ und dann gleicher nenner und ausrechnen..
 $\Rightarrow \left(\frac{1}{x}\right)' = -\frac{1}{x^2}$
 \item Die Exponentialfunktion.
-$\exp: \R \to \R$ mit $exp(x) = \e^x = \suminf{\frac{x^n}{n!}}$ \\
+$\exp: \R \to \R$ mit $\exp(x) = \e^x = \suminf{\frac{x^n}{n!}}$ \\
 Wir zeigen $\limnull[h]{\frac{e^h - 1}{h}} = 1$\\
 denn Sei $n \ge 0 \Rightarrow (n+2)! \ge 2 \cdot 3^n$
 %Beweis mit Induktion
@@ -1799,30 +1829,32 @@ $(\sin^2 x)' = (g \circ f)'(x) = g'(f(x))f'(x) = 2 \sin x \cos x = \sin (2x)$
 
 \begin{satz}[Ableitung der Umkehrfunktion]
 Sei $f : [a,b] \to \R $ stetig und streng monoton, mit $f([a,b]) = [A,B]$. Sei $f^{-1} : [A,B] \to \R$ die Umkehrfunktion.
-Ist $f$ in $x \in [a,b]$ differenzierbar und $f'(x) \ne 0$ dann ist $f^{-1}$ in $y = f(x)$ differenzierbvar und \[(f^{-1})' (y) = \frac{1}{f'(f^{-1}(y))}\]
+Ist $f$ in $x \in [a,b]$ differenzierbar und $f'(x) \ne 0$ dann ist $f^{-1}$ in $y = f(x)$ differenzierbar und \[(f^{-1})' (y) = \frac{1}{f'(f^{-1}(y))}\]
 \begin{proof}
 Wir wissen, schon $f^{-1}$ ist stetig. Sei $(y_n)$ eine Folge in $[A, B] \text{ und } \liminf{y_n} = y$\\
 Da $f^{-1}$ stetig in $y$, folgt $\liminf{f^{-1}(y_n)} = f^{-1}(y)$\\
 Sei $x_n = f^{-1}(y_n), x= f^{-1}(y)$\\
-Da $f$ in $x$ differenzierbar und $f'(x) \ne 0$ folgt $\liminf{\frac{f^{-1}(y_n) - f^{-1}(y)}{x_n - y}} = \liminf{\frac{x_n - x}{f(x_n)-f(x)}} = \frac{1}{\frac{f(x_n) - f(x)}{x_n - x}} = \frac{1}{f'(x)} = \frac{1}{f'(f^{-1}(y))}$
+Da $f$ in $x$ differenzierbar und $f'(x) \ne 0$ folgt \\
+$ \displaystyle \liminf{\frac{f^{-1}(y_n) - f^{-1}(y)}{x_n - y}} = \liminf{\frac{x_n - x}{f(x_n)-f(x)}} = \frac{1}{\frac{f(x_n) - f(x)}{x_n - x}} = \frac{1}{f'(x)} = \frac{1}{f'(f^{-1}(y))}$
 \end{proof}
 \end{satz}
 
 \begin{bsp}
 $\ln : \R_+ \to \R$ ist die Umkehrfunktion von $\exp: \R \to \R_+$
 \[(\ln x)' = \frac{1}{x}\]
-Sei $f(x) = \exp(x)$, dann ist $f^{-1}(x) = \ln(y)$. Wir wissen $f'(x) = (\exp(x))' = \exp(x) = f(x)$
-$\Rightarrow (\ln(x))' = (f^{-1}(y))' = \frac{1}{f'(f^{-1}(y))} = \frac{1}{\exp(\ln(y))} = \frac{1}{y}$
+Sei $f(x) = \exp(x)$, dann ist $f^{-1}(x) = \ln(y)$. Wir wissen $f'(x) = (\exp(x))' = \exp(x) = f(x)$\\
+Also folgt $ \displaystyle (\ln(x))' = (f^{-1}(y))' = \frac{1}{f'(f^{-1}(y))} = \frac{1}{\exp(\ln(y))} = \frac{1}{y}$
 \end{bsp}
 
 \begin{bem}[Anwendung]
 \[\e = \suminf{\frac{1}{n!}} = \liminf{\left( 1 + \frac{1}{n}\right)^n}\]
 \begin{proof}
-$(\ln x)' = \frac{1}{x} \\
-(\ln 1)' = 1 \\
-\Rightarrow \liminf{ n \ln\left(1 + \frac{1}{n}\right)} = \liminf{\frac{\ln\left(1 + \frac{1}{n}\right)}{\frac{1}{n}}} = \liminf{\frac{\ln\left(1  + \frac{1}{n}\right) - \ln 1}{\frac{1}{n}}} = (\ln 1)' = 1\\
-\left(1  + \frac{1}{n}\right)^n = \e^{n\ln \left(1  + \frac{1}{n}\right)}$\\
-Da $\exp$ setetig ist, folgt $ \liminf{\left(1  + \frac{1}{n}\right)^n} = \liminf{\e^{n\ln \left(1  + \frac{1}{n}\right)}} = \e^{\liminf{n\ln \left(1  + \frac{1}{n}\right)}} = \e^1 = \e$
+$ \displaystyle \begin{aligned}[t]&(\ln x)'= \frac{1}{x} \text{ und } (\ln 1)' = 1 \\
+&\Rightarrow \begin{aligned}[t]\liminf{ n \ln\left(1 + \frac{1}{n}\right)} &= \liminf{\frac{\ln\left(1 + \frac{1}{n}\right)}{\frac{1}{n}}} =  \liminf{\frac{\ln\left(1  + \frac{1}{n}\right)}{\frac{1}{n}} - \overbrace{\frac{\ln 1}{\frac{1}{n}}}^{\longtoinf 0}}\\
+&= \liminf{\frac{\ln\left(1  + \frac{1}{n}\right) - \ln 1}{\frac{1}{n}}} = (\ln 1)' = 1\end{aligned}\\
+&\left(1  + \frac{1}{n}\right)^n = \e^{n\ln \left(1  + \frac{1}{n}\right)}\\
+&\text{Da $\exp$ stetig ist, folgt } \liminf{\left(1  + \frac{1}{n}\right)^n} = \liminf{\e^{n\ln \left(1  + \frac{1}{n}\right)}} = \e^{\liminf{n\ln \left(1  + \frac{1}{n}\right)}} = \e^1 = \e
+\end{aligned}\\$
 \end{proof}
 \end{bem}
 
@@ -1834,31 +1866,40 @@ $f$ heißt stetig differenzierbar, wenn $f$ differenzierbar ist und die Ableitun
 
 \begin{satz}[Der Satz von Rolle]
 Sei $f : [a,b] \to \R $ stetig und auf $(a,b)$ differenzierbar. Weiters sei $f(a) = f(b) = 0$. Dann folgt es gibt ein $x_0 \in (a,b)$ mit $f'(x) = 0$
-%grafik: satz von Rolle
+\begin{figure}[ht]\centering
+ \includegraphics[width=0.33\textwidth]{images/satz_von_rolle.png}
+\caption{Satz von Rolle}
+\end{figure}
+%grafik
 \begin{proof}
 Ist $f(x) = 0 \sp \forall x \in (a,b) \sp \Rightarrow \sp f'(x) = 0 \sp \forall x \in (a,b)$. \\
 Wir können also annehmen: Es gibt ein $ x \in (a,b)$ mit $f(x) > 0$. (Wenn $f(x) < 0$ betrachte die Funktion $-f$). Da $f$ auf $[a,b]$ stetig ist, folgt aus dem Satz vom Maximum, dass $f$ an einer Stelle $x_0 \in (a,b) $ ihr Maximum annimmt.\\
-$ \Rightarrow f(x_0) > 0 \text{ und } x_0 \in (a,b)\text{ und } \forall x \in (a,b) :\sp f(x) \le f(x_0)\\
+$ \displaystyle  \Rightarrow f(x_0) > 0 \text{ und } x_0 \in (a,b)\text{ und } \forall x \in (a,b) :\sp f(x) \le f(x_0)\\
 \Rightarrow \text{Ist } x > x_0 :\sp \frac{f_x) - f(x_0)}{x-x_0} \le 0 \text{ und ist } x < x_0 :\sp \frac{f_x) - f(x_0)}{x-x_0} \ge 0 \\
-\Rightarrow \forall \text{ Folge $(x_n)$ mit } x_n > x_0 \text{ und } \liminf{x_n} = x_0 \text{ gilt } f'(x_0) = \limA[x_n]{\frac{f(x_n) - f(x_0)}{x_n - x_0}} \le 0 \text{ und } \forall \text{ Folge $(x_n)$ mit } x_n < x_0 \text{ und } \liminf{x_n} = x_0 \text{ gilt } f'(x_0) = \limA[x_n]{\frac{f(x_n) - f(x_0)}{x_n - x_0}} \ge 0 \\
+\Rightarrow \forall \text{ Folgen $(x_n)$ mit } x_n > x_0 \text{ und } \liminf{x_n} = x_0 \text{ gilt } f'(x_0) = \limA[x_n]{\frac{f(x_n) - f(x_0)}{x_n - x_0}} \le 0 \\
+\text{ und } \forall \text{ Folgen $(x_n)$ mit } x_n < x_0 \text{ und } \liminf{x_n} = x_0 \text{ gilt } f'(x_0) = \limA[x_n]{\frac{f(x_n) - f(x_0)}{x_n - x_0}} \ge 0 \\
 \Rightarrow f'(x_0) \le 0 \text{ und } f'(x_0) \ge 0 \Rightarrow f'(x_0) = 0$
 \end{proof}
 \end{satz}
 
 \begin{satz}[Mittelwertsatz der Differenzialrechnung, MWS]
-Sei $f : [a,b] \to \R $ stetig und auf $(a,b)$ differenzierbar. Dann existiert ein $x_0 \in (a,b)$ mit \[f'(x_0) = \frac{f(b) - f(a)}{b-a}\]
-% grafik MWS
+Sei $f : [a,b] \to \R $ stetig und auf $(a,b)$ differenzierbar. Dann existiert ein $\xi \in (a,b)$ mit \[f'(\xi) = \frac{f(b) - f(a)}{b-a}\]
+\begin{figure}[ht]\centering
+ \includegraphics[width=0.33\textwidth]{images/Mittelwertsatz.png}
+\caption{Der Mittelwertsatz der Differenzialrechnung}
+\end{figure}
+% grafik 
 \begin{proof}
 Sei $g: [a,b]\to \R$ definiert als $g(x) = f(x) - rx - s$, mit $r,s \in \R$. Da $f$ differenzierbar ist ist auch $g$ differenzierbar. Um den Satz von Rolle anwenden zu können, muss $g(a) = g(b) = 0 \Rightarrow f(a) - r a - s = f(b) - r b - s = 0 $\\
-D.h.$  f(a) = r a - s $ und $ f(b) = r b - s \quad \Rightarrow f(a) - f(b) = rb - ra \Rightarrow r = \frac{f(a) - f(b)}{b - a}$ \\
-$\Rightarrow s = f(a) - ra = f(a) -  \frac{f(a) - f(b)}{b - a} a = \frac{f(a) b - f(a) a - f(b) a + f(a) a}{b-a} = \frac{f(a)b - f(b)a}{b - a}$\\
-Nach dem Satz von Rolle gibt es ein $x_0 \in (a,b)$ mit $g'(x_0) = 0$\\
-$\Rightarrow f'(x_0) -  \frac{f(a) - f(b)}{b - a} = 0 \Rightarrow f'(x_0) =  \frac{f(a) - f(b)}{b - a}$
+D.h.$  f(a) = r a - s $ und $\displaystyle f(b) = r b - s \quad \Rightarrow f(a) - f(b) = rb - ra \Rightarrow r = \frac{f(a) - f(b)}{b - a}$ \\
+$ \displaystyle \Rightarrow s = f(a) - ra = f(a) -  \frac{f(a) - f(b)}{b - a} a = \frac{f(a) b - f(a) a - f(b) a + f(a) a}{b-a} = \frac{f(a)b - f(b)a}{b - a}$\\
+Nach dem Satz von Rolle gibt es ein $\xi \in (a,b)$ mit $g'(\xi) = 0$\\
+$ \displaystyle \Rightarrow f'(\xi) -  \frac{f(a) - f(b)}{b - a} = 0 \Rightarrow f'(\xi) =  \frac{f(a) - f(b)}{b - a}$
 \end{proof}
 \end{satz}
 
 \begin{bem}[Spezialfall]
-Ist $f(a) = f(b)$, dann ist $f'(x_0) = 0$
+Ist $f(a) = f(b)$, dann ist $f'(\xi) = 0$
 \end{bem}
 
 \begin{korr}[Verallgemeinerte Mittelwertsatz]
@@ -1866,16 +1907,16 @@ Seien $f,g:[a,b] \to \R$ stetig und auf $(a,b)$ differenzierbar. Sei weiters $g'
 \[g(b) \ne g(a) \text{ und es gibt ein } x_0 \in (a,b) \text{ mit } \frac{f'(x_0)}{g'(x_0)} = \frac{f(b) - f(a)}{g(b) - g(a)}\]
 \begin{proof}
 Wäre $g(b) = g(a)$, dann gäbe es nach dem Mittelwertsatz ein $\xi \in (a,b)$ mit $g'(\xi) = 0 \sp \WSP \\
-\text{Denn $g'(x) \ne 0$} \Rightarrow g(a) \ne g(b)$\\
-Definiere $h(x)  = f(x) - \frac{f(b) - f(a)}{g(b) - g(a)}(g(x) - g(a))$, dann ist $h(a) = f(a)$ und $h(b) = f(b) - \frac{f(b) - f(a)}{g(b) - g(a)}(g(b) - g(a)) = f(b) - f(b) + f(a) = f(a)$. Aus dem Mittelwertsatz folgt es gibt ein $x_0 \in (a,b) $, sodass $h'(x_0) = 0 $  \\
-$\Rightarrow  f'(x_0) - \frac{f(b) - f(a)}{g(b - g(a)}g'(x_0) = 0 \Rightarrow \frac{f'(x_0)}{g'(x_0)} = \frac{f(b) - f(a)}{g(b - g(a)}$
+\text{Denn } g'(x) \ne 0 \Rightarrow g(a) \ne g(b)$\\
+Definiere $ \displaystyle h(x)  = f(x) - \frac{f(b) - f(a)}{g(b) - g(a)}(g(x) - g(a))$, dann ist $h(a) = f(a)$ und $h(b) = f(b) - \frac{f(b) - f(a)}{g(b) - g(a)}(g(b) - g(a)) = f(b) - f(b) + f(a) = f(a)$. Aus dem Mittelwertsatz folgt es gibt ein $x_0 \in (a,b) $, sodass $h'(x_0) = 0 $  \\
+$ \displaystyle \Rightarrow  f'(x_0) - \frac{f(b) - f(a)}{g(b - g(a)}g'(x_0) = 0 \Rightarrow \frac{f'(x_0)}{g'(x_0)} = \frac{f(b) - f(a)}{g(b - g(a)}$
 \end{proof}
 \end{korr}
 
 \begin{korr}
 Sei $f : [a,b] \to \R $ stetig und auf $(a,b)$ differenzierbar. Ist $f'(x) = 0 \sp \forall x \in (a,b)$, dann ist $f$ konstant.
 \begin{proof}
-Angenommen $f$ ist nicht konstant, dann gibt es $a \le a_1 < b_1 \le b$ mit $f(a_1) \ne f(b_1) \overset{MWS}{\Rightarrow} \exists x_0 \in (a_1, b_1) \text{ mit } f'(x_0) = \frac{f(b_1) - f(a_1)}{b_1 - a_1} \ne 0 \sp \WSP f'(x) = 0 \sp \forall x \in (a,b) \Rightarrow f$ ist konstant.
+Angenommen $f$ ist nicht konstant, dann gibt es $ \displaystyle a \le a_1 < b_1 \le b$ mit $f(a_1) \ne f(b_1) \overset{\text{MWS}}{\Rightarrow} \exists x_0 \in (a_1, b_1) \text{ mit } f'(x_0) = \frac{f(b_1) - f(a_1)}{b_1 - a_1} \ne 0 \sp \WSP f'(x) = 0 \sp \forall x \in (a,b) \Rightarrow f$ ist konstant.
 \end{proof}
 \end{korr}
 
@@ -1888,14 +1929,18 @@ Sei $f : [a,b] \to \R $ stetig und auf $(a,b)$ differenzierbar.
 \end{align*}
 \begin{proof}
 Wir zeigen nur eine streng monoton steigende Funktion an, der Beweis für anderes Monotonieverhalten ist analog durchführbar.\\
-Angenommen $f$ wäre nicht streng monoton wachsend. $\Rightarrow \text{es gibt } a \le a_1 < b_1 \le b \text{ mit } f(a_1) \ge f(b_1) \overset{MWS}{\Rightarrow} \exists x_0 \in (a_1, b_1) \text{ mit } f'(x) = \frac{f(b_1) - f(a_1)}{b_1 - a_1} \le 0 \sp \WSP f'(x) > 0 \sp \forall x \in (a,b) \Rightarrow f$ ist streng monoton steigend.
+Angenommen $f$ wäre nicht streng monoton wachsend. $ \displaystyle \Rightarrow \text{es gibt } a \le a_1 < b_1 \le b \text{ mit } f(a_1) \ge f(b_1) \overset{MWS}{\Rightarrow} \exists x_0 \in (a_1, b_1) \text{ mit } f'(x) = \frac{f(b_1) - f(a_1)}{b_1 - a_1} \le 0 \sp \WSP f'(x) > 0 \sp \forall x \in (a,b) \Rightarrow f$ ist streng monoton steigend.
 \end{proof}
 \end{satz}
 
 \begin{defi}
 Eine Funktion $f : D \to \R$ hat an einer Stelle $x_0 \in D$ ein lokales Maximum (Minimum) wenn es ein $\epsilon > 0 $ gibt mit $f(x) \le (\ge) f(x_0) \sp \forall x : \sp \abs{x - a} < \epsilon$
 $x_0$ heißt lokales Extremum, wenn $x_0$ lokales Maximum oder Minimum ist.
-%grafik mit zwei Maxima und zwei Minima
+\begin{figure}[ht]\centering
+ \includegraphics[width=0.33\textwidth]{images/minima_maxima.png}
+\caption{Eine Funktion $5.$ Grades}
+\end{figure}
+%grafik
 \end{defi}
 
 \begin{satz}
@@ -1908,7 +1953,7 @@ Sei $f : [a,b] \to \R $ stetig und auf $(a,b)$ differenzierbar.
 \begin{enumerate}
 \item Haben wir im Beweis von Satz von Rolle gezeigt.
 \item Wir zeigen nur für Maximum, fürs Minimum betrachte $-f$\\
-Sei $f'(x_0) = 0$ und $f''(x_0) < 0$. Da $f''(x_0) = \limA{\frac{f'(x) - f'(x_0)}{x - x_0}} < 0 \Rightarrow \sp \exists \epsilon < 0 \sp \forall x \sp \abs{x_0 - x} < \epsilon \text{ für } x_0 \ne x \text{ mit } \frac{f'(x) - f'(x_0)}{x - x_0} < 0$
+Sei $f'(x_0) = 0$ und $f''(x_0) < 0$. Da $ \displaystyle f''(x_0) = \limA{\frac{f'(x) - f'(x_0)}{x - x_0}} < 0 \Rightarrow \sp \exists \epsilon < 0 \sp \forall x \sp \abs{x_0 - x} < \epsilon \text{ für } x_0 \ne x \text{ mit } \frac{f'(x) - f'(x_0)}{x - x_0} < 0$
 \begin{enumerate}
 \item[Fall 1] $x < x_0 \Rightarrow f'(x) > f'(x_0) = 0 \Rightarrow $ streng monoton wachsend auf $(x_0 - \epsilon, x_0)$
 \item[Fall 2] $x > x_0 \Rightarrow f'(x) < f'(x_0) = 0  \Rightarrow $ streng monoton fallend auf $(x_0, x_0 + \epsilon)$
@@ -1924,49 +1969,55 @@ zB: $f(x) = x^4$ hat in $x = 0$ ein Minimum. Aber $f'(0) = f''(0) = 0$. Für $f(
 \end{bem}
 
 \begin{satz}[Regel von de l'Hospital]
-Sei $-\infty \le a < b \le \infty$. Sei $f : (a,b) \to \R $ differenzierbar und es existiert $\limpos[x]{a}{\frac{f'(x)}{g'(x)}} = c \in \R$.
+Sei $-\infty \le a < b \le \infty$. Sei $f : (a,b) \to \R $ differenzierbar und es existiert $ \displaystyle \limpos[x]{a}{\frac{f'(x)}{g'(x)}} = c \in \R$.
 Dann gilt:
 \begin{enumerate}
-\item Ist $\limpos[x]{a}{f'(x)} = \limpos[x]{a}{g'(x)} = 0 \Rightarrow g(x) \ne 0 \text{ und } \limpos[x]{a}{\frac{f(x)}{g(x)}} = c$
-\item Ist $\limpos[x]{a}{f'(x)} = \limpos[x]{a}{g'(x)} = \pm \infty \Rightarrow g(x) \ne 0 \text{ und } \limpos[x]{a}{\frac{f(x)}{g(x)}} = c$
+\item Ist $ \displaystyle \limpos[x]{a}{f'(x)} = \limpos[x]{a}{g'(x)} = 0 \Rightarrow g(x) \ne 0 \text{ und } \limpos[x]{a}{\frac{f(x)}{g(x)}} = c$
+\item Ist $ \displaystyle \limpos[x]{a}{f'(x)} = \limpos[x]{a}{g'(x)} = \pm \infty \Rightarrow g(x) \ne 0 \text{ und } \limpos[x]{a}{\frac{f(x)}{g(x)}} = c$
 \end{enumerate}
-Ebenso für $\limneg[x]{b}{\frac{f'(x)}{g'(x)}} = c$
+Ebenso für $ \displaystyle \limneg[x]{b}{\frac{f'(x)}{g'(x)}} = c$
 \begin{proof}
-1. Aus dem verallgemeinerten Mittelwertsatz folgt zu jedem $x \in (a,b)$ gibt es ein $t_x \in (a,x)$ mit $\frac{f'(t_x)}{g'(t_x)} = \frac{f(x) - f(a)}{g(x) - g(a)} = \frac{f(x)}{g(x)}$\\
-Konvergiert $x \to a \Rightarrow  t_x \to a$
-$\Rightarrow \limpos[x]{a}{\frac{f(x)}{g(x)}} = \limpos[t_x]{a}{\frac{f'(t_x)}{g'(t_x)}}$
+1. Aus dem verallgemeinerten Mittelwertsatz folgt zu jedem $x \in (a,b)$ gibt es ein $t_x \in (a,x)$ mit $ \displaystyle \frac{f'(t_x)}{g'(t_x)} = \frac{f(x) - f(a)}{g(x) - g(a)} = \frac{f(x)}{g(x)}$\\
+Konvergiert $x \to a \Rightarrow  t_x \to a \displaystyle \Rightarrow \limpos[x]{a}{\frac{f(x)}{g(x)}} = \limpos[t_x]{a}{\frac{f'(t_x)}{g'(t_x)}}$\\
 2. analog zu 1.
 \end{proof}
 \end{satz}
 
 \begin{bsp}
+Beispiele zur Regel von l'Hopital.
 \begin{enumerate}
-\item $ \limnull[x]{\frac{\sin(x)}{x}} = \limnull[x]{\frac{\cos(x)}{1}} = 1$
-\item $ \limnull[x]{x \ln(x)} = \limnull[x]{\frac{\ln x}{\frac{1}{x}}} = \limnull[x]{\frac{\frac{1}{x}}{-\frac{1}{x^2}}} = \limnull[x]{-x} = 0$
+\item $ \displaystyle  \limnull[x]{\frac{\sin(x)}{x}} = \limnull[x]{\frac{\cos(x)}{1}} = 1$
+\item $ \displaystyle  \limnull[x]{x \ln(x)} = \limnull[x]{\frac{\ln x}{\frac{1}{x}}} = \limnull[x]{\frac{\frac{1}{x}}{-\frac{1}{x^2}}} = \limnull[x]{-x} = 0$
 \end{enumerate}
 \end{bsp}
 
-\newpage
+
 \section{Integralrechnung}
-% GRAFIK Fläche von Integral funktion f zw a und b
+\begin{figure}[ht]\centering
+ \includegraphics[width=0.33\textwidth]{images/Integral.png}
+\caption{ein bestimmtes Integral}
+\end{figure}
+% GRAFIK 
 
 Folgende Eigenschaften gelten
 \begin{enumerate}
-\item Rechtecksfläche \[  \intAB{1} = b - a\]
-%Grafik der Funktion 1 mit rechteck zw a und b
-\item Zerschneiden \[  \intAB{f(x)} = \integral{a}{c}{f(x)} + \integral{c}{b}{f(x)} \quad \text{ für } a \le c \le b \]
-\item Positivität \[ f(x) \ge 0 \quad \fa x \in [a,b] \Rightarrow \quad \intAB{f(x)} \ge 0\]
-\item Liniarität \[\intAB{\lambda (f(x) + g(x))} = \lambda \intAB{f(x)} + \lambda \intAB{g(x)} \quad \text{ für } \lambda \in \R\]
+\item Rechtecksfläche $ \displaystyle   \intAB{1} = b - a$
+\item Zerschneiden $ \displaystyle   \intAB{f(x)} = \integral{a}{c}{f(x)} + \integral{c}{b}{f(x)} \quad \text{ für } a \le c \le b $
+\item Positivität $ \displaystyle  f(x) \ge 0 \quad \fa x \in [a,b] \Rightarrow \quad \intAB{f(x)} \ge 0$
+\item Liniarität $ \displaystyle \intAB{\lambda (f(x) + g(x))} = \lambda \intAB{f(x)} + \lambda \intAB{g(x)} \quad \text{ für } \lambda \in \R$
 \end{enumerate}
 
 \begin{bem}
-Aus 3. und 4. folgt: Ist $ f(x) \le 0 \sp \fa x \in [a,b] \sp \Rightarrow \sp \intAB{f(x)} \le 0$. Denn $-f(x) \ge 0 \Rightarrow \intAB{-f(x)} \ge 0 \Rightarrow -\intAB{f(x)} \ge 0 \Rightarrow \intAB{f(x)} \le 0$
+Aus 3. und 4. folgt: Ist $ \displaystyle f(x) \le 0 \sp \fa x \in [a,b] \sp \Rightarrow \sp \intAB{f(x)} \le 0$. Denn $ \displaystyle -f(x) \ge 0 \Rightarrow \intAB{-f(x)} \ge 0 \Rightarrow -\intAB{f(x)} \ge 0 \Rightarrow \intAB{f(x)} \le 0$
 \end{bem}
 
 \begin{defi}
 Eine Treppenfunktion $\phi : [a,b] \to \R$ ist folgende Funktion: \\
 Es gibt eine Unterteilung des Intervalls $[a,b]$, mit $a = t_0 < \dots < t_n = b$ und Konstanten $ z_1, \dots z_n \in \R$, sodass $\phi(x) = c_k \sp \fa x\in (t_{k-1},t_k) $ für $k = 1,\dots, n$. Die Werte $\phi(t_k) $ für $k = 0,\dots, n$ sind beliebig.
-%Grafik beliebigeTrepenfunktion
+\begin{figure}[ht]\centering
+ \includegraphics[width=0.33\textwidth]{images/treppenfunktion.png}
+\end{figure}
+%Grafik 
 \end{defi}
 
 \begin{defi}[Integral für Treppenfunktion]
@@ -1974,8 +2025,11 @@ Sei $\phi : [a,b] \to \R$ eine Treppenfunktion, bzgl der Unterteilung $a = x_0 <
 \end{defi}
 
 \begin{bem}
-Man kann sich leicht überlegen dass diese Definition unabhöngig von der Zerlegung ist.
-%Grafik zwei Treppenfunktionen mit unterschiedlicher Zerlegung
+Man kann sich leicht überlegen dass diese Definition unabhängig von der Zerlegung ist.
+\begin{figure}[ht]\centering
+ \includegraphics[width=0.33\textwidth]{images/treppenfunktion_zerlegung.png}
+\end{figure}
+%Grafik 
 \end{bem}
 
 \begin{prop}
@@ -1990,34 +2044,38 @@ Erweiterung des Integrals auf stetige und stückweise stetige Funktionen.
 
 \begin{satz}[Gleichmäßige Stetigkeit]
 Sei $[a,b]$ ein abgeschlossenenes Intervall und $ f: [a,b] \to \R $ eine stetige Funktion. Dann gilt:
-\[\forall \epsilon > 0 \exists \delta > 0 \sp: \sp \forall x, x' \in [a,b] \text{ mit } \abs{x- x'} < \delta \text{ folgt } \abs{f(x) - f(x')} < \epsilon\]
+\[\forall \epsilon > 0 \spdot \exists \delta > 0 \spcolon \forall x, x' \in [a,b] \text{ mit } \abs{x- x'} < \delta \text{ folgt } \abs{f(x) - f(x')} < \epsilon\]
 \begin{proof}
-Angenommen $f$ ist nicht gleichmäßig stetig. $\Rightarrow \exists \epsilon > 0 \sp \forall \delta > 0 \sp \exists x,x' \in [a,b] \text{ mit } \abs{x- x'} < \delta \text{ aber } \abs{f(x) - f(x')} \ge \epsilon$. Speziell gibt es ein $\epsilon > 0$ derart, dass so zu jedem $n \ge 1 \sp x_n, x_n' \in [a,b] $ gibt mit $\abs{x_n - x_n'} < \frac{1}{n}$, aber $\abs{f(x_n) - f(x_n')} \ge \epsilon$.\\
+Angenommen $f$ ist nicht gleichmäßig stetig. $\Rightarrow \exists \epsilon > 0 \spdot \forall \delta > 0 \spdot \exists x,x' \in [a,b] \text{ mit } \abs{x- x'} < \delta \text{ aber } \abs{f(x) - f(x')} \ge \epsilon$. Speziell gibt es ein $\epsilon > 0$ derart, dass so zu jedem $n \ge 1 \sp x_n, x_n' \in [a,b] $ gibt mit $\displaystyle \abs{x_n - x_n'} < \frac{1}{n}$, aber $\abs{f(x_n) - f(x_n')} \ge \epsilon$.\\
 Betrachte die Folge $(x_n)$.\\
 $(x_n)$ ist durch $a$ und $b$ beschränkt. Nach dem Satz von Bolzano-Weierstraß gibt es eine konvergente Teilfolge $(x_{n_k})$ von $(x_n)$.\\
 Da $a \le x_{n_k} \le b$ folgt: $\liminf[k]{x_{n_k}} = \xi \in [a,b]$.\\
-Nach der Voraussetzung gilt:
-$\abs{x_{n_k} - {x'}_{n_k}} < \frac{1}{n_k} \longtoinf[k] 0\\
+Nach der Voraussetzung gilt: $\displaystyle \abs{x_{n_k} - {x'}_{n_k}} < \frac{1}{n_k} \longtoinf[k] 0\\
 \Rightarrow \liminf[k]{x_{n_k}'} = \liminf[k]{x_{n_k}' - x_{n_k} + x_{n_k}} =  \liminf[k]{x_{n_k}' - x_{n_k}} + \liminf[k]{x_{n_k}} = 0 + \xi = \xi$\\
-Also  $\liminf[k]{x_{n_k}'} = \xi$.\\
+Also  $\displaystyle \vphantom{\frac{1}{2}} \liminf[k]{x_{n_k}'} = \xi$.\\
 Da $f$ stetig ist, folgt $\liminf[k]{f(x_{n_k}) - f(x_{n_k}')} = \liminf[k]{f(x_{n_k})} - \liminf[k]{f(x_{n_k}')} = f(\xi) - f(\xi) = 0. $\\
 \WSP zu $\abs{f(x_{n_k}) - f(x_{n_k}')} \ge \epsilon > 0 \sp \forall k \in \N$
 \end{proof}
 \end{satz}
 
 \begin{defi}
-eine Funktion $f: [a,b] \to \R$ heißt stückweise stetig, wenn es eine Unterteilung $a = x_0 < \dots < x_n = b$ gibt, sodass $f$ auf jedem offenen Intervall $(x_{k-1}, x_k)  \sp \fa k \in {1, \dots, n} $ stetig ist und zu einer stetigen Funktion auf $[x_{k-1}, x_k]$ fortgesetzt werden kann. (d.h. der rechts-/linksseitige Grenzwert existiert für $x_{k-1}$ und $x_k$.
+Eine Funktion $f: [a,b] \to \R$ heißt stückweise stetig, wenn es eine Unterteilung $a = x_0 < \dots < x_n = b$ gibt, sodass $f$ auf jedem offenen Intervall $(x_{k-1}, x_k)  \sp \fa k \in {1, \dots, n} $ stetig ist und zu einer stetigen Funktion auf $[x_{k-1}, x_k]$ fortgesetzt werden kann. (d.h. der rechts-/linksseitige Grenzwert existiert für $x_{k-1}$ und $x_k$.
 \end{defi}
 
 \begin{bsp}
+Beispiele zu stückweiser Stetigkeit.
 \begin{enumerate}
 \item Jede Treppenfunktion ist stückweise stetig.
 \item $f:[0,1] \to \R$ mit $f(x) = \begin{cases} \frac{1}{x} & x \in(0,1]\\ 0 & x = 0\end{cases}$ ist nicht stückweise stetig, denn $\limnull[x]{f(x)} = \infty$
-%Grafik der funktion 1/x
+\begin{figure}[ht]\centering
+ \includegraphics[width=0.33\textwidth]{images/funktion_1durchx.png}
+\caption{Die Funktion $f(x) = \frac{1}{x}$}
+\end{figure}
+%Grafik 
 \end{enumerate}
 \end{bsp}
 
-\begin{prop}[wichtig]
+\begin{prop}[wichtige Proposition]
 Sei $f : [a,b] \to \R$ stückweise stetig und $\epsilon > 0$. Dann gibt es Treppenfunktionen $\phi, \psi : [a,b] \to \R$ mit
 \begin{enumerate}
 \item $\phi(x) \le f(x) \le \psi(x) \quad \forall x \in [a,b]$
@@ -2030,7 +2088,12 @@ Wähle $n\in \N$ so groß, dass $\displaystyle \frac{b-a}{n} < \delta$ (Archimed
 Definiere $\displaystyle t_k = a+ k\frac{b-a}{n}$ für $ k = 0,\dots n$. Wir erhalten dann eine äquivalente Unterteilung $a = t_0 < \dots < t_n = b$.\\
 Für $k=1n\dots,n$ setze $\displaystyle c_k = f(t_k) + \frac{\epsilon}{2} \quad c_k' = f(t_k) - \frac{\epsilon}{2}$ und definieren die Treppenfunktion $\phi, \psi : [a,b] \to \R \\
  \phi(a)= \psi(a) = f(a) \\
-  \phi(x) = c_k', \quad \psi(x) = c_k, $ für $t_{k-1} < x \le t_k$ \\ % GRAFIK obersumme, untersumme mit funktion f
+  \phi(x) = c_k', \quad \psi(x) = c_k, $ für $t_{k-1} < x \le t_k$ \\ 
+\begin{figure}[ht]\centering
+ \includegraphics[width=0.33\textwidth]{images/ober_untersumme.png}
+\caption{Ober- und Untersumme einer Funktion $f$}
+\end{figure}
+% GRAFIK 
 Nach Deifinition folgt $\forall x \in (a,b]$\\
 $\displaystyle \abs{\psi(x) - \phi(x)} = \abs{f(t_k) + \frac{\epsilon}{2} - (f(t_k) -\frac{\epsilon}{2})} > \abs{\frac{\epsilon}{2} + \frac{\epsilon}{2}} = \epsilon \Rightarrow $ Eigenschaft 2.\\
 Für 1: $ \phi(a) = f(a) = \psi(a) $\\
@@ -2047,10 +2110,13 @@ Mit gleichmäßiger Stetigkeit folgt $\abs{f(x) - f(t_k)} < \frac{\epsilon}{2} \
 \end{prop}
 
 \begin{defi}[Ober- und Untersumme]
-Für $f :[a,b] \to \R$ stückweise stetig heißt $ \OS{f} = \menge{\intAB{\psi(x)}}{\psi : [a,b] \to \R \text{ ist Treppenfunktion mit } f(x) \le \psi(x)}$ die Obersumme von $f$ und $ \US{f} = \menge{\intAB{\phi(x)}}{\phi : [a,b] \to \R \text{ ist Treppenfunktion mit } \phi(x) \le f(x)}$ die Untersumme von $f$.
+Für $f :[a,b] \to \R$ stückweise stetig gilt:
+\begin{align*} \OS{f} &= \menge{\intAB{\psi(x)}}{\psi : [a,b] \to \R \text{ ist Treppenfunktion mit } f(x) \le \psi(x)}\text{ heißt Obersumme von $f$}\\
+\US{f} &= \menge{\intAB{\phi(x)}}{\phi : [a,b] \to \R \text{ ist Treppenfunktion mit } \phi(x) \le f(x)}\text{ heißt Untersumme von $f$}\end{align*}
 \end{defi}
 
 \begin{satz}
+Es gilt:
 \begin{enumerate}
 \item Für $A_+ \in \OS{f}$ und $A_- \in \US{f}$ gilt $A_- \le A_+$.
 \item Es existieren $\OI{f} = \inf(\OS{f})$ (Oberintegral) und  $\UI{f} = \sup(\US{f})$ (Unterintegral)
@@ -2058,16 +2124,16 @@ Für $f :[a,b] \to \R$ stückweise stetig heißt $ \OS{f} = \menge{\intAB{\psi(x
 \end{enumerate}
 \begin{proof}
 \begin{enumerate}
-\item Seien $\phi, \psi$ Teppenfunktionen mit $ \phi(x) \le f(x) \le \psi(x) \Rightarrow \phi(x) \le \psi(x) \Rightarrow 0 \le \psi(x) - \phi(x) \Rightarrow 0 \le \intAB{\psi(x) - \phi(x)} = \intAB{\psi(x)} - \intAB{\phi(x)}$ d.h. $A_- \le A_+$.
+\item Seien $\phi, \psi$ Teppenfunktionen mit $ \displaystyle\phi(x) \le f(x) \le \psi(x) \Rightarrow \phi(x) \le \psi(x) \Rightarrow 0 \le \psi(x) - \phi(x) \Rightarrow 0 \le \intAB{\psi(x) - \phi(x)} = \intAB{\psi(x)} - \intAB{\phi(x)}$ d.h. $A_- \le A_+$.
 \item Nach Proposition gibt es Treppenfunktionen $\phi, \psi$ mit $\phi(x) \le f(x) \le \psi(x)$ Also: Es gibt Zahlen $B_+, B_-$ mit $B_- \le B_+$\\
 $\Rightarrow \forall A_- \in \US{f}$ gilt $ A_- \le B_+$ und $\forall A_+ \in \OS{f}$ gilt $ A_+ \ge B_-$\\
 d.h. $\US{f}$ ist durch $B_+$ nach oben beschänkt und $\US{f}$ ist durch $B_-$ nach unten beschränkt.\\
 Nach dem Vollständigkeitsaxiom für reelle Zahlen existieren $\OI{f}  = \inf(\OS{f})$ und $\UI{f} = \sup(\US{f})$ und es gilt $\UI{f} \le \OI{f}$.
 \item Nach Proposition gibt es Treppenfunktionen $\phi, \psi$ mit $ 0 \le \psi(x) - \phi(x) \le \epsilon \quad \forall \epsilon > 0$\\
-$\Rightarrow 0 \le \intAB{\psi(x)} - \intAB{\phi(x)} \le \intAB{\epsilon} = \epsilon(b-a)$\\
+$\displaystyle\Rightarrow 0 \le \intAB{\psi(x)} - \intAB{\phi(x)} \le \intAB{\epsilon} = \epsilon(b-a)$\\
 Wähle $\displaystyle \epsilon = \frac{1}{n(b-a)} > 0$\\
-$\Rightarrow 0 \le \intAB{\psi(x)} - \intAB{\phi(x)} \le \frac{1}{n} \quad \forall n \ge 1$ \\
-$\Rightarrow 0 \le \OI{f} - \UI{f} \le \frac{1}{n} \quad \forall n \ge 1 \Rightarrow \OI{f} - \UI{f} = 0 \Rightarrow \OI{f} = \UI{f}$
+$\displaystyle\Rightarrow 0 \le \intAB{\psi(x)} - \intAB{\phi(x)} \le \frac{1}{n} \quad \forall n \ge 1$ \\
+$\displaystyle\Rightarrow 0 \le \OI{f} - \UI{f} \le \frac{1}{n} \quad \forall n \ge 1 \Rightarrow \OI{f} - \UI{f} = 0 \Rightarrow \OI{f} = \UI{f}$
 \end{enumerate}
 \end{proof}
 \end{satz}
@@ -2077,16 +2143,16 @@ Sei $f: [a,b] \to \R$ stückweise stetig. Dann heißt \[\int_{a}^{b}{f} = \intAB
 \end{defi}
 
 \begin{bem}
-Das Integral \intAB{f(x)} ist für alle beschränkten Funkktionen mit \OI{f} = \UI{f} definiert.
+Das Integral $\displaystyle\intAB{f(x)} $ist für alle beschränkten Funkktionen mit \OI{f} = \UI{f} definiert.
 \end{bem}
 
 \begin{satz}[Rechenregeln]
 Seien $f,g : [a,b] \to \R$ stückweise stetig. Dann gilt:
 \begin{enumerate}
-\item $\intAB{k} = k (b-a) \quad k \in \R$
-\item $\intAB{f(x)} = \integral{a}{c}{f(x)} = \integral{c}{b}{f(x)} \quad a \le c \le b$
-\item $\intAB{\lambda(f+g)(x)} = \lambda \intAB{f(x)} + \lambda \intAB{g(x)} \quad \lambda \in \R$
-\item Ist $f(x) \ge 0 \sp \forall x \in [a,b] \Rightarrow \intAB{f(x)} \ge 0$
+\item $\displaystyle\intAB{k} = k (b-a) \quad k \in \R$
+\item $\displaystyle\intAB{f(x)} = \integral{a}{c}{f(x)} = \integral{c}{b}{f(x)} \quad a \le c \le b$
+\item $\displaystyle\intAB{\lambda(f+g)(x)} = \lambda \intAB{f(x)} + \lambda \intAB{g(x)} \quad \lambda \in \R$
+\item Ist $\displaystyle f(x) \ge 0 \sp \forall x \in [a,b] \Rightarrow \intAB{f(x)} \ge 0$
 \end{enumerate}
 \begin{proof}
 nicht in VO. %ev. SELBER
@@ -2099,7 +2165,11 @@ In Übereinstimmung mit den Rechenregeln setzen wir: \[\integral{a}{a}{f(x)} = 0
 
 \begin{satz}[Mittelwertsatz der Integralrechnung]
 Sei $f [a,b] \to \R$ stetig. Dann gibt es ein $\xi \in [a,b]$ mit \[\intAB{f(x)} = f(\xi)(b-a)\]
-%Grafik  mittelwertsatz der Integralrechnung
+\begin{figure}[ht]\centering
+ \includegraphics[width=0.33\textwidth]{images/mws_integral.png}
+\caption{Mittelwertsatz der Integralrechnung}
+\end{figure}
+%Grafik 
 \begin{proof}
 $f: [a,b] \to \R$ stetig. Nach dem Satz vom Maximum, existieren $m = min\menge{f(x)}{x \in [a,b]}$ und $M = max\menge{f(x)}{x \in [a,b]}$.\\
 $\Rightarrow m \le f(x) \le M \sp \forall x \in [a,b]$\\
@@ -2116,13 +2186,13 @@ $\displaystyle \Rightarrow f(\xi)(b-a) = \intAB{f(x)}$
 
 \begin{defi}[Stammfunktion, unbestimmtes Integral]
 Sei $f$ eine Funktion. Eine Funktion $F$ heißt Stammfunktion von $f$, falls $F$ differenzierbar ist und $F' = f$.
-Wir schreiben: $\displaystyle F = \int{f(x)\dx}$
-$\int{f(x)\dx}$ heißt, das unbestimmte Integral von $f$.
+Wir schreiben: $\displaystyle F = \int{f(x)\dx}$, 
+$F$ heißt das unbestimmte Integral von $f$.
 \end{defi}
 
 \begin{bem}
 Seien $F,G$ Stammfunktionen von $f$. Dann ist $(F-G)' = F' - G' = f - f = 0$. Somit ist $F-G = c \Rightarrow F = G + c$. Das heißt die Stammfunktion von $f$ nur bis auf eine additive Konstante $c$ eindeutig bestimmt.\\
-Man schreibt oft. $F(x) = \int{f(t)\der t} + c$
+Man schreibt oft. $\displaystyle F(x) = \int{f(t)\der t} + c$
 \end{bem}
 
 \begin{prop}[Hauptsatz der Differential- und Integralrechnung - Teil I]
@@ -2131,21 +2201,21 @@ Sei $f: [a,b] \to \R$ stetig. Definiere $F: [a,b] \to \R$ folgendermaßen
 Dann ist $F$ eine Stammfunktion von $f$.
 \begin{proof}
 zu zeigen ist: $F$ ist differenzierbar und $F' = f$.\\
-wir zeigen: $\limnull[h]{\frac{F(x+h) - F(x)}{h}} = f(x)$\\
+wir zeigen: $\displaystyle \limnull[h]{\frac{F(x+h) - F(x)}{h}} = f(x)$\\
 Sei $(h_n)$ eine Folge mit $h_n \ne 0$ und $\liminf{h_n} = 0.$\\
-zz: $ \liminf{\frac{F(x+h_n) - F(x)}{h_n}} = f(x)$\\
+zz: $\displaystyle \liminf{\frac{F(x+h_n) - F(x)}{h_n}} = f(x)$\\
 o.B.d.A. Sei $h_n > 0$.\\
-$F(x+h_n) - F(x) = \int_{a}^{x+h_n}{f(t)\der t} - \int_{a}^{x}{f(t)\der t} = \int_{x}^{x+h_n}{f(t)\der t}$\\
-Nach dem Mittelwertsatz der Integralrechnung exisitiert ein $x_n \in [x, x+ h_n]$ mit $\int_{x}^{x+h_n}{f(t)\der t} = h_n f(x_n)$.
-d.h. $\frac{F(x+h_n) - F(x)}{h_n} = f(x_n)$.\\
-Da $ \liminf{h_n} = 0 \Rightarrow \liminf{x_n} = x.$ Da $f$ stetig ist, folgt $\liminf{f(x_n)} = f(x)$. d.h. $\liminf{\frac{F(x+h_n) - F(x)}{h_n}} = \liminf{f(x_n)} = f(x).$\\
+$\displaystyle F(x+h_n) - F(x) = \int_{a}^{x+h_n}{f(t)\der t} - \int_{a}^{x}{f(t)\der t} = \int_{x}^{x+h_n}{f(t)\der t}$\\
+Nach dem Mittelwertsatz der Integralrechnung exisitiert ein $\displaystyle x_n \in [x, x+ h_n]$ mit $\int_{x}^{x+h_n}{f(t)\der t} = h_n f(x_n)$.
+d.h. $\displaystyle \frac{F(x+h_n) - F(x)}{h_n} = f(x_n)$.\\
+Da $ \liminf{h_n} = 0 \Rightarrow \liminf{x_n} = x.$ Da $f$ stetig ist, folgt $\liminf{f(x_n)} = f(x)$. d.h. $\displaystyle \liminf{\frac{F(x+h_n) - F(x)}{h_n}} = \liminf{f(x_n)} = f(x).$\\
 Also ist $F$ differenzierbar und $F'(x) = f(x) \sp \forall x \in [a,b]$
 \end{proof}
 \end{prop}
 
 \begin{satz}[Hauptsatz der Differential- und Integralrechnung - Teil II]
 Sei $f: [a,b] \to \R$ stetig und $F$ eine Stammfunktion von $f$. Dann gilt: \[ \intAB{f(x)} = F(b) - F(a)\]
-Man schreibt: $F|_a^b = F(b) - F(a)$
+Man schreibt: $\displaystyle F|_a^b = F(b) - F(a)$
 \begin{proof}
 Sei $x \in [a,b]$. Dann folgt aus Teil I $\displaystyle F(x) = \int_{a}^{x}{f_t \der t}$ ist Stammfunktion von $f$.\\
 $\displaystyle\Rightarrow F(x) = \int_{a}^{x}{f_t \der t} + c \quad $mit $c$ Konstante\\
@@ -2157,7 +2227,7 @@ $\displaystyle\Rightarrow F(b) - F(a) = \int_{a}^{b}{f_t \der t} + c - \underbra
 Beispiele zur Stammfunktion
 \begin{enumerate}
 \item $\displaystyle \int{x^a \der x} = \frac{x^{a+1}}{a+1} $ für $ a \ne -1$
-\item $\displaystyle \int{\frac{1}{x} \der x} = ln(\abs{x})$
+\item $\displaystyle \int{\frac{1}{x} \der x} = \ln(\abs{x})$
 \item $\displaystyle \int{\sin x \der x} = - \cos x$
 \item $\displaystyle \int{\cos x \der x} = \sin x$
 \item $\displaystyle \int{\e^x \der x} =  \e^x$
@@ -2174,8 +2244,8 @@ $\displaystyle\int_{0}^{2\pi}{\sin x \der x} = - \cos x  |_0^{2\pi} = \cos(0) - 
 Seien $f,g : [a,b] \to \R$ stetig differenzierbar. Dann ist \[\intAB{f(x)g'(x)} = \stamm{a}{b}{(f(x) g(x))} - \intAB{f'(x)g(x)}\]
 \begin{proof}
 Sei $F(x) = f(x)g(x)$\\
-Aus der Produktregel folgt $F'(x) = f'(x) g(x) + f(x) g'(x)$\\
-$\displaystyle\overset{\text{Hauptsatz}}{\Rightarrow} \intAB{f(x)g'(x)} + \intAB{f'(x)g(x)} = \intAB{f(x)g'(x) + f'(x)g(x)} = \intAB{F'(x)} = \stamm{a}{b}{F(x)} = \stamm{a}{b}{f(x)g(x)} $\\
+Aus der Produktregel folgt $F'(x) = f'(x) g(x) + f(x) g'(x)$. Mit dem Hauptsatz folgt \\
+$\displaystyle \intAB{f(x)g'(x)} + \intAB{f'(x)g(x)} = \intAB{f(x)g'(x) + f'(x)g(x)} = \intAB{F'(x)} = \stamm{a}{b}{F(x)} = \stamm{a}{b}{f(x)g(x)} $\\
 $\displaystyle\Rightarrow \intAB{f(x)g'(x)} = \stamm{a}{b}{f(x)g(x)} - \intAB{f'(x)g(x)} $
 \end{proof}
 \end{satz}
@@ -2184,22 +2254,26 @@ $\displaystyle\Rightarrow \intAB{f(x)g'(x)} = \stamm{a}{b}{f(x)g(x)} - \intAB{f'
 Sei $f : D \to \R$ stetig und $\phi: [a,b] \to \R$ stetig differenzierbar mit $\phi([a,b]) \subset D$. Dann ist \[ \int_{a}^{b}{f(\phi(t))\phi'(t) \der t} = \integral{\phi(a)}{\phi(b)}{f(x)}\]
 \begin{proof}
 Sei $F: D \to \R$ eine Stammfunktion von $f$. Nach der kettenregel folgt für $t \in [a,b]$ \\
-$\displaystyle (F \circ \phi)'(t) = F'(\phi(t))\phi'(t) ) f(\phi(t))\phi'(t)$\\
-$\displaystyle\overset{\text{Hauptsatz}}{\Rightarrow} \intAB[t]{f(\phi(t))\phi'(t)} = \intAB[t]{(F\circ\phi)'(t)} = \stamm{a}{b}{(F\circ\phi)(t)} = (F\circ\phi)(b) - (F\circ\phi)(a) = F(\phi(b)) - F(\phi(a)) = \integral[t]{\phi(a)}{\phi(b)}{f(t)}$
+$\displaystyle (F \circ \phi)'(t) = F'(\phi(t))\phi'(t) ) f(\phi(t))\phi'(t)$ Mit dem Hauptsatz folgt \\
+$\displaystyle\intAB[t]{f(\phi(t))\phi'(t)} = \intAB[t]{(F\circ\phi)'(t)} = \stamm{a}{b}{(F\circ\phi)(t)} = (F\circ\phi)(b) - (F\circ\phi)(a) = F(\phi(b)) - F(\phi(a)) = \integral[t]{\phi(a)}{\phi(b)}{f(t)}$
 \end{proof}
 \end{satz}
 
 \begin{bem}
-Schreibt man symbolisch $\der \phi(t) = \phi'(t)\der t \Rightarrow \int_{a}^{b}{f(\phi(t))\phi'(t) \der t} = \integral{\phi(a)}{\phi(b)}{f(x)}$
+Man schreibt symbolisch $\displaystyle \der \phi(t) = \phi'(t)\der t \Rightarrow \int_{a}^{b}{f(\phi(t))\phi'(t) \der t} = \integral{\phi(a)}{\phi(b)}{f(x)}$
 \end{bem}
 
 \begin{bsp}
 \begin{enumerate}
 \item $f: [a,b] \to \R \sp (0 < a < b) $ mit $ f(x) = lnx$\\
-$\displaystyle \intAB{ln(x)} = \intAB{\underbrace{ln(x)}_{f}\underbrace{1}_{g'}} \overset{\text{Partielle Integration}}{=} \stamm{a}{b}{ln(x)x} - \intAB{\frac{1}{x}x} = \stamm{a}{b}{ln(x)x} - (b-a) = ln(b)b - ln(a)(a) - (b - a) = \stamm{a}{b}{x(ln(x)-1)}$\\
-Also $F(x) = xln(x)-x$ ist Stammfunktion von $ln(x)$.
+$\displaystyle \intAB{\ln(x)} = \intAB{\underbrace{\ln(x)}_{f}\underbrace{1}_{g'}} \overset{\text{Partielle Integration}}{=} \stamm{a}{b}{\ln(x)x} - \intAB{\frac{1}{x}x} = \stamm{a}{b}{\ln(x)x} - (b-a) = \ln(b)b - \ln(a)(a) - (b - a) = \stamm{a}{b}{x(\ln(x)-1)}$\\
+Also $F(x) = xln(x)-x$ ist Stammfunktion von $\ln(x)$.
 \item Fläche des Einheitskreises\\
-%GRAFIK Einheitskreis  und fläche markiert von einem viertel f(x) = \sqrt{1-x^2}
+\begin{figure}[ht]
+ \includegraphics[width=0.33\textwidth]{images/einheitskreis_pi.png}
+\caption{Einheitskreis und die Funktion $\sqrt{1-x^2}$}
+\end{figure}
+%GRAFIK 
 $x^2 + y^2 = 1 \Rightarrow y^2 = 1 - x^2 \Rightarrow y =  = \sqrt{1-x^2}$
 Sei $f: [0,1] \to \R$ mit $f(x) =  \sqrt{1-x^2}$\\
 Frage: Was ist $\integral{0}{1}{ \sqrt{1-x^2}} $?\\
@@ -2211,40 +2285,5 @@ $\displaystyle\Rightarrow \integral{0}{1}{\sqrt{1-x^2}} = \integral[t]{0}{\frac{
 $\Rightarrow$ Fläche des Einheitskreises $\displaystyle= 4 \integral{0}{1}{\sqrt{1 - x^2}} = 4 \frac{\pi}{4} = \pi$
 \end{enumerate}
 \end{bsp}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.10.24)  18 FEB 2019 18:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.10.24)  23 FEB 2019 16:22
 entering extended mode
 **C:/Users/tanja/Documents/Uni/Analysis/Analysis-LaTeX/analysis_skript.tex
 (C:/Users/tanja/Documents/Uni/Analysis/Analysis-LaTeX/analysis_skript.tex
@@ -711,24 +711,24 @@ Package: xparse 2018-10-17 L3 Experimental document command parser
 \l__xparse_mandatory_args_int=\count291
 \l__xparse_v_nesting_int=\count292
 )
-\c@satzaux=\count293
-\c@subsatzaux=\count294
+\c@satz=\count293
+\c@subsatz=\count294
 
 No file analysis_skript.aux.
 \openout1 = `analysis_skript.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 169.
-LaTeX Font Info:    ... okay on input line 169.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 169.
-LaTeX Font Info:    ... okay on input line 169.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 169.
-LaTeX Font Info:    ... okay on input line 169.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 169.
-LaTeX Font Info:    ... okay on input line 169.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 169.
-LaTeX Font Info:    ... okay on input line 169.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 169.
-LaTeX Font Info:    ... okay on input line 169.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
 ABD: EveryShipout initializing macros
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -825,11 +825,11 @@ G,.JBIG2,.JB2,.eps]
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 172.
+LaTeX Font Info:    Try loading font information for U+msa on input line 141.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 172.
+LaTeX Font Info:    Try loading font information for U+msb on input line 141.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -844,476 +844,255 @@ No file analysis_skript.toc.
 \tf@toc=\write4
 \openout4 = `analysis_skript.toc'.
 
-[1]
+[1] [2] [3] [4]
+! Missing $ inserted.
+<inserted text> 
+                $
+l.375 ...twidth]{images/GauÃŸsche_Zahlenebene.png}
+                                                  
+? 
 
-! LaTeX Error: Environment subprop undefined.
+LaTeX Warning: File `images/Gau\IeC {\ss }sche_Zahlenebene.png' not found on in
+put line 375.
 
-See the LaTeX manual or LaTeX Companion for explanation.
+
+! Package pdftex.def Error: File `images/Gau\T1\ss sche_Zahlenebene.png' not fo
+und: using draft setting.
+
+See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.197 \begin{subprop}
-                     
-? 
-! Undefined control sequence.
-l.207 \ensubbemaux
-                  [#1]\addcontentsline{toc}{subsubsection}{\protect\numberli...
-
-? 
-! You can't use `macro parameter character #' in horizontal mode.
-l.207 \ensubbemaux[#
-                    1]\addcontentsline{toc}{subsubsection}{\protect\numberli...
-
-? 
-! Illegal parameter number in definition of \reserved@a.
-<to be read again> 
-                   1
-l.207 ...berline{\thesubsubsection}Bemerkung (#1)}
-                                                  }%
-? 
-! Extra }, or forgotten \endgroup.
-l.207 ...erline{\thesubsubsection}Bemerkung (#1)}}
-                                                  %
-? 
-! Extra }, or forgotten \endgroup.
-l.208    \ignorespaces}
-                       
-? 
-
-! LaTeX Error: Can be used only in preamble.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
+l.375 ...twidth]{images/GauÃŸsche_Zahlenebene.png}
                                                   
-l.216 \begin{document}
-                      
 ? 
-(analysis_skript.toc)
-\tf@toc=\write5
-\openout5 = `analysis_skript.toc'.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 375.
 
- [2]
-
-! LaTeX Error: Environment subprop undefined.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1cmtt.fd"
+File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+! Missing $ inserted.
+<inserted text> 
+                $
+l.375 ...twidth]{images/GauÃŸsche_Zahlenebene.png}
                                                   
-l.244 \begin{subprop}
-                     
 ? 
+Missing character: There is no ÿ in font cmr10!
+[5]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 409.
 
-! LaTeX Error: \begin{document} on input line 216 ended by \end{subprop}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.255 \end{subprop}
-                   
-? 
-
-! LaTeX Error: Environment subdefi undefined.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.257 \begin{subdefi}
-                     [Potenzschreibweise]
-? 
-
-! LaTeX Error: \begin{document} on input line 216 ended by \end{subdefi}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.262 \end{subdefi}
-                   
-? 
-
-Overfull \hbox (65.09544pt too wide) in paragraph at lines 257--263
-[]\T1/cmr/m/n/10 [Potenzschreibweise] Für $\OML/cmm/m/it/10 a \OMS/cmsy/m/n/10 
-2 \U/msb/m/n/10 R[]\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 2 \U/msb/m/n/10 Z[]\OML/
-cmm/m/it/10 a[]$ \T1/cmr/m/n/10 fol-gen-der-ma-ÿen in-duk-tiv de-fi-niert: $\OM
-L/cmm/m/it/10 a[] \OT1/cmr/m/n/10 = []$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 257--263
-
- []
-
-
-! LaTeX Error: Environment subbem undefined.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.264 \begin{subbem}
-                    
-? 
-
-! LaTeX Error: \begin{document} on input line 216 ended by \end{subbem}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.280 \end{subbem}
-                  
-? 
-[3]
-
-! LaTeX Error: Environment subprop undefined.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.290 \begin{subprop}
-                     
-? 
-
-! LaTeX Error: \begin{document} on input line 216 ended by \end{subprop}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.295 \end{subprop}
-                   
-? 
-
-! LaTeX Error: Environment subbem undefined.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.297 \begin{subbem}
-                    
-? 
-
-! LaTeX Error: \begin{document} on input line 216 ended by \end{subbem}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.306 \end{subbem}
-                  
-? 
-
-! LaTeX Error: Environment subdefi undefined.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.308 \begin{subdefi}
-                     
-? 
-
-! LaTeX Error: \begin{document} on input line 216 ended by \end{subdefi}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.313 \end{subdefi}
-                   
-? 
-
-! LaTeX Error: Environment subsatz undefined.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.315 \begin{subsatz}
-                     
-? 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 326.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 326.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 409.
+<images/gaussebene_mit_konj.png, id=45, 570.63188pt x 420.06938pt>
+File: images/gaussebene_mit_konj.png Graphic file (type png)
+<use images/gaussebene_mit_konj.png>
+Package pdftex.def Info: images/gaussebene_mit_konj.png  used on input line 420
+.
+(pdftex.def)             Requested size: 150.23138pt x 110.59355pt.
+ [6 <C:/Users/tanja/Documents/Uni/Analysis/Analysis-LaTeX/images/gaussebene_mit
+_konj.png>]
+<images/dreieck_wurzel2.png, id=52, 313.9228pt x 302.63063pt>
+File: images/dreieck_wurzel2.png Graphic file (type png)
+<use images/dreieck_wurzel2.png>
+Package pdftex.def Info: images/dreieck_wurzel2.png  used on input line 473.
+(pdftex.def)             Requested size: 150.23138pt x 144.82698pt.
 
+[7 <C:/Users/tanja/Documents/Uni/Analysis/Analysis-LaTeX/images/dreieck_wurzel2
+.png>] [8] [9] [10] [11] [12]
+<images/zahlenstrahl_bolzanoWS.png, id=77, 442.65375pt x 82.05656pt>
+File: images/zahlenstrahl_bolzanoWS.png Graphic file (type png)
+<use images/zahlenstrahl_bolzanoWS.png>
+Package pdftex.def Info: images/zahlenstrahl_bolzanoWS.png  used on input line 
+797.
+(pdftex.def)             Requested size: 150.23138pt x 27.84877pt.
+ [13 <C:/Users/tanja/Documents/Uni/Analysis/Analysis-LaTeX/images/zahlenstrahl_
+bolzanoWS.png>] [14] [15]
+Overfull \hbox (30.26773pt too wide) in paragraph at lines 893--904
+[]$[][]$[]  [] 
+ []
 
-! LaTeX Error: \begin{document} on input line 216 ended by \end{subsatz}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.338 \end{subsatz}
-                   
-? 
-
-! LaTeX Error: Environment subbem undefined.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.340 \begin{subbem}
-                    [Archimedisches Axiom]
-? 
-
-! LaTeX Error: \begin{document} on input line 216 ended by \end{subbem}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.345 \end{subbem}
-                  
-? 
-
-! LaTeX Error: Environment subsatz undefined.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.347 \begin{subsatz}
-                     [Bernoullische Ungleichung]
-? 
-[4]
-
-! LaTeX Error: \begin{document} on input line 216 ended by \end{subsatz}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.363 \end{subsatz}
-                   
-? 
-[5]
-
-! LaTeX Error: Environment subkorr undefined.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.366 \begin{subkorr}
-                     
-? 
-
-! LaTeX Error: \begin{document} on input line 216 ended by \end{subkorr}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.384 \end{subkorr}
-                   
-? 
-
-! LaTeX Error: Environment subdefi undefined.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.389 \begin{subdefi}
-                     
-? 
-
-! LaTeX Error: \begin{document} on input line 216 ended by \end{subdefi}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.404 \end{subdefi}
-                   
-? 
-
-! LaTeX Error: Environment subbsp undefined.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.406 \begin{subbsp}
-                    
-? 
-
-! LaTeX Error: \begin{document} on input line 216 ended by \end{subbsp}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.412 \end{subbsp}
-                  
-? 
-
-! LaTeX Error: Environment subbem undefined.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.414 \begin{subbem}
-                    [zur Erinnerung]
-? 
-
-! LaTeX Error: \begin{document} on input line 216 ended by \end{subbem}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.417 \end{subbem}
-                  
-? 
-
-! LaTeX Error: Environment subsatz undefined.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.419 \begin{subsatz}
-                     [VollstÃ¤ndigkeitsaxiom]
-? 
-
-! LaTeX Error: \begin{document} on input line 216 ended by \end{subsatz}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.422 \end{subsatz}
-                   
-? 
-
-! LaTeX Error: Environment subbem undefined.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.424 \begin{subbem}
-                    
-? 
-
-! LaTeX Error: \begin{document} on input line 216 ended by \end{subbem}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.426 \end{subbem}
-                  
-? 
-
-! LaTeX Error: Environment subprop undefined.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.428 \begin{subprop}
-                     
-? 
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.431 S
-       eien \(M\) nach oben beschrÃ¤nkt und \(a\) eine obere Schranke von \(...
-
-? 
-[6]
-
-! LaTeX Error: \begin{document} on input line 216 ended by \end{subprop}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.437 \end{subprop}
-                   
-? 
-
-! LaTeX Error: Environment subprop undefined.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.439 \begin{subprop}
-                     
-? 
-
-! LaTeX Error: \begin{document} on input line 216 ended by \end{subprop}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.445 \end{subprop}
-                   
-? 
-[7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17]
-Overfull \hbox (10.91696pt too wide) in paragraph at lines 928--944
+[16] [17]
+Overfull \hbox (11.42097pt too wide) in paragraph at lines 1007--1013
 []$[][][] 
  []
 
-[18] [19] [20] [21] [22]
-Overfull \hbox (46.36462pt too wide) detected at line 1133
-[][]
- []
-
-[23] [24]
-Underfull \hbox (badness 10000) in paragraph at lines 1198--1199
+[18] [19]
+Underfull \hbox (badness 10000) in paragraph at lines 1091--1093
 
  []
 
+<images/Beweisidee_Cauchy_Produkt.JPG, id=101, 375.65344pt x 162.6075pt>
+File: images/Beweisidee_Cauchy_Produkt.JPG Graphic file (type jpg)
+<use images/Beweisidee_Cauchy_Produkt.JPG>
+Package pdftex.def Info: images/Beweisidee_Cauchy_Produkt.JPG  used on input li
+ne 1096.
+(pdftex.def)             Requested size: 150.23138pt x 65.03192pt.
+[20 <C:/Users/tanja/Documents/Uni/Analysis/Analysis-LaTeX/images/Beweisidee_Cau
+chy_Produkt.JPG>]
+<images/konstante_funktion.png, id=105, 298.86656pt x 254.45062pt>
+File: images/konstante_funktion.png Graphic file (type png)
+<use images/konstante_funktion.png>
+Package pdftex.def Info: images/konstante_funktion.png  used on input line 1129
+.
+(pdftex.def)             Requested size: 150.23138pt x 127.90445pt.
+<images/identische_funktion.png, id=106, 284.56313pt x 283.0575pt>
+File: images/identische_funktion.png Graphic file (type png)
+<use images/identische_funktion.png>
+Package pdftex.def Info: images/identische_funktion.png  used on input line 113
+4.
+(pdftex.def)             Requested size: 150.23138pt x 149.441pt.
+<images/betrags_funktion.png, id=107, 286.06876pt x 283.0575pt>
+File: images/betrags_funktion.png Graphic file (type png)
+<use images/betrags_funktion.png>
+Package pdftex.def Info: images/betrags_funktion.png  used on input line 1139.
+(pdftex.def)             Requested size: 150.23138pt x 148.65059pt.
+ [21 <C:/Users/tanja/Documents/Uni/Analysis/Analysis-LaTeX/images/konstante_fun
+ktion.png> <C:/Users/tanja/Documents/Uni/Analysis/Analysis-LaTeX/images/identis
+che_funktion.png>]
+<images/floor_funktion.png, id=111, 286.06876pt x 283.0575pt>
+File: images/floor_funktion.png Graphic file (type png)
+<use images/floor_funktion.png>
+Package pdftex.def Info: images/floor_funktion.png  used on input line 1144.
+(pdftex.def)             Requested size: 150.23138pt x 148.65059pt.
+<images/wurzel_funktion.png, id=112, 305.64188pt x 254.45062pt>
+File: images/wurzel_funktion.png Graphic file (type png)
+<use images/wurzel_funktion.png>
+Package pdftex.def Info: images/wurzel_funktion.png  used on input line 1149.
+(pdftex.def)             Requested size: 150.23138pt x 125.06627pt.
+<images/exponential_funktion.png, id=113, 282.30469pt x 242.40562pt>
+File: images/exponential_funktion.png Graphic file (type png)
+<use images/exponential_funktion.png>
+Package pdftex.def Info: images/exponential_funktion.png  used on input line 11
+54.
+(pdftex.def)             Requested size: 150.23138pt x 128.99959pt.
+<images/polynom_funktion.png, id=114, 305.64188pt x 256.70906pt>
+File: images/polynom_funktion.png Graphic file (type png)
+<use images/polynom_funktion.png>
+Package pdftex.def Info: images/polynom_funktion.png  used on input line 1159.
+(pdftex.def)             Requested size: 150.23138pt x 126.17632pt.
+ [22 <C:/Users/tanja/Documents/Uni/Analysis/Analysis-LaTeX/images/betrags_funkt
+ion.png> <C:/Users/tanja/Documents/Uni/Analysis/Analysis-LaTeX/images/floor_fun
+ktion.png> <C:/Users/tanja/Documents/Uni/Analysis/Analysis-LaTeX/images/wurzel_
+funktion.png> <C:/Users/tanja/Documents/Uni/Analysis/Analysis-LaTeX/images/expo
+nential_funktion.png>]
+<images/DEF.png, id=119, 225.84375pt x 185.19188pt>
+File: images/DEF.png Graphic file (type png)
+<use images/DEF.png>
+Package pdftex.def Info: images/DEF.png  used on input line 1179.
+(pdftex.def)             Requested size: 150.23138pt x 123.19624pt.
+ [23 <C:/Users/tanja/Documents/Uni/Analysis/Analysis-LaTeX/images/polynom_funkt
+ion.png> <C:/Users/tanja/Documents/Uni/Analysis/Analysis-LaTeX/images/DEF.png>]
 
-Underfull \hbox (badness 10000) in paragraph at lines 1218--1220
 
+! LaTeX Error: Unknown graphics extension: .gif.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1208 ...extwidth]{images/stetigefunktionbsp.gif}
+                                                  
+? 
+
+! LaTeX Error: Unknown graphics extension: .gif.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1213 ...dth]{images/nichtstetigefunktionbsp.gif}
+                                                  
+? 
+
+Overfull \hbox (3.08142pt too wide) in paragraph at lines 1233--1238
+[][]$ 
  []
 
+[24]
+<images/deltaepsilonkrit.png, id=128, 286.06876pt x 214.55156pt>
+File: images/deltaepsilonkrit.png Graphic file (type png)
+<use images/deltaepsilonkrit.png>
+Package pdftex.def Info: images/deltaepsilonkrit.png  used on input line 1255.
+(pdftex.def)             Requested size: 150.23138pt x 112.67398pt.
+<images/nichtdeltaepsilonkrit.png, id=129, 298.86656pt x 169.38281pt>
+File: images/nichtdeltaepsilonkrit.png Graphic file (type png)
+<use images/nichtdeltaepsilonkrit.png>
+Package pdftex.def Info: images/nichtdeltaepsilonkrit.png  used on input line 1
+259.
+(pdftex.def)             Requested size: 150.23138pt x 85.14348pt.
+ [25 <C:/Users/tanja/Documents/Uni/Analysis/Analysis-LaTeX/images/deltaepsilonk
+rit.png> <C:/Users/tanja/Documents/Uni/Analysis/Analysis-LaTeX/images/nichtdelt
+aepsilonkrit.png>]
+<images/nichtstetig_1-1.png, id=135, 214.55156pt x 222.07968pt>
+File: images/nichtstetig_1-1.png Graphic file (type png)
+<use images/nichtstetig_1-1.png>
+Package pdftex.def Info: images/nichtstetig_1-1.png  used on input line 1311.
+(pdftex.def)             Requested size: 150.23138pt x 155.50554pt.
+ [26 <C:/Users/tanja/Documents/Uni/Analysis/Analysis-LaTeX/images/nichtstetig_1
+-1.png>]
+<images/zwischenwertsatz.png, id=139, 421.575pt x 257.96375pt>
+File: images/zwischenwertsatz.png Graphic file (type png)
+<use images/zwischenwertsatz.png>
+Package pdftex.def Info: images/zwischenwertsatz.png  used on input line 1367.
+(pdftex.def)             Requested size: 150.23138pt x 91.92612pt.
+ [27 <C:/Users/tanja/Documents/Uni/Analysis/Analysis-LaTeX/images/zwischenwerts
+atz.png (PNG copy)>]
+<images/funktion_1durchx.png, id=143, 252.945pt x 260.47313pt>
+File: images/funktion_1durchx.png Graphic file (type png)
+<use images/funktion_1durchx.png>
+Package pdftex.def Info: images/funktion_1durchx.png  used on input line 1420.
+(pdftex.def)             Requested size: 150.23138pt x 154.70323pt.
+ [28] [29 <C:/Users/tanja/Documents/Uni/Analysis/Analysis-LaTeX/images/funktion
+_1durchx.png>]
+File: images/exponential_funktion.png Graphic file (type png)
+<use images/exponential_funktion.png>
+Package pdftex.def Info: images/exponential_funktion.png  used on input line 14
+81.
+(pdftex.def)             Requested size: 150.23138pt x 128.99959pt.
+ [30]
+<images/epsilon_umgebung.png, id=154, 222.07968pt x 204.01219pt>
+File: images/epsilon_umgebung.png Graphic file (type png)
+<use images/epsilon_umgebung.png>
+Package pdftex.def Info: images/epsilon_umgebung.png  used on input line 1515.
+(pdftex.def)             Requested size: 150.23138pt x 138.00735pt.
+ [31 <C:/Users/tanja/Documents/Uni/Analysis/Analysis-LaTeX/images/epsilon_umgeb
+ung.png>]
+<images/einheitskreis_sincosexp.png, id=159, 1027.84pt x 1027.84pt>
+File: images/einheitskreis_sincosexp.png Graphic file (type png)
+<use images/einheitskreis_sincosexp.png>
+Package pdftex.def Info: images/einheitskreis_sincosexp.png  used on input line
+ 1575.
+(pdftex.def)             Requested size: 150.23138pt x 150.21709pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1231--1232
-
+[32] [33 <C:/Users/tanja/Documents/Uni/Analysis/Analysis-LaTeX/images/einheitsk
+reis_sincosexp.png>]
+Overfull \hbox (113.26758pt too wide) in paragraph at lines 1634--1662
+[]$[][][] 
  []
 
-[25] [26] [27]
-Overfull \hbox (42.19687pt too wide) detected at line 1325
-[][]
- []
-
-[28]
-Overfull \hbox (20.04518pt too wide) detected at line 1363
-[][]
- []
-
-[29] [30] [31] [32] [33] [34] [35]
-Overfull \hbox (5.52818pt too wide) in paragraph at lines 1690--1693
-[] \OML/cmm/m/it/10 x \OT1/cmr/m/n/10 + \OT1/cmr/m/it/10 i [] \OML/cmm/m/it/10 
-x \OT1/cmr/m/n/10 = \OT1/cmr/m/it/10 e[] \OT1/cmr/m/n/10 = [][] [] = [][] [] = 
-[][] [] + [][] [] [] [][] [] +
- []
-
-[36] [37]
-Overfull \hbox (5.282pt too wide) in paragraph at lines 1795--1798
+[34] [35]
+<images/sin_cos.png, id=174, 321.45094pt x 183.68625pt>
+File: images/sin_cos.png Graphic file (type png)
+<use images/sin_cos.png>
+Package pdftex.def Info: images/sin_cos.png  used on input line 1688.
+(pdftex.def)             Requested size: 150.23138pt x 85.84764pt.
+<images/tangens.png, id=175, 269.50688pt x 371.13657pt>
+File: images/tangens.png Graphic file (type png)
+<use images/tangens.png>
+Package pdftex.def Info: images/tangens.png  used on input line 1704.
+(pdftex.def)             Requested size: 150.23138pt x 206.88365pt.
+<images/cotangens.png, id=176, 270.25969pt x 309.40594pt>
+File: images/cotangens.png Graphic file (type png)
+<use images/cotangens.png>
+Package pdftex.def Info: images/cotangens.png  used on input line 1709.
+(pdftex.def)             Requested size: 150.23138pt x 171.99615pt.
+ [36 <C:/Users/tanja/Documents/Uni/Analysis/Analysis-LaTeX/images/sin_cos.png>]
+ [37 <C:/Users/tanja/Documents/Uni/Analysis/Analysis-LaTeX/images/tangens.png> 
+<C:/Users/tanja/Documents/Uni/Analysis/Analysis-LaTeX/images/cotangens.png>]
+Overfull \hbox (5.282pt too wide) in paragraph at lines 1744--1747
 []\T1/cmr/m/n/10 Eine qua-dra-ti-sche Funk-ti-on $\OML/cmm/m/it/10 f \OT1/cmr/m
 /n/10 : \U/msb/m/n/10 R \OMS/cmsy/m/n/10 ! \U/msb/m/n/10 R$ \T1/cmr/m/n/10 mit 
 $\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) = \OML/
@@ -1322,13 +1101,13 @@ cmm/m/it/10 x[]$\T1/cmr/m/n/10 . $\OML/cmm/m/it/10 f[]\OT1/cmr/m/n/10 (\OML/cmm
  []
 
 
-Overfull \hbox (58.03004pt too wide) in paragraph at lines 1801--1811
+Overfull \hbox (58.03004pt too wide) in paragraph at lines 1750--1760
 \T1/cmr/m/n/10 Für $[] \OML/cmm/m/it/10 < []$ \T1/cmr/m/n/10 folgt $[] \OT1/cmr
 /m/n/10 = [] = [] = [] \OMS/cmsy/m/n/10  [][] [][] [] 
  []
 
 
-Overfull \hbox (6.46678pt too wide) in paragraph at lines 1811--1814
+Overfull \hbox (6.46678pt too wide) in paragraph at lines 1760--1763
 []\T1/cmr/m/n/10 Die Ab-lei-tungs-funk-ti-on $\OML/cmm/m/it/10 f \OT1/cmr/m/n/1
 0 : \U/msb/m/n/10 R \OMS/cmsy/m/n/10 ! \U/msb/m/n/10 R$ \T1/cmr/m/n/10 mit $\OM
 L/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) = []$ \T1/c
@@ -1337,15 +1116,19 @@ dif-fe-ren-zier-bar. $[] [] \OT1/cmr/m/n/10 =
  []
 
 [38] [39] [40]
-Overfull \hbox (22.5057pt too wide) in paragraph at lines 1920--1926
-\OMS/cmsy/m/n/10 ) 8[]\OML/cmm/m/it/10 x[] > x[][] [] [] \OT1/cmr/m/n/10 = \OML
-/cmm/m/it/10 x[][]f[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]\OT1/cmr/m/n/10 ) = [
-] [] \OMS/cmsy/m/n/10  \OT1/cmr/m/n/10 0[]\OMS/cmsy/m/n/10 8[]\OML/cmm/m/it/10
- x[] <
- []
-
-[41]
-Overfull \hbox (10.22916pt too wide) in paragraph at lines 1949--1953
+<images/satz_von_rolle.png, id=193, 1027.84pt x 578.16pt>
+File: images/satz_von_rolle.png Graphic file (type png)
+<use images/satz_von_rolle.png>
+Package pdftex.def Info: images/satz_von_rolle.png  used on input line 1870.
+(pdftex.def)             Requested size: 150.23138pt x 84.4971pt.
+<images/Mittelwertsatz.png, id=194, 1027.84pt x 734.745pt>
+File: images/Mittelwertsatz.png Graphic file (type png)
+<use images/Mittelwertsatz.png>
+Package pdftex.def Info: images/Mittelwertsatz.png  used on input line 1888.
+(pdftex.def)             Requested size: 150.23138pt x 107.38174pt.
+ [41 <C:/Users/tanja/Documents/Uni/Analysis/Analysis-LaTeX/images/satz_von_roll
+e.png>]
+Overfull \hbox (10.22916pt too wide) in paragraph at lines 1909--1913
 []\T1/cmr/m/n/10 Wäre $\OML/cmm/m/it/10 g\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 b\OT
 1/cmr/m/n/10 ) = \OML/cmm/m/it/10 g\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 a\OT1/cmr/
 m/n/10 )$\T1/cmr/m/n/10 , dann gä-be es nach dem Mit-tel-wert-satz ein $\OML/cm
@@ -1354,71 +1137,118 @@ m/m/it/10  \OMS/cmsy/m/n/10 2 \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 a; b\OT1/cmr/m
 /10 \OT1/cmr/m/n/10 ) = 0 [][] 
  []
 
-[42]
-Underfull \hbox (badness 10000) in paragraph at lines 2003--2005
+<images/minima_maxima.png, id=199, 380.92313pt x 418.56375pt>
+File: images/minima_maxima.png Graphic file (type png)
+<use images/minima_maxima.png>
+Package pdftex.def Info: images/minima_maxima.png  used on input line 1940.
+(pdftex.def)             Requested size: 150.23138pt x 165.07219pt.
+[42 <C:/Users/tanja/Documents/Uni/Analysis/Analysis-LaTeX/images/Mittelwertsatz
+.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1967--1969
 
  []
 
-[43] [44] [45]
-Overfull \hbox (57.56868pt too wide) in paragraph at lines 2131--2132
-[]\T1/cmr/m/n/10 Für $\OML/cmm/m/it/10 f \OT1/cmr/m/n/10 : [\OML/cmm/m/it/10 a;
- b\OT1/cmr/m/n/10 ] \OMS/cmsy/m/n/10 ! \U/msb/m/n/10 R$ \T1/cmr/m/n/10 stück-we
-i-se ste-tig heiÿt $\OT1/cmr/m/n/10 [] [] = []$
+[43 <C:/Users/tanja/Documents/Uni/Analysis/Analysis-LaTeX/images/minima_maxima.
+png>]
+<images/Integral.png, id=208, 331.2375pt x 358.33875pt>
+File: images/Integral.png Graphic file (type png)
+<use images/Integral.png>
+Package pdftex.def Info: images/Integral.png  used on input line 1997.
+(pdftex.def)             Requested size: 150.23138pt x 162.51947pt.
+<images/treppenfunktion.png, id=209, 548.80031pt x 248.42813pt>
+File: images/treppenfunktion.png Graphic file (type png)
+<use images/treppenfunktion.png>
+Package pdftex.def Info: images/treppenfunktion.png  used on input line 2018.
+(pdftex.def)             Requested size: 150.23138pt x 68.0052pt.
+ [44 <C:/Users/tanja/Documents/Uni/Analysis/Analysis-LaTeX/images/Integral.png>
+]
+<images/treppenfunktion_zerlegung.png, id=214, 548.80031pt x 218.31563pt>
+File: images/treppenfunktion_zerlegung.png Graphic file (type png)
+<use images/treppenfunktion_zerlegung.png>
+Package pdftex.def Info: images/treppenfunktion_zerlegung.png  used on input li
+ne 2030.
+(pdftex.def)             Requested size: 150.23138pt x 59.76215pt.
+ [45 <C:/Users/tanja/Documents/Uni/Analysis/Analysis-LaTeX/images/treppenfunkti
+on.png> <C:/Users/tanja/Documents/Uni/Analysis/Analysis-LaTeX/images/treppenfun
+ktion_zerlegung.png>]
+File: images/funktion_1durchx.png Graphic file (type png)
+<use images/funktion_1durchx.png>
+Package pdftex.def Info: images/funktion_1durchx.png  used on input line 2071.
+(pdftex.def)             Requested size: 150.23138pt x 154.70323pt.
+<images/ober_untersumme.png, id=218, 231.264pt x 203.8014pt>
+File: images/ober_untersumme.png Graphic file (type png)
+<use images/ober_untersumme.png>
+Package pdftex.def Info: images/ober_untersumme.png  used on input line 2093.
+(pdftex.def)             Requested size: 150.23138pt x 132.3978pt.
+ [46]
+Overfull \hbox (0.11234pt too wide) detected at line 2115
+[]
  []
 
-[46] [47] [48]
-Overfull \hbox (4.90591pt too wide) in paragraph at lines 2281--2292
-\OMS/cmsy/m/n/10 ) [][] [] \OT1/cmr/m/n/10 = [][] [] = [] [][] [] = []([][] [] 
-+ [][] []) = [] [][] +
+[47 <C:/Users/tanja/Documents/Uni/Analysis/Analysis-LaTeX/images/ober_untersumm
+e.png>]
+<images/mws_integral.png, id=226, 257.96375pt x 323.2075pt>
+File: images/mws_integral.png Graphic file (type png)
+<use images/mws_integral.png>
+Package pdftex.def Info: images/mws_integral.png  used on input line 2169.
+(pdftex.def)             Requested size: 150.23138pt x 188.23476pt.
+ [48] [49 <C:/Users/tanja/Documents/Uni/Analysis/Analysis-LaTeX/images/mws_inte
+gral.png>] [50]
+<images/einheitskreis_pi.png, id=237, 425.33907pt x 412.54124pt>
+File: images/einheitskreis_pi.png Graphic file (type png)
+<use images/einheitskreis_pi.png>
+Package pdftex.def Info: images/einheitskreis_pi.png  used on input line 2273.
+(pdftex.def)             Requested size: 150.23138pt x 145.71352pt.
+
+Overfull \hbox (9.2531pt too wide) in paragraph at lines 2271--2286
+\OMS/cmsy/m/n/10 ) [][] [] \OT1/cmr/m/n/10 = [][] [] [] [][] [] = [][] [] =
  []
 
-[49] (analysis_skript.aux) )
-(\end occurred inside a group at level 5)
+[51] [52 <C:/Users/tanja/Documents/Uni/Analysis/Analysis-LaTeX/images/einheitsk
+reis_pi.png>] (analysis_skript.aux) )
+(\end occurred inside a group at level 1)
 
-### semi simple group (level 5) entered at line 217 (\begingroup)
-### semi simple group (level 4) entered at line 216 (\begingroup)
-### semi simple group (level 3) entered at line 199 (\begingroup)
-### semi simple group (level 2) entered at line 197 (\begingroup)
-### semi simple group (level 1) entered at line 170 (\begingroup)
+### semi simple group (level 1) entered at line 139 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 23852 strings out of 492970
- 460117 string characters out of 3135854
- 498795 words of memory out of 3000000
- 27403 multiletter control sequences out of 15000+200000
- 548802 words of font info for 65 fonts, out of 3000000 for 9000
+ 23915 strings out of 492970
+ 462699 string characters out of 3135854
+ 498055 words of memory out of 3000000
+ 27425 multiletter control sequences out of 15000+200000
+ 549115 words of font info for 66 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,28n,63p,613b,1033s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 55i,28n,63p,728b,657s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\tanja\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknap
-pen\ec\dpi600\ecbx1000.pk> <C:\Users\tanja\AppData\Local\MiKTeX\2.9\fonts\pk\lj
+pen\ec\dpi600\ectt1000.pk> <C:\Users\tanja\AppData\Local\MiKTeX\2.9\fonts\pk\lj
 four\jknappen\ec\dpi600\ecrm0500.pk> <C:\Users\tanja\AppData\Local\MiKTeX\2.9\f
 onts\pk\ljfour\jknappen\ec\dpi600\ecrm0700.pk> <C:\Users\tanja\AppData\Local\Mi
 KTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1000.pk> <C:\Users\tanja\AppDat
 a\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbi1000.pk> <C:\Users\ta
-nja\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1200.pk> <C
-:\Users\tanja\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1
-000.pk> <C:\Users\tanja\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dp
-i600\ecbx1440.pk> <C:\Users\tanja\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jkna
-ppen\ec\dpi600\ecrm1200.pk> <C:\Users\tanja\AppData\Local\MiKTeX\2.9\fonts\pk\l
-jfour\jknappen\ec\dpi600\ecrm0900.pk> <C:\Users\tanja\AppData\Local\MiKTeX\2.9\
-fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1728.pk><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
-/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
-amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.
-pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program File
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Program Files/MiKTeX 2.9/font
-s/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
-ublic/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
-sfonts/cm/cmti7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/sy
-mbols/msam10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbo
-ls/msbm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/
-msbm7.pfb>
-Output written on analysis_skript.pdf (50 pages, 452947 bytes).
+nja\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1000.pk> <C
+:\Users\tanja\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1
+200.pk> <C:\Users\tanja\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dp
+i600\ecrm1000.pk> <C:\Users\tanja\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jkna
+ppen\ec\dpi600\ecbx1440.pk> <C:\Users\tanja\AppData\Local\MiKTeX\2.9\fonts\pk\l
+jfour\jknappen\ec\dpi600\ecrm1200.pk> <C:\Users\tanja\AppData\Local\MiKTeX\2.9\
+fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0900.pk> <C:\Users\tanja\AppData\Local\M
+iKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1728.pk><C:/Program Files/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/f
+onts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
+/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.
+pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Program Files/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
+/public/amsfonts/cm/cmti7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
+msfonts/symbols/msam10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
+onts/symbols/msbm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
+s/symbols/msbm7.pfb>
+Output written on analysis_skript.pdf (53 pages, 776343 bytes).
 PDF statistics:
- 595 PDF objects out of 1000 (max. 8388607)
+ 670 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 13 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 168 words of extra memory for PDF output out of 10000 (max. 10000000)
 
